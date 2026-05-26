@@ -72,16 +72,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Warren's Golden Rate is a premium mortgage broker website showcasing competitive loan rates and expert services." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Warren's Golden Rate is a premium mortgage broker website showcasing competitive loan rates and expert services." },
+      { title: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates" },
+      {
+        name: "description",
+        content:
+          "Warren M. Factor — licensed mortgage broker for 28 years across 32 states. Conventional, FHA, VA, DSCR, Bank Statement, Fix & Flip, Bridge and Commercial loans. Call (561) 577-1882.",
+      },
+      { name: "author", content: "The Discount Mortgage Store" },
+      {
+        property: "og:title",
+        content: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates",
+      },
+      {
+        property: "og:description",
+        content:
+          "28 years licensed. 32 states. 100+ lenders. One trusted broker working to get you the lowest qualifying rate.",
+      },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Warren's Golden Rate is a premium mortgage broker website showcasing competitive loan rates and expert services." },
+      { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:title",
+        content: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "28 years licensed. 32 states. 100+ lenders. One trusted broker working to get you the lowest qualifying rate.",
+      },
     ],
     links: [
       {
@@ -100,6 +117,15 @@ function RootShell({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js');" +
+              "addEventListener('load',function(){setTimeout(function(){" +
+              "var vh=innerHeight;document.querySelectorAll('.reveal:not(.is-visible)').forEach(function(el){" +
+              "if(el.getBoundingClientRect().top<vh)el.classList.add('is-visible');});},1500);});",
+          }}
+        />
         <HeadContent />
       </head>
       <body>

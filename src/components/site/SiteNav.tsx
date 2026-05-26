@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
+import { PHONE_DISPLAY, PHONE_TEL, COMPANY_NAME } from "@/lib/site-data";
 
 const links = [
   { href: "#programs", label: "Programs" },
@@ -11,42 +11,69 @@ const links = [
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-40 bg-background/95 backdrop-blur border-b border-gold/30">
-      <div className="mx-auto max-w-7xl px-6 h-20 flex items-center justify-between">
-        <a href="#top" className="font-serif text-xl md:text-2xl tracking-tight">
-          The Discount Mortgage Store
+    <header
+      className={`sticky top-0 z-40 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/85 backdrop-blur-md border-b border-line shadow-soft"
+          : "bg-background/60 backdrop-blur border-b border-transparent"
+      }`}
+    >
+      <div className="mx-auto max-w-7xl px-6 h-16 md:h-18 flex items-center justify-between">
+        <a href="#top" className="font-serif text-lg md:text-xl tracking-tight leading-none">
+          {COMPANY_NAME}
         </a>
-        <nav className="hidden md:flex items-center gap-10 text-sm uppercase tracking-widest text-foreground/80">
-          {links.map(l => (
-            <a key={l.href} href={l.href} className="hover:text-gold transition-colors">{l.label}</a>
+        <nav className="hidden md:flex items-center gap-9 text-[13px] uppercase tracking-[0.15em] text-foreground/70">
+          {links.map((l) => (
+            <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">
+              {l.label}
+            </a>
           ))}
         </nav>
         <div className="flex items-center gap-3">
           <a
             href={`tel:${PHONE_TEL}`}
-            className="hidden sm:inline-flex items-center gap-2 bg-gold text-gold-foreground px-5 py-3 text-xs uppercase tracking-widest hover:bg-gold/90 transition-colors"
+            className="hidden sm:inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity"
           >
-            <Phone className="w-4 h-4" /> Call Now
+            <Phone className="w-3.5 h-3.5" /> Call Now
           </a>
           <button
-            className="md:hidden p-2 text-foreground"
-            onClick={() => setOpen(v => !v)}
+            className="md:hidden p-2 text-foreground rounded-md hover:bg-accent transition-colors"
+            onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
+            aria-expanded={open}
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
+
       {open && (
-        <nav className="md:hidden border-t border-gold/30 bg-background">
-          <div className="px-6 py-4 flex flex-col gap-4 text-sm uppercase tracking-widest">
-            {links.map(l => (
-              <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="py-2">
+        <nav className="md:hidden border-t border-line bg-background">
+          <div className="px-6 py-4 flex flex-col gap-1 text-sm uppercase tracking-[0.15em]">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="py-3 border-b border-line/70 text-foreground/80 hover:text-foreground"
+              >
                 {l.label}
               </a>
             ))}
-            <a href={`tel:${PHONE_TEL}`} className="bg-gold text-gold-foreground px-5 py-3 text-center">
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="mt-3 bg-gold text-gold-foreground rounded-full px-5 py-3 text-center"
+            >
               Call {PHONE_DISPLAY}
             </a>
           </div>
