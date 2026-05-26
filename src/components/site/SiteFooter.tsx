@@ -1,13 +1,25 @@
-import { ADDRESS, NMLS, COMPANY_NMLS, PHONE_DISPLAY, EMAIL } from "@/lib/site-data";
+import {
+  ADDRESS,
+  NMLS,
+  COMPANY_NMLS,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  EMAIL,
+  EMAIL_DISPLAY,
+  COMPANY_NAME,
+  BROKER_NAME,
+  SINCE_YEAR,
+  APPLY_URL,
+} from "@/lib/site-data";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-charcoal text-background/80">
+    <footer className="bg-charcoal text-background/75">
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="border-b border-gold/30 pb-10 mb-10">
-          <div className="font-serif text-3xl text-background">The Discount Mortgage Store</div>
+        <div className="border-b border-background/15 pb-10 mb-10">
+          <div className="font-serif text-3xl text-background">{COMPANY_NAME}</div>
           <div className="mt-2 text-sm uppercase tracking-widest text-gold">
-            Florida's Lowest Mortgage Rates · Since 1996
+            Florida's Lowest Mortgage Rates · Since {SINCE_YEAR}
           </div>
         </div>
 
@@ -15,41 +27,87 @@ export function SiteFooter() {
           <div className="space-y-2">
             <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Office</div>
             <div>{ADDRESS}</div>
-            <div>{PHONE_DISPLAY}</div>
-            <div>{EMAIL}</div>
-            <div className="pt-2">{NMLS}</div>
-            <div>{COMPANY_NMLS}</div>
+            <div>
+              <a href={`tel:${PHONE_TEL}`} className="hover:text-gold">
+                {PHONE_DISPLAY}
+              </a>
+            </div>
+            <div>
+              <a href={`mailto:${EMAIL}`} className="hover:text-gold break-all">
+                {EMAIL_DISPLAY}
+              </a>
+            </div>
+            <div className="pt-2 text-background/55">{NMLS}</div>
+            <div className="text-background/55">{COMPANY_NMLS}</div>
           </div>
           <div>
             <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Programs</div>
             <ul className="space-y-2">
-              {["Conventional", "FHA", "VA", "DSCR", "Bank Statement", "Fix & Flip", "Bridge", "Commercial"].map(p => (
-                <li key={p}><a href="#programs" className="hover:text-gold">{p}</a></li>
+              {[
+                "Conventional",
+                "FHA",
+                "VA",
+                "DSCR",
+                "Bank Statement",
+                "Fix & Flip",
+                "Bridge",
+                "Commercial",
+              ].map((p) => (
+                <li key={p}>
+                  <a href="#programs" className="hover:text-gold">
+                    {p}
+                  </a>
+                </li>
               ))}
             </ul>
           </div>
           <div>
             <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Company</div>
             <ul className="space-y-2">
-              <li><a href="#why" className="hover:text-gold">Why Warren</a></li>
-              <li><a href="#about" className="hover:text-gold">About</a></li>
-              <li><a href="#contact" className="hover:text-gold">Contact</a></li>
-              <li><a href="https://blink.mortgage" target="_blank" rel="noopener noreferrer" className="hover:text-gold">Apply Online</a></li>
+              <li>
+                <a href="#why" className="hover:text-gold">
+                  Why Warren
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="hover:text-gold">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="hover:text-gold">
+                  Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
+                  Apply Online
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gold/30 grid md:grid-cols-[1fr_auto] gap-6 items-start">
-          <p className="text-xs text-background/55 leading-relaxed max-w-4xl">
-            Warren M. Factor, {NMLS}. {COMPANY_NMLS}. Licensed mortgage broker serving 32 states.
-            All loan products subject to credit approval and property appraisal. Interest rates and
+        <div className="mt-12 pt-8 border-t border-background/15 grid md:grid-cols-[1fr_auto] gap-6 items-start">
+          <p className="text-xs text-background/50 leading-relaxed max-w-4xl">
+            {BROKER_NAME}, {NMLS}. {COMPANY_NMLS}. Licensed mortgage broker serving 32 states. All
+            loan products subject to credit approval and property appraisal. Interest rates and
             program terms are subject to change without notice. Not a commitment to lend. Equal
-            Housing Lender.
+            Housing Lender. © {new Date().getFullYear()} {COMPANY_NAME}.
           </p>
-          <div className="flex items-center gap-3 border border-gold/40 px-4 py-3">
-            <div className="w-8 h-8 border-2 border-gold flex items-center justify-center text-gold text-lg font-serif">=</div>
-            <div className="text-[10px] uppercase tracking-widest text-background/80 leading-tight">
-              Equal Housing<br/>Lender
+          <div className="flex items-center gap-3 rounded-lg border border-background/20 px-4 py-3">
+            <div className="w-8 h-8 rounded-md border-2 border-gold flex items-center justify-center text-gold text-lg font-serif">
+              =
+            </div>
+            <div className="text-[10px] uppercase tracking-widest text-background/75 leading-tight">
+              Equal Housing
+              <br />
+              Lender
             </div>
           </div>
         </div>

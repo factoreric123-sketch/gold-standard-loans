@@ -1,14 +1,21 @@
-import { RATES, PHONE_DISPLAY } from "@/lib/site-data";
+import { Phone, MapPin } from "lucide-react";
+import { PHONE_DISPLAY, PHONE_TEL, NMLS } from "@/lib/site-data";
 
 export function RateTicker() {
-  const text = `${RATES.map(r => `${r.name} ${r.rate}`).join("  |  ")}  —  Rates updated daily  ·  Call ${PHONE_DISPLAY}`;
   return (
-    <div className="bg-charcoal text-gold border-b border-gold/30 overflow-hidden">
-      <div className="flex whitespace-nowrap animate-marquee py-2 text-xs tracking-widest uppercase">
-        <span className="px-8">{text}</span>
-        <span className="px-8">{text}</span>
-        <span className="px-8">{text}</span>
-        <span className="px-8">{text}</span>
+    <div className="hidden sm:block bg-charcoal text-background/80">
+      <div className="mx-auto max-w-7xl px-6 h-9 flex items-center justify-between text-[11px] tracking-widest uppercase">
+        <div className="flex items-center gap-2 text-background/70">
+          <MapPin className="w-3.5 h-3.5 text-gold" strokeWidth={1.5} />
+          <span>Boca Raton, FL · {NMLS}</span>
+        </div>
+        <a
+          href={`tel:${PHONE_TEL}`}
+          className="flex items-center gap-2 text-gold hover:text-background transition-colors"
+        >
+          <Phone className="w-3.5 h-3.5" strokeWidth={1.5} />
+          <span>{PHONE_DISPLAY}</span>
+        </a>
       </div>
     </div>
   );
