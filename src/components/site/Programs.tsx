@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import { PROGRAMS } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
@@ -22,16 +24,21 @@ export function Programs() {
           {PROGRAMS.map((p, i) => {
             const Icon = p.icon;
             return (
-              <Reveal
-                key={p.name}
-                delay={(i % 4) * 70}
-                className="group rounded-xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40"
-              >
-                <div className="w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center mb-5 transition-colors group-hover:bg-gold/15">
-                  <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
-                </div>
-                <h3 className="font-serif text-xl mb-1.5">{p.name}</h3>
-                <p className="text-sm text-foreground/60 leading-relaxed">{p.description}</p>
+              <Reveal key={p.name} delay={(i % 4) * 70} className="h-full">
+                <Link
+                  to="/programs/$slug"
+                  params={{ slug: p.slug }}
+                  className="group flex h-full flex-col rounded-xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center mb-5 transition-colors group-hover:bg-gold/15">
+                    <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="font-serif text-xl mb-1.5">{p.name}</h3>
+                  <p className="text-sm text-foreground/60 leading-relaxed">{p.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-gold transition-all group-hover:gap-2.5">
+                    Learn more <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </Link>
               </Reveal>
             );
           })}

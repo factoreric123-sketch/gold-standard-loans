@@ -54,7 +54,7 @@ export function SiteFooter() {
                 "Commercial",
               ].map((p) => (
                 <li key={p}>
-                  <a href="#programs" className="hover:text-gold">
+                  <a href="/#programs" className="hover:text-gold">
                     {p}
                   </a>
                 </li>
@@ -65,17 +65,17 @@ export function SiteFooter() {
             <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Company</div>
             <ul className="space-y-2">
               <li>
-                <a href="#why" className="hover:text-gold">
+                <a href="/#why" className="hover:text-gold">
                   Why Warren
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-gold">
+                <a href="/#about" className="hover:text-gold">
                   About
                 </a>
               </li>
               <li>
-                <a href="#contact" className="hover:text-gold">
+                <a href="/#contact" className="hover:text-gold">
                   Contact
                 </a>
               </li>
