@@ -1,4 +1,4 @@
-import portrait from "@/assets/warren-portrait.jpg";
+import portrait from "@/assets/warren-portrait.webp";
 import { NMLS, COMPANY_NMLS, ADDRESS } from "@/lib/site-data";
 
 export function About() {
@@ -10,10 +10,10 @@ export function About() {
             <img
               src={portrait}
               alt="Warren M. Factor, Mortgage Broker"
-              width={768}
-              height={1024}
+              width={1254}
+              height={1254}
               loading="lazy"
-              className="w-full h-full object-cover grayscale-[20%]"
+              className="w-full h-full object-cover object-top grayscale-[20%]"
             />
           </div>
         </div>
