@@ -67,38 +67,21 @@ export function Contact() {
     }
     setErrors({});
     const data = parsed.data;
-
-    // No provider configured yet → open the visitor's email client, pre-filled.
-    if (!ACCESS_KEY) {
-      window.location.href = buildMailto(data);
-      toast.info("Opening your email app to send the request to Warren.");
-      return;
-    }
-
     setSubmitting(true);
     try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: ACCESS_KEY,
-          subject: `New rate request — ${data.firstName} ${data.lastName}`,
-          from_name: `${COMPANY_NAME} website`,
-          name: `${data.firstName} ${data.lastName}`,
-          phone: data.phone,
-          email: data.email,
-          loan_type: data.loanType,
-          message: data.message || "(no message)",
-        }),
+      const { error } = await supabase.from("contact_submissions").insert({
+        first_name: data.firstName,
+        last_name: data.lastName,
+        phone: data.phone,
+        email: data.email,
+        loan_type: data.loanType,
+        message: data.message || null,
       });
-      const json = (await res.json()) as { success?: boolean };
-      if (json.success) {
-        setDone(true);
-        form.reset();
-      } else {
-        throw new Error("submit failed");
-      }
-    } catch {
+      if (error) throw error;
+      setDone(true);
+      form.reset();
+    } catch (err) {
+      console.error("Contact submission failed:", err);
       toast.error("Couldn't send right now — opening your email app instead.");
       window.location.href = buildMailto(data);
     } finally {
