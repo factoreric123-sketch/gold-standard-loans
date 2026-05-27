@@ -1,4 +1,3 @@
-import { Star } from "lucide-react";
 import { STATS, ZILLOW_URL } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
@@ -37,28 +36,26 @@ export function WhyWarren() {
         </Reveal>
 
         <Reveal delay={120} className="lg:mt-4">
-          <figure className="rounded-2xl border border-background/15 bg-background/[0.04] p-9 md:p-10">
-            <div className="flex gap-1 mb-6">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-gold" fill="currentColor" strokeWidth={0} />
-              ))}
+          <div className="rounded-2xl border border-background/15 bg-background/[0.04] p-9 md:p-10">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+              Client Reviews
             </div>
-            <blockquote className="font-serif italic text-2xl md:text-3xl leading-snug text-background">
-              "Very responsive, secured competitive rates, and went above and beyond to make sure
-              everything was handled."
-            </blockquote>
-            <figcaption className="mt-8 text-[11px] uppercase tracking-widest text-background/55">
-              Verified Zillow Review
-            </figcaption>
+            <p className="font-serif text-2xl md:text-3xl leading-snug text-background">
+              Hear it straight from Warren's clients.
+            </p>
+            <p className="mt-5 text-background/65 leading-relaxed">
+              Real reviews from borrowers Warren has helped finance and close are published on his
+              Zillow lender profile.
+            </p>
             <a
               href={ZILLOW_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-block text-sm text-gold border-b border-gold/60 pb-0.5 hover:border-gold transition-colors"
+              className="mt-7 inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
             >
-              Read all reviews on Zillow →
+              Read reviews on Zillow →
             </a>
-          </figure>
+          </div>
         </Reveal>
       </div>
     </section>
