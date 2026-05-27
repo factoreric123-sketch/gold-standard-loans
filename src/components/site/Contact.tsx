@@ -27,7 +27,6 @@ type Fields = z.infer<typeof schema>;
 type FieldErrors = Partial<Record<keyof Fields, string>>;
 
 const loanOptions = [...PROGRAMS.map((p) => p.name), "Not Sure"];
-const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
 
 function buildMailto(data: Fields) {
   const subject = `Rate request — ${data.firstName} ${data.lastName} (${data.loanType})`;
