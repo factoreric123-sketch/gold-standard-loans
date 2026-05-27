@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
 import { RATES, PHONE_DISPLAY, PHONE_TEL, NMLS } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
@@ -37,7 +36,7 @@ export function Hero() {
               className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
             >
               Apply Now <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
             <a
               href={`tel:${PHONE_TEL}`}
               className="inline-flex items-center gap-2 border border-foreground/20 rounded-full px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
