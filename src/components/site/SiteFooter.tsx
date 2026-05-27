@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import {
   ADDRESS,
   NMLS,
@@ -9,7 +10,6 @@ import {
   COMPANY_NAME,
   BROKER_NAME,
   SINCE_YEAR,
-  APPLY_URL,
 } from "@/lib/site-data";
 
 export function SiteFooter() {
@@ -80,14 +80,9 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold"
-                >
+                <Link to="/apply" className="hover:text-gold">
                   Apply Online
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

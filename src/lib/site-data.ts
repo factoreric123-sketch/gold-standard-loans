@@ -353,6 +353,4 @@ export const COMPANY_NMLS = "CRE Capital & Equity Corp NMLS #2091271";
 export const COMPANY_NAME = "The Discount Mortgage Store";
 export const BROKER_NAME = "Warren M. Factor";
 export const SINCE_YEAR = 1996;
-export const APPLY_URL = "https://blink.mortgage";
-export const ZILLOW_URL =
-  "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
+export const ZILLOW_URL = "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
