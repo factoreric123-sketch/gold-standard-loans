@@ -351,6 +351,7 @@ export const ADDRESS = "7452 Champagne Place, Boca Raton, FL 33433";
 export const NMLS = "NMLS #351633";
 export const COMPANY_NMLS = "CRE Capital & Equity Corp NMLS #2091271";
 export const COMPANY_NAME = "The Discount Mortgage Store";
+export const SITE_URL = "https://thediscountmortgagestore.com";
 export const BROKER_NAME = "Warren M. Factor";
 export const SINCE_YEAR = 1996;
 export const ZILLOW_URL = "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
@@ -396,5 +397,51 @@ export const REVIEWS: Review[] = [
       "I've had the pleasure of working with Warren on my own financings and on behalf of clients and family. Warren is a gem — he cares about every aspect of the closing and devotes attention to detail.",
     loanType: "Refinance",
     rating: 5,
+  },
+];
+
+export type Step = { title: string; body: string };
+
+export const STEPS: Step[] = [
+  {
+    title: "Tell us about your goal",
+    body: "Share a few details by phone or through the form — purchase or refinance, the property, and a rough timeline. No paperwork marathon to get started.",
+  },
+  {
+    title: "Warren shops 100+ lenders",
+    body: "Instead of one bank's rate sheet, Warren compares your file across his lender network and brings you the lowest qualifying offer.",
+  },
+  {
+    title: "Close with confidence",
+    body: "Warren runs your file personally from first call to closing, keeping you informed and on schedule at every step.",
+  },
+];
+
+export type Faq = { q: string; a: string };
+
+export const FAQS: Faq[] = [
+  {
+    q: "How much do I need for a down payment?",
+    a: "It depends on the program. Conventional loans can go as low as 3% down, FHA 3.5%, and VA or certain specialty programs allow 0% down for eligible buyers. Warren will match you to the lowest down payment you qualify for.",
+  },
+  {
+    q: "What credit score do I need?",
+    a: "Many programs start around 620, FHA can go to roughly 580, and there are specialty options for scores below 620. A lower score doesn't automatically disqualify you — there's often a path.",
+  },
+  {
+    q: "How long does it take to close?",
+    a: "Most purchase loans close in about 21–30 days, and many refinances are faster. Your timeline depends on the property, the program, and how quickly documents come together.",
+  },
+  {
+    q: "Why use a broker instead of a bank?",
+    a: "A bank offers only its own rates. As an independent broker, Warren shops 100+ lenders on every file and passes you the most competitive qualifying offer — frequently beating retail bank pricing.",
+  },
+  {
+    q: "Are you licensed in my state?",
+    a: "Warren is a licensed mortgage broker serving 32 states. Call or send a request and he'll confirm availability for your location.",
+  },
+  {
+    q: "Does requesting a rate affect my credit?",
+    a: "No. Reaching out for a quote or to ask questions does not impact your credit. A credit check only happens later, with your permission, once you decide to move forward.",
   },
 ];

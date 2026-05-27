@@ -9,6 +9,40 @@ import {
 } from "@tanstack/react-router";
 
 import appCss from "../styles.css?url";
+import { SITE_URL, COMPANY_NAME, BROKER_NAME, PHONE_TEL, EMAIL, REVIEWS } from "@/lib/site-data";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MortgageBroker",
+  name: COMPANY_NAME,
+  url: SITE_URL,
+  image: `${SITE_URL}/og.png`,
+  telephone: PHONE_TEL,
+  email: EMAIL,
+  founder: BROKER_NAME,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "7452 Champagne Place",
+    addressLocality: "Boca Raton",
+    addressRegion: "FL",
+    postalCode: "33433",
+    addressCountry: "US",
+  },
+  areaServed: "United States (32 states)",
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5",
+    reviewCount: String(REVIEWS.length),
+    bestRating: "5",
+  },
+  review: REVIEWS.map((r) => ({
+    "@type": "Review",
+    reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
+    author: { "@type": "Person", name: r.name },
+    reviewBody: r.quote,
+  })),
+};
 
 function NotFoundComponent() {
   return (
@@ -89,7 +123,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "28 years licensed. 32 states. 100+ lenders. One trusted broker working to get you the lowest qualifying rate.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}/og.png` },
+      { property: "og:site_name", content: COMPANY_NAME },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${SITE_URL}/og.png` },
       {
         name: "twitter:title",
         content: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates",
@@ -102,6 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+      { rel: "canonical", href: SITE_URL },
       {
         rel: "stylesheet",
         href: appCss,
@@ -126,6 +165,10 @@ function RootShell({ children }: { children: React.ReactNode }) {
               "var vh=innerHeight;document.querySelectorAll('.reveal:not(.is-visible)').forEach(function(el){" +
               "if(el.getBoundingClientRect().top<vh)el.classList.add('is-visible');});},1500);});",
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
         <HeadContent />
       </head>
