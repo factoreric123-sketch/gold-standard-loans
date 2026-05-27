@@ -10,9 +10,9 @@ import {
   ADDRESS,
   NMLS,
   PROGRAMS,
-  COMPANY_NAME,
 } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
+import { supabase } from "@/integrations/supabase/client";
 
 const schema = z.object({
   firstName: z.string().trim().min(1, "Required").max(80),
