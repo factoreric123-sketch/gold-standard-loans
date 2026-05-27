@@ -4,14 +4,7 @@ import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/motion";
-import {
-  PROGRAMS,
-  programBySlug,
-  PHONE_DISPLAY,
-  PHONE_TEL,
-  APPLY_URL,
-  COMPANY_NAME,
-} from "@/lib/site-data";
+import { PROGRAMS, programBySlug, PHONE_DISPLAY, PHONE_TEL, COMPANY_NAME } from "@/lib/site-data";
 
 export const Route = createFileRoute("/programs/$slug")({
   loader: ({ params }) => {
@@ -79,14 +72,12 @@ function ProgramPage() {
               </p>
 
               <div className="mt-9 flex flex-wrap gap-3">
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/apply"
                   className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
                 >
                   Apply Now <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
                 <a
                   href={`tel:${PHONE_TEL}`}
                   className="inline-flex items-center gap-2 border border-foreground/20 rounded-full px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
