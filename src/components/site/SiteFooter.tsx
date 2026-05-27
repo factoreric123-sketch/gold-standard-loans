@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import {
   ADDRESS,
   NMLS,
@@ -80,9 +79,9 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <Link to="/apply" className="hover:text-gold">
+                <a href="/#contact" className="hover:text-gold">
                   Apply Online
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
