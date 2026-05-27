@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/motion";
 
 export function Reviews() {
   return (
-    <section id="reviews" className="bg-off-white border-t border-line">
+    <section id="reviews" className="bg-background">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal>
           <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">Reviews</div>

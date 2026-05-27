@@ -4,11 +4,15 @@ import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
 import { Programs } from "@/components/site/Programs";
+import { HowItWorks } from "@/components/site/HowItWorks";
+import { Calculator } from "@/components/site/Calculator";
 import { WhyWarren } from "@/components/site/WhyWarren";
 import { Reviews } from "@/components/site/Reviews";
 import { About } from "@/components/site/About";
+import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { MobileCTA } from "@/components/site/MobileCTA";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -49,12 +53,16 @@ function Index() {
       <main>
         <Hero />
         <Programs />
+        <HowItWorks />
+        <Calculator />
         <WhyWarren />
         <About />
         <Reviews />
+        <FAQ />
         <Contact />
       </main>
       <SiteFooter />
+      <MobileCTA />
       <Toaster />
     </div>
   );

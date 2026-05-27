@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight, Check, Phone, Users } from "lucide-react";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
+import { MobileCTA } from "@/components/site/MobileCTA";
 import { Reveal } from "@/components/site/motion";
 import { PROGRAMS, programBySlug, PHONE_DISPLAY, PHONE_TEL, COMPANY_NAME } from "@/lib/site-data";
 
@@ -200,6 +201,7 @@ function ProgramPage() {
         </section>
       </main>
       <SiteFooter />
+      <MobileCTA />
     </div>
   );
 }
