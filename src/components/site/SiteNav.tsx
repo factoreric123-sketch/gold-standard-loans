@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import { PHONE_DISPLAY, PHONE_TEL, COMPANY_NAME } from "@/lib/site-data";
+import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
+import { Logo } from "@/components/site/Logo";
 
 const links = [
   { href: "/#programs", label: "Programs" },
@@ -29,8 +30,8 @@ export function SiteNav() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 h-16 md:h-18 flex items-center justify-between">
-        <a href="/" className="font-serif text-lg md:text-xl tracking-tight leading-none">
-          {COMPANY_NAME}
+        <a href="/" aria-label="The Discount Mortgage Store — home">
+          <Logo />
         </a>
         <nav className="hidden md:flex items-center gap-9 text-[13px] uppercase tracking-[0.15em] text-foreground/70">
           {links.map((l) => (

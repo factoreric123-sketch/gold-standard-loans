@@ -10,14 +10,15 @@ import {
   BROKER_NAME,
   SINCE_YEAR,
 } from "@/lib/site-data";
+import { Logo } from "@/components/site/Logo";
 
 export function SiteFooter() {
   return (
     <footer className="bg-charcoal text-background/75">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="border-b border-background/15 pb-10 mb-10">
-          <div className="font-serif text-3xl text-background">{COMPANY_NAME}</div>
-          <div className="mt-2 text-sm uppercase tracking-widest text-gold">
+          <Logo size="lg" className="text-background" />
+          <div className="mt-4 text-sm uppercase tracking-widest text-gold">
             Florida's Lowest Mortgage Rates · Since {SINCE_YEAR}
           </div>
         </div>
