@@ -1,7 +1,9 @@
-import { STATS, ZILLOW_URL } from "@/lib/site-data";
+import { Star } from "lucide-react";
+import { STATS, ZILLOW_URL, REVIEWS } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
 export function WhyWarren() {
+  const featured = REVIEWS[0];
   return (
     <section id="why" className="bg-charcoal text-background">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-28 grid lg:grid-cols-2 gap-16 items-start">
@@ -36,26 +38,30 @@ export function WhyWarren() {
         </Reveal>
 
         <Reveal delay={120} className="lg:mt-4">
-          <div className="rounded-2xl border border-background/15 bg-background/[0.04] p-9 md:p-10">
-            <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
-              Client Reviews
+          <figure className="rounded-2xl border border-background/15 bg-background/[0.04] p-9 md:p-10">
+            <div className="flex gap-1 mb-6">
+              {[...Array(featured.rating)].map((_, i) => (
+                <Star key={i} className="w-5 h-5 text-gold" fill="currentColor" strokeWidth={0} />
+              ))}
             </div>
-            <p className="font-serif text-2xl md:text-3xl leading-snug text-background">
-              Hear it straight from Warren's clients.
-            </p>
-            <p className="mt-5 text-background/65 leading-relaxed">
-              Real reviews from borrowers Warren has helped finance and close are published on his
-              Zillow lender profile.
-            </p>
+            <blockquote className="font-serif italic text-2xl md:text-3xl leading-snug text-background">
+              &ldquo;{featured.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-8 text-sm text-background/75">
+              <span className="text-background">{featured.name}</span> · {featured.location}
+              <span className="block text-[11px] uppercase tracking-widest text-background/55 mt-1.5">
+                Verified Zillow Review · {featured.date}
+              </span>
+            </figcaption>
             <a
               href={ZILLOW_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-7 inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
             >
-              Read reviews on Zillow →
+              Read all reviews on Zillow →
             </a>
-          </div>
+          </figure>
         </Reveal>
       </div>
     </section>

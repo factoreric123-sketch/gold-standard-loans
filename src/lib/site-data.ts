@@ -354,3 +354,47 @@ export const COMPANY_NAME = "The Discount Mortgage Store";
 export const BROKER_NAME = "Warren M. Factor";
 export const SINCE_YEAR = 1996;
 export const ZILLOW_URL = "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
+
+export type Review = {
+  name: string;
+  location: string;
+  date: string;
+  title: string;
+  quote: string;
+  loanType: string;
+  rating: number;
+};
+
+// Verbatim reviews from Warren's verified Zillow lender profile.
+export const REVIEWS: Review[] = [
+  {
+    name: "Debra Kovacs",
+    location: "Hollywood, FL",
+    date: "Jan 2024",
+    title: "The best of the best!",
+    quote:
+      "Warren goes above and beyond to make the mortgage process as seamless as possible. Even in difficult situations, his steady guidance and patience is second to none. Look no further than Warren for the best service at the best rate.",
+    loanType: "Refinance",
+    rating: 5,
+  },
+  {
+    name: "sandeepkumarus",
+    location: "Pembroke Pines, FL",
+    date: "Jun 2020",
+    title: "Work for the people",
+    quote:
+      "I have known Warren for multiple years and it's always a pleasure to work with him. He goes out of the way to get you the loan that is right for you. I recommend him for all your loan needs.",
+    loanType: "Purchase",
+    rating: 5,
+  },
+  {
+    name: "dkaskel",
+    location: "Boca Raton, FL",
+    date: "Nov 2016",
+    title: "Warren Factor is Great!",
+    quote:
+      "I've had the pleasure of working with Warren on my own financings and on behalf of clients and family. Warren is a gem — he cares about every aspect of the closing and devotes attention to detail.",
+    loanType: "Refinance",
+    rating: 5,
+  },
+];

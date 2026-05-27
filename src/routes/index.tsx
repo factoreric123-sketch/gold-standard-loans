@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
 import { Programs } from "@/components/site/Programs";
 import { WhyWarren } from "@/components/site/WhyWarren";
+import { Reviews } from "@/components/site/Reviews";
 import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -19,8 +20,14 @@ export const Route = createFileRoute("/")({
         content:
           "Warren Factor, licensed mortgage broker for 28 years across 32 states. Conventional, FHA, VA, DSCR, Bank Statement, Fix & Flip, Bridge and Commercial loans. Call (561) 577-1882.",
       },
-      { property: "og:title", content: "Florida's Lowest Mortgage Rates | The Discount Mortgage Store" },
-      { property: "og:description", content: "28 years licensed. 32 states. 100+ lenders. One trusted broker." },
+      {
+        property: "og:title",
+        content: "Florida's Lowest Mortgage Rates | The Discount Mortgage Store",
+      },
+      {
+        property: "og:description",
+        content: "28 years licensed. 32 states. 100+ lenders. One trusted broker.",
+      },
       { property: "og:type", content: "website" },
     ],
     links: [
@@ -44,6 +51,7 @@ function Index() {
         <Programs />
         <WhyWarren />
         <About />
+        <Reviews />
         <Contact />
       </main>
       <SiteFooter />
