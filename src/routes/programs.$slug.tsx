@@ -125,6 +125,135 @@ function ProgramPage() {
           </div>
         </section>
 
+        {/* Credit-score guide — rendered only for programs that ship this content (e.g. low-credit-score) */}
+        {program.creditTiers && (
+          <section className="bg-off-white border-t border-line">
+            <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+              <Reveal>
+                <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                  Credit Score Guide
+                </div>
+                <h2 className="font-serif text-3xl md:text-4xl leading-tight">
+                  Where you stand — and your <span className="italic text-gold">best path.</span>
+                </h2>
+                <p className="mt-4 text-foreground/65 max-w-2xl leading-relaxed">
+                  A lower credit score doesn't have to end your homeownership plans. Here's the
+                  clean breakdown of options by loan type, what lenders weigh beyond your score, and
+                  ways to improve it quickly.
+                </p>
+              </Reveal>
+
+              <Reveal delay={80}>
+                <h3 className="font-serif text-2xl mt-12 mb-6">
+                  Minimum credit scores by loan type
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {program.creditTiers.map((t) => (
+                    <div key={t.name} className="rounded-2xl border border-line bg-card p-7">
+                      <div className="font-serif text-xl mb-1.5">{t.name}</div>
+                      <div className="text-[11px] uppercase tracking-widest text-gold mb-4">
+                        {t.score}
+                      </div>
+                      <ul className="space-y-2 text-sm text-foreground/70">
+                        {t.bullets.map((b) => (
+                          <li key={b} className="flex gap-2.5">
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                            <span>{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </Reveal>
+
+              {program.lowScoreOptions && (
+                <Reveal delay={80}>
+                  <div className="mt-12 rounded-2xl border border-line bg-card p-7 md:p-8">
+                    <h3 className="font-serif text-2xl mb-5">
+                      If your score is really low (500–580)
+                    </h3>
+                    <ul className="space-y-3">
+                      {program.lowScoreOptions.map((o) => (
+                        <li key={o} className="flex gap-3 text-foreground/75 leading-relaxed">
+                          <Check className="w-5 h-5 text-gold shrink-0 mt-0.5" strokeWidth={2.25} />
+                          <span>{o}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              )}
+
+              {(program.lenderConsiderations || program.improvementTips) && (
+                <div className="mt-10 grid md:grid-cols-2 gap-5">
+                  {program.lenderConsiderations && (
+                    <Reveal>
+                      <div className="h-full rounded-2xl border border-line bg-card p-7">
+                        <h3 className="font-serif text-xl mb-4">What lenders also weigh</h3>
+                        <ul className="space-y-3 text-sm text-foreground/70">
+                          {program.lenderConsiderations.map((l) => (
+                            <li key={l} className="flex gap-2.5">
+                              <Check
+                                className="w-4 h-4 text-gold shrink-0 mt-0.5"
+                                strokeWidth={2.5}
+                              />
+                              <span>{l}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Reveal>
+                  )}
+                  {program.improvementTips && (
+                    <Reveal delay={80}>
+                      <div className="h-full rounded-2xl border border-line bg-card p-7">
+                        <h3 className="font-serif text-xl mb-4">
+                          Fast credit improvement (30–90 days)
+                        </h3>
+                        <ul className="space-y-3 text-sm text-foreground/70">
+                          {program.improvementTips.map((t) => (
+                            <li key={t} className="flex gap-2.5">
+                              <Check
+                                className="w-4 h-4 text-gold shrink-0 mt-0.5"
+                                strokeWidth={2.5}
+                              />
+                              <span>{t}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </Reveal>
+                  )}
+                </div>
+              )}
+
+              {program.bottomLine && (
+                <Reveal>
+                  <div className="mt-10 rounded-2xl bg-charcoal text-background p-7 md:p-8">
+                    <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                      Bottom line
+                    </div>
+                    <ul className="space-y-3">
+                      {program.bottomLine.map((b) => (
+                        <li key={b} className="flex gap-3 text-background/85 leading-relaxed">
+                          <ArrowRight className="w-4 h-4 text-gold shrink-0 mt-1.5" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </Reveal>
+              )}
+
+              <p className="mt-8 text-xs text-foreground/45 leading-relaxed max-w-3xl">
+                Educational guidance only. Final eligibility, terms, and rate depend on the lender's
+                underwriting, program guidelines, and your complete file.
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* CTA band */}
         <section className="bg-charcoal text-background">
           <div className="mx-auto max-w-5xl px-6 py-16 md:py-20 text-center">
