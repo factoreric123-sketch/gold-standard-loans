@@ -84,6 +84,210 @@ export const PROGRAMS: Program[] = [
       "Borrowers with documented income and reserves",
       "Anyone wanting to avoid long-term mortgage insurance",
     ],
+    extras: [
+      {
+        kind: "paragraphs",
+        body: [
+          "Conventional loans remain one of the most popular and versatile mortgage options for homebuyers seeking flexibility, competitive rates, and long-term financial stability. In a dynamic housing market like Miami-Dade County, conventional home loans offer borrowers a wide range of options — from low-down-payment programs to jumbo financing for higher-priced properties.",
+          "As home prices evolve and buyer needs become more diverse, conventional loans stand out for their adaptability. Whether you're a first-time buyer, a move-up buyer, an investor, or someone refinancing an existing mortgage, conventional loans provide customizable solutions that fit different financial goals.",
+          "Warren Factor helps buyers in Florida understand how conventional loans work, how to qualify, and how to choose the right structure for both short-term affordability and long-term success.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "What is a conventional loan?",
+        body: [
+          "A conventional loan is a mortgage that is not insured or guaranteed by a government agency such as the VA or FHA. Instead, these loans follow guidelines set by Fannie Mae and Freddie Mac and are offered by private lenders.",
+          "Because conventional loans aren't government-backed, they're often associated with:",
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "Strong borrower profiles",
+          "Competitive interest rates",
+          "Flexible loan terms",
+          "A wide range of property options",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        body: [
+          "Conventional loans are widely used across Florida and suit both primary residences and investment properties.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Why a conventional loan in Florida?",
+        body: [
+          "The Dade County housing market spans everything from entry-level homes to luxury properties. Conventional loans provide the flexibility needed to compete and succeed in such a diverse market.",
+        ],
+      },
+      {
+        kind: "list",
+        title: "Flexible down payment options",
+        intro:
+          "Contrary to common belief, conventional loans don't always require 20% down. Many programs allow:",
+        items: [
+          "As little as 3% down for first-time homebuyers",
+          "5–10% down for repeat buyers",
+          "Higher down payments for better rates and lower costs",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        body: [
+          "This flexibility makes conventional loans accessible to a broader range of buyers.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Competitive interest rates",
+        body: [
+          "Borrowers with strong credit profiles often secure highly competitive rates with conventional loans. Over time, that can result in significant interest savings compared to other loan programs.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "No upfront mortgage insurance",
+        body: [
+          "Unlike FHA loans, conventional loans don't require upfront mortgage insurance premiums. PMI may be required with lower down payments, but it can often be removed once sufficient equity is reached.",
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Types of conventional loan programs",
+        intro: "Conventional loans aren't one-size-fits-all. Choose the option that fits the file:",
+        items: [
+          {
+            title: "Conventional purchase loans",
+            body: "Buy a primary residence, second home, or investment property. Ideal for buyers seeking flexible terms and competitive pricing.",
+          },
+          {
+            title: "Conventional fixed-rate mortgages",
+            body: "Predictable monthly payments with rates that stay the same for the life of the loan. Popular terms include 30-year, 20-year, and 15-year fixed — well-suited for buyers planning long-term homeownership.",
+          },
+          {
+            title: "Conventional adjustable-rate mortgages (ARMs)",
+            body: "Start with a lower introductory rate and adjust over time. Often chosen by buyers who plan to move or refinance within a few years.",
+          },
+          {
+            title: "Jumbo conventional loans",
+            body: "For properties that exceed conforming loan limits — common in certain areas of Miami-Dade County and beyond.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Who should consider a conventional loan?",
+        intro:
+          "Conventional loans suit a wide range of borrowers, especially those with stable income and solid credit:",
+        items: [
+          {
+            title: "First-time homebuyers",
+            body: "With low-down-payment options and competitive rates, conventional loans are an excellent choice for first-time buyers who meet credit requirements.",
+          },
+          {
+            title: "Move-up buyers",
+            body: "Homeowners upgrading to a larger or more desirable property often use conventional loans to leverage equity and secure favorable terms.",
+          },
+          {
+            title: "Real-estate investors",
+            body: "Conventional loans allow financing for rental and investment properties — a preferred choice for investors.",
+          },
+          {
+            title: "Buyers with strong credit",
+            body: "Higher credit scores often unlock better rates and lower PMI costs, maximizing the benefits of conventional financing.",
+          },
+          {
+            title: "Homeowners looking to refinance",
+            body: "Conventional refinance loans can be used to lower rates, shorten loan terms, or remove PMI once equity requirements are met.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Requirements & eligibility",
+        items: [
+          {
+            term: "Credit score",
+            def: "Most lenders look for a minimum credit score of 620, though higher scores typically result in better rates and terms.",
+          },
+          {
+            term: "Debt-to-income ratio (DTI)",
+            def: "DTI guidelines are generally stricter than government-backed loans. However, strong credit and assets can help offset higher ratios.",
+          },
+          {
+            term: "Down payment",
+            def: "Requirements vary by loan type, property use, and borrower profile. Larger down payments can reduce PMI costs and improve loan terms.",
+          },
+          {
+            term: "Income & employment verification",
+            def: "Borrowers must demonstrate stable, verifiable income. Lenders typically review pay stubs, tax returns, and employment history.",
+          },
+          {
+            term: "Property requirements",
+            def: "Homes must meet appraisal standards and be structurally sound. Conventional loans can be used for single-family homes, condos, townhomes, and multi-unit properties (within guidelines).",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Benefits of conventional loans",
+        items: [
+          {
+            term: "Lower long-term costs",
+            def: "With no upfront mortgage insurance and the ability to remove PMI, conventional loans can become more affordable over time.",
+          },
+          {
+            term: "More property options",
+            def: "Unlike some government programs, conventional loans allow financing for a broader range of property types, including investment properties.",
+          },
+          {
+            term: "Strong seller appeal",
+            def: "In competitive markets, conventional loan offers are often viewed favorably by sellers due to fewer restrictions.",
+          },
+          {
+            term: "Customizable loan structures",
+            def: "Borrowers can choose loan terms, rates, and payment structures that align with their financial plans.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Why choose Warren Factor",
+        items: [
+          {
+            term: "Local market expertise",
+            def: "Understanding Miami-Dade County pricing trends, neighborhood dynamics, and lending practices enables accurate guidance and strong offers.",
+          },
+          {
+            term: "Personalized loan solutions",
+            def: "Each conventional loan is tailored to the borrower's goals, timeline, and financial profile.",
+          },
+          {
+            term: "Access to competitive rates",
+            def: "By working with multiple lenders, borrowers gain access to competitive pricing and flexible programs.",
+          },
+          {
+            term: "Clear, transparent communication",
+            def: "Mortgage decisions are complex. Every step — from pre-approval to closing — is explained clearly and professionally.",
+          },
+          {
+            term: "Fast, reliable pre-approvals",
+            def: "Quick and accurate pre-approvals help buyers act confidently in a competitive housing market.",
+          },
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Get started with conventional loans",
+        body: [
+          "Conventional loans offer flexibility, competitive rates, and long-term value for homebuyers and homeowners alike. Whether you're purchasing your first home, upgrading, investing, or refinancing, a conventional loan can be a powerful financing tool.",
+          "With expert guidance from Warren Factor, borrowers can navigate the conventional loan process smoothly and make informed decisions that support long-term financial success.",
+        ],
+      },
+    ],
   },
   {
     slug: "fha",
@@ -262,7 +466,54 @@ export const PROGRAMS: Program[] = [
         kind: "paragraphs",
         title: "Working with Warren on a VA loan",
         body: [
-          "Choosing the right mortgage professional is just as important as choosing the right loan program. Warren Factor brings expertise, transparency, and personalized service to every VA loan client — local market knowledge included.",
+          "Choosing the right mortgage professional is just as important as choosing the right loan program. Warren Factor brings expertise, transparency, and personalized service to every VA loan client.",
+        ],
+      },
+      {
+        kind: "definedList",
+        items: [
+          {
+            term: "Local market knowledge",
+            def: "Understanding local pricing trends, property values, and neighborhood dynamics in Miami-Dade County is critical. Local expertise leads to accurate guidance and competitive offers.",
+          },
+          {
+            term: "Personalized VA loan strategy",
+            def: "No two borrowers are the same. Every VA loan is structured around the borrower's goals, timeline, and financial situation.",
+          },
+          {
+            term: "Clear communication and education",
+            def: "VA loans come with unique benefits and rules. Warren makes sure clients understand every detail — from funding fees to rate options — before making decisions.",
+          },
+          {
+            term: "Efficient pre-approval process",
+            def: "In a competitive market like Dade County, speed matters. Fast, accurate pre-approvals help buyers stand out to sellers and real-estate agents.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Common VA loan myths",
+        items: [
+          {
+            term: "Myth: VA loans take longer to close",
+            def: "Fact — VA loans close just as quickly as other loan types when handled by an experienced professional.",
+          },
+          {
+            term: "Myth: VA loans are a one-time benefit",
+            def: "Fact — VA loan benefits can be reused multiple times.",
+          },
+          {
+            term: "Myth: Sellers avoid VA buyers",
+            def: "Fact — in strong offers, VA loans are widely accepted, especially with proper guidance and clean approvals.",
+          },
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Get started with VA loans",
+        body: [
+          "VA loans are one of the most valuable home-financing tools available to veterans and service members. In a market like Dade County — where affordability and smart financing matter more than ever — VA loans offer a clear advantage.",
+          "With expert guidance from Warren Factor, borrowers can confidently navigate the VA loan process, maximize their benefits, and move closer to homeownership with clarity and confidence.",
         ],
       },
     ],
