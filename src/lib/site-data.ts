@@ -147,6 +147,143 @@ export const PROGRAMS: Program[] = [
       "Business owners with significant write-offs",
       "Commission- and gig-based income earners",
     ],
+    extras: [
+      {
+        kind: "paragraphs",
+        title: "Know the document that qualifies you",
+        body: [
+          "A bank statement loan uses 12–24 months of your statements to qualify you — so understanding what's on a statement, and how to read one, is half the battle. Here's a quick primer on the document your lender will spend real time reviewing.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Account details",
+        items: [
+          {
+            term: "Account holder information",
+            def: "Your name and account number, confirming the statement belongs to you.",
+          },
+          {
+            term: "Bank information",
+            def: "The name and contact details of your bank, so it's clear where the account is held.",
+          },
+          {
+            term: "Statement period",
+            def: "The date range the statement covers — usually a month, but it can vary by bank or account type.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Transactions",
+        items: [
+          {
+            term: "Deposits",
+            def: "Money added to your account — salary, transfers from other accounts, or cash deposits.",
+          },
+          {
+            term: "Withdrawals",
+            def: "Money taken out — ATM withdrawals, debit-card purchases, online payments, or checks.",
+          },
+          {
+            term: "Fees",
+            def: "Charges from the bank — monthly maintenance, ATM fees, or overdraft fees.",
+          },
+          {
+            term: "Interest",
+            def: "If your account earns interest (e.g., a savings account), it's shown here.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Account balance",
+        items: [
+          {
+            term: "Starting balance",
+            def: "The balance at the beginning of the statement period.",
+          },
+          {
+            term: "Ending balance",
+            def: "The balance at the end, after all deposits, withdrawals, and fees are applied.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Why bank statements matter",
+        items: [
+          {
+            term: "Track your spending",
+            def: "See where your money is going and spot habits you might want to tighten up.",
+          },
+          {
+            term: "Verify transactions",
+            def: "Catch errors and unauthorized activity before they snowball.",
+          },
+          {
+            term: "Monitor fees",
+            def: "Service fees, ATM charges, and overdrafts add up — statements make them visible.",
+          },
+          {
+            term: "Financial planning",
+            def: "Set a budget and align your savings goals with the cash flow you actually have.",
+          },
+          {
+            term: "Proof of financial health",
+            def: "Lenders use them as proof of income, savings, and money management — essential for a bank statement loan.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "How to read a bank statement",
+        items: [
+          {
+            title: "Check the account information",
+            body: "Confirm the account holder details and statement period are correct — you're reviewing the right statement for the right account.",
+          },
+          {
+            title: "Review the transactions",
+            body: "Go through every deposit and withdrawal. If anything looks off or unauthorized, contact your bank immediately.",
+          },
+          {
+            title: "Examine the balance",
+            body: "Compare the starting and ending balances and make sure the transactions reconcile.",
+          },
+          {
+            title: "Look for fees",
+            body: "Watch for maintenance fees, ATM fees, or late charges. Anything that looks wrong is worth a clarification call.",
+          },
+          {
+            title: "Check the interest",
+            body: "If your account earns interest, confirm the amount credited during the period — it tells you how productively your savings are working.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "How to access your bank statement",
+        items: [
+          {
+            title: "Online banking",
+            body: "Most banks let you view, download, and print e-statements securely from your online portal.",
+          },
+          {
+            title: "Mobile banking apps",
+            body: "Your bank's app likely lets you view and save statements straight from your phone.",
+          },
+          {
+            title: "Paper statements",
+            body: "If you prefer paper, most banks will still mail them — though many now charge a small fee versus free e-statements.",
+          },
+          {
+            title: "ATM receipts",
+            body: "Some ATMs print mini-statements with recent activity. Handy for a quick check, but not a substitute for the full monthly statement.",
+          },
+        ],
+      },
+    ],
   },
   {
     slug: "dscr",
@@ -275,6 +412,24 @@ export const PROGRAMS: Program[] = [
           },
         ],
       },
+      {
+        kind: "numbered",
+        title: "Advantages for property investors",
+        items: [
+          {
+            title: "Leverage property income",
+            body: "Use the rental income from your investment property to qualify for financing — expand your portfolio without leaning on personal income or assets.",
+          },
+          {
+            title: "Scale without personal-income scrutiny",
+            body: "Because qualification rests on the property's cash flow, investors can secure multiple DSCR loans without traditional income verification — especially helpful for the self-employed or those with irregular income.",
+          },
+          {
+            title: "Fast, efficient process",
+            body: "Less documentation usually means a faster approval than a conventional loan — so you can act quickly when an opportunity appears.",
+          },
+        ],
+      },
     ],
   },
   {
@@ -317,6 +472,128 @@ export const PROGRAMS: Program[] = [
       "Buyers with strong income but limited savings",
       "Eligible veterans and rural buyers",
       "First-time buyers using assistance programs",
+    ],
+    extras: [
+      {
+        kind: "paragraphs",
+        body: [
+          "Buying a home is a big step, but saving for a down payment is one of the hardest parts for many people. Traditional loans often require 20% down. With 0% down financing it's possible to buy a home without paying anything upfront — especially useful for first-time buyers and anyone without large savings.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "What is 0% down financing?",
+        body: [
+          "0% down financing is a loan that covers the full price of the home, so you don't put any money down at closing. It's typically available through special programs or government-backed options, making homeownership accessible to people who don't have enough savings for a down payment.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "How 0% down financing works",
+        items: [
+          {
+            term: "Full financing",
+            def: "The loan covers the entire cost of the home — buy a $250,000 home and the lender finances the full $250,000.",
+          },
+          {
+            term: "Eligibility",
+            def: "You still need to meet other requirements like stable income and acceptable credit.",
+          },
+          {
+            term: "Repayment",
+            def: "You pay back the full loan amount in monthly payments, and rates can be slightly higher because there's no down payment cushion.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Types of 0% down financing",
+        intro: "Several loan types offer 0% down, each with its own eligibility rules:",
+        items: [
+          {
+            title: "VA loans",
+            body: "For military service members, veterans, and their families — backed by the U.S. Department of Veterans Affairs and offering 0% down options.",
+          },
+          {
+            title: "USDA loans",
+            body: "Backed by the U.S. Department of Agriculture for buyers in qualifying rural and suburban areas — 0% down if you meet the income guidelines.",
+          },
+          {
+            title: "Conventional 0% down loans",
+            body: "Some lenders offer 0% down options for first-time homebuyers. Stricter credit and income requirements apply, but a strong path for those who qualify.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Benefits",
+        items: [
+          {
+            title: "No down payment",
+            body: "The biggest benefit — homeownership without years of saving for a down payment.",
+          },
+          {
+            title: "Faster home purchase",
+            body: "No waiting to save means you can act quickly in a competitive housing market.",
+          },
+          {
+            title: "More money for other costs",
+            body: "Without a down payment, you keep cash on hand for moving costs, repairs, and other expenses.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Drawbacks to be aware of",
+        items: [
+          {
+            title: "Higher monthly payments",
+            body: "Borrowing the full price means a larger monthly payment and more interest paid over the life of the loan.",
+          },
+          {
+            title: "No starting equity",
+            body: "With no money down, you begin with zero equity — if values dip, you could owe more than the home is worth.",
+          },
+          {
+            title: "Possible PMI",
+            body: "Some 0% down loans require private mortgage insurance, which adds to the monthly payment.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Who should consider 0% down",
+        items: [
+          {
+            term: "First-time homebuyers",
+            def: "Buying your first home without the savings for a down payment — this can be the bridge that makes it possible.",
+          },
+          {
+            term: "Military veterans or active duty",
+            def: "VA loans are available to those who've served and offer 0% down payment options.",
+          },
+          {
+            term: "Buyers in rural areas",
+            def: "If you're buying in a rural or qualifying suburban area, USDA loans can finance the full purchase with no down payment.",
+          },
+        ],
+      },
+      {
+        kind: "list",
+        title: "Is 0% down right for you?",
+        intro: "Three honest questions to ask yourself before going this route:",
+        items: [
+          "Can you comfortably handle the higher monthly payment?",
+          "Do you have stable income and acceptable credit?",
+          "Are you prepared for the possibility of paying PMI?",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        body: [
+          "If the answer to all three is yes, 0% down financing could be the right path. The fastest way to know what you qualify for is a quick conversation — Warren will match you to the specific 0% down program that fits your file.",
+        ],
+      },
     ],
   },
   {
