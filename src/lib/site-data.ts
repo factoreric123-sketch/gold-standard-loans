@@ -16,6 +16,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
+export type CreditTier = {
+  name: string;
+  score: string;
+  bullets: string[];
+};
+
 export type Program = {
   slug: string;
   name: string;
@@ -25,6 +31,12 @@ export type Program = {
   overview: string;
   highlights: string[];
   idealFor: string[];
+  // Optional rich content for programs with deeper guidance.
+  creditTiers?: CreditTier[];
+  lowScoreOptions?: string[];
+  lenderConsiderations?: string[];
+  improvementTips?: string[];
+  bottomLine?: string[];
 };
 
 export const PROGRAMS: Program[] = [
@@ -299,6 +311,52 @@ export const PROGRAMS: Program[] = [
       "Borrowers with bruised or rebuilding credit",
       "Buyers after a recent financial setback",
       "Anyone declined by a traditional bank",
+    ],
+    creditTiers: [
+      {
+        name: "FHA Loan",
+        score: "580+ · 3.5% down  ·  500–579 · 10% down",
+        bullets: ["Most forgiving option", "Higher mortgage insurance"],
+      },
+      {
+        name: "Conventional Loan",
+        score: "620 minimum",
+        bullets: ["Better rates above 660–680", "Much stricter on credit history"],
+      },
+      {
+        name: "VA Loan (if eligible)",
+        score: "No official minimum · most lenders want 580–620",
+        bullets: ["No down payment", "Veterans and active-duty military"],
+      },
+      {
+        name: "USDA Loan",
+        score: "Typically 640+",
+        bullets: ["Rural areas only", "No down payment"],
+      },
+    ],
+    lowScoreOptions: [
+      "FHA with 10% down",
+      "Non-QM loans (bank-statement, DSCR, asset-based)",
+      "Hard money or private lenders (higher rates, short term)",
+      "Co-borrower or non-occupant co-signer",
+    ],
+    lenderConsiderations: [
+      "Strong income or cash flow",
+      "Reserves in the bank",
+      "Recent improvement in credit (last 12 months clean)",
+      "Larger down payment",
+      "No recent bankruptcies or foreclosures (or enough time passed)",
+    ],
+    improvementTips: [
+      "Pay credit cards below 30% utilization (ideally under 10%)",
+      "Don't open new accounts",
+      "Remove collections under $500 (some FHA lenders ignore them)",
+      "Add a rapid rescore (lenders can do this)",
+    ],
+    bottomLine: [
+      "580–620 score → FHA or Non-QM",
+      "Below 580 → Private / Non-QM / bigger down payment",
+      "Luxury or investment property → Non-QM or private lenders",
     ],
   },
   {
