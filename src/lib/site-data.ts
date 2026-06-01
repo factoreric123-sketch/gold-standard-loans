@@ -126,6 +126,146 @@ export const PROGRAMS: Program[] = [
       "Qualifying National Guard and Reserve members",
       "Eligible surviving spouses",
     ],
+    extras: [
+      {
+        kind: "paragraphs",
+        body: [
+          "VA loans remain one of the most powerful and affordable home-financing options available to eligible veterans, active-duty service members, and surviving spouses. In a competitive Florida market like Miami-Dade County, VA loans deliver unmatched benefits that make homeownership more accessible, flexible, and financially sustainable.",
+          "With rising prices and demand for affordable housing, many buyers are searching for programs that reduce upfront costs while offering long-term stability — VA loans do exactly that, allowing qualified borrowers to purchase or refinance with no down payment, no PMI, and competitive rates.",
+          "Warren Factor focuses on helping veterans and military families fully understand their VA loan benefits and use them strategically — whether you're buying your first home, relocating, or refinancing.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "What are VA loans?",
+        body: [
+          "A VA loan is a mortgage program backed by the U.S. Department of Veterans Affairs, designed specifically to support military service members and veterans in purchasing or refinancing a home. Unlike conventional or FHA loans, VA loans remove many of the traditional barriers to homeownership.",
+          "These loans are not issued directly by the VA. Private lenders originate VA loans while the VA guarantees a portion of the loan — letting lenders offer more favorable terms with lower risk.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Key features",
+        items: [
+          {
+            term: "No down payment required",
+            def: "Eligible buyers can purchase a home without a down payment — minimal upfront costs to get into a home.",
+          },
+          {
+            term: "No private mortgage insurance",
+            def: "Unlike many other loan types, VA loans do not require PMI — significant monthly savings.",
+          },
+          {
+            term: "Competitive interest rates",
+            def: "VA loans often come with lower rates than conventional loans, reducing the overall cost over time.",
+          },
+          {
+            term: "Flexible credit guidelines",
+            def: "More forgiving on credit history, with accessible options for buyers with less-than-perfect credit.",
+          },
+          {
+            term: "Limited closing costs",
+            def: "VA closing costs are capped — borrowers pay less at the table than on other loan types.",
+          },
+          {
+            term: "Reusable benefit",
+            def: "VA loan benefits are reusable across multiple home purchases throughout your life.",
+          },
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Why VA loans work especially well in Florida",
+        body: [
+          "Florida's housing market — and Dade County in particular — is diverse, dynamic, and highly competitive. From urban properties to suburban neighborhoods, buyers often face rising prices and tight inventory. VA loans provide a powerful advantage in this environment.",
+        ],
+      },
+      {
+        kind: "list",
+        title: "No down payment in a high-cost market",
+        intro:
+          "Saving for a down payment is one of the biggest obstacles to buying in Florida. VA loans eliminate this barrier entirely — qualified buyers can purchase with zero money down. That means:",
+        items: [
+          "Faster homeownership — get into your home sooner with no down payment required.",
+          "Save more — keep your savings for emergencies or investments.",
+          "More flexibility — greater purchasing power without the burden of a down payment or PMI.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "No PMI = lower monthly payments",
+        body: [
+          "Most low-down-payment programs require private mortgage insurance, which can add hundreds of dollars to monthly payments. VA loans do not require PMI — keeping payments lower and more predictable over time.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Competitive interest rates",
+        body: [
+          "Because VA loans are backed by the government, lenders can offer lower rates than many conventional loan options. Over the life of the loan, that can translate into tens of thousands of dollars in savings.",
+        ],
+      },
+      {
+        kind: "list",
+        title: "Who is eligible",
+        intro:
+          "VA loan eligibility is based on military service history rather than income alone. Borrowers must meet service requirements and obtain a Certificate of Eligibility (COE). Eligible borrowers include:",
+        items: [
+          "Veterans who meet service requirements",
+          "Active-duty service members",
+          "National Guard and Reserve members (with qualifying service)",
+          "Eligible surviving spouses",
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Types of VA loan programs",
+        intro: "VA loans are versatile and can be used for several homeownership goals:",
+        items: [
+          {
+            title: "VA Purchase Loans",
+            body: "Buy a primary residence with no down payment and no PMI — ideal for first-time buyers, relocating families, and veterans transitioning to civilian life.",
+          },
+          {
+            title: "VA Cash-Out Refinance",
+            body: "Refinance an existing mortgage and tap home equity as cash. Common uses: consolidate debt, fund home improvements, or cover education or medical expenses.",
+          },
+          {
+            title: "VA Interest Rate Reduction Refinance (IRRRL)",
+            body: 'Also called a "VA Streamline Refinance" — helps existing VA borrowers lower their rate with minimal documentation and reduced closing costs.',
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Requirements & qualifications",
+        items: [
+          {
+            term: "Credit guidelines",
+            def: "The VA doesn't set a strict minimum credit score, but lenders look for responsible credit behavior. Stronger profiles often see better rates and smoother approvals.",
+          },
+          {
+            term: "Debt-to-income ratio (DTI)",
+            def: "DTI guidelines are more forgiving than conventional loans, allowing many borrowers to qualify even with higher ratios — especially when residual income requirements are met.",
+          },
+          {
+            term: "Income and employment",
+            def: "Borrowers must demonstrate stable income and employment to show their ability to repay.",
+          },
+          {
+            term: "Occupancy requirement",
+            def: "VA loans are intended for primary residences only — the borrower must live in the home, making this program ideal for owner-occupied properties.",
+          },
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Working with Warren on a VA loan",
+        body: [
+          "Choosing the right mortgage professional is just as important as choosing the right loan program. Warren Factor brings expertise, transparency, and personalized service to every VA loan client — local market knowledge included.",
+        ],
+      },
+    ],
   },
   {
     slug: "bank-statement",
@@ -616,6 +756,57 @@ export const PROGRAMS: Program[] = [
       "Investors buying distressed properties",
       "BRRRR-strategy investors",
     ],
+    extras: [
+      {
+        kind: "paragraphs",
+        body: [
+          "Fix and flips are a popular investment strategy where an investor purchases a distressed property, renovates it, and sells it for a profit — earning money by increasing the property's value through improvements. It can be lucrative, but it also carries real risk. Here's a clean breakdown of what fix and flips are, how they work, and what you need to know before getting started.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "What are fix and flips?",
+        body: [
+          "A fix and flip is an investment approach where an investor buys a property that needs repairs or upgrades, renovates it, and then sells it for a higher price. The goal is to purchase at a lower cost, make improvements, and sell for a profit. The process usually involves buying homes in poor condition — often from foreclosures or auctions — and fixing them up to increase their value.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "How fix and flips work",
+        body: [
+          "First, investors find a property priced below market value due to its condition. Once a target is found, they calculate the cost of repairs and renovations to understand how much funding is needed. Securing financing is the next step — most investors will need a loan or some form of capital to buy the property and pay for renovations.",
+          "After purchase, renovations begin — from cosmetic fixes like painting and flooring to more complex work like plumbing and electrical. Once finished, the property is put up for sale, aiming for a price that covers the property, the renovations, and any additional expenses — with a profit margin on top.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "Why fix and flips are popular",
+        body: [
+          "Fix and flips offer high profit potential in a relatively short period. With the right property, smart renovations, and the ability to sell quickly, an investor can earn a significant return. The process is appealing because investors have control over the renovations — decisions that directly affect the value. Unlike renting, which involves ongoing management, fix and flips let investors buy, renovate, and sell for a one-time profit.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "The benefits",
+        body: [
+          "One of the biggest benefits is profit potential. Investors who can find undervalued properties and make effective, cost-efficient renovations can often sell for far more than they spent. Fix and flips also let you stay hands-on with your project — control over the outcome. And the real-estate market often provides quick turnaround opportunities, letting investors sell within months instead of years.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "The risks",
+        body: [
+          "Fix and flips can be profitable, but they come with risk. Overspending on renovations is a big one — costs can exceed initial estimates and eat into the profit margin. Unexpected issues like mold or structural damage add to costs. Market conditions matter, too — a downturn can make the property hard to sell. Delays in renovation or the property sitting unsold for an extended period also increase costs.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "How to be successful",
+        body: [
+          "Thorough research and planning matter most. Carefully select properties with strong improvement potential — focus on desirable locations where demand is high and renovations meaningfully increase value. Set a realistic renovation budget and stick to it. Having a trusted team of contractors who can complete the work efficiently and within budget is vital. And know the local real-estate market — that's what helps you price the finished property correctly for resale.",
+        ],
+      },
+    ],
   },
   {
     slug: "bridge-loans",
@@ -760,6 +951,99 @@ export const PROGRAMS: Program[] = [
       "Commercial property investors",
       "Hospitality and business owners",
       "Borrowers refinancing maturing commercial debt",
+    ],
+    extras: [
+      {
+        kind: "paragraphs",
+        title: "What are hotel loans?",
+        body: [
+          "A hotel loan is a type of business loan specifically intended for hotel-related investments. These loans can be used to purchase an existing hotel, build a new one, renovate or expand an existing property, or refinance a current hotel loan. Hotel loans come in various forms, with terms that cater to the unique needs of the hospitality industry.",
+          "They're typically provided by traditional banks, commercial lenders, and other financial institutions. Because of the scale of hotel investments, securing this type of financing can be more complex than a standard business loan.",
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Types of hotel loans",
+        intro:
+          "There are several types of loans available to hotel owners and investors, each suited to specific needs:",
+        items: [
+          {
+            title: "Conventional hotel loans",
+            body: "Traditional loans from banks or credit unions for hotel purchases, construction, or refinancing. Typically require a strong credit history, stable income from the hotel, and 20–30% down. Terms usually 5–25 years.",
+          },
+          {
+            title: "SBA 7(a) loans",
+            body: "Government-backed loans that help small business owners — including hospitality — purchase or renovate a hotel. Typically lower rates and longer repayment terms (up to 25 years). Loan amounts up to $5 million.",
+          },
+          {
+            title: "Hotel bridge loans",
+            body: "Short-term financing during a transition — e.g., purchasing a hotel before securing permanent financing or refinancing an existing loan. Higher rates due to the short term. Usually 6–12 months.",
+          },
+          {
+            title: "Hotel construction loans",
+            body: "Financing for new construction — labor, materials, and other build costs. Typically disbursed in stages; short-term, often refinanced or converted into a standard mortgage once the hotel is operational.",
+          },
+          {
+            title: "Hotel renovation loans",
+            body: "Designed to fund upgrades to an existing hotel — guest rooms, amenities, lobby, or new features like a pool or fitness center. Loan amounts vary by scope; terms typically 5–20 years.",
+          },
+          {
+            title: "CMBS loans (Commercial Mortgage-Backed Securities)",
+            body: "Backed by a pool of commercial properties and structured as bonds sold to investors. Typically used by larger hotels or hotel chains for purchase or refinance. Higher loan amounts; terms 5–10 years.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "How to qualify",
+        intro:
+          "Qualifying for a hotel loan typically requires meeting certain financial and business criteria. Lenders evaluate the following:",
+        items: [
+          {
+            title: "Credit score",
+            body: "Lenders typically require a solid credit score (often 650+). A higher score improves approval odds and rates.",
+          },
+          {
+            title: "Debt-to-income ratio",
+            body: "Lenders assess your DTI to confirm you can manage repayment. The lower your debt relative to income, the stronger the file.",
+          },
+          {
+            title: "Hotel performance & financials",
+            body: "Operating income, profit margins, occupancy rates, and historical revenue. A strong track record is crucial.",
+          },
+          {
+            title: "Down payment",
+            body: "Typically 20–30% of the hotel's purchase price.",
+          },
+          {
+            title: "Property appraisal",
+            body: "An appraisal determines current market value and confirms the property has enough value to serve as collateral.",
+          },
+          {
+            title: "Business plan",
+            body: "Especially for purchases or new construction, lenders may require a solid plan outlining how you'll operate and grow the hotel — demonstrating your ability to manage the property and generate revenue.",
+          },
+        ],
+      },
+      {
+        kind: "list",
+        title: "Benefits of hotel loans",
+        items: [
+          "Access to capital — funds to purchase, build, or upgrade hotels and grow the business.",
+          "Long-term financing options — manageable monthly payments and flexibility.",
+          "Tax benefits — interest payments may be tax-deductible, lowering your overall tax burden.",
+          "Improved cash flow — financing renovations can drive higher room rates and occupancy.",
+        ],
+      },
+      {
+        kind: "list",
+        title: "Risks to consider",
+        items: [
+          "Interest costs — higher rates on short-term loans or less favorable terms can raise the overall cost of financing.",
+          "Market conditions — hospitality is sensitive to economic and travel cycles, which affect revenue and repayment.",
+          "Property depreciation — hotels can lose value over time without maintenance, affecting refinance or sale.",
+        ],
+      },
     ],
   },
   {
