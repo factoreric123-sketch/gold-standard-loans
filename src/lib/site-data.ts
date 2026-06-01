@@ -1295,6 +1295,104 @@ export const PROGRAMS: Program[] = [
           "Property depreciation — hotels can lose value over time without maintenance, affecting refinance or sale.",
         ],
       },
+      {
+        kind: "paragraphs",
+        title: "Beyond hotels: the full commercial loan landscape",
+        body: [
+          "Hotel financing is one slice of a much broader commercial-loan landscape. Here's the wider picture of products available to investors and business owners.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Commercial real-estate (CRE) loans",
+        items: [
+          {
+            term: "Owner-occupied CRE",
+            def: "The business occupies ≥51% of the property.",
+          },
+          {
+            term: "Investment property loans",
+            def: "Office, retail, multifamily, and industrial.",
+          },
+          {
+            term: "Construction loans",
+            def: "Ground-up or major rehab.",
+          },
+          {
+            term: "Bridge loans",
+            def: "Short-term (6–36 months), fast execution.",
+          },
+          {
+            term: "Permanent / term loans",
+            def: "Long-term stabilized financing.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "SBA loans",
+        items: [
+          {
+            term: "SBA 7(a)",
+            def: "Working capital, real estate, and business acquisition — government-backed with favorable terms.",
+          },
+          {
+            term: "SBA 504",
+            def: "Fixed assets and owner-occupied real estate.",
+          },
+          {
+            term: "SBA Express",
+            def: "Faster approval, smaller loan amounts.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Construction & development loans",
+        items: [
+          {
+            term: "Ground-up construction",
+            def: "Build from zero — milestone-based draws as the project advances.",
+          },
+          {
+            term: "Renovation / value-add loans",
+            def: "Capital to upgrade an existing asset and lift its income.",
+          },
+          {
+            term: "Mezzanine financing",
+            def: "Gap capital that sits between the senior loan and equity.",
+          },
+        ],
+      },
+      {
+        kind: "list",
+        title: "Specialty commercial loans",
+        intro: "For unique property types or situations:",
+        items: [
+          "Hotel & hospitality loans",
+          "Self-storage loans",
+          "Healthcare / assisted-living loans",
+          "Mixed-use property loans",
+          "Franchise financing",
+        ],
+      },
+      {
+        kind: "list",
+        title: "Capital market & institutional loans",
+        intro: "Larger transactions and more sophisticated structures:",
+        items: [
+          "CMBS loans",
+          "Life insurance company loans",
+          "Agency loans (Fannie Mae / Freddie Mac — multifamily)",
+          "Private equity / debt funds",
+        ],
+      },
+      {
+        kind: "list",
+        title: "Short-term / alternative financing",
+        intro: "Speed over cost, flexible underwriting:",
+        items: ["Hard money loans", "Private money loans"],
+      },
     ],
   },
   {
@@ -1460,6 +1558,57 @@ export const SITE_URL = "https://thediscountmortgagestore.com";
 export const BROKER_NAME = "Warren M. Factor";
 export const SINCE_YEAR = 1996;
 export const ZILLOW_URL = "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
+
+export const RATE_DRIVERS: Array<{ name: string; note: string }> = [
+  { name: "Federal Funds Rate", note: "Set by the Fed — drives everything else." },
+  { name: "10-Year Treasury Yield", note: "Most important for mortgage rates." },
+  { name: "SOFR / Prime Rate", note: "Matters for adjustable, bridge, and commercial loans." },
+  { name: "Mortgage-backed securities (MBS)", note: "What lenders really price off." },
+];
+
+export const RATE_DAILY: string[] = [
+  "Check the 10-Year Treasury yield",
+  "Check the average 30-yr mortgage rate",
+  "Glance at today's Fed news or economic calendar",
+];
+
+export const RATE_WEEKLY: string[] = [
+  "Inflation data (CPI, PCE)",
+  "Jobs reports (Non-Farm Payrolls)",
+  "Fed speeches / meeting summaries",
+  "Bond-market movement (not stock-market hype)",
+];
+
+export const BROKER_REASONS: Array<{ title: string; body: string }> = [
+  {
+    title: "Access to a broad network of lenders",
+    body: "Brokers maintain relationships with a wide range of wholesale lenders — national banks, credit unions, portfolio lenders, jumbo specialists, and non-QM lenders. Your file is shopped across multiple institutions simultaneously, so you benefit from true market competition.",
+  },
+  {
+    title: "Wholesale pricing advantage",
+    body: "Brokers operate in the wholesale lending market, which typically offers lower interest rates than retail banks. Retail lenders often add higher margins to cover branch overhead and marketing. Brokers, by contrast, rely on leaner operations and competition among lenders to secure lower rates and reduced closing costs.",
+  },
+  {
+    title: "More loan programs, better fit",
+    body: "No two borrowers are alike. Brokers can place loans across conventional, government-backed, jumbo, ultra-luxury, self-employed, investor, bank-statement, asset-based, and non-QM programs — so you're matched with the right structure, not forced into a one-size-fits-all.",
+  },
+  {
+    title: "Personalized, one-on-one service",
+    body: "Unlike large banks where borrowers are handed off between departments, brokers provide direct, hands-on service from application through closing — tailoring the loan to your goal (lowest payment, fastest closing, long-term wealth, etc.).",
+  },
+  {
+    title: "Faster issue resolution",
+    body: "If underwriting or appraisal issues arise, brokers can quickly redirect the loan to another lender whose guidelines better match the borrower's profile. Banks typically can't pivot once a file is submitted — leading to delays or denials.",
+  },
+  {
+    title: "Transparent, regulated compensation",
+    body: "Broker compensation is federally regulated and fully disclosed. That transparency means homeowners know exactly how the broker is paid, and removes incentives to steer borrowers into unfavorable options — often resulting in lower total borrowing costs.",
+  },
+  {
+    title: "Competitive pressure works for you",
+    body: "When multiple lenders compete for your file, they sharpen their offers — rate, terms, and credits. That competitive pressure consistently translates into a better deal at the closing table.",
+  },
+];
 
 export type Review = {
   name: string;
