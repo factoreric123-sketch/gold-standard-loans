@@ -4,6 +4,7 @@ import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
+import { ProgramExtras } from "@/components/site/ProgramExtras";
 import { Reveal } from "@/components/site/motion";
 import { PROGRAMS, programBySlug, PHONE_DISPLAY, PHONE_TEL, COMPANY_NAME } from "@/lib/site-data";
 
@@ -124,6 +125,9 @@ function ProgramPage() {
             </Reveal>
           </div>
         </section>
+
+        {/* Generic rich extras (paragraphs, numbered, cards, lists, formulas) for programs that ship them */}
+        {program.extras && <ProgramExtras sections={program.extras} />}
 
         {/* Credit-score guide — rendered only for programs that ship this content (e.g. low-credit-score) */}
         {program.creditTiers && (
