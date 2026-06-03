@@ -1557,6 +1557,8 @@ export const SITE_URL = "https://thediscountmortgagestore.com";
 export const BROKER_NAME = "Warren M. Factor";
 export const SINCE_YEAR = 1996;
 export const ZILLOW_URL = "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
+export const APPLY_URL =
+  "https://www.blink.mortgage/app/signup/p/crecapitalandequitycorp/warrenfactor";
 
 export const RATE_DRIVERS: Array<{ name: string; note: string }> = [
   { name: "Federal Funds Rate", note: "Set by the Fed — drives everything else." },

@@ -9,6 +9,7 @@ import {
   COMPANY_NAME,
   BROKER_NAME,
   SINCE_YEAR,
+  APPLY_URL,
 } from "@/lib/site-data";
 import { Logo } from "@/components/site/Logo";
 
@@ -82,7 +83,12 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="/#contact" className="hover:text-gold">
+                <a
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
                   Apply Online
                 </a>
               </li>
