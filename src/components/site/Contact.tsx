@@ -31,7 +31,7 @@ const loanOptions = [...PROGRAMS.map((p) => p.name), "Not Sure"];
 
 // Web3Forms access key (created with warrenfactor@gmail.com as the recipient).
 // Submissions get emailed to that address as soon as the key is set in env.
-const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+const ACCESS_KEY = "2fb7050f-5c48-468f-a1c0-2f0e073f38c5";
 
 async function emailWarren(data: Fields): Promise<boolean> {
   if (!ACCESS_KEY) return false;
