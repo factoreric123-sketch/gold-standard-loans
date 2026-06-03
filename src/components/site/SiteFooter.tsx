@@ -17,7 +17,9 @@ export function SiteFooter() {
     <footer className="bg-charcoal text-background/75">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="border-b border-background/15 pb-10 mb-10">
-          <Logo size="lg" className="text-background" />
+          <div className="inline-block rounded-2xl bg-background p-3 shadow-soft">
+            <Logo size="lg" />
+          </div>
           <div className="mt-4 text-sm uppercase tracking-widest text-gold">
             Florida's Lowest Mortgage Rates · Since {SINCE_YEAR}
           </div>
