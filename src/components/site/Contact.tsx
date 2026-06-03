@@ -10,6 +10,7 @@ import {
   ADDRESS,
   NMLS,
   PROGRAMS,
+  COMPANY_NAME,
 } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 import { supabase } from "@/integrations/supabase/client";
@@ -27,6 +28,51 @@ type Fields = z.infer<typeof schema>;
 type FieldErrors = Partial<Record<keyof Fields, string>>;
 
 const loanOptions = [...PROGRAMS.map((p) => p.name), "Not Sure"];
+
+// Web3Forms access key (created with warrenfactor@gmail.com as the recipient).
+// Submissions get emailed to that address as soon as the key is set in env.
+const ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY as string | undefined;
+
+async function emailWarren(data: Fields): Promise<boolean> {
+  if (!ACCESS_KEY) return false;
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        subject: `New rate request — ${data.firstName} ${data.lastName} (${data.loanType})`,
+        from_name: `${COMPANY_NAME} website`,
+        // Web3Forms relays this submission to the email tied to the access key.
+        name: `${data.firstName} ${data.lastName}`,
+        phone: data.phone,
+        email: data.email,
+        loan_type: data.loanType,
+        message: data.message || "(no message)",
+      }),
+    });
+    const json = (await res.json()) as { success?: boolean };
+    return json.success === true;
+  } catch {
+    return false;
+  }
+}
+
+async function saveToDb(data: Fields): Promise<boolean> {
+  try {
+    const { error } = await supabase.from("contact_submissions").insert({
+      first_name: data.firstName,
+      last_name: data.lastName,
+      phone: data.phone,
+      email: data.email,
+      loan_type: data.loanType,
+      message: data.message || null,
+    });
+    return !error;
+  } catch {
+    return false;
+  }
+}
 
 function buildMailto(data: Fields) {
   const subject = `Rate request — ${data.firstName} ${data.lastName} (${data.loanType})`;
@@ -69,17 +115,21 @@ export function Contact() {
     const data = parsed.data;
     setSubmitting(true);
     try {
-      const { error } = await supabase.from("contact_submissions").insert({
-        first_name: data.firstName,
-        last_name: data.lastName,
-        phone: data.phone,
-        email: data.email,
-        loan_type: data.loanType,
-        message: data.message || null,
-      });
-      if (error) throw error;
-      setDone(true);
-      form.reset();
+      // Fire both in parallel: email to Warren + DB record.
+      // Success if EITHER reaches Warren (email) or the database.
+      const [emailOk, dbOk] = await Promise.all([emailWarren(data), saveToDb(data)]);
+      if (emailOk || dbOk) {
+        if (!emailOk) {
+          // Stored, but no email was relayed — silent so visitor still sees success.
+          console.warn(
+            "Contact: submission saved to DB but Web3Forms email was not sent (VITE_WEB3FORMS_KEY missing or relay failed).",
+          );
+        }
+        setDone(true);
+        form.reset();
+      } else {
+        throw new Error("Both email and DB submissions failed");
+      }
     } catch (err) {
       console.error("Contact submission failed:", err);
       toast.error("Couldn't send right now — opening your email app instead.");
