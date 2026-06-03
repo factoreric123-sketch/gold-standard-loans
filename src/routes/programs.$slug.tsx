@@ -6,7 +6,14 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { ProgramExtras } from "@/components/site/ProgramExtras";
 import { Reveal } from "@/components/site/motion";
-import { PROGRAMS, programBySlug, PHONE_DISPLAY, PHONE_TEL, COMPANY_NAME } from "@/lib/site-data";
+import {
+  PROGRAMS,
+  programBySlug,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  COMPANY_NAME,
+  APPLY_URL,
+} from "@/lib/site-data";
 
 export const Route = createFileRoute("/programs/$slug")({
   loader: ({ params }) => {
@@ -75,7 +82,9 @@ function ProgramPage() {
 
               <div className="mt-9 flex flex-wrap gap-3">
                 <a
-                  href="/#contact"
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
                 >
                   Apply Now <ArrowRight className="w-4 h-4" />

@@ -1,5 +1,5 @@
 import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
-import { RATES, PHONE_DISPLAY, PHONE_TEL, NMLS } from "@/lib/site-data";
+import { RATES, PHONE_DISPLAY, PHONE_TEL, NMLS, APPLY_URL } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
 const heroStats = [
@@ -32,7 +32,9 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
-              href="/#contact"
+              href={APPLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
             >
               Apply Now <ArrowRight className="w-4 h-4" />
