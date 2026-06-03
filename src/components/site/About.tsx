@@ -49,7 +49,7 @@ export function About() {
             For nearly three decades, Warren Factor has helped Florida families and investors
             finance homes, rentals, and commercial properties at rates the big banks rarely match.
             As founder of The Discount Mortgage Store, he runs every file personally — from first
-            call to closing — with the leverage of a 100+ lender network behind him.
+            call to closing — with the leverage of a deep lender network behind him.
           </p>
 
           <ul className="mt-9 space-y-2.5 text-sm text-foreground/70">

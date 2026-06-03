@@ -120,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "28 years licensed. 32 states. 100+ lenders. One trusted broker working to get you the lowest qualifying rate.",
+          "28 years licensed. 32 states. One trusted broker working to get you the lowest qualifying rate.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
@@ -135,7 +135,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "28 years licensed. 32 states. 100+ lenders. One trusted broker working to get you the lowest qualifying rate.",
+          "28 years licensed. 32 states. One trusted broker working to get you the lowest qualifying rate.",
       },
     ],
     links: [
