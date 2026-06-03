@@ -13,7 +13,7 @@ export function WhyWarren() {
             Not a bank. Not a call center. <span className="italic text-gold">Your broker.</span>
           </h2>
 
-          <div className="mt-12 grid grid-cols-2 gap-4">
+          <div className="mt-12 grid grid-cols-3 gap-4">
             {STATS.map((s) => (
               <div
                 key={s.label}
@@ -31,9 +31,9 @@ export function WhyWarren() {
           </div>
 
           <p className="mt-10 text-background/70 leading-relaxed max-w-lg">
-            Banks offer one rate sheet — their own. As an independent broker, Warren shops 100+
-            lenders on every file, then hands you the lowest qualifying offer. No quotas, no upsell,
-            no waiting in a call queue. Just a 28-year veteran negotiating on your behalf.
+            Banks offer one rate sheet — their own. As an independent broker, Warren shops every
+            file across multiple lenders, then hands you the lowest qualifying offer. No quotas, no
+            upsell, no waiting in a call queue. Just a 28-year veteran negotiating on your behalf.
           </p>
         </Reveal>
 

@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:description",
-        content: "28 years licensed. 32 states. 100+ lenders. One trusted broker.",
+        content: "28 years licensed. 32 states. One trusted broker.",
       },
       { property: "og:type", content: "website" },
     ],

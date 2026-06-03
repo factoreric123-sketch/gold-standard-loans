@@ -1542,7 +1542,6 @@ export type Stat = { value: number; suffix?: string; label: string };
 export const STATS: Stat[] = [
   { value: 28, label: "Years Licensed" },
   { value: 32, label: "States Served" },
-  { value: 100, suffix: "+", label: "Lender Network" },
   { value: 5, suffix: "★", label: "Zillow Rated" },
 ];
 
@@ -1662,7 +1661,7 @@ export const STEPS: Step[] = [
     body: "Share a few details by phone or through the form — purchase or refinance, the property, and a rough timeline. No paperwork marathon to get started.",
   },
   {
-    title: "Warren shops 100+ lenders",
+    title: "Warren shops your file across lenders",
     body: "Instead of one bank's rate sheet, Warren compares your file across his lender network and brings you the lowest qualifying offer.",
   },
   {
@@ -1688,7 +1687,7 @@ export const FAQS: Faq[] = [
   },
   {
     q: "Why use a broker instead of a bank?",
-    a: "A bank offers only its own rates. As an independent broker, Warren shops 100+ lenders on every file and passes you the most competitive qualifying offer — frequently beating retail bank pricing.",
+    a: "A bank offers only its own rates. As an independent broker, Warren shops your file across multiple lenders and passes you the most competitive qualifying offer — frequently beating retail bank pricing.",
   },
   {
     q: "Are you licensed in my state?",

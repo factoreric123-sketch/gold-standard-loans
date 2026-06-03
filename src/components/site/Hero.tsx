@@ -27,8 +27,8 @@ export function Hero() {
             <span className="block text-gold italic">Proven, not promised.</span>
           </h1>
           <p className="mt-7 text-lg text-foreground/65 max-w-lg leading-relaxed">
-            Warren Factor shops 100+ lenders on every file and closes loans in 32 states. One call
-            gets you a rate most banks simply won't offer.
+            Warren Factor shops every file and closes loans in 32 states. One call gets you a rate
+            most banks simply won't offer.
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
             <a
