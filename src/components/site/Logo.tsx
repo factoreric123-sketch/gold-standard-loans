@@ -14,11 +14,11 @@ export function Logo({ size = "md", className = "" }: { size?: "md" | "lg"; clas
     );
   }
 
-  // Nav (default): crop the image to just the architecture (top ~65%) and put a
-  // crisp serif wordmark next to it, since the embedded image text is too small
-  // to read at nav height.
+  // Nav (default): cropped architecture mark + a single-family sans wordmark.
+  // Same font for both lines, distinguished only by size and color, matching the
+  // sans typography inside the logo image itself.
   return (
-    <span className={`inline-flex items-center gap-3 leading-none ${className}`.trim()}>
+    <span className={`font-sans inline-flex items-center gap-2.5 leading-none ${className}`.trim()}>
       <span
         role="img"
         aria-label="The Discount Mortgage Store"
@@ -30,8 +30,12 @@ export function Logo({ size = "md", className = "" }: { size?: "md" | "lg"; clas
         }}
       />
       <span className="inline-flex flex-col">
-        <span className="text-[10px] uppercase tracking-[0.3em] text-gold">The Discount</span>
-        <span className="font-serif text-base tracking-tight md:text-lg mt-1">Mortgage Store</span>
+        <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-gold">
+          The Discount
+        </span>
+        <span className="mt-1.5 text-[14px] font-medium uppercase tracking-[0.2em] text-foreground md:text-[15px]">
+          Mortgage Store
+        </span>
       </span>
     </span>
   );
