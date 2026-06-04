@@ -29,7 +29,7 @@ export function SiteNav() {
           : "bg-background/60 backdrop-blur border-b border-transparent"
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 h-16 md:h-18 flex items-center justify-between">
+      <div className="mx-auto max-w-7xl px-6 h-24 md:h-28 flex items-center justify-between">
         <a href="/" aria-label="The Discount Mortgage Store — home">
           <Logo />
         </a>
