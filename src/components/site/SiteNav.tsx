@@ -26,8 +26,8 @@ export function SiteNav() {
       className={`sticky top-0 z-40 transition-all duration-300 bg-background border-b border-line ${
         scrolled ? "shadow-soft" : ""
       }`}
-
     >
+
       <div className="mx-auto max-w-7xl px-6 h-24 md:h-28 flex items-center justify-between">
         <a href="/" aria-label="The Discount Mortgage Store — home">
           <Logo />
