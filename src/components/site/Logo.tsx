@@ -1,5 +1,7 @@
+import wideLogo from "@/assets/logo-wide.png.asset.json";
+
 export function Logo({ size = "md", className = "" }: { size?: "md" | "lg"; className?: string }) {
-  // Footer / hero: full image (image already includes the wordmark, big enough to read).
+  // Footer / hero: full stacked lockup (image already includes the wordmark).
   if (size === "lg") {
     return (
       <img
@@ -9,34 +11,21 @@ export function Logo({ size = "md", className = "" }: { size?: "md" | "lg"; clas
         height={1254}
         loading="eager"
         decoding="async"
-        className={`block h-20 w-auto md:h-24 ${className}`.trim()}
+        className={`block h-20 w-auto md:h-28 ${className}`.trim()}
       />
     );
   }
 
-  // Nav (default): cropped architecture mark + a single-family sans wordmark.
-  // Same font for both lines, distinguished only by size and color, matching the
-  // sans typography inside the logo image itself.
+  // Nav: horizontal lockup so the architecture mark and wordmark stay optically aligned.
   return (
-    <span className={`font-sans inline-flex items-center gap-2.5 leading-none ${className}`.trim()}>
-      <span
-        role="img"
-        aria-label="The Discount Mortgage Store"
-        className="block h-11 w-11 shrink-0 bg-no-repeat md:h-12 md:w-12"
-        style={{
-          backgroundImage: "url(/logo.webp)",
-          backgroundSize: "auto 158%",
-          backgroundPosition: "top center",
-        }}
-      />
-      <span className="inline-flex flex-col">
-        <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-gold">
-          The Discount
-        </span>
-        <span className="mt-1.5 text-[14px] font-medium uppercase tracking-[0.2em] text-foreground md:text-[15px]">
-          Mortgage Store
-        </span>
-      </span>
-    </span>
+    <img
+      src={wideLogo.url}
+      alt="The Discount Mortgage Store"
+      width={586}
+      height={182}
+      loading="eager"
+      decoding="async"
+      className={`block h-16 w-auto md:h-20 ${className}`.trim()}
+    />
   );
 }
