@@ -59,7 +59,14 @@ export function Hero() {
             <div className="divide-y divide-line">
               {RATES.map((r) => (
                 <div key={r.name} className="flex items-center justify-between py-4">
-                  <span className="text-sm tracking-wide text-foreground/70">{r.name}</span>
+                  <div className="flex flex-col">
+                    <span className="text-sm tracking-wide text-foreground/70">{r.name}</span>
+                    {r.note && (
+                      <span className="text-[10px] uppercase tracking-widest text-gold mt-0.5">
+                        {r.note}
+                      </span>
+                    )}
+                  </div>
                   <span className="font-serif text-2xl text-foreground">{r.rate}</span>
                 </div>
               ))}
