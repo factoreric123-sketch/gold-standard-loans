@@ -529,6 +529,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Bank statement loans let self-employed borrowers and business owners qualify using 12–24 months of deposits instead of tax returns. They're the answer when write-offs make your tax income look smaller than the cash flow your business actually generates.",
     highlights: [
+      "Rates starting at 6.75% for a 5-year ARM",
       "Qualify with 12–24 months of bank statements",
       "No tax returns or W-2s required",
       "Personal or business accounts accepted",
