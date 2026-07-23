@@ -688,6 +688,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Debt-Service Coverage Ratio (DSCR) loans qualify based on a property's rental income rather than your personal income. Approval hinges on whether the rent covers the mortgage payment — making them a favorite for investors scaling a portfolio.",
     highlights: [
+      "No income verification — investment properties only",
       "Qualify on property cash flow, not personal income",
       "No tax returns or employment verification",
       "Close in an LLC to protect personal assets",
