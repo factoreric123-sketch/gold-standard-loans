@@ -73,7 +73,8 @@ export const PROGRAMS: Program[] = [
     overview:
       "Conventional loans are the most common path to homeownership for buyers with solid credit and steady income. Built on Fannie Mae and Freddie Mac guidelines, they offer competitive fixed and adjustable rates, flexible terms, and the ability to drop mortgage insurance once you reach 20% equity.",
     highlights: [
-      "Down payments as low as 3% for qualified buyers",
+      "30-year fixed rates as low as 6.75%",
+      "Up to 97% financing for qualified buyers",
       "Fixed and adjustable terms from 10 to 30 years",
       "Mortgage insurance cancels at 20% equity",
       "Primary homes, second homes, and rentals",
@@ -298,10 +299,11 @@ export const PROGRAMS: Program[] = [
     overview:
       "FHA loans are government-insured mortgages designed to make homeownership accessible. With lower credit and down-payment requirements than conventional financing, they're a popular choice for first-time buyers and anyone rebuilding their credit.",
     highlights: [
+      "30-year fixed FHA rates as low as 5.875%",
+      "Up to 96.5% financing",
       "Down payments as low as 3.5%",
       "Credit scores starting around 580 considered",
       "Gift funds allowed toward the down payment",
-      "Competitive rates across credit tiers",
       "Streamlined refinance options down the road",
     ],
     idealFor: [
@@ -527,6 +529,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Bank statement loans let self-employed borrowers and business owners qualify using 12–24 months of deposits instead of tax returns. They're the answer when write-offs make your tax income look smaller than the cash flow your business actually generates.",
     highlights: [
+      "Rates starting at 6.75% for a 5-year ARM",
       "Qualify with 12–24 months of bank statements",
       "No tax returns or W-2s required",
       "Personal or business accounts accepted",
@@ -685,6 +688,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Debt-Service Coverage Ratio (DSCR) loans qualify based on a property's rental income rather than your personal income. Approval hinges on whether the rent covers the mortgage payment — making them a favorite for investors scaling a portfolio.",
     highlights: [
+      "No income verification — investment properties only",
       "Qualify on property cash flow, not personal income",
       "No tax returns or employment verification",
       "Close in an LLC to protect personal assets",
@@ -1404,6 +1408,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Foreign national loans help non-U.S. citizens and non-residents purchase property in the United States — without a Social Security number or U.S. credit history. Qualify using international documentation and assets.",
     highlights: [
+      "All types of Visas accepted · ITIN OK",
       "No U.S. credit history or SSN required",
       "Qualify with international bank references",
       "Primary, vacation, and investment properties",
@@ -1531,10 +1536,10 @@ export const programBySlug = (slug: string): Program | undefined =>
   PROGRAMS.find((p) => p.slug === slug);
 
 export const RATES = [
-  { name: "30yr Fixed", rate: "6.25%" },
+  { name: "Conventional 30yr Fixed", rate: "6.75%", note: "Up to 97% financing" },
+  { name: "FHA 30yr Fixed", rate: "5.875%", note: "Up to 96.5% financing" },
+  { name: "Bank Statement 5yr ARM", rate: "6.75%", note: "No tax returns" },
   { name: "15yr Fixed", rate: "5.5%" },
-  { name: "5/1 ARM", rate: "6.25%" },
-  { name: "FHA", rate: "5.9%" },
 ];
 
 export type Stat = { value: number; suffix?: string; label: string };
