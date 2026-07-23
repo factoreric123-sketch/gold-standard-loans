@@ -73,7 +73,8 @@ export const PROGRAMS: Program[] = [
     overview:
       "Conventional loans are the most common path to homeownership for buyers with solid credit and steady income. Built on Fannie Mae and Freddie Mac guidelines, they offer competitive fixed and adjustable rates, flexible terms, and the ability to drop mortgage insurance once you reach 20% equity.",
     highlights: [
-      "Down payments as low as 3% for qualified buyers",
+      "30-year fixed rates as low as 6.75%",
+      "Up to 97% financing for qualified buyers",
       "Fixed and adjustable terms from 10 to 30 years",
       "Mortgage insurance cancels at 20% equity",
       "Primary homes, second homes, and rentals",
