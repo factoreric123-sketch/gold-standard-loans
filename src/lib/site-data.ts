@@ -299,10 +299,11 @@ export const PROGRAMS: Program[] = [
     overview:
       "FHA loans are government-insured mortgages designed to make homeownership accessible. With lower credit and down-payment requirements than conventional financing, they're a popular choice for first-time buyers and anyone rebuilding their credit.",
     highlights: [
+      "30-year fixed FHA rates as low as 5.875%",
+      "Up to 96.5% financing",
       "Down payments as low as 3.5%",
       "Credit scores starting around 580 considered",
       "Gift funds allowed toward the down payment",
-      "Competitive rates across credit tiers",
       "Streamlined refinance options down the road",
     ],
     idealFor: [
