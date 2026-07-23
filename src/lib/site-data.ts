@@ -1408,6 +1408,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Foreign national loans help non-U.S. citizens and non-residents purchase property in the United States — without a Social Security number or U.S. credit history. Qualify using international documentation and assets.",
     highlights: [
+      "All types of Visas accepted · ITIN OK",
       "No U.S. credit history or SSN required",
       "Qualify with international bank references",
       "Primary, vacation, and investment properties",
