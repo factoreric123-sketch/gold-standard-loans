@@ -1536,10 +1536,10 @@ export const programBySlug = (slug: string): Program | undefined =>
   PROGRAMS.find((p) => p.slug === slug);
 
 export const RATES = [
-  { name: "30yr Fixed", rate: "6.25%" },
+  { name: "Conventional 30yr Fixed", rate: "6.75%", note: "Up to 97% financing" },
+  { name: "FHA 30yr Fixed", rate: "5.875%", note: "Up to 96.5% financing" },
+  { name: "Bank Statement 5yr ARM", rate: "6.75%", note: "No tax returns" },
   { name: "15yr Fixed", rate: "5.5%" },
-  { name: "5/1 ARM", rate: "6.25%" },
-  { name: "FHA", rate: "5.9%" },
 ];
 
 export type Stat = { value: number; suffix?: string; label: string };
