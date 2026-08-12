@@ -7,6 +7,7 @@ const links = [
   { href: "/#programs", label: "Programs" },
   { href: "/#why", label: "Why Warren" },
   { href: "/#about", label: "About" },
+  { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
 ];
 
