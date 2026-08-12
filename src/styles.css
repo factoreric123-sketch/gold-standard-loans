@@ -157,37 +157,120 @@
 }
 
 .blog-content {
-  font-size: 1rem;
-  line-height: 1.75;
+  font-size: 1.0625rem;
+  line-height: 1.8;
   color: color-mix(in oklab, var(--foreground) 85%, transparent);
+  overflow-wrap: break-word;
 }
+/* Pasted exports (Soro, Docs, Word) carry inline fonts/colors/rounding — neutralize them */
+.blog-content [style] {
+  font-family: inherit !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  max-width: 100%;
+}
+.blog-content *:first-child { margin-top: 0; }
+.blog-content *:last-child { margin-bottom: 0; }
 .blog-content h1,
 .blog-content h2,
-.blog-content h3 {
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
   font-family: var(--font-serif, "Cormorant Garamond", serif);
   color: var(--foreground);
+  font-weight: 500;
   line-height: 1.2;
-  margin: 2rem 0 0.75rem;
+  margin: 2.5rem 0 0.75rem;
 }
-.blog-content h1 { font-size: 2rem; }
-.blog-content h2 { font-size: 1.6rem; }
-.blog-content h3 { font-size: 1.3rem; }
-.blog-content p { margin: 1rem 0; }
-.blog-content a { color: var(--gold); text-decoration: underline; }
+.blog-content h1 { font-size: 2.25rem; }
+.blog-content h2 {
+  font-size: 1.875rem;
+  border-top: 1px solid var(--line, rgba(186, 135, 62, 0.25));
+  padding-top: 1.75rem;
+}
+.blog-content h3 { font-size: 1.4rem; }
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  font-family: var(--font-sans, "DM Sans", sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 2rem 0 0.5rem;
+}
+.blog-content p { margin: 1.15rem 0; }
+.blog-content a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .blog-content ul,
-.blog-content ol { margin: 1rem 0 1rem 1.25rem; }
+.blog-content ol { margin: 1.15rem 0 1.15rem 1.35rem; padding-left: 0.25rem; }
 .blog-content ul { list-style: disc; }
 .blog-content ol { list-style: decimal; }
-.blog-content li { margin: 0.35rem 0; }
-.blog-content strong { color: var(--foreground); font-weight: 700; }
+.blog-content ul ul,
+.blog-content ol ol,
+.blog-content ul ol,
+.blog-content ol ul { margin-top: 0.35rem; margin-bottom: 0.35rem; }
+.blog-content li { margin: 0.4rem 0; padding-left: 0.25rem; }
+.blog-content li::marker { color: var(--gold); }
+.blog-content strong, .blog-content b { color: var(--foreground); font-weight: 700; }
+.blog-content em, .blog-content i { font-style: italic; }
 .blog-content blockquote {
   border-left: 2px solid var(--gold);
-  padding-left: 1rem;
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-family: var(--font-serif, "Cormorant Garamond", serif);
+  font-size: 1.25rem;
   font-style: italic;
-  margin: 1.5rem 0;
+  color: var(--foreground);
+  margin: 1.75rem 0;
 }
-.blog-content img { max-width: 100%; height: auto; margin: 1.5rem 0; }
-.blog-content table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.blog-content blockquote p { margin: 0.5rem 0; }
+.blog-content figure { margin: 2rem 0; }
+.blog-content figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: color-mix(in oklab, var(--foreground) 55%, transparent);
+}
+.blog-content img { max-width: 100%; height: auto; margin: 1.75rem 0; border-radius: 0; }
+.blog-content code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875em;
+  background: var(--cream, rgba(186, 135, 62, 0.08));
+  padding: 0.1em 0.35em;
+}
+.blog-content pre {
+  background: var(--cream, rgba(186, 135, 62, 0.08));
+  border: 1px solid var(--line, rgba(186, 135, 62, 0.25));
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.75rem 0;
+}
+.blog-content pre code { background: transparent; padding: 0; }
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.95rem;
+  display: block;
+  overflow-x: auto;
+}
 .blog-content th,
-.blog-content td { border: 1px solid var(--line, rgba(186,135,62,.25)); padding: 0.6rem 0.75rem; text-align: left; }
-.blog-content hr { border: 0; border-top: 1px solid var(--line, rgba(186,135,62,.25)); margin: 2rem 0; }
+.blog-content td {
+  border: 1px solid var(--line, rgba(186, 135, 62, 0.25));
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+}
+.blog-content th {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+.blog-content hr { border: 0; border-top: 1px solid var(--line, rgba(186, 135, 62, 0.25)); margin: 2.5rem 0; }
+
