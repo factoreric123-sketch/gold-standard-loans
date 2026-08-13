@@ -91,6 +91,7 @@ export type Database = {
           id: string
           session_token: string
           status: string
+          updated_at: string
           visitor_email: string | null
           visitor_name: string | null
           visitor_phone: string | null
@@ -100,6 +101,7 @@ export type Database = {
           id?: string
           session_token?: string
           status?: string
+          updated_at?: string
           visitor_email?: string | null
           visitor_name?: string | null
           visitor_phone?: string | null
@@ -109,6 +111,7 @@ export type Database = {
           id?: string
           session_token?: string
           status?: string
+          updated_at?: string
           visitor_email?: string | null
           visitor_name?: string | null
           visitor_phone?: string | null
