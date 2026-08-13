@@ -91,6 +91,15 @@ export function ChatWidget() {
       return;
     }
 
+    // Honeypot — silently drop bot submissions.
+    if (website.trim().length > 0) return;
+
+    const elapsedMs = Date.now() - formShownAt.current;
+    if (elapsedMs < 2500) {
+      setIntroError("Please take a moment to complete the form.");
+      return;
+    }
+
     setStarting(true);
     const result = await startChatSession({
       data: {
@@ -98,8 +107,11 @@ export function ChatWidget() {
         email: email.trim(),
         phone: phone.trim(),
         firstMessage: firstMsg.trim(),
+        website: "",
+        elapsedMs,
       },
     });
+
     setStarting(false);
 
     if (result.error || !result.sessionId || !result.sessionToken) {
