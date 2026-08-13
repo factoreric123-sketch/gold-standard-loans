@@ -147,6 +147,40 @@ export const sendVisitorMessage = createServerFn({ method: "POST" })
       return { error: "Invalid session" as string | null };
     }
 
+    // Abuse guards: cap total visitor messages and reject rapid-fire/duplicate sends.
+    const { count } = await supabaseAdmin
+      .from("chat_messages")
+      .select("id", { count: "exact", head: true })
+      .eq("session_id", data.sessionId)
+      .eq("sender", "visitor");
+
+    if ((count ?? 0) >= MAX_MESSAGES_PER_SESSION) {
+      return {
+        error: "You've reached the message limit for this chat. Please call us instead." as
+          | string
+          | null,
+      };
+    }
+
+    const { data: lastMsg } = await supabaseAdmin
+      .from("chat_messages")
+      .select("content, created_at")
+      .eq("session_id", data.sessionId)
+      .eq("sender", "visitor")
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    if (lastMsg) {
+      const gap = Date.now() - new Date(lastMsg.created_at as string).getTime();
+      if (gap < MIN_MESSAGE_GAP_MS) {
+        return { error: "Slow down a moment before sending again." as string | null };
+      }
+      if (lastMsg.content === data.content && gap < 10_000) {
+        return { error: "That message was already sent." as string | null };
+      }
+    }
+
     const { error } = await supabaseAdmin
       .from("chat_messages")
       .insert({
@@ -154,6 +188,7 @@ export const sendVisitorMessage = createServerFn({ method: "POST" })
         sender: "visitor",
         content: data.content,
       });
+
 
     if (error) {
       return { error: "Could not send message" as string | null };
