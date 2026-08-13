@@ -6,6 +6,9 @@ import { Reveal } from "@/components/site/motion";
 
 const ACCESS_KEY = "2fb7050f-5c48-468f-a1c0-2f0e073f38c5";
 
+// T-Mobile email-to-text gateway for (561) 577-1882 — delivers a short SMS alert.
+const SMS_GATEWAY = "5615771882@tmomail.net";
+
 export function Community() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
