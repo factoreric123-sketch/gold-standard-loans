@@ -213,7 +213,10 @@ export function Contact() {
                 .
               </p>
               <button
-                onClick={() => setDone(false)}
+                onClick={() => {
+                  formShownAt.current = Date.now();
+                  setDone(false);
+                }}
                 className="mt-7 text-sm tracking-wide border-b border-gold/60 pb-0.5 hover:border-gold transition-colors"
               >
                 Send another request
@@ -233,6 +236,16 @@ export function Contact() {
                 className="hidden"
                 aria-hidden="true"
               />
+              {/* Secondary honeypot — hidden text field bots tend to autofill */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
 
               <div className="grid grid-cols-2 gap-4">
                 <Field
