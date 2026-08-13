@@ -176,8 +176,10 @@ export function ChatWidget() {
     if (result.error) {
       setMessages((prev) => prev.filter((m) => m.id !== optimistic.id));
       setInput(content);
+      setSendError(result.error);
       return;
     }
+
 
     // Sync with server to replace the optimistic message
     const pollResult = await pollChatMessages({ data: session });
