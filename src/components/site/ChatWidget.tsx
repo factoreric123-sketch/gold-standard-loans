@@ -141,9 +141,15 @@ export function ChatWidget() {
     e.preventDefault();
     if (!input.trim() || !session || sending) return;
 
+    // Client-side cooldown between sends.
+    if (Date.now() - lastSentAt.current < 800) return;
+    lastSentAt.current = Date.now();
+
     const content = input.trim();
     setInput("");
     setSending(true);
+    setSendError("");
+
 
     // Optimistic update
     const optimistic: ChatMessage = {
