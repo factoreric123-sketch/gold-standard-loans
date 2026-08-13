@@ -28,7 +28,10 @@ export function ChatWidget() {
   const [introError, setIntroError] = useState("");
   const [starting, setStarting] = useState(false);
   const [website, setWebsite] = useState(""); // honeypot
+  const [sendError, setSendError] = useState("");
   const formShownAt = useRef<number>(Date.now());
+  const lastSentAt = useRef<number>(0);
+
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
