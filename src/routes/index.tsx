@@ -12,6 +12,7 @@ import { WhyWarren } from "@/components/site/WhyWarren";
 import { Reviews } from "@/components/site/Reviews";
 import { About } from "@/components/site/About";
 import { FAQ } from "@/components/site/FAQ";
+import { Community } from "@/components/site/Community";
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
@@ -62,6 +63,7 @@ function Index() {
         <WhyWarren />
         <About />
         <Reviews />
+        <Community />
         <FAQ />
         <Contact />
       </main>
