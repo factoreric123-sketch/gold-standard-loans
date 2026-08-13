@@ -1,57 +1,80 @@
-# The Discount Mortgage Store — Build Plan
+# Live Chat Widget — Build Plan
 
-A modern, editorial-luxury mortgage broker site for Warren Factor. White + gold (#BA873E) only, sharp edges, Cormorant Garamond headings, DM Sans body.
+A floating chat widget on every page where visitors can message Warren about mortgages. Warren replies from a dedicated admin page. Each visit starts a fresh conversation (sessionStorage, no login required).
 
-## Pages & Routes
+## How It Works
 
-Single-page marketing site with smooth-scroll anchors between sections (Programs, Why Warren, About, Contact all live on `/`). Each is a real section on the homepage — no extra route files needed since the user wants in-page scroll nav.
+```text
+Visitor (anon)                    Server (Lovable Cloud)           Warren (admin)
+─────────────                     ────────────────────             ──────────────
+Opens chat bubble          ──►    startChatSession()        ──►    Sees new session
+Enters name/email/phone           ↓ inserts session + msg          in /live-chat
+Sends a message            ──►    sendVisitorMessage()      ──►    Email notification
+                                  ↓ inserts msg                    to warrenfactor@
+Chat panel polls every 3s  ──►    pollChatMessages()
+                                  ↓ returns new msgs       ◄──   Warren types reply
+Sees Warren's reply ◄────────────────────────────────────────    (inserts via admin RLS)
+```
 
-- `src/routes/index.tsx` — home (all sections)
-- `src/routes/__root.tsx` — keep shell, update meta (title, description, og)
+## 1. Database Migration
 
-## Design System (`src/styles.css`)
+Two new tables with GRANT + RLS:
 
-- Tokens: `--background` white, `--foreground` charcoal (#1a1a1a), `--gold` #BA873E, `--gold-foreground` white, `--cream` #faf7f2, `--off-white` #f5f3ee, `--charcoal` #1a1a1a, `--border` rgba gold 20%
-- `--radius: 0` (zero rounded corners everywhere)
-- Fonts via Google Fonts link in root head: Cormorant Garamond (400/500/600 + italic) for `font-serif`, DM Sans (400/500/700) for `font-sans` (default body)
-- No gradients, no shadows. Flat 1px gold dividers.
+**`chat_sessions`**
+- `id` uuid PK, `session_token` uuid (random, validates anonymous access), `visitor_name` text, `visitor_email` text, `visitor_phone` text, `status` text default `'active'`, `created_at` timestamptz
+- RLS: admins can SELECT/UPDATE all (via `has_role`); anon has no direct access (server functions handle it)
 
-## Components (`src/components/`)
+**`chat_messages`**
+- `id` uuid PK, `session_id` uuid FK → chat_sessions, `sender` text (`'visitor'` | `'broker'`), `content` text, `created_at` timestamptz
+- RLS: admins can SELECT/INSERT all; anon has no direct access
 
-- `RateTicker.tsx` — sticky top bar, charcoal bg, gold text, marquee animation (CSS keyframe translateX loop) with the rate string
-- `SiteNav.tsx` — sticky below ticker; logo left, center anchor links (Programs, Why Warren, About, Contact), gold "Call Now" button right (tel: link)
-- `Hero.tsx` — two-column. Left: eyebrow chip, H1 with italic gold "Proven", subhead, two CTAs (Apply → blink.mortgage external, phone outlined). Right: white card with rates table + 3 trust stats below
-- `Programs.tsx` — section label + H2, responsive grid (1/2/3/4 cols) of 14 cards with lucide icons, separated by 1px gold lines (use border tricks, not card borders), hover bg `color-mix(in oklab, var(--gold) 6%, transparent)`
-- `WhyWarren.tsx` — charcoal bg, white H2, left: 4 stat blocks (gold numerals, serif), broker-vs-bank paragraph; right: review card with 5 gold stars, italic serif pull quote, Zillow link
-- `About.tsx` — off-white bg, two-col: left portrait placeholder (tall, gold/charcoal block — generate via imagegen), right name/title/bio + credential strip with left gold border
-- `Contact.tsx` — cream bg, two-col: left big serif phone, email, address, NMLS; right form (react-hook-form + zod) with 14 loan-type options + "Not Sure", gold submit. On submit: toast success (no backend, since Cloud disabled).
-- `SiteFooter.tsx` — charcoal, 3 cols + tagline + full NMLS disclosure + Equal Housing Lender badge (simple inline SVG/text)
+Both tables: `GRANT` to `authenticated` + `service_role`, `ENABLE ROW LEVEL SECURITY`, admin policies via `has_role(auth.uid(), 'admin')`.
 
-## Data
+## 2. Server Functions (`src/lib/chat.functions.ts`)
 
-`src/lib/programs.ts` — array of 14 programs (name, description, lucide icon name).
-`src/lib/rates.ts` — current rates for ticker + hero card (single source).
+Uses `supabaseAdmin` (service role, bypasses RLS) loaded inside each handler with `await import`. The server function validates the `session_token` before any read/write — this is the security boundary since the visitor is anonymous.
 
-## Form Behavior
+- `startChatSession({ name, email, phone, firstMessage })` → creates session with random token, inserts first message, emails Warren via Web3Forms (reusing the existing access key), returns `{ sessionId, sessionToken }`
+- `sendVisitorMessage({ sessionId, sessionToken, content })` → validates token, inserts message, returns success
+- `pollChatMessages({ sessionId, sessionToken, afterId })` → validates token, returns messages with id > afterId (for incremental polling)
+- `getActiveChatSessions()` → `.middleware([requireSupabaseAuth])` → returns active sessions with last message preview (admin only)
 
-Client-only. Zod schema validates name/phone/email/loan type/message. On submit, show sonner toast "Thanks — Warren will reach out shortly" and reset. No data persistence (Lovable Cloud disabled).
+Warren's replies: inserted directly from the admin page via the authenticated `supabase` client (RLS allows admin INSERT on chat_messages).
 
-## SEO / Head
+## 3. Floating Chat Widget (`src/components/site/ChatWidget.tsx`)
 
-Update root `head()`: title "Florida's Lowest Mortgage Rates | The Discount Mortgage Store", description, og tags. Single H1 in Hero.
+Client-only component (uses `useEffect` for all browser logic — no SSR state):
 
-## Image
+- **Closed state**: gold chat bubble fixed bottom-right (`bottom-20 md:bottom-6 right-4` to clear the mobile CTA bar)
+- **Open state**: panel (~360px wide, full height on mobile) with:
+  - Header: "Chat with Warren" + close button
+  - Intro form (shown first): name, email, phone — then unlocks chat
+  - Message list: visitor messages right-aligned (gold bubble), Warren messages left-aligned (white/cream bubble)
+  - Input box + send button at bottom
+- **Session management**: sessionStorage stores `{ sessionId, sessionToken }`. Fresh each tab open.
+- **Polling**: `setInterval` every 3 seconds calling `pollChatMessages` with the last seen message ID
+- **Auto-scroll** to bottom on new messages
 
-One generated portrait for About section (tall 3:4, editorial b&w-leaning with gold tone) saved to `src/assets/warren-portrait.jpg`.
+## 4. Mount in Root Layout (`src/routes/__root.tsx`)
+
+Add `<ChatWidget />` as a sibling of `<Outlet />` inside `RootComponent` (outside the router outlet so it persists across page navigations). Wrapped in `<ClientOnly>` or guarded with `typeof window` check to avoid SSR issues.
+
+## 5. Admin Live Chat Page (`src/routes/_authenticated/live-chat.tsx`)
+
+Route: `/live-chat` (under the authenticated layout). Warren accesses this from the admin header.
+
+- **Left panel**: list of active sessions (visitor name, last message preview, time ago, unread indicator). Polls every 5s for new sessions/messages.
+- **Right panel**: selected session's full conversation + reply input box.
+- **Reply**: inserts via `supabase.from("chat_messages").insert({ session_id, sender: "broker", content })` — RLS allows admin INSERT.
+- Header link: "Blog Admin" | "Live Chat" | "Sign out"
+
+## 6. Admin Header Update (`src/routes/_authenticated/admin.tsx`)
+
+Add a "Live Chat" link in the admin header next to "View blog" so Warren can navigate between the two admin pages.
 
 ## Out of Scope
 
-- No backend / form submission to email (Cloud disabled). Form is UI-only with toast confirmation. Can be wired up later if user enables Cloud or provides an endpoint.
-- No live rate API — rates are static constants the user can edit.
-
-## Technical Notes
-
-- Marquee: pure CSS `@keyframes` translating a duplicated text track for seamless loop.
-- Smooth scroll: `html { scroll-behavior: smooth }` + nav links use `#programs`, `#why`, `#about`, `#contact` with matching `id` on sections.
-- Mobile: ticker stays, nav collapses to hamburger (Sheet from shadcn), hero stacks, programs grid → 1 col, contact stacks.
-- All colors via tokens — no hex in components except the generated portrait prompt.
+- No AI/chatbot — Warren responds manually
+- No typing indicators or presence status
+- No chat history across visits (sessionStorage clears on tab close)
+- No realtime/WebSocket — polling is sufficient for a mortgage broker site
