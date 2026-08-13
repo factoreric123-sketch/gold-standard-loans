@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -20,6 +21,11 @@ import { Route as AuthenticatedQaRouteImport } from './routes/_authenticated/qa'
 import { Route as AuthenticatedLiveChatRouteImport } from './routes/_authenticated/live-chat'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
+const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
+  id: '/special-programs',
+  path: '/special-programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthRoute = AuthRouteImport.update({
   id: '/auth',
   path: '/auth',
@@ -73,6 +79,7 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/special-programs': typeof SpecialProgramsRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
   '/qa': typeof AuthenticatedQaRoute
@@ -84,6 +91,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/special-programs': typeof SpecialProgramsRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
   '/qa': typeof AuthenticatedQaRoute
@@ -97,6 +105,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/special-programs': typeof SpecialProgramsRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/live-chat': typeof AuthenticatedLiveChatRoute
   '/_authenticated/qa': typeof AuthenticatedQaRoute
@@ -110,6 +119,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/special-programs'
     | '/admin'
     | '/live-chat'
     | '/qa'
@@ -121,6 +131,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/special-programs'
     | '/admin'
     | '/live-chat'
     | '/qa'
@@ -133,6 +144,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/special-programs'
     | '/_authenticated/admin'
     | '/_authenticated/live-chat'
     | '/_authenticated/qa'
@@ -146,6 +158,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  SpecialProgramsRoute: typeof SpecialProgramsRoute
   BlogSlugRoute: typeof BlogSlugRoute
   LandingLowRatesRoute: typeof LandingLowRatesRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
@@ -154,6 +167,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/special-programs': {
+      id: '/special-programs'
+      path: '/special-programs'
+      fullPath: '/special-programs'
+      preLoaderRoute: typeof SpecialProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/auth': {
       id: '/auth'
       path: '/auth'
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  SpecialProgramsRoute: SpecialProgramsRoute,
   BlogSlugRoute: BlogSlugRoute,
   LandingLowRatesRoute: LandingLowRatesRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
