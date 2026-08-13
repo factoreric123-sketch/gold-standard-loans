@@ -27,8 +27,11 @@ export function ChatWidget() {
   const [firstMsg, setFirstMsg] = useState("");
   const [introError, setIntroError] = useState("");
   const [starting, setStarting] = useState(false);
+  const [website, setWebsite] = useState(""); // honeypot
+  const formShownAt = useRef<number>(Date.now());
 
   const scrollRef = useRef<HTMLDivElement>(null);
+
 
   // Restore session from sessionStorage on mount
   useEffect(() => {
