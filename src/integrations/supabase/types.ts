@@ -151,6 +151,39 @@ export type Database = {
         }
         Relationships: []
       }
+      qa_items: {
+        Row: {
+          answer: string
+          approved: boolean
+          asker_name: string | null
+          created_at: string
+          id: string
+          question: string
+          sort_order: number
+          updated_at: string
+        }
+        Insert: {
+          answer: string
+          approved?: boolean
+          asker_name?: string | null
+          created_at?: string
+          id?: string
+          question: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Update: {
+          answer?: string
+          approved?: boolean
+          asker_name?: string | null
+          created_at?: string
+          id?: string
+          question?: string
+          sort_order?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string

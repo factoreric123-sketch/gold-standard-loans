@@ -16,6 +16,7 @@ import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
 import { Route as LandingLowRatesRouteImport } from './routes/landing.low-rates'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthenticatedQaRouteImport } from './routes/_authenticated/qa'
 import { Route as AuthenticatedLiveChatRouteImport } from './routes/_authenticated/live-chat'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
@@ -53,6 +54,11 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedQaRoute = AuthenticatedQaRouteImport.update({
+  id: '/qa',
+  path: '/qa',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedLiveChatRoute = AuthenticatedLiveChatRouteImport.update({
   id: '/live-chat',
   path: '/live-chat',
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
+  '/qa': typeof AuthenticatedQaRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/landing/low-rates': typeof LandingLowRatesRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
+  '/qa': typeof AuthenticatedQaRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/landing/low-rates': typeof LandingLowRatesRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/live-chat': typeof AuthenticatedLiveChatRoute
+  '/_authenticated/qa': typeof AuthenticatedQaRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/landing/low-rates': typeof LandingLowRatesRoute
   '/programs/$slug': typeof ProgramsSlugRoute
@@ -103,6 +112,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/admin'
     | '/live-chat'
+    | '/qa'
     | '/blog/$slug'
     | '/landing/low-rates'
     | '/programs/$slug'
@@ -113,6 +123,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/admin'
     | '/live-chat'
+    | '/qa'
     | '/blog/$slug'
     | '/landing/low-rates'
     | '/programs/$slug'
@@ -124,6 +135,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/_authenticated/admin'
     | '/_authenticated/live-chat'
+    | '/_authenticated/qa'
     | '/blog/$slug'
     | '/landing/low-rates'
     | '/programs/$slug'
@@ -191,6 +203,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/qa': {
+      id: '/_authenticated/qa'
+      path: '/qa'
+      fullPath: '/qa'
+      preLoaderRoute: typeof AuthenticatedQaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/live-chat': {
       id: '/_authenticated/live-chat'
       path: '/live-chat'
@@ -211,11 +230,13 @@ declare module '@tanstack/react-router' {
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedLiveChatRoute: typeof AuthenticatedLiveChatRoute
+  AuthenticatedQaRoute: typeof AuthenticatedQaRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedLiveChatRoute: AuthenticatedLiveChatRoute,
+  AuthenticatedQaRoute: AuthenticatedQaRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
