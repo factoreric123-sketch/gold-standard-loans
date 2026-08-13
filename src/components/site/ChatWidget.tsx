@@ -27,8 +27,14 @@ export function ChatWidget() {
   const [firstMsg, setFirstMsg] = useState("");
   const [introError, setIntroError] = useState("");
   const [starting, setStarting] = useState(false);
+  const [website, setWebsite] = useState(""); // honeypot
+  const [sendError, setSendError] = useState("");
+  const formShownAt = useRef<number>(Date.now());
+  const lastSentAt = useRef<number>(0);
+
 
   const scrollRef = useRef<HTMLDivElement>(null);
+
 
   // Restore session from sessionStorage on mount
   useEffect(() => {
@@ -88,6 +94,15 @@ export function ChatWidget() {
       return;
     }
 
+    // Honeypot — silently drop bot submissions.
+    if (website.trim().length > 0) return;
+
+    const elapsedMs = Date.now() - formShownAt.current;
+    if (elapsedMs < 2500) {
+      setIntroError("Please take a moment to complete the form.");
+      return;
+    }
+
     setStarting(true);
     const result = await startChatSession({
       data: {
@@ -95,8 +110,11 @@ export function ChatWidget() {
         email: email.trim(),
         phone: phone.trim(),
         firstMessage: firstMsg.trim(),
+        website: "",
+        elapsedMs,
       },
     });
+
     setStarting(false);
 
     if (result.error || !result.sessionId || !result.sessionToken) {
@@ -126,9 +144,15 @@ export function ChatWidget() {
     e.preventDefault();
     if (!input.trim() || !session || sending) return;
 
+    // Client-side cooldown between sends.
+    if (Date.now() - lastSentAt.current < 800) return;
+    lastSentAt.current = Date.now();
+
     const content = input.trim();
     setInput("");
     setSending(true);
+    setSendError("");
+
 
     // Optimistic update
     const optimistic: ChatMessage = {
@@ -152,8 +176,10 @@ export function ChatWidget() {
     if (result.error) {
       setMessages((prev) => prev.filter((m) => m.id !== optimistic.id));
       setInput(content);
+      setSendError(result.error);
       return;
     }
+
 
     // Sync with server to replace the optimistic message
     const pollResult = await pollChatMessages({ data: session });
@@ -208,7 +234,18 @@ export function ChatWidget() {
                 your loan options.
               </p>
               <form onSubmit={handleStartChat} className="mt-5 space-y-3">
+                {/* Honeypot — hidden from humans, bots fill it in */}
                 <input
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+                <input
+
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
@@ -287,10 +324,17 @@ export function ChatWidget() {
                 )}
               </div>
 
+              {sendError && (
+                <p className="border-t border-line px-4 py-2 text-xs text-destructive">
+                  {sendError}
+                </p>
+              )}
+
               <form
                 onSubmit={handleSend}
                 className="flex gap-2 border-t border-line p-3"
               >
+
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}

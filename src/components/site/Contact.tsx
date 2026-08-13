@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { CheckCircle2, ArrowRight } from "lucide-react";
@@ -91,6 +91,8 @@ export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const formShownAt = useRef<number>(Date.now());
+  const lastSubmitAt = useRef<number>(0);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -99,6 +101,20 @@ export function Contact() {
 
     // Spam honeypot — bots fill hidden fields.
     if ((fd.get("botcheck") as string)?.length) return;
+    if ((fd.get("website") as string)?.length) return;
+
+    // Speed trap — humans don't complete this form in under 3 seconds.
+    if (Date.now() - formShownAt.current < 3000) {
+      toast.error("Please take a moment to complete the form.");
+      return;
+    }
+
+    // Cooldown between submissions from the same browser.
+    if (Date.now() - lastSubmitAt.current < 15000) {
+      toast.error("You just sent a request — please wait a moment.");
+      return;
+    }
+
 
     const parsed = schema.safeParse(Object.fromEntries(fd.entries()));
     if (!parsed.success) {
@@ -125,8 +141,10 @@ export function Contact() {
             "Contact: submission saved to DB but Web3Forms email was not sent (VITE_WEB3FORMS_KEY missing or relay failed).",
           );
         }
+        lastSubmitAt.current = Date.now();
         setDone(true);
         form.reset();
+
       } else {
         throw new Error("Both email and DB submissions failed");
       }
@@ -195,7 +213,10 @@ export function Contact() {
                 .
               </p>
               <button
-                onClick={() => setDone(false)}
+                onClick={() => {
+                  formShownAt.current = Date.now();
+                  setDone(false);
+                }}
                 className="mt-7 text-sm tracking-wide border-b border-gold/60 pb-0.5 hover:border-gold transition-colors"
               >
                 Send another request
@@ -215,6 +236,16 @@ export function Contact() {
                 className="hidden"
                 aria-hidden="true"
               />
+              {/* Secondary honeypot — hidden text field bots tend to autofill */}
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+
 
               <div className="grid grid-cols-2 gap-4">
                 <Field
