@@ -1705,3 +1705,5 @@ export const FAQS: Faq[] = [
     a: "No. Reaching out for a quote or to ask questions does not impact your credit. A credit check only happens later, with your permission, once you decide to move forward.",
   },
 ];
+
+export const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/935068596528696";

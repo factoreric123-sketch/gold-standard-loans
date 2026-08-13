@@ -10,6 +10,7 @@ import {
   BROKER_NAME,
   SINCE_YEAR,
   APPLY_URL,
+  FACEBOOK_GROUP_URL,
 } from "@/lib/site-data";
 import { Logo } from "@/components/site/Logo";
 
@@ -80,6 +81,16 @@ export function SiteFooter() {
               <li>
                 <a href="/#contact" className="hover:text-gold">
                   Contact
+                </a>
+              </li>
+              <li>
+                <a
+                  href={FACEBOOK_GROUP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold"
+                >
+                  Facebook Group
                 </a>
               </li>
               <li>
