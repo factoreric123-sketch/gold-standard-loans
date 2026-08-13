@@ -38,16 +38,37 @@ async function notifyWarren(
   }
 }
 
+/** Minimum time a real human takes to fill in the intro form. */
+const MIN_FORM_MS = 2500;
+/** Hard ceiling on visitor messages in one session. */
+const MAX_MESSAGES_PER_SESSION = 100;
+/** Minimum gap between two visitor messages. */
+const MIN_MESSAGE_GAP_MS = 800;
+
 export const startChatSession = createServerFn({ method: "POST" })
   .inputValidator((data) =>
     z.object({
       name: z.string().trim().min(1, "Name is required").max(80),
-      email: z.string().trim().min(3, "Email is required").max(200),
+      email: z.string().trim().email("Valid email is required").max(200),
       phone: z.string().trim().min(7, "Valid phone is required").max(30),
       firstMessage: z.string().trim().min(1, "Message is required").max(2000),
+      // Bot protection — hidden field, must stay empty.
+      website: z.string().max(200).optional().default(""),
+      // Milliseconds between the form rendering and submitting.
+      elapsedMs: z.number().int().nonnegative().max(86_400_000).default(0),
     }).parse(data),
   )
   .handler(async ({ data }) => {
+    // Honeypot / speed checks: bots fill hidden fields and submit instantly.
+    if (data.website.trim().length > 0 || data.elapsedMs < MIN_FORM_MS) {
+      return {
+        sessionId: null as string | null,
+        sessionToken: null as string | null,
+        error: "Could not start chat. Please try again." as string | null,
+      };
+    }
+
+
     const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const { data: session, error: sessionError } = await supabaseAdmin
