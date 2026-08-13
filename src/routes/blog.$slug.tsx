@@ -58,6 +58,7 @@ function BlogPost() {
             className="blog-content mt-10 border-t border-line pt-10"
             dangerouslySetInnerHTML={{ __html: post.content_html }}
           />
+          <BlogCTA />
         </article>
       </main>
       <SiteFooter />
