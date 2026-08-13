@@ -6,6 +6,7 @@ import { MobileCTA } from "@/components/site/MobileCTA";
 import { getPublishedPost } from "@/lib/blog.functions";
 import { COMPANY_NAME } from "@/lib/site-data";
 import { formatPostDate } from "@/lib/blog-format";
+import { BlogCTA } from "@/components/site/BlogCTA";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
