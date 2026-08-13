@@ -130,6 +130,9 @@ function AdminPage() {
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
           <h1 className="font-serif text-2xl">Blog Admin</h1>
           <div className="flex items-center gap-5 text-xs uppercase tracking-[0.2em]">
+            <Link to="/live-chat" className="text-foreground/60 hover:text-gold">
+              Live Chat
+            </Link>
             <Link to="/blog" className="text-foreground/60 hover:text-gold">
               View blog
             </Link>
