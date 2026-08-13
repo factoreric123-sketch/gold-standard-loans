@@ -411,7 +411,7 @@ async function saveToDb(data: Fields): Promise<boolean> {
   try {
     const { error } = await supabase.from("contact_submissions").insert({
       first_name: data.name,
-      last_name: null,
+      last_name: "",
       phone: data.phone,
       email: data.email,
       loan_type: data.loanType,
