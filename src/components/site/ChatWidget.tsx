@@ -234,7 +234,18 @@ export function ChatWidget() {
                 your loan options.
               </p>
               <form onSubmit={handleStartChat} className="mt-5 space-y-3">
+                {/* Honeypot — hidden from humans, bots fill it in */}
                 <input
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+                <input
+
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="Your name"
