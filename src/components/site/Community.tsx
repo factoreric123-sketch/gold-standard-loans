@@ -31,6 +31,7 @@ export function Community() {
 
     setSubmitting(true);
     try {
+      // 1) Full email notification to warrenfactor@gmail.com
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -38,18 +39,37 @@ export function Community() {
           access_key: ACCESS_KEY,
           subject: `New community question — ${name}`,
           from_name: `${COMPANY_NAME} community`,
+          replyto: email,
           name,
           email,
           question,
         }),
       });
       const json = (await res.json()) as { success?: boolean };
+
+      // 2) Short SMS alert via the T-Mobile email-to-text gateway.
+      //    Sent as a separate, trimmed message so it reads well on a phone.
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          ccemail: SMS_GATEWAY,
+          subject: `Question from ${name}`,
+          from_name: "TDMS",
+          message: `${name} (${email}): ${question.slice(0, 240)}`,
+        }),
+      }).catch(() => {
+        /* SMS is best-effort; the email above is the source of truth */
+      });
+
       if (json.success) {
         setDone(true);
         toast.success("Question sent — Warren will get back to you.");
       } else {
         toast.error("Could not send your question. Please call or email instead.");
       }
+
     } catch {
       toast.error("Could not send your question. Please call or email instead.");
     } finally {
