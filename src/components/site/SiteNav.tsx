@@ -5,8 +5,8 @@ import { Logo } from "@/components/site/Logo";
 
 const links = [
   { href: "/#programs", label: "Programs" },
+  { href: "/special-programs", label: "Special Programs" },
   { href: "/#why", label: "Why Warren" },
-  { href: "/#about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
 ];

@@ -63,6 +63,11 @@ export function SiteFooter() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a href="/special-programs" className="hover:text-gold">
+                  Special Programs
+                </a>
+              </li>
             </ul>
           </div>
           <div>
