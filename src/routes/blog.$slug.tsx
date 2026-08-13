@@ -6,6 +6,7 @@ import { MobileCTA } from "@/components/site/MobileCTA";
 import { getPublishedPost } from "@/lib/blog.functions";
 import { COMPANY_NAME } from "@/lib/site-data";
 import { formatPostDate } from "@/lib/blog-format";
+import { BlogCTA } from "@/components/site/BlogCTA";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
@@ -57,6 +58,7 @@ function BlogPost() {
             className="blog-content mt-10 border-t border-line pt-10"
             dangerouslySetInnerHTML={{ __html: post.content_html }}
           />
+          <BlogCTA />
         </article>
       </main>
       <SiteFooter />

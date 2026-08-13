@@ -53,6 +53,13 @@ export function ChatWidget() {
     }
   }, []);
 
+  // Allow other components (e.g. BlogCTA) to open the chat widget.
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("tdms-open-chat", handler);
+    return () => window.removeEventListener("tdms-open-chat", handler);
+  }, []);
+
   // Auto-scroll on new messages
   useEffect(() => {
     const el = scrollRef.current;
