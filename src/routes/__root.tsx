@@ -187,6 +187,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <ChatWidget />
     </QueryClientProvider>
   );
 }
