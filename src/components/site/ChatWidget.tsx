@@ -324,10 +324,17 @@ export function ChatWidget() {
                 )}
               </div>
 
+              {sendError && (
+                <p className="border-t border-line px-4 py-2 text-xs text-destructive">
+                  {sendError}
+                </p>
+              )}
+
               <form
                 onSubmit={handleSend}
                 className="flex gap-2 border-t border-line p-3"
               >
+
                 <input
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
