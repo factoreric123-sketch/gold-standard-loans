@@ -141,8 +141,10 @@ export function Contact() {
             "Contact: submission saved to DB but Web3Forms email was not sent (VITE_WEB3FORMS_KEY missing or relay failed).",
           );
         }
+        lastSubmitAt.current = Date.now();
         setDone(true);
         form.reset();
+
       } else {
         throw new Error("Both email and DB submissions failed");
       }
