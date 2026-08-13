@@ -91,6 +91,8 @@ export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const formShownAt = useRef<number>(Date.now());
+  const lastSubmitAt = useRef<number>(0);
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -99,6 +101,20 @@ export function Contact() {
 
     // Spam honeypot — bots fill hidden fields.
     if ((fd.get("botcheck") as string)?.length) return;
+    if ((fd.get("website") as string)?.length) return;
+
+    // Speed trap — humans don't complete this form in under 3 seconds.
+    if (Date.now() - formShownAt.current < 3000) {
+      toast.error("Please take a moment to complete the form.");
+      return;
+    }
+
+    // Cooldown between submissions from the same browser.
+    if (Date.now() - lastSubmitAt.current < 15000) {
+      toast.error("You just sent a request — please wait a moment.");
+      return;
+    }
+
 
     const parsed = schema.safeParse(Object.fromEntries(fd.entries()));
     if (!parsed.success) {
