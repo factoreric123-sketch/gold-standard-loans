@@ -69,8 +69,8 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="/calculator" className="hover:text-gold">
-                  Payment Calculator
+                <a href="/todays-rates" className="hover:text-gold">
+                  Today's Rates
                 </a>
               </li>
             </ul>

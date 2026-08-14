@@ -22,46 +22,45 @@ const TREASURY_RATES: TRate[] = [
 ];
 const TREASURY_ASOF = "Aug 14, 2026";
 
-export const Route = createFileRoute("/calculator")({
+export const Route = createFileRoute("/todays-rates")({
   head: () => ({
     meta: [
       {
-        title: "Mortgage Payment Calculator | Estimate Your Monthly Payment — The Discount Mortgage Store",
+        title: "Today's Mortgage Rates & Treasury Yields — The Discount Mortgage Store",
       },
       {
         name: "description",
         content:
-          "Estimate your monthly mortgage payment with Warren Factor's free calculator. Adjust home price, down payment, rate, and term to see your principal & interest. Florida's lowest rates since 1996.",
+          "See today's U.S. Treasury yields and Florida's lowest mortgage rates from Warren Factor. Live benchmarks, a payment calculator, and current FHA, conventional, and ARM rates. Since 1996.",
       },
       {
         property: "og:title",
-        content:
-          "Mortgage Payment Calculator | Estimate Your Monthly Payment",
+        content: "Today's Mortgage Rates & Treasury Yields — The Discount Mortgage Store",
       },
       {
         property: "og:description",
         content:
-          "Estimate your monthly mortgage payment. Adjust price, down payment, rate, and term. Florida's lowest rates since 1996.",
+          "Live U.S. Treasury yields and Florida's lowest mortgage rates. Estimate your payment and call Warren for today's exact quote.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: `${SITE_URL}/calculator` },
+      { property: "og:url", content: `${SITE_URL}/todays-rates` },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Mortgage Payment Calculator | The Discount Mortgage Store",
+        content: "Today's Mortgage Rates & Treasury Yields — The Discount Mortgage Store",
       },
       {
         name: "twitter:description",
         content:
-          "Estimate your monthly mortgage payment. Florida's lowest rates since 1996.",
+          "Live Treasury yields and Florida's lowest mortgage rates. Since 1996.",
       },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/calculator` }],
+    links: [{ rel: "canonical", href: `${SITE_URL}/todays-rates` }],
   }),
-  component: CalculatorPage,
+  component: TodaysRatesPage,
 });
 
-function CalculatorPage() {
+function TodaysRatesPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <RateTicker />
