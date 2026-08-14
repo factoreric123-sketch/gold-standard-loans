@@ -8,6 +8,10 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
 
+// 5-Year Treasury Constant Maturity yield (FRED DGS5).
+// Source: https://fred.stlouisfed.org/series/DGS5 — updated 2026-08-13.
+const TREASURY_5Y = 4.38;
+
 export const Route = createFileRoute("/calculator")({
   head: () => ({
     meta: [
@@ -53,6 +57,17 @@ function CalculatorPage() {
       <RateTicker />
       <SiteNav />
       <main>
+        {/* Live benchmark — 5-Year Treasury yield, the index many ARMs track. */}
+        <section className="bg-charcoal text-background">
+          <div className="mx-auto max-w-7xl px-6 py-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[12px] uppercase tracking-[0.15em]">
+            <span className="text-background/55">Today's Benchmark</span>
+            <span className="text-gold">5-Year Treasury</span>
+            <span className="font-serif text-base text-background">{TREASURY_5Y.toFixed(2)}%</span>
+            <span className="text-background/45 normal-case tracking-normal">
+              · the index many 5/1 ARM rates follow
+            </span>
+          </div>
+        </section>
         <Calculator />
         <Contact />
       </main>
