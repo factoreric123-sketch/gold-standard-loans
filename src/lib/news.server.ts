@@ -6,8 +6,10 @@ export type NewsItem = {
   summary: string;
 };
 
-const FEEDS: { url: string; source: string }[] = [
-  { url: "https://www.mortgagenewsdaily.com/rss/full", source: "Mortgage News Daily" },
+// Feeds marked unfiltered show every article; the rest are keyword-filtered.
+const FEEDS: { url: string; source: string; unfiltered?: boolean }[] = [
+  { url: "https://www.mortgagenewsdaily.com/rss/full", source: "Mortgage News Daily", unfiltered: true },
+  { url: "https://www.cnbc.com/id/20910258/device/rss/rss.html", source: "CNBC Economy", unfiltered: true },
   { url: "https://www.housingwire.com/feed/", source: "HousingWire" },
   { url: "https://feeds.content.dowjones.io/public/rss/mw_bulletins", source: "MarketWatch" },
 ];
