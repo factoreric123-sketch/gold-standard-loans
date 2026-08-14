@@ -9,7 +9,7 @@ export function Programs() {
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal>
           <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
-            Loan Programs
+            Mortgage Products
           </div>
           <h2 className="font-serif text-4xl md:text-5xl max-w-2xl leading-tight">
             Every loan type. <span className="italic text-gold">One trusted broker.</span>
