@@ -98,8 +98,8 @@ function BuyAHomePage() {
     e.preventDefault();
     const term = query.trim().replace(/,/g, "").replace(/\s+/g, "-");
     const url = term
-      ? `https://www.zillow.com/homes/${encodeURIComponent(term)}_rb/`
-      : "https://www.zillow.com/homes/";
+      ? `https://www.zillow.com/homes/for_sale/${encodeURIComponent(term)}_rb/`
+      : "https://www.zillow.com/homes/for_sale/";
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
@@ -173,7 +173,7 @@ function BuyAHomePage() {
               {POPULAR_CITIES.map((c) => (
                 <a
                   key={c.name}
-                  href={`https://www.zillow.com/homes/${c.query}_rb/`}
+                  href={`https://www.zillow.com/homes/for_sale/${c.query}_rb/`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-background p-5 flex items-center justify-between hover:bg-accent transition-colors"
