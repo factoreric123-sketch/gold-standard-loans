@@ -11,7 +11,7 @@ import { Insights } from "@/components/site/Insights";
 import { WhyWarren } from "@/components/site/WhyWarren";
 import { BookBanner } from "@/components/site/BookBanner";
 import { Reviews } from "@/components/site/Reviews";
-import { About } from "@/components/site/About";
+
 import { FAQ } from "@/components/site/FAQ";
 import { Community } from "@/components/site/Community";
 import { QA } from "@/components/site/QA";
