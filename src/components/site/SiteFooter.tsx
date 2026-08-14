@@ -73,6 +73,11 @@ export function SiteFooter() {
                   Today's Rates
                 </a>
               </li>
+              <li>
+                <a href="/rate-news" className="hover:text-gold">
+                  Rate News
+                </a>
+              </li>
             </ul>
           </div>
           <div>
