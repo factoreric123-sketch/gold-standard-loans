@@ -6,8 +6,10 @@ export type NewsItem = {
   summary: string;
 };
 
-const FEEDS: { url: string; source: string }[] = [
-  { url: "https://www.mortgagenewsdaily.com/rss/full", source: "Mortgage News Daily" },
+// Feeds marked unfiltered show every article; the rest are keyword-filtered.
+const FEEDS: { url: string; source: string; unfiltered?: boolean }[] = [
+  { url: "https://www.mortgagenewsdaily.com/rss/full", source: "Mortgage News Daily", unfiltered: true },
+  { url: "https://www.cnbc.com/id/20910258/device/rss/rss.html", source: "CNBC Economy", unfiltered: true },
   { url: "https://www.housingwire.com/feed/", source: "HousingWire" },
   { url: "https://feeds.content.dowjones.io/public/rss/mw_bulletins", source: "MarketWatch" },
 ];
@@ -78,7 +80,7 @@ export async function fetchRateNews(): Promise<{ items: NewsItem[]; error: strin
       });
       if (!res.ok) throw new Error(`${f.source} ${res.status}`);
       const xml = await res.text();
-      const strict = f.source !== "Mortgage News Daily";
+      const strict = !f.unfiltered;
       return parseFeed(xml, f.source).filter((i) => i.title && i.link && relevant(i, strict));
     }),
   );
@@ -101,7 +103,7 @@ export async function fetchRateNews(): Promise<{ items: NewsItem[]; error: strin
   });
 
   return {
-    items: deduped.slice(0, 40),
+    items: deduped.slice(0, 60),
     error: deduped.length ? null : "Live news is temporarily unavailable. Please check back shortly.",
   };
 }
