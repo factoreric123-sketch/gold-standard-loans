@@ -103,7 +103,7 @@ export async function fetchRateNews(): Promise<{ items: NewsItem[]; error: strin
   });
 
   return {
-    items: deduped.slice(0, 40),
+    items: deduped.slice(0, 60),
     error: deduped.length ? null : "Live news is temporarily unavailable. Please check back shortly.",
   };
 }

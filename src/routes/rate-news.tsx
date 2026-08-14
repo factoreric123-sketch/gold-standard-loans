@@ -60,8 +60,8 @@ function RateNewsPage() {
               Latest Bond &amp; Mortgage Rate News
             </h1>
             <p className="mt-4 max-w-2xl text-background/60 text-sm leading-relaxed">
-              Headlines pulled live from Mortgage News Daily, HousingWire, and
-              MarketWatch. Mortgage rates follow the bond market — when Treasury
+              Headlines pulled live from Mortgage News Daily, CNBC Economy,
+              HousingWire, and MarketWatch. Mortgage rates follow the bond market — when Treasury
               yields move, your quote moves with them.
             </p>
           </div>
