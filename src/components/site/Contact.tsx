@@ -13,6 +13,7 @@ import {
   COMPANY_NAME,
   LINKEDIN_URL,
   FACEBOOK_PAGE_URL,
+  FACEBOOK_PROFILE_URL,
 } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 import { supabase } from "@/integrations/supabase/client";
