@@ -94,7 +94,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="/#about" className="hover:text-gold">
+                <a href="/#why" className="hover:text-gold">
                   About
                 </a>
               </li>
