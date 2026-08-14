@@ -11,6 +11,8 @@ import {
 import appCss from "../styles.css?url";
 import { SITE_URL, COMPANY_NAME, BROKER_NAME, PHONE_TEL, EMAIL, REVIEWS } from "@/lib/site-data";
 import { ChatWidget } from "@/components/site/ChatWidget";
+import { HashScroll } from "@/components/site/HashScroll";
+
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -187,7 +189,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <HashScroll />
       <ChatWidget />
+
     </QueryClientProvider>
   );
 }
