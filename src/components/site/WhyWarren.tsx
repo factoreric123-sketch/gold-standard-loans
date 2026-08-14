@@ -10,8 +10,11 @@ export function WhyWarren() {
         <Reveal>
           <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">Why Warren</div>
           <h2 className="font-serif text-4xl md:text-5xl text-background leading-tight">
-            Not a bank. Not a call center. <span className="italic text-gold">Your broker.</span>
+            The man behind <span className="italic text-gold">the lowest rate.</span>
           </h2>
+          <p className="mt-4 font-serif text-2xl md:text-3xl text-background/80 italic">
+            Not a bank. Not a call center. Your broker.
+          </p>
 
           <div className="mt-12 grid grid-cols-3 gap-4">
             {STATS.map((s) => (
