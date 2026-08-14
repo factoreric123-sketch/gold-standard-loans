@@ -7,6 +7,7 @@ const links = [
   { href: "/#programs", label: "Programs" },
   { href: "/special-programs", label: "Special Programs" },
   { href: "/todays-rates", label: "Today's Rates" },
+  { href: "/rate-news", label: "Rate News" },
   { href: "/#why", label: "Why Warren" },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
