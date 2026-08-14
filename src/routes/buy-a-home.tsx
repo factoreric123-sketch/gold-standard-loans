@@ -173,7 +173,7 @@ function BuyAHomePage() {
               {POPULAR_CITIES.map((c) => (
                 <a
                   key={c.name}
-                  href={`https://www.zillow.com/homes/${c.query}_rb/`}
+                  href={`https://www.zillow.com/homes/for_sale/${c.query}_rb/`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group bg-background p-5 flex items-center justify-between hover:bg-accent transition-colors"
