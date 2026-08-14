@@ -11,6 +11,7 @@ import {
   NMLS,
   PROGRAMS,
   COMPANY_NAME,
+  LINKEDIN_URL,
 } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 import { supabase } from "@/integrations/supabase/client";
@@ -196,6 +197,21 @@ export function Contact() {
                 Licensing
               </div>
               <div className="text-foreground/75">{NMLS}</div>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-2 hover:text-gold transition-colors"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-3.5 h-3.5 fill-current"
+                  aria-hidden="true"
+                >
+                  <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+                </svg>
+                LinkedIn
+              </a>
             </div>
           </div>
         </Reveal>

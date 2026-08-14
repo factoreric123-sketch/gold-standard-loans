@@ -1707,3 +1707,6 @@ export const FAQS: Faq[] = [
 ];
 
 export const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/935068596528696";
+
+export const LINKEDIN_URL =
+  "https://www.linkedin.com/in/warren-myles-factor-66258720/";
