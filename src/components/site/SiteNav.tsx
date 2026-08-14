@@ -5,7 +5,7 @@ import { Logo } from "@/components/site/Logo";
 
 const links = [
   { href: "/buy-a-home", label: "Buy a Home" },
-  { href: "/#programs", label: "Programs" },
+  { href: "/#programs", label: "Mortgage Products" },
   { href: "/special-programs", label: "Special Programs" },
   { href: "/todays-rates", label: "Today's Rates" },
   { href: "/rate-news", label: "Rate News" },

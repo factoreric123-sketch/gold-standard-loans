@@ -45,7 +45,7 @@ export function SiteFooter() {
             <div className="text-background/55">{COMPANY_NMLS}</div>
           </div>
           <div>
-            <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Programs</div>
+            <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Mortgage Products</div>
             <ul className="space-y-2">
               {[
                 "Conventional",

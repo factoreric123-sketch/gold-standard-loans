@@ -367,7 +367,7 @@ function MinimalFooter() {
             <div className="mt-2 flex flex-col gap-1.5 text-sm">
               <Link to="/" className="text-background/65 hover:text-gold transition-colors">Home</Link>
               <Link to="/blog" className="text-background/65 hover:text-gold transition-colors">Mortgage Blog</Link>
-              <Link to="/" hash="programs" className="text-background/65 hover:text-gold transition-colors">Loan Programs</Link>
+              <Link to="/" hash="programs" className="text-background/65 hover:text-gold transition-colors">Mortgage Products</Link>
             </div>
           </div>
         </div>
