@@ -80,7 +80,7 @@ export async function fetchRateNews(): Promise<{ items: NewsItem[]; error: strin
       });
       if (!res.ok) throw new Error(`${f.source} ${res.status}`);
       const xml = await res.text();
-      const strict = f.source !== "Mortgage News Daily";
+      const strict = !f.unfiltered;
       return parseFeed(xml, f.source).filter((i) => i.title && i.link && relevant(i, strict));
     }),
   );
