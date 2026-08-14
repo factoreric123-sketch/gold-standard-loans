@@ -8,9 +8,19 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
 
-// 5-Year Treasury Constant Maturity yield (FRED DGS5).
-// Source: https://fred.stlouisfed.org/series/DGS5 — updated 2026-08-13.
-const TREASURY_5Y = 4.38;
+// U.S. Treasury yields from CNBC, updated 2026-08-14.
+// Source: https://www.cnbc.com/markets/bonds/
+type TRate = { label: string; yield: number };
+const TREASURY_RATES: TRate[] = [
+  { label: "3-Mo", yield: 3.793 },
+  { label: "6-Mo", yield: 3.911 },
+  { label: "1-Yr", yield: 3.964 },
+  { label: "2-Yr", yield: 4.15 },
+  { label: "5-Yr", yield: 4.346 },
+  { label: "10-Yr", yield: 4.684 },
+  { label: "30-Yr", yield: 5.266 },
+];
+const TREASURY_ASOF = "Aug 14, 2026";
 
 export const Route = createFileRoute("/calculator")({
   head: () => ({
