@@ -301,7 +301,7 @@ function ProgramPage() {
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
             <Reveal>
               <div className="flex items-end justify-between gap-4 mb-10">
-                <h2 className="font-serif text-3xl md:text-4xl">Explore other programs</h2>
+                <h2 className="font-serif text-3xl md:text-4xl">Explore other mortgage products</h2>
                 <a
                   href="/#programs"
                   className="hidden sm:inline-flex items-center gap-1.5 text-sm tracking-wide text-gold border-b border-gold/60 pb-0.5 hover:border-gold transition-colors"
