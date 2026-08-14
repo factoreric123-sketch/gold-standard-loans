@@ -98,8 +98,8 @@ function BuyAHomePage() {
     e.preventDefault();
     const term = query.trim().replace(/,/g, "").replace(/\s+/g, "-");
     const url = term
-      ? `https://www.zillow.com/homes/${encodeURIComponent(term)}_rb/`
-      : "https://www.zillow.com/homes/";
+      ? `https://www.zillow.com/homes/for_sale/${encodeURIComponent(term)}_rb/`
+      : "https://www.zillow.com/homes/for_sale/";
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
