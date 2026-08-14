@@ -189,7 +189,9 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      <HashScroll />
       <ChatWidget />
+
     </QueryClientProvider>
   );
 }
