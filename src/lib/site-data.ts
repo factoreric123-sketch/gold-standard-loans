@@ -1706,7 +1706,7 @@ export const FAQS: Faq[] = [
   },
 ];
 
-export const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/935068596528696";
+export const FACEBOOK_GROUP_URL = "https://www.facebook.com/TheDiscountMortgageStore/";
 
 export const FACEBOOK_PAGE_URL = "https://www.facebook.com/TheDiscountMortgageStore/";
 
