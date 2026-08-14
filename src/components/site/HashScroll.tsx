@@ -6,10 +6,13 @@ import { useRouterState } from "@tanstack/react-router";
  * like `/#programs` where the target section may not exist yet on first paint.
  */
 export function HashScroll() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const locationKey = useRouterState({
+    select: (s) => `${s.location.pathname}${s.location.hash || ""}`,
+  });
 
   useEffect(() => {
     let frame = 0;
+    const correctionTimers: number[] = [];
     let cancelled = false;
 
     const scrollToHash = (hash: string, smooth: boolean) => {
@@ -21,12 +24,22 @@ export function HashScroll() {
       return true;
     };
 
-    // Retry briefly while the page hydrates / sections mount.
+    // Retry while the destination page hydrates, then correct for late layout
+    // shifts (fonts, images, and async content) that can move the section.
     const start = Date.now();
     const tryScroll = () => {
       if (cancelled) return;
       if (!window.location.hash) return;
-      if (scrollToHash(window.location.hash, false)) return;
+      if (scrollToHash(window.location.hash, false)) {
+        [150, 450, 900, 1500].forEach((delay) => {
+          correctionTimers.push(
+            window.setTimeout(() => {
+              if (!cancelled) scrollToHash(window.location.hash, false);
+            }, delay),
+          );
+        });
+        return;
+      }
       if (Date.now() - start < 2000) frame = requestAnimationFrame(tryScroll);
     };
     tryScroll();
@@ -56,9 +69,10 @@ export function HashScroll() {
     return () => {
       cancelled = true;
       cancelAnimationFrame(frame);
+      correctionTimers.forEach((timer) => window.clearTimeout(timer));
       document.removeEventListener("click", onClick);
     };
-  }, [pathname]);
+  }, [locationKey]);
 
   return null;
 }
