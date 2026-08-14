@@ -68,6 +68,11 @@ export function SiteFooter() {
                   Special Programs
                 </a>
               </li>
+              <li>
+                <a href="/calculator" className="hover:text-gold">
+                  Payment Calculator
+                </a>
+              </li>
             </ul>
           </div>
           <div>
