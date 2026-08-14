@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
+import { Route as RateNewsRouteImport } from './routes/rate-news'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -30,6 +31,11 @@ const TodaysRatesRoute = TodaysRatesRouteImport.update({
 const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
   id: '/special-programs',
   path: '/special-programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RateNewsRoute = RateNewsRouteImport.update({
+  id: '/rate-news',
+  path: '/rate-news',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -85,6 +91,7 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
+  '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
+  '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
+    | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
     | '/admin'
@@ -141,6 +151,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
+    | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
     | '/admin'
@@ -155,6 +166,7 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
+    | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
     | '/_authenticated/admin'
@@ -170,6 +182,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
+  RateNewsRoute: typeof RateNewsRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
   TodaysRatesRoute: typeof TodaysRatesRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       path: '/special-programs'
       fullPath: '/special-programs'
       preLoaderRoute: typeof SpecialProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rate-news': {
+      id: '/rate-news'
+      path: '/rate-news'
+      fullPath: '/rate-news'
+      preLoaderRoute: typeof RateNewsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -286,6 +306,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
+  RateNewsRoute: RateNewsRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
   TodaysRatesRoute: TodaysRatesRoute,
   BlogSlugRoute: BlogSlugRoute,
