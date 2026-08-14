@@ -4,6 +4,7 @@ import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
 import { Logo } from "@/components/site/Logo";
 
 const links = [
+  { href: "/buy-a-home", label: "Buy a Home" },
   { href: "/#programs", label: "Programs" },
   { href: "/special-programs", label: "Special Programs" },
   { href: "/todays-rates", label: "Today's Rates" },

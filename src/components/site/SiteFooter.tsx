@@ -64,6 +64,11 @@ export function SiteFooter() {
                 </li>
               ))}
               <li>
+                <a href="/buy-a-home" className="hover:text-gold">
+                  Buy a Home
+                </a>
+              </li>
+              <li>
                 <a href="/special-programs" className="hover:text-gold">
                   Special Programs
                 </a>
