@@ -1710,5 +1710,8 @@ export const FACEBOOK_GROUP_URL = "https://www.facebook.com/groups/9350685965286
 
 export const FACEBOOK_PAGE_URL = "https://www.facebook.com/TheDiscountMortgageStore/";
 
+// Warren's personal Facebook profile.
+export const FACEBOOK_PROFILE_URL = "https://www.facebook.com/warrenfactor";
+
 export const LINKEDIN_URL =
   "https://www.linkedin.com/in/warren-myles-factor-66258720/";
