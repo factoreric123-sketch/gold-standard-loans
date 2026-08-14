@@ -9,8 +9,8 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
-import { Route as CalculatorRouteImport } from './routes/calculator'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
@@ -22,14 +22,14 @@ import { Route as AuthenticatedQaRouteImport } from './routes/_authenticated/qa'
 import { Route as AuthenticatedLiveChatRouteImport } from './routes/_authenticated/live-chat'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
+const TodaysRatesRoute = TodaysRatesRouteImport.update({
+  id: '/todays-rates',
+  path: '/todays-rates',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
   id: '/special-programs',
   path: '/special-programs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CalculatorRoute = CalculatorRouteImport.update({
-  id: '/calculator',
-  path: '/calculator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuthRoute = AuthRouteImport.update({
@@ -85,8 +85,8 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/calculator': typeof CalculatorRoute
   '/special-programs': typeof SpecialProgramsRoute
+  '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
   '/qa': typeof AuthenticatedQaRoute
@@ -98,8 +98,8 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
-  '/calculator': typeof CalculatorRoute
   '/special-programs': typeof SpecialProgramsRoute
+  '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
   '/qa': typeof AuthenticatedQaRoute
@@ -113,8 +113,8 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
-  '/calculator': typeof CalculatorRoute
   '/special-programs': typeof SpecialProgramsRoute
+  '/todays-rates': typeof TodaysRatesRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/live-chat': typeof AuthenticatedLiveChatRoute
   '/_authenticated/qa': typeof AuthenticatedQaRoute
@@ -128,8 +128,8 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/auth'
-    | '/calculator'
     | '/special-programs'
+    | '/todays-rates'
     | '/admin'
     | '/live-chat'
     | '/qa'
@@ -141,8 +141,8 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/auth'
-    | '/calculator'
     | '/special-programs'
+    | '/todays-rates'
     | '/admin'
     | '/live-chat'
     | '/qa'
@@ -155,8 +155,8 @@ export interface FileRouteTypes {
     | '/'
     | '/_authenticated'
     | '/auth'
-    | '/calculator'
     | '/special-programs'
+    | '/todays-rates'
     | '/_authenticated/admin'
     | '/_authenticated/live-chat'
     | '/_authenticated/qa'
@@ -170,8 +170,8 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
-  CalculatorRoute: typeof CalculatorRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
+  TodaysRatesRoute: typeof TodaysRatesRoute
   BlogSlugRoute: typeof BlogSlugRoute
   LandingLowRatesRoute: typeof LandingLowRatesRoute
   ProgramsSlugRoute: typeof ProgramsSlugRoute
@@ -180,18 +180,18 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/todays-rates': {
+      id: '/todays-rates'
+      path: '/todays-rates'
+      fullPath: '/todays-rates'
+      preLoaderRoute: typeof TodaysRatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/special-programs': {
       id: '/special-programs'
       path: '/special-programs'
       fullPath: '/special-programs'
       preLoaderRoute: typeof SpecialProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/calculator': {
-      id: '/calculator'
-      path: '/calculator'
-      fullPath: '/calculator'
-      preLoaderRoute: typeof CalculatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/auth': {
@@ -286,8 +286,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
-  CalculatorRoute: CalculatorRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
+  TodaysRatesRoute: TodaysRatesRoute,
   BlogSlugRoute: BlogSlugRoute,
   LandingLowRatesRoute: LandingLowRatesRoute,
   ProgramsSlugRoute: ProgramsSlugRoute,
