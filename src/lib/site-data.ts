@@ -1715,3 +1715,13 @@ export const FACEBOOK_PROFILE_URL = "https://www.facebook.com/warrenfactor";
 
 export const LINKEDIN_URL =
   "https://www.linkedin.com/in/warren-myles-factor-66258720/";
+
+export const BOOK = {
+  title: "The Life of Tony Factor",
+  subtitle: "Overcoming Life's Obstacles",
+  author: "Warren Factor",
+  blurb:
+    "A deeply personal portrait of Tony Factor — the man, the obstacles, and the lessons that shaped a family. Written by his son, 28-year mortgage veteran Warren Factor.",
+  amazonUrl:
+    "https://www.amazon.com/Life-Tony-Factor-Overcoming-Obstacles/dp/B0DNN979V1",
+};

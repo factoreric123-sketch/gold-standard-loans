@@ -9,6 +9,7 @@ import { HowItWorks } from "@/components/site/HowItWorks";
 import { Calculator } from "@/components/site/Calculator";
 import { Insights } from "@/components/site/Insights";
 import { WhyWarren } from "@/components/site/WhyWarren";
+import { BookBanner } from "@/components/site/BookBanner";
 import { Reviews } from "@/components/site/Reviews";
 import { About } from "@/components/site/About";
 import { FAQ } from "@/components/site/FAQ";
@@ -62,6 +63,7 @@ function Index() {
         <Calculator />
         <Insights />
         <WhyWarren />
+        <BookBanner />
         <About />
         <Reviews />
         <QA />
