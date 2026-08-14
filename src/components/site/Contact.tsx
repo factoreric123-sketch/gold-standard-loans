@@ -11,6 +11,7 @@ import {
   NMLS,
   PROGRAMS,
   COMPANY_NAME,
+  LINKEDIN_URL,
 } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 import { supabase } from "@/integrations/supabase/client";
