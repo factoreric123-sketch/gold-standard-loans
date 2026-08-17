@@ -72,7 +72,7 @@ function RateNewsPage() {
         <section className="bg-background border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-14">
             <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
-              Rate Outlook
+              Mortgage Rate Prediction
             </div>
             <h2 className="font-serif text-3xl md:text-4xl leading-tight max-w-3xl">
               Will mortgage rates go up or down in the next 6 months?
