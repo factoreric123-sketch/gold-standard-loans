@@ -111,6 +111,49 @@ function TodaysRatesPage() {
         </section>
         <Calculator />
         <Contact />
+        {/* Today's U.S. Treasury yield curve — CNBC, Aug 14, 2026. */}
+        <section className="bg-charcoal text-background">
+          <div className="mx-auto max-w-7xl px-6 py-10">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-6">
+              <h2 className="font-serif text-3xl md:text-4xl tracking-tight text-gold">
+                Today's U.S. Treasury Yields
+              </h2>
+              <span className="text-[11px] uppercase tracking-[0.15em] text-background/50">
+                Source: CNBC · as of {TREASURY_ASOF}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-px bg-background/10">
+              {TREASURY_RATES.map((r) => {
+                const isFive = r.label === "5-Yr";
+                return (
+                  <div
+                    key={r.label}
+                    className={`bg-charcoal px-3 py-5 text-center ${
+                      isFive ? "ring-1 ring-gold ring-inset" : ""
+                    }`}
+                  >
+                    <div
+                      className={`text-[10px] uppercase tracking-[0.15em] ${
+                        isFive ? "text-gold" : "text-background/55"
+                      }`}
+                    >
+                      {r.label}
+                    </div>
+                    <div className="font-serif text-2xl text-background mt-1">
+                      {r.yield.toFixed(3)}
+                      <span className="text-sm">%</span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="mt-4 text-xs text-background/55 normal-case tracking-normal">
+              The <span className="text-gold">5-Year</span> Treasury is the index
+              many 5/1 ARM rates follow. Mortgage rates are priced as a margin
+              above these benchmarks — call Warren for today's exact quote.
+            </p>
+          </div>
+        </section>
       </main>
       <SiteFooter />
       <MobileCTA />
