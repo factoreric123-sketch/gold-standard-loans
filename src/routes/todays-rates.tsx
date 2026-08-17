@@ -119,6 +119,39 @@ function TodaysRatesPage() {
             </p>
           </div>
         </section>
+        {/* National average mortgage rates — Bankrate. */}
+        <section className="bg-cream border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-10">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-6">
+              <h2 className="font-serif text-3xl md:text-4xl tracking-tight">
+                National average mortgage rates
+              </h2>
+              <span className="text-[11px] uppercase tracking-[0.15em] text-foreground/50">
+                Source: Bankrate · as of {BANKRATE_ASOF}
+              </span>
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
+              {BANKRATE_AVERAGES.map((r, i) => (
+                <div
+                  key={r.label}
+                  className={`bg-card px-5 py-6 text-center ${i === 0 ? "ring-1 ring-gold ring-inset" : ""}`}
+                >
+                  <div
+                    className={`text-[10px] uppercase tracking-[0.15em] ${i === 0 ? "text-gold" : "text-foreground/55"}`}
+                  >
+                    {r.label}
+                  </div>
+                  <div className="font-serif text-3xl mt-1">{r.rate}</div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-foreground/50">
+              The national average <span className="text-gold">30-year fixed</span> rate is what
+              most banks advertise. Warren's clients routinely beat it — call for today's exact
+              quote.
+            </p>
+          </div>
+        </section>
         <Calculator />
         <Contact />
       </main>
