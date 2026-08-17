@@ -25,18 +25,17 @@ export function TranslateButton({ className = "" }: { className?: string }) {
 
   useEffect(() => {
     setLang(currentLang());
-    if (currentLang() === "en") return;
     loadWidget();
   }, []);
 
   function loadWidget() {
-    if (document.getElementById("google-translate-script")) return;
     if (!document.getElementById("google_translate_element")) {
       const div = document.createElement("div");
       div.id = "google_translate_element";
       div.style.display = "none";
       document.body.appendChild(div);
     }
+    if (document.getElementById("google-translate-script")) return;
     (window as unknown as Record<string, unknown>).googleTranslateInit = () => {
       const g = (window as any).google;
       if (g?.translate?.TranslateElement) {
@@ -53,11 +52,29 @@ export function TranslateButton({ className = "" }: { className?: string }) {
     document.body.appendChild(s);
   }
 
+  /** Drive Google's hidden <select> so the page translates without a reload. */
+  function applyViaCombo(target: string, attempt = 0) {
+    const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+    if (combo) {
+      combo.value = target === "en" ? "" : target;
+      combo.dispatchEvent(new Event("change", { bubbles: true }));
+      return;
+    }
+    if (attempt < 30) {
+      window.setTimeout(() => applyViaCombo(target, attempt + 1), 300);
+    } else {
+      window.location.reload();
+    }
+  }
+
   const toggle = () => {
     const next = lang === "es" ? "en" : "es";
     setTransCookie(next);
-    window.location.reload();
+    setLang(next);
+    loadWidget();
+    applyViaCombo(next);
   };
+
 
   return (
     <button
