@@ -37,7 +37,7 @@ export function SiteNav() {
         <a href="/" aria-label="The Discount Mortgage Store — home" className="shrink-0">
           <Logo />
         </a>
-        <nav className="hidden md:flex items-center gap-5 text-[12px] uppercase tracking-[0.12em] text-foreground/70 ml-auto">
+        <nav className="hidden md:flex items-center gap-4 text-[12px] uppercase tracking-[0.12em] text-foreground/70 ml-auto">
           {links.map((l) => (
             <a key={l.href} href={l.href} className="hover:text-foreground transition-colors">
               {l.label}
