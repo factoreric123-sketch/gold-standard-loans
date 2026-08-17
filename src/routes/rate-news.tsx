@@ -75,7 +75,7 @@ function RateNewsPage() {
               Mortgage Rate Prediction
             </div>
             <h2 className="font-serif text-3xl md:text-4xl leading-tight max-w-3xl">
-              Will mortgage rates go up or down in the next 6 months?
+              Will mortgage rates go up or down in the next 12 months?
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               The short answer: most forecasters expect the 30-year fixed rate to
