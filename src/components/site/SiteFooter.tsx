@@ -70,7 +70,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <a href="/special-programs" className="hover:text-gold">
-                  Get Money for Purchase
+                  Grant Money
                 </a>
               </li>
               <li>
