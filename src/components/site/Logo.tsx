@@ -25,7 +25,7 @@ export function Logo({ size = "md", className = "" }: { size?: "md" | "lg"; clas
       height={182}
       loading="eager"
       decoding="async"
-      className={`block h-16 w-auto md:h-20 ${className}`.trim()}
+      className={`block h-14 w-auto md:h-16 ${className}`.trim()}
     />
   );
 }
