@@ -44,7 +44,7 @@ export function SiteNav() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <TranslateButton className="hidden sm:inline-flex" />
           <a
             href={`tel:${PHONE_TEL}`}
