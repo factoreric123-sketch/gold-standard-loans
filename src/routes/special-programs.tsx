@@ -186,14 +186,23 @@ function SpecialProgramsPage() {
                     <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
                       {g.who}
                     </p>
-                    <a
-                      href={g.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
-                    >
-                      Official program <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    {g.name === "Hometown Heroes" ? (
+                      <a
+                        href="#hometown-heroes"
+                        className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
+                      >
+                        Scroll below on this page
+                      </a>
+                    ) : (
+                      <a
+                        href={g.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
+                      >
+                        Official program <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </Reveal>
               ))}
