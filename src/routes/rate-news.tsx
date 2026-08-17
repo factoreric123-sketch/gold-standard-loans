@@ -58,7 +58,7 @@ function RateNewsPage() {
               Market Watch
             </div>
             <h1 className="font-serif text-4xl md:text-5xl leading-tight max-w-3xl">
-              Latest Bond &amp; Mortgage Rate News
+              Rate Prediction Over Next 12 Months
             </h1>
             <p className="mt-4 max-w-2xl text-background/60 text-sm leading-relaxed">
               Headlines pulled live from Mortgage News Daily, CNBC Economy,
