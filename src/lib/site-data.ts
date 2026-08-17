@@ -1561,6 +1561,9 @@ export const COMPANY_NAME = "The Discount Mortgage Store";
 export const SITE_URL = "https://thediscountmortgagestore.com";
 export const BROKER_NAME = "Warren M. Factor";
 export const SINCE_YEAR = 1996;
+export const GOOGLE_REVIEWS_URL =
+  "https://www.google.com/search?q=Residential+Mortgage+broker+for+25+years&stick=H4sIAAAAAAAA_-NgU1I1qLCwSLE0TEkzT002MjCyME-xMqgwsrSwNDYyMDM0SjRJSjI1W8SqEZRanJmSmleSmZij4JtfVJKemJ6qkFSUn51apJCWX6RgZKpQmZpYVAwAUu7oSFQAAAA&hl=en#mpd=~4547561587710082376/customers/reviews";
+
 export const ZILLOW_URL = "https://www.zillow.com/lender-profile/Warren%20M%20Factor/#reviews";
 export const APPLY_URL =
   "https://www.blink.mortgage/app/signup/p/crecapitalandequitycorp/warrenfactor";

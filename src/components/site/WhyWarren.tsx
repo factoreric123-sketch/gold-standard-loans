@@ -3,6 +3,7 @@ import portrait from "@/assets/warren-portrait.webp";
 import {
   STATS,
   ZILLOW_URL,
+  GOOGLE_REVIEWS_URL,
   REVIEWS,
   NMLS,
   COMPANY_NMLS,
@@ -127,16 +128,27 @@ export function WhyWarren() {
                   Verified Zillow Review · {featured.date}
                 </span>
               </figcaption>
-              <a
-                href={ZILLOW_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-7 inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
-              >
-                Read all reviews on Zillow →
-              </a>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href={ZILLOW_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
+                >
+                  Read all reviews on Zillow →
+                </a>
+                <a
+                  href={GOOGLE_REVIEWS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
+                >
+                  Read our Google reviews →
+                </a>
+              </div>
             </figure>
           </Reveal>
+
         </div>
       </div>
     </section>
