@@ -79,9 +79,9 @@ function RateNewsPage() {
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               The short answer: most forecasters expect the 30-year fixed rate to
-              hold roughly flat to slightly lower through early 2027 — drifting
-              in the mid-6% range rather than snapping back to the 3% era or
-              spiking higher. Below is what the major housing-finance
+              hold roughly flat to slightly lower over the next 12 months —
+              drifting in the mid-6% range rather than snapping back to the 3%
+              era or spiking higher. Below is what the major housing-finance
               organizations project, quarter by quarter.
             </p>
 
