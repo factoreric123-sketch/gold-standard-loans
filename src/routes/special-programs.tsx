@@ -191,7 +191,7 @@ function SpecialProgramsPage() {
                         href="#hometown-heroes"
                         className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
                       >
-                        for details
+                        scroll down below for details
                       </a>
                     ) : (
                       <a
