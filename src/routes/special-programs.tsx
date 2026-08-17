@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ExternalLink } from "lucide-react";
 import { ArrowRight, Phone, ShieldCheck, Mail, MapPin } from "lucide-react";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
