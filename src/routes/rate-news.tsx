@@ -68,6 +68,131 @@ function RateNewsPage() {
           </div>
         </section>
 
+        {/* ===== Rate Outlook / 6-month forecast ===== */}
+        <section className="bg-background border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-14">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+              Rate Outlook
+            </div>
+            <h2 className="font-serif text-3xl md:text-4xl leading-tight max-w-3xl">
+              Will mortgage rates go up or down in the next 6 months?
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
+              The short answer: most forecasters expect the 30-year fixed rate to
+              hold roughly flat to slightly lower through early 2027 — drifting
+              in the mid-6% range rather than snapping back to the 3% era or
+              spiking higher. Below is what the major housing-finance
+              organizations project, quarter by quarter.
+            </p>
+
+            <div className="mt-8 overflow-x-auto">
+              <table className="w-full border-collapse text-sm">
+                <caption className="sr-only">
+                  Forecast 30-year fixed mortgage rate by quarter, Fannie Mae vs MBA
+                </caption>
+                <thead>
+                  <tr className="border-b border-line text-left">
+                    <th scope="col" className="py-3 pr-4 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                      Source
+                    </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q3 2026
+                    </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q4 2026
+                    </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q1 2027
+                    </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q2 2027
+                    </th>
+                    <th scope="col" className="py-3 pl-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      2027 avg
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="font-serif">
+                  <tr className="border-b border-line/60">
+                    <th scope="row" className="py-4 pr-4 text-left text-base">
+                      Fannie Mae
+                    </th>
+                    <td className="py-4 px-2 text-right text-lg">6.4%</td>
+                    <td className="py-4 px-2 text-right text-lg">6.4%</td>
+                    <td className="py-4 px-2 text-right text-lg text-gold">6.4%</td>
+                    <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
+                    <td className="py-4 pl-2 text-right text-lg">6.3%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" className="py-4 pr-4 text-left text-base">
+                      MBA
+                    </th>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
+                    <td className="py-4 pl-2 text-right text-lg">6.5%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              <div className="border-l-2 border-gold pl-4">
+                <h3 className="font-serif text-lg mb-1">What could push rates down</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Further Fed rate cuts, cooling inflation, or softer employment
+                  data would pull Treasury yields lower — and mortgage quotes
+                  follow.
+                </p>
+              </div>
+              <div className="border-l-2 border-gold pl-4">
+                <h3 className="font-serif text-lg mb-1">What could push rates up</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Sticky inflation, a stronger-than-expected labor market, or
+                  renewed Treasury issuance could lift yields and push mortgage
+                  rates back toward the upper-6% range.
+                </p>
+              </div>
+              <div className="border-l-2 border-gold pl-4">
+                <h3 className="font-serif text-lg mb-1">What it means for you</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Waiting for a return to 3% may cost you years of equity. If a
+                  purchase or refi makes sense at today's rate, a free float-down
+                  or refi later can capture any future drop.
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-8 text-xs text-muted-foreground leading-relaxed max-w-3xl">
+              Forecast figures are quarterly-average 30-year fixed rates from
+              Fannie Mae's June 2026 Housing Forecast and the MBA May 2026
+              Mortgage Finance Forecast. Forecasts are estimates by those
+              organizations and are subject to change without notice; they are
+              not a rate quote, a commitment to lend, or financial advice.
+              Sources:{" "}
+              <a
+                className="text-gold hover:underline"
+                href="https://www.fanniemae.com/media/57071/display"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Fannie Mae
+              </a>
+              ,{" "}
+              <a
+                className="text-gold hover:underline"
+                href="https://www.mba.org/docs/default-source/research-and-forecasts/forecasts/2026/mortgage-finance-forecast-may-2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                MBA
+              </a>
+              .
+            </p>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-6 py-14">
           <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8 border-b border-line pb-4">
             <h2 className="text-[11px] uppercase tracking-[0.2em] text-gold">
