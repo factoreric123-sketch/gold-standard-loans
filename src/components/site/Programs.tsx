@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { PROGRAMS } from "@/lib/site-data";
+import { PROGRAMS, RATES } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
 export function Programs() {
@@ -18,6 +18,33 @@ export function Programs() {
             From first-time buyers to seasoned investors — purchase, refinance, or cash-out, there's
             a program built for your file.
           </p>
+        </Reveal>
+
+        <Reveal delay={80}>
+          <div className="mt-12 border border-line bg-card">
+            <div className="flex items-center justify-between border-b border-line px-6 py-3">
+              <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
+                Today's Rates
+              </span>
+              <span className="text-[11px] uppercase tracking-widest text-gold">Live</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 divide-line lg:divide-x">
+              {RATES.map((r) => (
+                <div key={r.name} className="px-6 py-5">
+                  <div className="font-serif text-3xl text-foreground">{r.rate}</div>
+                  <div className="mt-1 text-sm tracking-wide text-foreground/70">{r.name}</div>
+                  {r.note && (
+                    <div className="mt-1 text-[10px] uppercase tracking-widest text-gold">
+                      {r.note}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+            <p className="border-t border-line px-6 py-3 text-xs text-foreground/45 italic">
+              Rates updated daily · Subject to change. APR varies by credit &amp; program.
+            </p>
+          </div>
         </Reveal>
 
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
