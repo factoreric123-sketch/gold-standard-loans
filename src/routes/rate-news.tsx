@@ -79,9 +79,9 @@ function RateNewsPage() {
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">
               The short answer: most forecasters expect the 30-year fixed rate to
-              hold roughly flat to slightly lower through early 2027 — drifting
-              in the mid-6% range rather than snapping back to the 3% era or
-              spiking higher. Below is what the major housing-finance
+              hold roughly flat to slightly lower over the next 12 months —
+              drifting in the mid-6% range rather than snapping back to the 3%
+              era or spiking higher. Below is what the major housing-finance
               organizations project, quarter by quarter.
             </p>
 
@@ -107,6 +107,12 @@ function RateNewsPage() {
                     <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
                       Q2 2027
                     </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q3 2027
+                    </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q4 2027
+                    </th>
                     <th scope="col" className="py-3 pl-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
                       2027 avg
                     </th>
@@ -121,12 +127,16 @@ function RateNewsPage() {
                     <td className="py-4 px-2 text-right text-lg">6.4%</td>
                     <td className="py-4 px-2 text-right text-lg text-gold">6.4%</td>
                     <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
+                    <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
+                    <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
                     <td className="py-4 pl-2 text-right text-lg">6.3%</td>
                   </tr>
                   <tr>
                     <th scope="row" className="py-4 pr-4 text-left text-base">
                       Mortgage Bankers Association
                     </th>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
