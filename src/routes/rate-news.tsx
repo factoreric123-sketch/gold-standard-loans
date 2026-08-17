@@ -8,9 +8,9 @@ import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
 import { getRateNews } from "@/lib/news.functions";
 
-const TITLE = "Bond & Mortgage Rate News — The Discount Mortgage Store";
+const TITLE = "Rate Prediction Over Next 12 Months — The Discount Mortgage Store";
 const DESC =
-  "Live bond market and mortgage rate news headlines, updated daily. Track Treasury yields, Fed moves, and what they mean for Florida mortgage rates.";
+  "Mortgage rate forecast over the next 12 months with Fannie Mae and Mortgage Bankers Association projections, plus live bond market news driving Florida mortgage rates.";
 
 export const Route = createFileRoute("/rate-news")({
   loader: async () => await getRateNews(),
