@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { PROGRAMS } from "@/lib/site-data";
+import { PROGRAMS, RATES } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
 export function Programs() {
