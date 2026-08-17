@@ -111,7 +111,7 @@ export function TranslateButton({ className = "" }: { className?: string }) {
   const idleBtn = "border-foreground/20 text-foreground/75 hover:border-gold hover:text-gold";
 
   return (
-    <div className={`inline-flex items-center gap-2 ${className}`}>
+    <div className={`inline-flex flex-col items-stretch gap-1 ${className}`}>
       <button
         type="button"
         onClick={() => choose("en")}
