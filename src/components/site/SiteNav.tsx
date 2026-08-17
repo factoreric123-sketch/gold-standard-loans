@@ -48,7 +48,7 @@ export function SiteNav() {
           <TranslateButton className="hidden sm:inline-flex" />
           <a
             href={`tel:${PHONE_TEL}`}
-            className="hidden sm:inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity"
+            className="hidden sm:inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-4 py-2.5 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity"
           >
             <Phone className="w-3.5 h-3.5" /> Call Now
           </a>
