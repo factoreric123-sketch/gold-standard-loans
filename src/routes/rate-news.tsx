@@ -125,7 +125,7 @@ function RateNewsPage() {
                   </tr>
                   <tr>
                     <th scope="row" className="py-4 pr-4 text-left text-base">
-                      MBA
+                      Mortgage Bankers Association
                     </th>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
