@@ -6,7 +6,7 @@ import { Logo } from "@/components/site/Logo";
 const links = [
   { href: "/buy-a-home", label: "Buy a Home" },
   { href: "/#programs", label: "Mortgage Products" },
-  { href: "/special-programs", label: "Get Money for Purchase" },
+  { href: "/special-programs", label: "Grant Money" },
   { href: "/todays-rates", label: "Today's Rates" },
   { href: "/rate-news", label: "Rate Prediction" },
   { href: "/#why", label: "Why Warren" },
