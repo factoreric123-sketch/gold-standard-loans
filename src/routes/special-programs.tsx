@@ -107,12 +107,106 @@ const benefits = [
   },
 ];
 
+const grantPrograms = [
+  {
+    name: "Hometown Heroes",
+    amount: "Up to $35,000",
+    type: "Deferred 0% second mortgage (forgivable)",
+    who: "Community heroes — law enforcement, firefighters, healthcare, educators, military & more",
+    url: "https://www.floridahousing.org/programs/hometown-heroes",
+  },
+  {
+    name: "HFA Preferred",
+    amount: "3% of loan amount",
+    type: "Forgivable grant — no repayment required",
+    who: "First-time homebuyers meeting income & purchase-price limits",
+    url: "https://www.floridahousing.org/programs/hfa-preferred",
+  },
+  {
+    name: "HFA Preferred Plus",
+    amount: "4% of loan amount",
+    type: "Forgivable grant — no repayment required",
+    who: "First-time buyers needing maximum down payment help",
+    url: "https://www.floridahousing.org/programs/hfa-preferred-plus",
+  },
+  {
+    name: "Florida Assist (FL Assist)",
+    amount: "Up to $7,500",
+    type: "Deferred 0% second mortgage",
+    who: "First-time homebuyers at or below 80% area median income",
+    url: "https://www.floridahousing.org/programs/fl-assist",
+  },
+  {
+    name: "Salute Our Soldiers",
+    amount: "Up to $10,000",
+    type: "Deferred 0% second mortgage",
+    who: "Active-duty military, veterans & surviving spouses",
+    url: "https://www.floridahousing.org/programs/salute-our-soldiers",
+  },
+];
+
 function SpecialProgramsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <RateTicker />
       <SiteNav />
       <main>
+        {/* Grant Money overview */}
+        <section className="bg-cream border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Florida grant money
+              </div>
+              <h1 className="font-serif text-4xl md:text-6xl leading-[1.04] tracking-tight max-w-3xl">
+                Get grants for your{" "}
+                <span className="italic text-gold">Florida mortgage.</span>
+              </h1>
+              <p className="mt-6 text-lg text-foreground/70 max-w-2xl leading-relaxed">
+                Florida offers real down-payment and closing-cost assistance — some of it a
+                true grant you never have to repay. Below are the active programs administered
+                by the Florida Housing Finance Corporation. Warren Factor will match you to
+                the one that fits your file and handle the paperwork start to finish.
+              </p>
+            </Reveal>
+
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+              {grantPrograms.map((g, i) => (
+                <Reveal key={g.name} delay={(i % 2) * 70} className="h-full">
+                  <div className="group h-full flex flex-col rounded-xl border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
+                    <div className="flex items-start justify-between gap-3">
+                      <h3 className="font-serif text-xl">{g.name}</h3>
+                      <span className="font-serif text-2xl text-gold whitespace-nowrap">
+                        {g.amount}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-[11px] uppercase tracking-widest text-gold">
+                      {g.type}
+                    </p>
+                    <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
+                      {g.who}
+                    </p>
+                    <a
+                      href={g.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
+                    >
+                      Official program <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <p className="mt-8 text-xs text-foreground/45 italic max-w-2xl leading-relaxed">
+              Assistance amounts, eligibility, and program availability are set by the Florida
+              Housing Finance Corporation and are subject to change. Not every applicant
+              qualifies for every program. This is not a commitment to lend.
+            </p>
+          </div>
+        </section>
+
         {/* Hero */}
         <section className="relative overflow-hidden border-b border-line bg-gradient-to-b from-cream to-background">
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
