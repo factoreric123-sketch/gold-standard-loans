@@ -107,6 +107,12 @@ function RateNewsPage() {
                     <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
                       Q2 2027
                     </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q3 2027
+                    </th>
+                    <th scope="col" className="py-3 px-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
+                      Q4 2027
+                    </th>
                     <th scope="col" className="py-3 pl-2 font-normal text-[11px] uppercase tracking-[0.15em] text-muted-foreground text-right">
                       2027 avg
                     </th>
@@ -121,12 +127,16 @@ function RateNewsPage() {
                     <td className="py-4 px-2 text-right text-lg">6.4%</td>
                     <td className="py-4 px-2 text-right text-lg text-gold">6.4%</td>
                     <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
+                    <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
+                    <td className="py-4 px-2 text-right text-lg text-gold">6.3%</td>
                     <td className="py-4 pl-2 text-right text-lg">6.3%</td>
                   </tr>
                   <tr>
                     <th scope="row" className="py-4 pr-4 text-left text-base">
                       Mortgage Bankers Association
                     </th>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
+                    <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
                     <td className="py-4 px-2 text-right text-lg">6.5%</td>
