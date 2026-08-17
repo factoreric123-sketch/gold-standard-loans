@@ -208,7 +208,7 @@ function SpecialProgramsPage() {
         </section>
 
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-line bg-gradient-to-b from-cream to-background">
+        <section id="hometown-heroes" className="relative scroll-mt-24 overflow-hidden border-b border-line bg-gradient-to-b from-cream to-background">
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <Reveal>
               <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 bg-background/70 border border-line rounded-full px-3.5 py-1.5 mb-7">
