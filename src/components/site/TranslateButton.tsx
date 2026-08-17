@@ -62,16 +62,20 @@ function loadWidget() {
 function applyLang(target: string, attempt = 0) {
   const want = target === "en" ? "" : target;
   const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
-  if (combo && combo.value !== want) {
-    combo.value = want;
-    combo.dispatchEvent(new Event("change", { bubbles: true }));
+  if (combo) {
+    const hasOption = [...combo.options].some((o) => o.value === want);
+    // Re-dispatch for the first attempts as well: the widget can attach its
+    // change listener after we first set the value.
+    if (hasOption && (combo.value !== want || attempt < 8)) {
+      combo.value = want;
+      combo.dispatchEvent(new Event("change", { bubbles: true }));
+    }
   }
-  // Keep re-asserting for a few seconds: the widget can re-initialise (or new
-  // route content can render) right after the select is first set.
-  if (attempt < 25) {
+  if (attempt < 30) {
     window.setTimeout(() => applyLang(target, attempt + 1), 400);
   }
 }
+
 
 export function TranslateButton({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState("en");
