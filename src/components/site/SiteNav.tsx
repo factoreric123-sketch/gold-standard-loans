@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
 import { Logo } from "@/components/site/Logo";
+import { TranslateButton } from "@/components/site/TranslateButton";
 
 const links = [
   { href: "/buy-a-home", label: "Buy a Home" },
@@ -44,6 +45,7 @@ export function SiteNav() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
+          <TranslateButton className="hidden sm:inline-flex" />
           <a
             href={`tel:${PHONE_TEL}`}
             className="hidden sm:inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity"
@@ -80,6 +82,7 @@ export function SiteNav() {
             >
               Call {PHONE_DISPLAY}
             </a>
+            <TranslateButton className="mt-3 justify-center" />
           </div>
         </nav>
       )}

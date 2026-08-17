@@ -279,3 +279,7 @@
 }
 .blog-content hr { border: 0; border-top: 1px solid var(--line, rgba(186, 135, 62, 0.25)); margin: 2.5rem 0; }
 
+
+/* Google Website Translator: hide its injected top banner */
+.skiptranslate iframe { display: none !important; }
+body { top: 0 !important; }
