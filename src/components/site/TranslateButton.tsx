@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Languages } from "lucide-react";
 import { useRouterState } from "@tanstack/react-router";
 
 const STORAGE_KEY = "site-lang";
 
 /**
- * Whole-site translation toggle (English <-> Spanish).
- * Loads the Google Website Translator and drives its hidden language select,
- * re-applying the chosen language on every route change so all pages stay
- * translated once the user clicks "Español".
+ * Whole-site translation control (English / Spanish).
+ * Loads the Google Website Translator once and drives its hidden language
+ * select. Only the most recent selection is ever applied — older retry loops
+ * are cancelled so the page can't flip back to the previous language.
  */
 function setTransCookie(lang: string) {
   const value = lang === "en" ? "/en/en" : `/en/${lang}`;
@@ -26,7 +26,7 @@ function storedLang() {
   if (typeof window === "undefined") return "en";
   try {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved) return saved;
+    if (saved === "en" || saved === "es") return saved;
   } catch {
     /* ignore */
   }
@@ -58,42 +58,55 @@ function loadWidget() {
   document.body.appendChild(s);
 }
 
-/** Drive Google's hidden <select> so the page translates without a reload. */
-function applyLang(target: string, attempt = 0) {
-  const want = target === "en" ? "" : target;
-  const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
-  if (combo) {
-    const hasOption = [...combo.options].some((o) => o.value === want);
-    // Re-dispatch for the first attempts as well: the widget can attach its
-    // change listener after we first set the value.
-    if (hasOption && (combo.value !== want || attempt < 8)) {
-      combo.value = want;
-      combo.dispatchEvent(new Event("change", { bubbles: true }));
-    }
-  }
-  if (attempt < 30) {
-    window.setTimeout(() => applyLang(target, attempt + 1), 400);
-  }
-}
-
-
 export function TranslateButton({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState("en");
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  // Token identifying the latest selection; stale loops bail out.
+  const runId = useRef(0);
+  const timer = useRef<number | null>(null);
+
+  const apply = useCallback((target: string) => {
+    const id = ++runId.current;
+    if (timer.current) window.clearTimeout(timer.current);
+
+    const want = target === "en" ? "" : target;
+
+    const tick = (attempt: number) => {
+      if (id !== runId.current) return; // a newer click took over
+      const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+      if (combo && [...combo.options].some((o) => o.value === want)) {
+        if (combo.value !== want || attempt < 4) {
+          combo.value = want;
+          combo.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }
+      if (attempt < 20) {
+        timer.current = window.setTimeout(() => tick(attempt + 1), 400);
+      }
+    };
+
+    tick(0);
+  }, []);
 
   useEffect(() => {
     const initial = storedLang();
     setLang(initial);
     loadWidget();
-    if (initial !== "en") applyLang(initial);
-  }, []);
+    apply(initial);
+    return () => {
+      runId.current++;
+      if (timer.current) window.clearTimeout(timer.current);
+    };
+  }, [apply]);
 
-  // Re-apply the language whenever the user navigates to another page.
+  // Re-assert the chosen language after navigating to another page.
   useEffect(() => {
-    if (lang !== "en") applyLang(lang);
-  }, [pathname, lang]);
+    apply(lang);
+  }, [pathname, lang, apply]);
 
   const choose = (next: string) => {
+    if (next === lang) return;
     setTransCookie(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
@@ -102,19 +115,21 @@ export function TranslateButton({ className = "" }: { className?: string }) {
     }
     setLang(next);
     loadWidget();
-    applyLang(next);
+    apply(next);
   };
 
   const baseBtn =
-    "notranslate inline-flex items-center gap-1.5 border px-3.5 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors";
+    "notranslate inline-flex items-center justify-center gap-1.5 border px-3.5 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors";
   const activeBtn = "border-gold text-gold bg-gold/10";
-  const idleBtn = "border-foreground/20 text-foreground/75 hover:border-gold hover:text-gold";
+  const idleBtn =
+    "border-foreground/20 text-foreground/75 hover:border-gold hover:text-gold";
 
   return (
     <div className={`inline-flex flex-col items-stretch gap-1 ${className}`}>
       <button
         type="button"
         onClick={() => choose("en")}
+        aria-pressed={lang === "en"}
         aria-label="View site in English"
         className={`${baseBtn} ${lang === "en" ? activeBtn : idleBtn}`}
       >
@@ -124,6 +139,7 @@ export function TranslateButton({ className = "" }: { className?: string }) {
       <button
         type="button"
         onClick={() => choose("es")}
+        aria-pressed={lang === "es"}
         aria-label="Ver el sitio en español"
         className={`${baseBtn} ${lang === "es" ? activeBtn : idleBtn}`}
       >
