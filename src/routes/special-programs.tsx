@@ -186,14 +186,23 @@ function SpecialProgramsPage() {
                     <p className="mt-3 text-sm text-foreground/60 leading-relaxed">
                       {g.who}
                     </p>
-                    <a
-                      href={g.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
-                    >
-                      Official program <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
+                    {g.name === "Hometown Heroes" ? (
+                      <a
+                        href="#hometown-heroes"
+                        className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
+                      >
+                        Scroll below on this page
+                      </a>
+                    ) : (
+                      <a
+                        href={g.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
+                      >
+                        Official program <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </Reveal>
               ))}
@@ -208,7 +217,7 @@ function SpecialProgramsPage() {
         </section>
 
         {/* Hero */}
-        <section className="relative overflow-hidden border-b border-line bg-gradient-to-b from-cream to-background">
+        <section id="hometown-heroes" className="relative scroll-mt-24 overflow-hidden border-b border-line bg-gradient-to-b from-cream to-background">
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <Reveal>
               <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 bg-background/70 border border-line rounded-full px-3.5 py-1.5 mb-7">
