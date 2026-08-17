@@ -54,18 +54,19 @@ export function TranslateButton({ className = "" }: { className?: string }) {
 
   /** Drive Google's hidden <select> so the page translates without a reload. */
   function applyViaCombo(target: string, attempt = 0) {
+    const want = target === "en" ? "" : target;
     const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
-    if (combo) {
-      combo.value = target === "en" ? "" : target;
+    if (combo && combo.value !== want) {
+      combo.value = want;
       combo.dispatchEvent(new Event("change", { bubbles: true }));
-      return;
     }
-    if (attempt < 30) {
-      window.setTimeout(() => applyViaCombo(target, attempt + 1), 300);
-    } else {
-      window.location.reload();
+    // Keep re-asserting for a few seconds: the widget can re-initialise and
+    // reset the select right after it is first inserted.
+    if (attempt < 25) {
+      window.setTimeout(() => applyViaCombo(target, attempt + 1), 400);
     }
   }
+
 
   const toggle = () => {
     const next = lang === "es" ? "en" : "es";
