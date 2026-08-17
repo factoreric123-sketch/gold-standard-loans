@@ -1,81 +1,106 @@
 import { useEffect, useState } from "react";
 import { Languages } from "lucide-react";
+import { useRouterState } from "@tanstack/react-router";
+
+const STORAGE_KEY = "site-lang";
 
 /**
  * Whole-site translation toggle (English <-> Spanish).
- * Loads the Google Website Translator on demand and switches language by
- * setting the `googtrans` cookie, which Google's widget reads on load.
+ * Loads the Google Website Translator and drives its hidden language select,
+ * re-applying the chosen language on every route change so all pages stay
+ * translated once the user clicks "Español".
  */
 function setTransCookie(lang: string) {
   const value = lang === "en" ? "/en/en" : `/en/${lang}`;
   const host = window.location.hostname;
-  document.cookie = `googtrans=${value};path=/`;
-  document.cookie = `googtrans=${value};path=/;domain=${host}`;
-  document.cookie = `googtrans=${value};path=/;domain=.${host}`;
+  try {
+    document.cookie = `googtrans=${value};path=/`;
+    document.cookie = `googtrans=${value};path=/;domain=${host}`;
+    document.cookie = `googtrans=${value};path=/;domain=.${host}`;
+  } catch {
+    /* cookies may be blocked in embedded previews */
+  }
 }
 
-function currentLang() {
-  if (typeof document === "undefined") return "en";
+function storedLang() {
+  if (typeof window === "undefined") return "en";
+  try {
+    const saved = window.localStorage.getItem(STORAGE_KEY);
+    if (saved) return saved;
+  } catch {
+    /* ignore */
+  }
   const m = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
-  return m ? m[1] : "en";
+  return m && m[1] !== "en" ? m[1] : "en";
+}
+
+function loadWidget() {
+  if (!document.getElementById("google_translate_element")) {
+    const div = document.createElement("div");
+    div.id = "google_translate_element";
+    div.style.display = "none";
+    document.body.appendChild(div);
+  }
+  if (document.getElementById("google-translate-script")) return;
+  (window as unknown as Record<string, unknown>).googleTranslateInit = () => {
+    const g = (window as any).google;
+    if (g?.translate?.TranslateElement) {
+      new g.translate.TranslateElement(
+        { pageLanguage: "en", includedLanguages: "en,es", autoDisplay: false },
+        "google_translate_element",
+      );
+    }
+  };
+  const s = document.createElement("script");
+  s.id = "google-translate-script";
+  s.src =
+    "https://translate.google.com/translate_a/element.js?cb=googleTranslateInit";
+  document.body.appendChild(s);
+}
+
+/** Drive Google's hidden <select> so the page translates without a reload. */
+function applyLang(target: string, attempt = 0) {
+  const want = target === "en" ? "" : target;
+  const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
+  if (combo && combo.value !== want) {
+    combo.value = want;
+    combo.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+  // Keep re-asserting for a few seconds: the widget can re-initialise (or new
+  // route content can render) right after the select is first set.
+  if (attempt < 25) {
+    window.setTimeout(() => applyLang(target, attempt + 1), 400);
+  }
 }
 
 export function TranslateButton({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState("en");
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
-    setLang(currentLang());
+    const initial = storedLang();
+    setLang(initial);
     loadWidget();
+    if (initial !== "en") applyLang(initial);
   }, []);
 
-  function loadWidget() {
-    if (!document.getElementById("google_translate_element")) {
-      const div = document.createElement("div");
-      div.id = "google_translate_element";
-      div.style.display = "none";
-      document.body.appendChild(div);
-    }
-    if (document.getElementById("google-translate-script")) return;
-    (window as unknown as Record<string, unknown>).googleTranslateInit = () => {
-      const g = (window as any).google;
-      if (g?.translate?.TranslateElement) {
-        new g.translate.TranslateElement(
-          { pageLanguage: "en", includedLanguages: "en,es", autoDisplay: false },
-          "google_translate_element",
-        );
-      }
-    };
-    const s = document.createElement("script");
-    s.id = "google-translate-script";
-    s.src =
-      "https://translate.google.com/translate_a/element.js?cb=googleTranslateInit";
-    document.body.appendChild(s);
-  }
-
-  /** Drive Google's hidden <select> so the page translates without a reload. */
-  function applyViaCombo(target: string, attempt = 0) {
-    const want = target === "en" ? "" : target;
-    const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
-    if (combo && combo.value !== want) {
-      combo.value = want;
-      combo.dispatchEvent(new Event("change", { bubbles: true }));
-    }
-    // Keep re-asserting for a few seconds: the widget can re-initialise and
-    // reset the select right after it is first inserted.
-    if (attempt < 25) {
-      window.setTimeout(() => applyViaCombo(target, attempt + 1), 400);
-    }
-  }
-
+  // Re-apply the language whenever the user navigates to another page.
+  useEffect(() => {
+    if (lang !== "en") applyLang(lang);
+  }, [pathname, lang]);
 
   const toggle = () => {
     const next = lang === "es" ? "en" : "es";
     setTransCookie(next);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      /* ignore */
+    }
     setLang(next);
     loadWidget();
-    applyViaCombo(next);
+    applyLang(next);
   };
-
 
   return (
     <button
