@@ -207,7 +207,7 @@ function SpecialProgramsPage() {
                         rel="noopener noreferrer"
                         className="mt-5 inline-flex items-center gap-1.5 text-[11px] uppercase tracking-widest text-foreground/55 hover:text-gold transition-colors"
                       >
-                        scroll down below for details <ExternalLink className="w-3.5 h-3.5" />
+                        Official program <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     )}
                   </div>
