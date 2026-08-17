@@ -68,7 +68,54 @@ function RateNewsPage() {
           </div>
         </section>
 
-        {/* ===== Rate Outlook / 6-month forecast ===== */}
+        <section className="mx-auto max-w-7xl px-6 py-14">
+          <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8 border-b border-line pb-4">
+            <h2 className="text-[11px] uppercase tracking-[0.2em] text-gold">
+              Today's Headlines
+            </h2>
+            <a
+              href="/todays-rates"
+              className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground hover:text-gold"
+            >
+              See today's rates & Treasury yields →
+            </a>
+          </div>
+
+          {error ? (
+            <p className="text-sm text-muted-foreground">{error}</p>
+          ) : (
+            <ul className="divide-y divide-line border-y border-line">
+              {items.map((item) => (
+                <li key={item.link} className="py-6">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-2">
+                    <span className="text-gold">{item.source}</span>
+                    {item.publishedAt ? <span>{when(item.publishedAt)}</span> : null}
+                  </div>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-serif text-xl md:text-2xl leading-snug hover:text-gold"
+                  >
+                    {item.title}
+                  </a>
+                  {item.summary ? (
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-3xl">
+                      {item.summary}
+                    </p>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <p className="mt-6 text-xs text-muted-foreground">
+            Headlines link to their original publishers. News is informational
+            only and is not a rate quote or a commitment to lend.
+          </p>
+        </section>
+
+        {/* ===== Rate Outlook / 12-month forecast ===== */}
         <section className="bg-background border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-14">
             <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
@@ -201,53 +248,6 @@ function RateNewsPage() {
               .
             </p>
           </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-6 py-14">
-          <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8 border-b border-line pb-4">
-            <h2 className="text-[11px] uppercase tracking-[0.2em] text-gold">
-              Today's Headlines
-            </h2>
-            <a
-              href="/todays-rates"
-              className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground hover:text-gold"
-            >
-              See today's rates &amp; Treasury yields →
-            </a>
-          </div>
-
-          {error ? (
-            <p className="text-sm text-muted-foreground">{error}</p>
-          ) : (
-            <ul className="divide-y divide-line border-y border-line">
-              {items.map((item) => (
-                <li key={item.link} className="py-6">
-                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] uppercase tracking-[0.15em] text-muted-foreground mb-2">
-                    <span className="text-gold">{item.source}</span>
-                    {item.publishedAt ? <span>{when(item.publishedAt)}</span> : null}
-                  </div>
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-serif text-xl md:text-2xl leading-snug hover:text-gold"
-                  >
-                    {item.title}
-                  </a>
-                  {item.summary ? (
-                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed max-w-3xl">
-                      {item.summary}
-                    </p>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <p className="mt-6 text-xs text-muted-foreground">
-            Headlines link to their original publishers. News is informational
-            only and is not a rate quote or a commitment to lend.
-          </p>
         </section>
 
         <Contact />
