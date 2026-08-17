@@ -76,49 +76,6 @@ function TodaysRatesPage() {
       <RateTicker />
       <SiteNav />
       <main>
-        {/* Today's U.S. Treasury yield curve — CNBC, Aug 14, 2026. */}
-        <section className="bg-charcoal text-background">
-          <div className="mx-auto max-w-7xl px-6 py-4">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-3">
-              <h2 className="text-[11px] uppercase tracking-[0.2em] text-gold">
-                Today's U.S. Treasury Yields
-              </h2>
-              <span className="text-[11px] uppercase tracking-[0.15em] text-background/50">
-                Source: CNBC · as of {TREASURY_ASOF}
-              </span>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-px bg-background/10">
-              {TREASURY_RATES.map((r) => {
-                const isFive = r.label === "5-Yr";
-                return (
-                  <div
-                    key={r.label}
-                    className={`bg-charcoal px-3 py-3 text-center ${
-                      isFive ? "ring-1 ring-gold ring-inset" : ""
-                    }`}
-                  >
-                    <div
-                      className={`text-[10px] uppercase tracking-[0.15em] ${
-                        isFive ? "text-gold" : "text-background/55"
-                      }`}
-                    >
-                      {r.label}
-                    </div>
-                    <div className="font-serif text-lg text-background">
-                      {r.yield.toFixed(3)}
-                      <span className="text-xs">%</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <p className="mt-3 text-[11px] text-background/45 normal-case tracking-normal">
-              The <span className="text-gold">5-Year</span> Treasury is the index
-              many 5/1 ARM rates follow. Mortgage rates are priced as a margin
-              above these benchmarks — call Warren for today's exact quote.
-            </p>
-          </div>
-        </section>
         {/* National average mortgage rates — Bankrate. */}
         <section className="bg-cream border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-10">
