@@ -82,6 +82,7 @@ export function SiteNav() {
             >
               Call {PHONE_DISPLAY}
             </a>
+            <TranslateButton className="mt-3 justify-center" />
           </div>
         </nav>
       )}
