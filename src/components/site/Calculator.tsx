@@ -31,7 +31,7 @@ type YearRow = {
 };
 
 export function Calculator() {
-  const [loanAmount, setLoanAmount] = useState(400000);
+  const [loanAmount, setLoanAmount] = useState(100000);
   const [years, setYears] = useState(30);
   const [months, setMonths] = useState(0);
   const [rate, setRate] = useState(6.69);
