@@ -93,8 +93,7 @@ export function TranslateButton({ className = "" }: { className?: string }) {
     if (lang !== "en") applyLang(lang);
   }, [pathname, lang]);
 
-  const toggle = () => {
-    const next = lang === "es" ? "en" : "es";
+  const choose = (next: string) => {
     setTransCookie(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
@@ -106,15 +105,31 @@ export function TranslateButton({ className = "" }: { className?: string }) {
     applyLang(next);
   };
 
+  const baseBtn =
+    "notranslate inline-flex items-center gap-1.5 border px-3.5 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors";
+  const activeBtn = "border-gold text-gold bg-gold/10";
+  const idleBtn = "border-foreground/20 text-foreground/75 hover:border-gold hover:text-gold";
+
   return (
-    <button
-      type="button"
-      onClick={toggle}
-      aria-label={lang === "es" ? "Ver en inglés" : "Ver el sitio en español"}
-      className={`notranslate inline-flex items-center gap-1.5 border border-foreground/20 px-3.5 py-2 text-[11px] uppercase tracking-[0.15em] text-foreground/75 transition-colors hover:border-gold hover:text-gold ${className}`}
-    >
-      <Languages className="h-3.5 w-3.5" />
-      {lang === "es" ? "English" : "Español"}
-    </button>
+    <div className={`inline-flex items-center gap-2 ${className}`}>
+      <button
+        type="button"
+        onClick={() => choose("en")}
+        aria-label="View site in English"
+        className={`${baseBtn} ${lang === "en" ? activeBtn : idleBtn}`}
+      >
+        <Languages className="h-3.5 w-3.5" />
+        English
+      </button>
+      <button
+        type="button"
+        onClick={() => choose("es")}
+        aria-label="Ver el sitio en español"
+        className={`${baseBtn} ${lang === "es" ? activeBtn : idleBtn}`}
+      >
+        <Languages className="h-3.5 w-3.5" />
+        Español
+      </button>
+    </div>
   );
 }
