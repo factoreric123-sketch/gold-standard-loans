@@ -8,7 +8,7 @@ const links = [
   { href: "/#programs", label: "Mortgage Products" },
   { href: "/special-programs", label: "Get Money for Purchase" },
   { href: "/todays-rates", label: "Today's Rates" },
-  { href: "/rate-news", label: "Rate News" },
+  { href: "/rate-news", label: "Rate Prediction" },
   { href: "/#why", label: "Why Warren" },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
