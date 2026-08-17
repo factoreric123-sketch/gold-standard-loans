@@ -22,6 +22,16 @@ const TREASURY_RATES: TRate[] = [
 ];
 const TREASURY_ASOF = "Aug 14, 2026";
 
+// National average mortgage rates from Bankrate, updated 2026-08-17.
+// Source: https://www.bankrate.com/mortgages/mortgage-rates/
+const BANKRATE_AVERAGES = [
+  { label: "30-Yr Fixed", rate: "6.69%" },
+  { label: "15-Yr Fixed", rate: "6.05%" },
+  { label: "30-Yr FHA", rate: "6.37%" },
+  { label: "30-Yr VA", rate: "6.41%" },
+];
+const BANKRATE_ASOF = "Aug 17, 2026";
+
 export const Route = createFileRoute("/todays-rates")({
   head: () => ({
     meta: [
