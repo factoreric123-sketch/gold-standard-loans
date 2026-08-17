@@ -85,8 +85,42 @@ function RateNewsPage() {
               organizations project, quarter by quarter.
             </p>
 
-            <div className="mt-8 overflow-x-auto">
+            {/* Mobile: stacked quarter cards */}
+            <div className="mt-8 space-y-6 md:hidden">
+              {[
+                { source: "Fannie Mae", values: ["6.4%", "6.4%", "6.4%", "6.3%", "6.3%", "6.3%"], avg: "6.3%" },
+                { source: "Mortgage Bankers Association", values: ["6.5%", "6.5%", "6.5%", "6.5%", "6.5%", "6.5%"], avg: "6.5%" },
+              ].map((row) => (
+                <div key={row.source} className="border border-line p-5">
+                  <p className="text-[11px] uppercase tracking-[0.15em] text-muted-foreground">
+                    Source
+                  </p>
+                  <p className="mt-1 font-serif text-lg">{row.source}</p>
+                  <dl className="mt-4 grid grid-cols-3 gap-y-4 gap-x-2">
+                    {["Q3 2026", "Q4 2026", "Q1 2027", "Q2 2027", "Q3 2027", "Q4 2027"].map(
+                      (q, i) => (
+                        <div key={q} className="min-w-0">
+                          <dt className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+                            {q}
+                          </dt>
+                          <dd className="font-serif text-lg">{row.values[i]}</dd>
+                        </div>
+                      ),
+                    )}
+                    <div className="min-w-0">
+                      <dt className="text-[10px] uppercase tracking-[0.15em] text-gold">
+                        2027 avg
+                      </dt>
+                      <dd className="font-serif text-lg text-gold">{row.avg}</dd>
+                    </div>
+                  </dl>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 hidden overflow-x-auto md:block">
               <table className="w-full border-collapse text-sm">
+
                 <caption className="sr-only">
                   Forecast 30-year fixed mortgage rate by quarter, Fannie Mae vs MBA
                 </caption>
