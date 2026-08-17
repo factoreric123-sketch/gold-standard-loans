@@ -1,39 +1,41 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Languages } from "lucide-react";
-import { useRouterState } from "@tanstack/react-router";
 
 const STORAGE_KEY = "site-lang";
 
 /**
- * Whole-site translation control (English / Spanish).
- * Loads the Google Website Translator once and drives its hidden language
- * select. Only the most recent selection is ever applied — older retry loops
- * are cancelled so the page can't flip back to the previous language.
+ * Simple whole-site language switch (English / Spanish).
+ * Sets the Google Translate cookie and reloads — the widget then renders the
+ * page in the chosen language on every route, with no toggling back.
  */
 function setTransCookie(lang: string) {
   const value = lang === "en" ? "/en/en" : `/en/${lang}`;
   const host = window.location.hostname;
-  try {
-    document.cookie = `googtrans=${value};path=/`;
-    document.cookie = `googtrans=${value};path=/;domain=${host}`;
-    document.cookie = `googtrans=${value};path=/;domain=.${host}`;
-  } catch {
-    /* cookies may be blocked in embedded previews */
+  for (const c of [
+    `googtrans=${value};path=/`,
+    `googtrans=${value};path=/;domain=${host}`,
+    `googtrans=${value};path=/;domain=.${host}`,
+  ]) {
+    try {
+      document.cookie = c;
+    } catch {
+      /* cookies may be blocked in embedded previews */
+    }
   }
 }
 
-function storedLang() {
+function currentLang() {
   if (typeof window === "undefined") return "en";
-  try {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved === "en" || saved === "es") return saved;
-  } catch {
-    /* ignore */
-  }
   const m = document.cookie.match(/googtrans=\/[^/]+\/([^;]+)/);
-  return m && m[1] !== "en" ? m[1] : "en";
+  if (m && m[1] && m[1] !== "en") return m[1];
+  try {
+    return window.localStorage.getItem(STORAGE_KEY) === "es" ? "es" : "en";
+  } catch {
+    return "en";
+  }
 }
 
+/** Load the Google translator once; it reads the googtrans cookie itself. */
 function loadWidget() {
   if (!document.getElementById("google_translate_element")) {
     const div = document.createElement("div");
@@ -60,62 +62,21 @@ function loadWidget() {
 
 export function TranslateButton({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState("en");
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
 
-  // Token identifying the latest selection; stale loops bail out.
-  const runId = useRef(0);
-  const timer = useRef<number | null>(null);
-
-  const apply = useCallback((target: string) => {
-    const id = ++runId.current;
-    if (timer.current) window.clearTimeout(timer.current);
-
-    const want = target === "en" ? "" : target;
-
-    const tick = (attempt: number) => {
-      if (id !== runId.current) return; // a newer click took over
-      const combo = document.querySelector<HTMLSelectElement>(".goog-te-combo");
-      if (combo && [...combo.options].some((o) => o.value === want)) {
-        if (combo.value !== want || attempt < 4) {
-          combo.value = want;
-          combo.dispatchEvent(new Event("change", { bubbles: true }));
-        }
-      }
-      if (attempt < 20) {
-        timer.current = window.setTimeout(() => tick(attempt + 1), 400);
-      }
-    };
-
-    tick(0);
+  useEffect(() => {
+    setLang(currentLang());
+    loadWidget();
   }, []);
 
-  useEffect(() => {
-    const initial = storedLang();
-    setLang(initial);
-    loadWidget();
-    apply(initial);
-    return () => {
-      runId.current++;
-      if (timer.current) window.clearTimeout(timer.current);
-    };
-  }, [apply]);
-
-  // Re-assert the chosen language after navigating to another page.
-  useEffect(() => {
-    apply(lang);
-  }, [pathname, lang, apply]);
-
   const choose = (next: string) => {
-    if (next === lang) return;
+    if (next === currentLang()) return;
     setTransCookie(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
       /* ignore */
     }
-    setLang(next);
-    loadWidget();
-    apply(next);
+    window.location.reload();
   };
 
   const baseBtn =
