@@ -80,7 +80,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <a href="/rate-news" className="hover:text-gold">
-                  Rate News
+                  Rate Prediction
                 </a>
               </li>
             </ul>
