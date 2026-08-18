@@ -30,6 +30,10 @@ export const Route = createFileRoute("/")({
           "Warren Factor, licensed mortgage broker for 28 years across 32 states. Conventional, FHA, VA, DSCR, Bank Statement, Fix & Flip, Bridge and Commercial loans. Call (561) 577-1882.",
       },
       {
+        name: "google-site-verification",
+        content: "oYtka2iVJ40l1yOcu5Yz04oi2ZcB175ebBKri4byWj8",
+      },
+      {
         property: "og:title",
         content: "Florida's Lowest Mortgage Rates | The Discount Mortgage Store",
       },
