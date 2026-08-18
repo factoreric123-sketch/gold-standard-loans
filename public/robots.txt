@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /live-chat
+Disallow: /qa
+Disallow: /auth
+Disallow: /landing/
 
 Sitemap: https://www.thediscountmortgagestore.com/sitemap.xml
