@@ -134,16 +134,6 @@ export function TranslateButton({ className = "" }: { className?: string }) {
     <div className={`inline-flex flex-col items-stretch gap-1 ${className}`}>
       <button
         type="button"
-        onClick={() => choose("en")}
-        aria-pressed={lang === "en"}
-        aria-label="View site in English"
-        className={`${baseBtn} ${lang === "en" ? activeBtn : idleBtn}`}
-      >
-        <Languages className="h-3.5 w-3.5" />
-        English
-      </button>
-      <button
-        type="button"
         onClick={() => choose("es")}
         aria-pressed={lang === "es"}
         aria-label="Ver el sitio en español"
