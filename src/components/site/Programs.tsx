@@ -21,33 +21,30 @@ export function Programs() {
         </Reveal>
 
         <Reveal delay={80}>
-          <div className="mt-12 border border-line bg-card">
-            <div className="flex items-center justify-between border-b border-line px-6 py-3">
-              <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
+          <div className="mt-8 border border-line bg-card">
+            <div className="flex items-center justify-between border-b border-line px-4 py-1.5">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/55">
                 Today's Rates
               </span>
-              <span className="text-[11px] uppercase tracking-widest text-gold">Live</span>
+              <span className="text-[10px] uppercase tracking-widest text-gold">Live</span>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 divide-line lg:divide-x">
+            <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-line">
               {RATES.map((r) => (
-                <div key={r.name} className="px-6 py-5">
-                  <div className="font-serif text-3xl text-foreground">{r.rate}</div>
-                  <div className="mt-1 text-sm tracking-wide text-foreground/70">{r.name}</div>
+                <div key={r.name} className="px-3 py-2">
+                  <div className="font-serif text-lg leading-tight text-foreground">{r.rate}</div>
+                  <div className="mt-0.5 text-[11px] tracking-wide text-foreground/70">{r.name}</div>
                   {r.note && (
-                    <div className="mt-1 text-[10px] uppercase tracking-widest text-gold">
+                    <div className="mt-0.5 text-[9px] uppercase tracking-widest text-gold">
                       {r.note}
                     </div>
                   )}
                 </div>
               ))}
             </div>
-            <p className="border-t border-line px-6 py-3 text-xs text-foreground/45 italic">
-              Rates updated daily · Subject to change. APR varies by credit &amp; program.
-            </p>
           </div>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {PROGRAMS.map((p, i) => {
             const Icon = p.icon;
             return (
