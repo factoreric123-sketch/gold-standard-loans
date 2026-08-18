@@ -60,12 +60,51 @@ function loadWidget() {
   document.body.appendChild(s);
 }
 
+const EXPIRY_KEY = "site-lang-expires";
+const SPANISH_MS = 10 * 60 * 1000; // auto-revert to English after 10 minutes
+
 export function TranslateButton({ className = "" }: { className?: string }) {
   const [lang, setLang] = useState("en");
 
+  const revertToEnglish = () => {
+    setTransCookie("en");
+    try {
+      window.localStorage.setItem(STORAGE_KEY, "en");
+      window.localStorage.removeItem(EXPIRY_KEY);
+    } catch {
+      /* ignore */
+    }
+    window.location.reload();
+  };
+
   useEffect(() => {
-    setLang(currentLang());
+    const current = currentLang();
+    setLang(current);
     loadWidget();
+
+    if (current !== "es") return;
+    let expires = 0;
+    try {
+      expires = Number(window.localStorage.getItem(EXPIRY_KEY) || 0);
+    } catch {
+      /* ignore */
+    }
+    if (!expires) {
+      // No timer recorded (older session) — start one now.
+      try {
+        window.localStorage.setItem(EXPIRY_KEY, String(Date.now() + SPANISH_MS));
+      } catch {
+        /* ignore */
+      }
+      expires = Date.now() + SPANISH_MS;
+    }
+    const remaining = expires - Date.now();
+    if (remaining <= 0) {
+      revertToEnglish();
+      return;
+    }
+    const t = window.setTimeout(revertToEnglish, remaining);
+    return () => window.clearTimeout(t);
   }, []);
 
   const choose = (next: string) => {
@@ -73,11 +112,17 @@ export function TranslateButton({ className = "" }: { className?: string }) {
     setTransCookie(next);
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
+      if (next === "es") {
+        window.localStorage.setItem(EXPIRY_KEY, String(Date.now() + SPANISH_MS));
+      } else {
+        window.localStorage.removeItem(EXPIRY_KEY);
+      }
     } catch {
       /* ignore */
     }
     window.location.reload();
   };
+
 
   const baseBtn =
     "notranslate inline-flex items-center justify-center gap-1.5 border px-3.5 py-2 text-[11px] uppercase tracking-[0.15em] transition-colors";
