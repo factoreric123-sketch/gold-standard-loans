@@ -195,6 +195,8 @@ export function Contact() {
         lastSubmitAt.current = Date.now();
         setDone(true);
         form.reset();
+        setCitizenship("");
+        setItin("");
 
       } else {
         throw new Error("Both email and DB submissions failed");
@@ -374,6 +376,52 @@ export function Contact() {
                 className={inputClass}
               />
 
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <select
+                    name="citizenshipStatus"
+                    value={citizenship}
+                    onChange={(e) => setCitizenship(e.target.value)}
+                    aria-label="Citizenship or residency status"
+                    className={inputClass}
+                  >
+                    <option value="">
+                      Citizenship / Residency Status
+                    </option>
+                    {CITIZENSHIP_OPTIONS.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <select
+                    name="hasItin"
+                    value={itin}
+                    onChange={(e) => setItin(e.target.value)}
+                    aria-label="Do you have an ITIN"
+                    className={inputClass}
+                  >
+                    <option value="">Do you have an ITIN?</option>
+                    {ITIN_OPTIONS.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {recommended.length > 0 && (
+                <p className="text-xs text-foreground/60 leading-relaxed border-l-2 border-gold pl-3">
+                  <span className="text-gold uppercase tracking-widest text-[10px] block mb-0.5">
+                    Recommended for you
+                  </span>
+                  {recommended.join(" · ")}
+                </p>
+              )}
+
               <div>
                 <select
                   name="loanType"
@@ -385,11 +433,30 @@ export function Contact() {
                   <option value="" disabled>
                     Loan Type
                   </option>
-                  {loanOptions.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
+                  {recommended.length > 0 ? (
+                    <>
+                      <optgroup label="Recommended for you">
+                        {recommended.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="All programs">
+                        {otherOptions.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </optgroup>
+                    </>
+                  ) : (
+                    loanOptions.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))
+                  )}
                 </select>
                 {errors.loanType && (
                   <p className="mt-1.5 text-xs text-destructive">{errors.loanType}</p>
