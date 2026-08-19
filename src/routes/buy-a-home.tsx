@@ -277,7 +277,7 @@ function BuyAHomePage() {
             <Reveal>
               <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-background/55">
                 <MapPin className="w-4 h-4 text-gold" />
-                <span>Powered by Zillow — opens a new tab with live Florida listings.</span>
+                <span>Powered by Zillow — opens a new tab with live US listings.</span>
               </div>
             </Reveal>
           </div>
