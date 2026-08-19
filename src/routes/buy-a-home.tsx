@@ -396,9 +396,10 @@ function BuyAHomePage() {
         <section className="border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-16">
             <Reveal>
-              <h2 className="font-serif text-3xl md:text-4xl">Browse popular Florida cities</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">Browse popular Florida markets</h2>
               <p className="mt-3 text-foreground/60 max-w-xl">
-                Jump straight into Zillow listings in Florida's most-searched markets.
+                Warren is Florida-based — jump straight into Zillow listings in the
+                state's most-searched markets. Or pick any US state below.
               </p>
             </Reveal>
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-line">
