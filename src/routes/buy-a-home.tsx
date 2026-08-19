@@ -147,7 +147,7 @@ const STEPS = [
 const PROGRAMS = [
   {
     title: "Foreign National Loans",
-    body: "For buyers living outside the US with no US credit file. Qualify on foreign income, bank statements, and a valid passport — no Social Security number required.",
+    body: "For buyers living outside the US with no US credit file. Warren can even close a foreign national loan without income verification documentation — qualifying you on assets, a valid passport, and a strong down payment. No Social Security number required.",
   },
   {
     title: "ITIN Mortgages",
@@ -303,6 +303,32 @@ function BuyAHomePage() {
             </Reveal>
           </div>
         </section>
+
+        {/* No-income-verification callout */}
+        <section className="border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-10 md:py-12">
+            <Reveal>
+              <div className="border border-gold bg-accent/30 px-6 py-8 md:px-10 md:py-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-2">
+                    A capability few lenders offer
+                  </div>
+                  <p className="font-serif text-2xl md:text-3xl leading-tight max-w-2xl">
+                    Warren can even do a foreign national loan
+                    <span className="text-gold"> without income verification documentation</span>.
+                  </p>
+                </div>
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="inline-flex items-center gap-2 border border-gold text-gold px-6 py-3 text-[11px] uppercase tracking-[0.25em] hover:bg-gold hover:text-white transition-colors whitespace-nowrap"
+                >
+                  <Phone className="h-4 w-4" /> Ask Warren if you qualify
+                </a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
 
         {/* What is an expat mortgage */}
         <section className="bg-accent/40 border-b border-line">
