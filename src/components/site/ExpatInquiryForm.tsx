@@ -168,7 +168,7 @@ export function ExpatInquiryForm() {
           situation and reply with the programs you qualify for, usually within
           one business day.
         </p>
-        <p className="mt-6 text-sm text-muted">
+        <p className="mt-6 text-sm text-muted-foreground">
           Need a faster answer? Call{" "}
           <a
             href={`tel:${PHONE_TEL}`}
