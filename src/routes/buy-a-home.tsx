@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Search, MapPin, Phone, ArrowRight, Mail, Home as HomeIcon } from "lucide-react";
+import { Search, MapPin, Phone, ArrowRight, Mail, Home as HomeIcon, Globe2 } from "lucide-react";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -25,32 +25,32 @@ export const Route = createFileRoute("/buy-a-home")({
   head: () => ({
     meta: [
       {
-        title: "Buy a Home — Search Florida Homes on Zillow | The Discount Mortgage Store",
+        title: "Mortgages for Expats & Foreign Nationals | The Discount Mortgage Store",
       },
       {
         name: "description",
         content:
-          "Search homes for sale across Florida on Zillow, then get pre-approved with Warren Factor. Florida's lowest mortgage rates since 1996. FHA, VA, conventional & DSCR loans.",
+          "Expats and foreign nationals can buy a home in Florida with Warren Factor. No US credit history? No problem. ITIN, foreign-income, and asset-based mortgages for buyers from around the world.",
       },
       {
         property: "og:title",
-        content: "Buy a Home — Search Florida Homes on Zillow | The Discount Mortgage Store",
+        content: "Mortgages for Expats & Foreign Nationals | The Discount Mortgage Store",
       },
       {
         property: "og:description",
         content:
-          "Search homes for sale on Zillow and get pre-approved with Warren Factor. Florida's lowest mortgage rates since 1996.",
+          "Buy a home in Florida as an expat or foreign national. Warren Factor offers ITIN, foreign-income, and asset-based mortgages for buyers worldwide.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/buy-a-home` },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Buy a Home — Search Florida Homes on Zillow | The Discount Mortgage Store",
+        content: "Mortgages for Expats & Foreign Nationals | The Discount Mortgage Store",
       },
       {
         name: "twitter:description",
-        content: "Search homes for sale on Zillow and get pre-approved with Warren Factor.",
+        content: "Buy a home in Florida as an expat or foreign national. Mortgages for buyers worldwide.",
       },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/buy-a-home` }],
@@ -76,18 +76,60 @@ const POPULAR_CITIES: { name: string; query: string }[] = [
 const STEPS = [
   {
     n: "01",
-    title: "Find a home on Zillow",
-    body: "Search listings across Florida by city, ZIP, or address. Save your favorites and watch new listings the moment they hit the market.",
+    title: "Find your Florida home",
+    body: "Search live listings on Zillow by city, ZIP, or address. Save your favorites and watch new properties the moment they hit the market.",
   },
   {
     n: "02",
     title: "Get pre-approved with Warren",
-    body: "A pre-approval letter shows sellers you're serious. Warren locks your rate and terms so you can move fast and bid with confidence.",
+    body: "No US credit history? No problem. Warren pre-approves expats and foreign nationals using foreign income, assets, or an ITIN — so your offer is taken seriously.",
   },
   {
     n: "03",
-    title: "Close with confidence",
-    body: "From contract to closing, Warren manages your loan in-house. Direct lender pricing, fast underwriting, and no surprise fees.",
+    title: "Close from anywhere",
+    body: "From contract to closing, Warren manages your loan remotely. Direct lender pricing, fast underwriting, and no surprise fees — even when you sign from abroad.",
+  },
+];
+
+const PROGRAMS = [
+  {
+    title: "Foreign National Loans",
+    body: "For buyers living outside the US with no US credit file. Qualify on foreign income, bank statements, and a valid passport — no Social Security number required.",
+  },
+  {
+    title: "ITIN Mortgages",
+    body: "An Individual Taxpayer Identification Number (ITIN) lets you finance a US home without a Social Security number. Warren walks you through obtaining one if you don't have it yet.",
+  },
+  {
+    title: "Asset-Based & DSCR",
+    body: "Qualify on the property's rental income or your liquid assets instead of traditional employment. Ideal for investors and self-employed expats.",
+  },
+  {
+    title: "Conventional & FHA",
+    body: "If you have established US credit and residency, Warren still offers conventional, FHA, and VA loans at Florida's lowest rates.",
+  },
+];
+
+const FAQ = [
+  {
+    q: "Can I buy a home in Florida if I'm not a US citizen or resident?",
+    a: "Yes. Warren Factor closes mortgages for expats, foreign nationals, and non-permanent residents every week. You do not need a Green Card or US credit history to qualify.",
+  },
+  {
+    q: "Do I need a Social Security number?",
+    a: "No. Foreign national and ITIN loan programs use your passport and an ITIN instead. If you don't have an ITIN yet, Warren will guide you through obtaining one.",
+  },
+  {
+    q: "What documentation do I need from abroad?",
+    a: "Typically: passport, proof of foreign income (bank statements, employer letters, or CPA-prepared financials), and source-of-funds documentation. Warren provides a tailored checklist after a short call.",
+  },
+  {
+    q: "Can I close on the loan without flying to the United States?",
+    a: "In most cases, yes. Remote online notarization and embassy/consulate services allow you to sign from your home country. Warren coordinates the entire closing remotely.",
+  },
+  {
+    q: "What down payment is expected for foreign nationals?",
+    a: "Foreign national programs typically require 20–25% down. ITIN and asset-based programs may allow as little as 15%. Warren will quote your exact terms once he reviews your file.",
   },
 ];
 
@@ -117,11 +159,12 @@ function BuyAHomePage() {
                 The Discount Mortgage Store · Since {SINCE_YEAR}
               </div>
               <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-                Buy a home in Florida
+                Mortgages for expats & foreign nationals
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
-                Search live listings on Zillow, then get pre-approved with Warren Factor.
-                Florida's lowest mortgage rates — FHA, VA, conventional, and DSCR loans.
+                Buy a home in Florida from anywhere in the world. Warren Factor closes
+                mortgages for expats, foreign nationals, and ITIN borrowers — no US
+                credit history required.
               </p>
             </Reveal>
 
@@ -136,7 +179,7 @@ function BuyAHomePage() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Enter a city, ZIP, or address in Florida"
+                    placeholder="Search Florida homes by city, ZIP, or address"
                     aria-label="Search homes for sale"
                     className="w-full bg-transparent py-3.5 text-base outline-none placeholder:text-foreground/40"
                   />
@@ -154,9 +197,53 @@ function BuyAHomePage() {
             <Reveal>
               <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-background/55">
                 <MapPin className="w-4 h-4 text-gold" />
-                <span>Powered by Zillow — opens a new tab with live listings.</span>
+                <span>Powered by Zillow — opens a new tab with live Florida listings.</span>
               </div>
             </Reveal>
+          </div>
+        </section>
+
+        {/* Intro / why expats */}
+        <section className="border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Built for international buyers
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
+                Your Florida mortgage — handled from anywhere on earth
+              </h2>
+              <p className="mt-5 text-foreground/65 max-w-2xl leading-relaxed">
+                For nearly 30 years, {BROKER_NAME} has helped expats, foreign nationals,
+                and ITIN borrowers finance homes across Florida and 32 US states. Most
+                lenders turn international buyers away. Warren specializes in saying yes —
+                structuring loans around foreign income, liquid assets, and rental cash
+                flow instead of a US credit score.
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Loan programs */}
+        <section className="bg-accent/40">
+          <div className="mx-auto max-w-7xl px-6 py-16">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Expat loan programs
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl">Programs for buyers worldwide</h2>
+            </Reveal>
+            <div className="mt-10 grid md:grid-cols-2 gap-px bg-line">
+              {PROGRAMS.map((p) => (
+                <Reveal key={p.title}>
+                  <div className="bg-background p-8 h-full">
+                    <Globe2 className="w-7 h-7 text-gold" />
+                    <h3 className="mt-4 font-serif text-2xl">{p.title}</h3>
+                    <p className="mt-3 text-foreground/60 text-sm leading-relaxed">{p.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -197,7 +284,7 @@ function BuyAHomePage() {
                 From search to keys
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
-                Three steps to your new front door
+                Three steps to your Florida front door
               </h2>
             </Reveal>
             <div className="mt-10 grid md:grid-cols-3 gap-px bg-line">
@@ -214,6 +301,31 @@ function BuyAHomePage() {
           </div>
         </section>
 
+        {/* FAQ */}
+        <section className="border-b border-line">
+          <div className="mx-auto max-w-3xl px-6 py-16">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Expat mortgage questions
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl">Answers for international buyers</h2>
+            </Reveal>
+            <div className="mt-8 divide-y divide-line">
+              {FAQ.map((f) => (
+                <details key={f.q} className="group py-5">
+                  <summary className="flex items-center justify-between cursor-pointer list-none">
+                    <span className="font-serif text-lg pr-4">{f.q}</span>
+                    <span className="text-gold text-2xl leading-none group-open:rotate-45 transition-transform">
+                      +
+                    </span>
+                  </summary>
+                  <p className="mt-3 text-foreground/60 text-sm leading-relaxed">{f.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Pre-approval CTA */}
         <section className="bg-charcoal text-background">
           <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
@@ -224,12 +336,13 @@ function BuyAHomePage() {
                     Ready to make an offer?
                   </div>
                   <h2 className="font-serif text-4xl md:text-5xl leading-[1.05]">
-                    Get pre-approved before you bid
+                    Get pre-approved from anywhere
                   </h2>
                   <p className="mt-5 text-background/70 max-w-md leading-relaxed">
-                    Sellers want to see a pre-approval, not a pre-qualification. Warren issues
-                    direct-lender pre-approvals so your offer stands out — and your rate is
-                    locked the moment you find the right home.
+                    Sellers want a pre-approval, not a pre-qualification. Warren issues
+                    direct-lender pre-approvals for expats and foreign nationals so your
+                    offer stands out — and your rate is locked the moment you find the
+                    right home.
                   </p>
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
@@ -252,9 +365,10 @@ function BuyAHomePage() {
                   <HomeIcon className="w-8 h-8 text-gold" />
                   <ul className="mt-6 space-y-4 text-sm">
                     {[
+                      "Foreign national, ITIN & asset-based loans",
+                      "No US credit history required",
+                      "Remote closing — sign from your home country",
                       "Direct lender pricing — no middleman markups",
-                      "Pre-approval letters issued the same day",
-                      "FHA, VA, conventional, bank statement & DSCR loans",
                       "Serving 32 states since 1996",
                     ].map((b) => (
                       <li key={b} className="flex items-start gap-3 text-background/75">
@@ -276,10 +390,10 @@ function BuyAHomePage() {
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
                 Talk to Warren
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl">Questions about buying?</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">Ready to buy in Florida?</h2>
               <p className="mt-3 text-foreground/60 max-w-xl">
-                Found a home you love on Zillow? Call Warren for today's exact rate and a
-                same-day pre-approval.
+                Wherever you are in the world, call Warren for today's exact rate and a
+                pre-approval built for international buyers.
               </p>
               <div className="mt-7 grid sm:grid-cols-2 gap-4 text-sm">
                 <a
