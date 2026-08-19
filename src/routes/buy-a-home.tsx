@@ -422,7 +422,7 @@ function BuyAHomePage() {
         </section>
 
         {/* Browse by state */}
-        <section className="bg-accent/40">
+        <section className="bg-accent/40 border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-16">
             <Reveal>
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
