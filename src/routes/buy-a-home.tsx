@@ -30,7 +30,7 @@ export const Route = createFileRoute("/buy-a-home")({
       {
         name: "description",
         content:
-          "Expats and foreign nationals can buy a home in Florida with Warren Factor. No US credit history? No problem. ITIN, foreign-income, and asset-based mortgages for buyers from around the world.",
+          "Expats and foreign nationals can buy a home in the USA with Warren Factor. No US credit history? No problem. ITIN, foreign-income, and asset-based mortgages for buyers from around the world.",
       },
       {
         property: "og:title",
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/buy-a-home")({
       {
         property: "og:description",
         content:
-          "Buy a home in Florida as an expat or foreign national. Warren Factor offers ITIN, foreign-income, and asset-based mortgages for buyers worldwide.",
+          "Buy a home in the USA as an expat or foreign national. Warren Factor offers ITIN, foreign-income, and asset-based mortgages for buyers worldwide.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/buy-a-home` },
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/buy-a-home")({
       },
       {
         name: "twitter:description",
-        content: "Buy a home in Florida as an expat or foreign national. Mortgages for buyers worldwide.",
+        content: "Buy a home in the USA as an expat or foreign national. Mortgages for buyers worldwide.",
       },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/buy-a-home` }],
@@ -129,8 +129,8 @@ const US_STATES: { name: string; query: string }[] = [
 const STEPS = [
   {
     n: "01",
-    title: "Find your Florida home",
-    body: "Search live listings on Zillow by city, ZIP, or address. Save your favorites and watch new properties the moment they hit the market.",
+    title: "Find your US home",
+    body: "Search live listings on Zillow by city, ZIP, or address — in any of the 50 states. Save your favorites and watch new properties the moment they hit the market.",
   },
   {
     n: "02",
@@ -192,7 +192,7 @@ const BENEFITS = [
 
 const FAQ = [
   {
-    q: "Can I buy a home in Florida if I'm not a US citizen or resident?",
+    q: "Can I buy a home in the USA if I'm not a US citizen or resident?",
     a: "Yes. Warren Factor closes mortgages for expats, foreign nationals, and non-permanent residents every week. You do not need a Green Card or US credit history to qualify.",
   },
   {
@@ -242,7 +242,7 @@ function BuyAHomePage() {
                 Mortgages for expats & foreign nationals
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
-                Buy a home in Florida from anywhere in the world. Warren Factor closes
+                Buy a home in the USA from anywhere in the world. Warren Factor closes
                 mortgages for expats, foreign nationals, and ITIN borrowers — no US
                 credit history required.
               </p>
@@ -259,7 +259,7 @@ function BuyAHomePage() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search Florida homes by city, ZIP, or address"
+                    placeholder="Search US homes by city, ZIP, or address"
                     aria-label="Search homes for sale"
                     className="w-full bg-transparent py-3.5 text-base outline-none placeholder:text-foreground/40"
                   />
@@ -277,7 +277,7 @@ function BuyAHomePage() {
             <Reveal>
               <div className="mt-5 flex flex-wrap items-center gap-3 text-sm text-background/55">
                 <MapPin className="w-4 h-4 text-gold" />
-                <span>Powered by Zillow — opens a new tab with live Florida listings.</span>
+                <span>Powered by Zillow — opens a new tab with live US listings.</span>
               </div>
             </Reveal>
           </div>
@@ -291,11 +291,11 @@ function BuyAHomePage() {
                 Built for international buyers
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
-                Your Florida mortgage — handled from anywhere on earth
+                Your US mortgage — handled from anywhere on earth
               </h2>
               <p className="mt-5 text-foreground/65 max-w-2xl leading-relaxed">
                 For nearly 30 years, {BROKER_NAME} has helped expats, foreign nationals,
-                and ITIN borrowers finance homes across Florida and 32 US states. Most
+                and ITIN borrowers finance homes across the USA — licensed in 32 states. Most
                 lenders turn international buyers away. Warren specializes in saying yes —
                 structuring loans around foreign income, liquid assets, and rental cash
                 flow instead of a US credit score.
@@ -316,7 +316,7 @@ function BuyAHomePage() {
                 <p>
                   An expat mortgage is a home loan built for people who live outside the
                   United States — or who lack a US credit history — but want to buy or
-                  refinance property in Florida. Where a standard US mortgage assumes a
+                  refinance property in the USA. Where a standard US mortgage assumes a
                   Social Security number, a domestic income, and a years-long credit file,
                   an expat mortgage is underwritten around foreign income, liquid assets,
                   and the property's rental value.
@@ -396,9 +396,10 @@ function BuyAHomePage() {
         <section className="border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-16">
             <Reveal>
-              <h2 className="font-serif text-3xl md:text-4xl">Browse popular Florida cities</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">Browse popular Florida markets</h2>
               <p className="mt-3 text-foreground/60 max-w-xl">
-                Jump straight into Zillow listings in Florida's most-searched markets.
+                Warren is Florida-based — jump straight into Zillow listings in the
+                state's most-searched markets. Or pick any US state below.
               </p>
             </Reveal>
             <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-px bg-line">
@@ -462,7 +463,7 @@ function BuyAHomePage() {
                 From search to keys
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
-                Three steps to your Florida front door
+                Three steps to your new US front door
               </h2>
             </Reveal>
             <div className="mt-10 grid md:grid-cols-3 gap-px bg-line">
@@ -568,7 +569,7 @@ function BuyAHomePage() {
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
                 Talk to Warren
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl">Ready to buy in Florida?</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">Ready to buy in the USA?</h2>
               <p className="mt-3 text-foreground/60 max-w-xl">
                 Wherever you are in the world, call Warren for today's exact rate and a
                 pre-approval built for international buyers.
