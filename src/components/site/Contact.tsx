@@ -49,15 +49,31 @@ type FieldErrors = Partial<Record<keyof Fields, string>>;
 const loanOptions = [...PROGRAMS.map((p) => p.name), "Not Sure"];
 
 // Tailor recommended programs to the borrower's residency / ITIN situation.
-function recommendedPrograms(citizenship: string, itin: string): string[] {
+// Returns the recommended programs plus an optional note when the foreign
+// national / no-income-verification path may apply.
+type Recommendation = {
+  programs: string[];
+  note?: string;
+};
+
+const FN_NOTE =
+  "Warren can even do a foreign national loan without income verification documentation — you may qualify on assets and a passport alone.";
+
+function recommendedPrograms(citizenship: string, itin: string): Recommendation {
   if (citizenship === "Foreign National (living abroad)") {
-    return ["Foreign National", "Asset-Based", "DSCR", "Bank Statement"];
+    return {
+      programs: ["Foreign National", "Asset-Based", "DSCR", "Bank Statement"],
+      note: FN_NOTE,
+    };
   }
   if (citizenship === "Visa Holder (H-1B, L-1, E-2, etc.)") {
     return ["Conventional", "FHA", "Bank Statement", "Foreign National"];
   }
   if (itin.startsWith("Yes")) {
-    return ["Bank Statement", "Foreign National", "Asset-Based", "DSCR"];
+    return {
+      programs: ["Bank Statement", "Foreign National", "Asset-Based", "DSCR"],
+      note: FN_NOTE,
+    };
   }
   if (
     citizenship === "US Citizen" ||
@@ -65,7 +81,7 @@ function recommendedPrograms(citizenship: string, itin: string): string[] {
   ) {
     return ["Conventional", "FHA", "VA", "0% Down"];
   }
-  return [];
+  return { programs: [] };
 }
 
 // Web3Forms access key (created with warrenfactor@gmail.com as the recipient).
