@@ -120,9 +120,11 @@ export type Database = {
       }
       contact_submissions: {
         Row: {
+          citizenship_status: string | null
           created_at: string
           email: string
           first_name: string
+          has_itin: string | null
           id: string
           last_name: string
           loan_type: string
@@ -130,9 +132,11 @@ export type Database = {
           phone: string
         }
         Insert: {
+          citizenship_status?: string | null
           created_at?: string
           email: string
           first_name: string
+          has_itin?: string | null
           id?: string
           last_name: string
           loan_type: string
@@ -140,9 +144,11 @@ export type Database = {
           phone: string
         }
         Update: {
+          citizenship_status?: string | null
           created_at?: string
           email?: string
           first_name?: string
+          has_itin?: string | null
           id?: string
           last_name?: string
           loan_type?: string
