@@ -568,7 +568,7 @@ function BuyAHomePage() {
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
                 Talk to Warren
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl">Ready to buy in Florida?</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">Ready to buy in the USA?</h2>
               <p className="mt-3 text-foreground/60 max-w-xl">
                 Wherever you are in the world, call Warren for today's exact rate and a
                 pre-approval built for international buyers.
