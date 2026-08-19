@@ -421,6 +421,39 @@ function BuyAHomePage() {
           </div>
         </section>
 
+        {/* Browse by state */}
+        <section className="bg-accent/40">
+          <div className="mx-auto max-w-7xl px-6 py-16">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Search nationwide
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl">Browse homes by state</h2>
+              <p className="mt-3 text-foreground/60 max-w-xl">
+                Warren is licensed in 32 states. Pick any state below to open live Zillow
+                listings — then call Warren to finance your purchase.
+              </p>
+            </Reveal>
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-line">
+              {US_STATES.map((s) => (
+                <a
+                  key={s.name}
+                  href={`https://www.zillow.com/homes/for_sale/${s.query}_rb/`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-background p-3.5 flex items-center justify-between hover:bg-accent transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
+                    <span className="text-xs uppercase tracking-[0.1em]">{s.name}</span>
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 text-foreground/30 group-hover:text-gold transition-colors" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* How it works */}
         <section className="bg-accent/40">
           <div className="mx-auto max-w-7xl px-6 py-16">
