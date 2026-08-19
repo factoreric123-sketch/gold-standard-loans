@@ -242,7 +242,7 @@ function BuyAHomePage() {
                 Mortgages for expats & foreign nationals
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
-                Buy a home in Florida from anywhere in the world. Warren Factor closes
+                Buy a home in the USA from anywhere in the world. Warren Factor closes
                 mortgages for expats, foreign nationals, and ITIN borrowers — no US
                 credit history required.
               </p>
