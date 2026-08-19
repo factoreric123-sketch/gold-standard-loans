@@ -192,7 +192,7 @@ const BENEFITS = [
 
 const FAQ = [
   {
-    q: "Can I buy a home in Florida if I'm not a US citizen or resident?",
+    q: "Can I buy a home in the USA if I'm not a US citizen or resident?",
     a: "Yes. Warren Factor closes mortgages for expats, foreign nationals, and non-permanent residents every week. You do not need a Green Card or US credit history to qualify.",
   },
   {
