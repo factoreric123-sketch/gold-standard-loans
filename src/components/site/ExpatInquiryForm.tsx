@@ -171,10 +171,10 @@ export function ExpatInquiryForm() {
         <p className="mt-6 text-sm text-muted">
           Need a faster answer? Call{" "}
           <a
-            href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`}
+            href={`tel:${PHONE_TEL}`}
             className="text-gold underline underline-offset-4"
           >
-            {CONTACT.phone}
+            {PHONE_DISPLAY}
           </a>
         </p>
       </div>
