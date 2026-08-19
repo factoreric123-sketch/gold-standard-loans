@@ -18,11 +18,27 @@ import {
 import { Reveal } from "@/components/site/motion";
 import { supabase } from "@/integrations/supabase/client";
 
+const CITIZENSHIP_OPTIONS = [
+  "US Citizen",
+  "Permanent Resident (Green Card)",
+  "Visa Holder (H-1B, L-1, E-2, etc.)",
+  "Foreign National (living abroad)",
+  "Prefer not to say",
+] as const;
+
+const ITIN_OPTIONS = [
+  "Yes — I have an ITIN",
+  "No — I don't have one",
+  "Not sure",
+] as const;
+
 const schema = z.object({
   firstName: z.string().trim().min(1, "Required").max(80),
   lastName: z.string().trim().min(1, "Required").max(80),
   phone: z.string().trim().min(7, "Enter a valid phone").max(30),
   email: z.string().trim().email("Enter a valid email").max(200),
+  citizenshipStatus: z.string().trim().max(80).optional().or(z.literal("")),
+  hasItin: z.string().trim().max(80).optional().or(z.literal("")),
   loanType: z.string().min(1, "Select a loan type"),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
@@ -31,6 +47,26 @@ type Fields = z.infer<typeof schema>;
 type FieldErrors = Partial<Record<keyof Fields, string>>;
 
 const loanOptions = [...PROGRAMS.map((p) => p.name), "Not Sure"];
+
+// Tailor recommended programs to the borrower's residency / ITIN situation.
+function recommendedPrograms(citizenship: string, itin: string): string[] {
+  if (citizenship === "Foreign National (living abroad)") {
+    return ["Foreign National", "Asset-Based", "DSCR", "Bank Statement"];
+  }
+  if (citizenship === "Visa Holder (H-1B, L-1, E-2, etc.)") {
+    return ["Conventional", "FHA", "Bank Statement", "Foreign National"];
+  }
+  if (itin.startsWith("Yes")) {
+    return ["Bank Statement", "Foreign National", "Asset-Based", "DSCR"];
+  }
+  if (
+    citizenship === "US Citizen" ||
+    citizenship === "Permanent Resident (Green Card)"
+  ) {
+    return ["Conventional", "FHA", "VA", "0% Down"];
+  }
+  return [];
+}
 
 // Web3Forms access key (created with warrenfactor@gmail.com as the recipient).
 // Submissions get emailed to that address as soon as the key is set in env.
