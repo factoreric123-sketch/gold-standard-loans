@@ -6,6 +6,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { Reveal } from "@/components/site/motion";
+import { ForeignNationalForm } from "@/components/site/ForeignNationalForm";
 import {
   PHONE_DISPLAY,
   PHONE_TEL,
@@ -215,6 +216,7 @@ const FAQ = [
 
 function BuyAHomePage() {
   const [query, setQuery] = useState("");
+  const [fnFormOpen, setFnFormOpen] = useState(false);
 
   const zillowSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -318,12 +320,13 @@ function BuyAHomePage() {
                     <span className="text-gold"> without income verification documentation</span>.
                   </p>
                 </div>
-                <a
-                  href={`tel:${PHONE_TEL}`}
+                <button
+                  type="button"
+                  onClick={() => setFnFormOpen(true)}
                   className="inline-flex items-center gap-2 border border-gold text-gold px-6 py-3 text-[11px] uppercase tracking-[0.25em] hover:bg-gold hover:text-white transition-colors whitespace-nowrap"
                 >
-                  <Phone className="h-4 w-4" /> Ask Warren if you qualify
-                </a>
+                  <ArrowRight className="h-4 w-4" /> Ask Warren if you qualify
+                </button>
               </div>
             </Reveal>
           </div>
@@ -631,6 +634,7 @@ function BuyAHomePage() {
 
       <SiteFooter />
       <MobileCTA />
+      <ForeignNationalForm open={fnFormOpen} onClose={() => setFnFormOpen(false)} />
     </div>
   );
 }
