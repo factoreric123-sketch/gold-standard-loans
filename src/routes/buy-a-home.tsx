@@ -634,6 +634,7 @@ function BuyAHomePage() {
 
       <SiteFooter />
       <MobileCTA />
+      <ForeignNationalForm open={fnFormOpen} onClose={() => setFnFormOpen(false)} />
     </div>
   );
 }
