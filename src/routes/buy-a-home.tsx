@@ -129,8 +129,8 @@ const US_STATES: { name: string; query: string }[] = [
 const STEPS = [
   {
     n: "01",
-    title: "Find your Florida home",
-    body: "Search live listings on Zillow by city, ZIP, or address. Save your favorites and watch new properties the moment they hit the market.",
+    title: "Find your US home",
+    body: "Search live listings on Zillow by city, ZIP, or address — in any of the 50 states. Save your favorites and watch new properties the moment they hit the market.",
   },
   {
     n: "02",
