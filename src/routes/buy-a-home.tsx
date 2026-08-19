@@ -50,7 +50,7 @@ export const Route = createFileRoute("/buy-a-home")({
       },
       {
         name: "twitter:description",
-        content: "Buy a home in Florida as an expat or foreign national. Mortgages for buyers worldwide.",
+        content: "Buy a home in the USA as an expat or foreign national. Mortgages for buyers worldwide.",
       },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/buy-a-home` }],
