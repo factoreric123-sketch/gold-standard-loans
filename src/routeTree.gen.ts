@@ -13,6 +13,7 @@ import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RateNewsRouteImport } from './routes/rate-news'
+import { Route as ExpatFormRouteImport } from './routes/expat-form'
 import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
@@ -43,6 +44,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RateNewsRoute = RateNewsRouteImport.update({
   id: '/rate-news',
   path: '/rate-news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpatFormRoute = ExpatFormRouteImport.update({
+  id: '/expat-form',
+  path: '/expat-form',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BuyAHomeRoute = BuyAHomeRouteImport.update({
@@ -104,6 +110,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
+  '/expat-form': typeof ExpatFormRoute
   '/rate-news': typeof RateNewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -120,6 +127,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
+  '/expat-form': typeof ExpatFormRoute
   '/rate-news': typeof RateNewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -138,6 +146,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
+  '/expat-form': typeof ExpatFormRoute
   '/rate-news': typeof RateNewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -156,6 +165,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/buy-a-home'
+    | '/expat-form'
     | '/rate-news'
     | '/sitemap.xml'
     | '/special-programs'
@@ -172,6 +182,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/buy-a-home'
+    | '/expat-form'
     | '/rate-news'
     | '/sitemap.xml'
     | '/special-programs'
@@ -189,6 +200,7 @@ export interface FileRouteTypes {
     | '/_authenticated'
     | '/auth'
     | '/buy-a-home'
+    | '/expat-form'
     | '/rate-news'
     | '/sitemap.xml'
     | '/special-programs'
@@ -207,6 +219,7 @@ export interface RootRouteChildren {
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AuthRoute: typeof AuthRoute
   BuyAHomeRoute: typeof BuyAHomeRoute
+  ExpatFormRoute: typeof ExpatFormRoute
   RateNewsRoute: typeof RateNewsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
@@ -245,6 +258,13 @@ declare module '@tanstack/react-router' {
       path: '/rate-news'
       fullPath: '/rate-news'
       preLoaderRoute: typeof RateNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expat-form': {
+      id: '/expat-form'
+      path: '/expat-form'
+      fullPath: '/expat-form'
+      preLoaderRoute: typeof ExpatFormRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/buy-a-home': {
@@ -347,6 +367,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AuthRoute: AuthRoute,
   BuyAHomeRoute: BuyAHomeRoute,
+  ExpatFormRoute: ExpatFormRoute,
   RateNewsRoute: RateNewsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
