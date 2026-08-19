@@ -136,8 +136,14 @@ export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [citizenship, setCitizenship] = useState("");
+  const [itin, setItin] = useState("");
   const formShownAt = useRef<number>(Date.now());
   const lastSubmitAt = useRef<number>(0);
+
+  const recommended = recommendedPrograms(citizenship, itin);
+  const recommendedSet = new Set(recommended);
+  const otherOptions = loanOptions.filter((o) => !recommendedSet.has(o));
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
