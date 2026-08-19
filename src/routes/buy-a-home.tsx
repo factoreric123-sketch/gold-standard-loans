@@ -259,7 +259,7 @@ function BuyAHomePage() {
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search Florida homes by city, ZIP, or address"
+                    placeholder="Search US homes by city, ZIP, or address"
                     aria-label="Search homes for sale"
                     className="w-full bg-transparent py-3.5 text-base outline-none placeholder:text-foreground/40"
                   />
