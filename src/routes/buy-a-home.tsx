@@ -316,7 +316,7 @@ function BuyAHomePage() {
                 <p>
                   An expat mortgage is a home loan built for people who live outside the
                   United States — or who lack a US credit history — but want to buy or
-                  refinance property in Florida. Where a standard US mortgage assumes a
+                  refinance property in the USA. Where a standard US mortgage assumes a
                   Social Security number, a domestic income, and a years-long credit file,
                   an expat mortgage is underwritten around foreign income, liquid assets,
                   and the property's rental value.
