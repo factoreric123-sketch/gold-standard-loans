@@ -18,11 +18,27 @@ import {
 import { Reveal } from "@/components/site/motion";
 import { supabase } from "@/integrations/supabase/client";
 
+const CITIZENSHIP_OPTIONS = [
+  "US Citizen",
+  "Permanent Resident (Green Card)",
+  "Visa Holder (H-1B, L-1, E-2, etc.)",
+  "Foreign National (living abroad)",
+  "Prefer not to say",
+] as const;
+
+const ITIN_OPTIONS = [
+  "Yes — I have an ITIN",
+  "No — I don't have one",
+  "Not sure",
+] as const;
+
 const schema = z.object({
   firstName: z.string().trim().min(1, "Required").max(80),
   lastName: z.string().trim().min(1, "Required").max(80),
   phone: z.string().trim().min(7, "Enter a valid phone").max(30),
   email: z.string().trim().email("Enter a valid email").max(200),
+  citizenshipStatus: z.string().trim().max(80).optional().or(z.literal("")),
+  hasItin: z.string().trim().max(80).optional().or(z.literal("")),
   loanType: z.string().min(1, "Select a loan type"),
   message: z.string().trim().max(1000).optional().or(z.literal("")),
 });
@@ -31,6 +47,26 @@ type Fields = z.infer<typeof schema>;
 type FieldErrors = Partial<Record<keyof Fields, string>>;
 
 const loanOptions = [...PROGRAMS.map((p) => p.name), "Not Sure"];
+
+// Tailor recommended programs to the borrower's residency / ITIN situation.
+function recommendedPrograms(citizenship: string, itin: string): string[] {
+  if (citizenship === "Foreign National (living abroad)") {
+    return ["Foreign National", "Asset-Based", "DSCR", "Bank Statement"];
+  }
+  if (citizenship === "Visa Holder (H-1B, L-1, E-2, etc.)") {
+    return ["Conventional", "FHA", "Bank Statement", "Foreign National"];
+  }
+  if (itin.startsWith("Yes")) {
+    return ["Bank Statement", "Foreign National", "Asset-Based", "DSCR"];
+  }
+  if (
+    citizenship === "US Citizen" ||
+    citizenship === "Permanent Resident (Green Card)"
+  ) {
+    return ["Conventional", "FHA", "VA", "0% Down"];
+  }
+  return [];
+}
 
 // Web3Forms access key (created with warrenfactor@gmail.com as the recipient).
 // Submissions get emailed to that address as soon as the key is set in env.
@@ -50,6 +86,8 @@ async function emailWarren(data: Fields): Promise<boolean> {
         name: `${data.firstName} ${data.lastName}`,
         phone: data.phone,
         email: data.email,
+        citizenship_status: data.citizenshipStatus || "(not provided)",
+        has_itin: data.hasItin || "(not provided)",
         loan_type: data.loanType,
         message: data.message || "(no message)",
       }),
@@ -68,6 +106,8 @@ async function saveToDb(data: Fields): Promise<boolean> {
       last_name: data.lastName,
       phone: data.phone,
       email: data.email,
+      citizenship_status: data.citizenshipStatus || null,
+      has_itin: data.hasItin || null,
       loan_type: data.loanType,
       message: data.message || null,
     });
@@ -83,6 +123,8 @@ function buildMailto(data: Fields) {
     `Name: ${data.firstName} ${data.lastName}`,
     `Phone: ${data.phone}`,
     `Email: ${data.email}`,
+    `Citizenship / residency: ${data.citizenshipStatus || "(not provided)"}`,
+    `Has ITIN: ${data.hasItin || "(not provided)"}`,
     `Loan type: ${data.loanType}`,
     "",
     data.message || "(no message)",
@@ -94,8 +136,14 @@ export function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [citizenship, setCitizenship] = useState("");
+  const [itin, setItin] = useState("");
   const formShownAt = useRef<number>(Date.now());
   const lastSubmitAt = useRef<number>(0);
+
+  const recommended = recommendedPrograms(citizenship, itin);
+  const recommendedSet = new Set(recommended);
+  const otherOptions = loanOptions.filter((o) => !recommendedSet.has(o));
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -147,6 +195,8 @@ export function Contact() {
         lastSubmitAt.current = Date.now();
         setDone(true);
         form.reset();
+        setCitizenship("");
+        setItin("");
 
       } else {
         throw new Error("Both email and DB submissions failed");
@@ -326,6 +376,52 @@ export function Contact() {
                 className={inputClass}
               />
 
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <select
+                    name="citizenshipStatus"
+                    value={citizenship}
+                    onChange={(e) => setCitizenship(e.target.value)}
+                    aria-label="Citizenship or residency status"
+                    className={inputClass}
+                  >
+                    <option value="">
+                      Citizenship / Residency Status
+                    </option>
+                    {CITIZENSHIP_OPTIONS.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <select
+                    name="hasItin"
+                    value={itin}
+                    onChange={(e) => setItin(e.target.value)}
+                    aria-label="Do you have an ITIN"
+                    className={inputClass}
+                  >
+                    <option value="">Do you have an ITIN?</option>
+                    {ITIN_OPTIONS.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {recommended.length > 0 && (
+                <p className="text-xs text-foreground/60 leading-relaxed border-l-2 border-gold pl-3">
+                  <span className="text-gold uppercase tracking-widest text-[10px] block mb-0.5">
+                    Recommended for you
+                  </span>
+                  {recommended.join(" · ")}
+                </p>
+              )}
+
               <div>
                 <select
                   name="loanType"
@@ -337,11 +433,30 @@ export function Contact() {
                   <option value="" disabled>
                     Loan Type
                   </option>
-                  {loanOptions.map((o) => (
-                    <option key={o} value={o}>
-                      {o}
-                    </option>
-                  ))}
+                  {recommended.length > 0 ? (
+                    <>
+                      <optgroup label="Recommended for you">
+                        {recommended.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="All programs">
+                        {otherOptions.map((o) => (
+                          <option key={o} value={o}>
+                            {o}
+                          </option>
+                        ))}
+                      </optgroup>
+                    </>
+                  ) : (
+                    loanOptions.map((o) => (
+                      <option key={o} value={o}>
+                        {o}
+                      </option>
+                    ))
+                  )}
                 </select>
                 {errors.loanType && (
                   <p className="mt-1.5 text-xs text-destructive">{errors.loanType}</p>
