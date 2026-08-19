@@ -110,6 +110,33 @@ const PROGRAMS = [
   },
 ];
 
+const BENEFITS = [
+  {
+    title: "Higher approval odds",
+    body: "Most US lenders decline international files outright. Warren knows the niche lenders that say yes to foreign income, ITIN, and asset-based borrowers.",
+  },
+  {
+    title: "Cross-border expertise",
+    body: "Foreign bank statements, overseas employer letters, and currency conversion are second nature — not a reason to deny your file.",
+  },
+  {
+    title: "Remote, paperless closing",
+    body: "Online notarization and consulate services let you sign from your home country. Warren coordinates every step across time zones.",
+  },
+  {
+    title: "One broker, 32 states",
+    body: "Your single point of contact from pre-approval to closing — no call-center handoffs, no lost paperwork, no surprise fees.",
+  },
+  {
+    title: "Direct lender pricing",
+    body: "Warren quotes true direct-lender rates, not marked-up broker quotes, so your international mortgage costs the same as a domestic one.",
+  },
+  {
+    title: "Plain-English guidance",
+    body: "Warren explains ITIN, source-of-funds, and US closing customs in clear terms — so a buyer in any country knows exactly what happens next.",
+  },
+];
+
 const FAQ = [
   {
     q: "Can I buy a home in Florida if I'm not a US citizen or resident?",
