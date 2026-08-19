@@ -291,11 +291,11 @@ function BuyAHomePage() {
                 Built for international buyers
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
-                Your Florida mortgage — handled from anywhere on earth
+                Your US mortgage — handled from anywhere on earth
               </h2>
               <p className="mt-5 text-foreground/65 max-w-2xl leading-relaxed">
                 For nearly 30 years, {BROKER_NAME} has helped expats, foreign nationals,
-                and ITIN borrowers finance homes across Florida and 32 US states. Most
+                and ITIN borrowers finance homes across the USA — licensed in 32 states. Most
                 lenders turn international buyers away. Warren specializes in saying yes —
                 structuring loans around foreign income, liquid assets, and rental cash
                 flow instead of a US credit score.
