@@ -73,6 +73,59 @@ const POPULAR_CITIES: { name: string; query: string }[] = [
   { name: "Palm Bay", query: "Palm-Bay-FL" },
 ];
 
+const US_STATES: { name: string; query: string }[] = [
+  { name: "Alabama", query: "AL" },
+  { name: "Alaska", query: "AK" },
+  { name: "Arizona", query: "AZ" },
+  { name: "Arkansas", query: "AR" },
+  { name: "California", query: "CA" },
+  { name: "Colorado", query: "CO" },
+  { name: "Connecticut", query: "CT" },
+  { name: "Delaware", query: "DE" },
+  { name: "Florida", query: "FL" },
+  { name: "Georgia", query: "GA" },
+  { name: "Hawaii", query: "HI" },
+  { name: "Idaho", query: "ID" },
+  { name: "Illinois", query: "IL" },
+  { name: "Indiana", query: "IN" },
+  { name: "Iowa", query: "IA" },
+  { name: "Kansas", query: "KS" },
+  { name: "Kentucky", query: "KY" },
+  { name: "Louisiana", query: "LA" },
+  { name: "Maine", query: "ME" },
+  { name: "Maryland", query: "MD" },
+  { name: "Massachusetts", query: "MA" },
+  { name: "Michigan", query: "MI" },
+  { name: "Minnesota", query: "MN" },
+  { name: "Mississippi", query: "MS" },
+  { name: "Missouri", query: "MO" },
+  { name: "Montana", query: "MT" },
+  { name: "Nebraska", query: "NE" },
+  { name: "Nevada", query: "NV" },
+  { name: "New Hampshire", query: "NH" },
+  { name: "New Jersey", query: "NJ" },
+  { name: "New Mexico", query: "NM" },
+  { name: "New York", query: "NY" },
+  { name: "North Carolina", query: "NC" },
+  { name: "North Dakota", query: "ND" },
+  { name: "Ohio", query: "OH" },
+  { name: "Oklahoma", query: "OK" },
+  { name: "Oregon", query: "OR" },
+  { name: "Pennsylvania", query: "PA" },
+  { name: "Rhode Island", query: "RI" },
+  { name: "South Carolina", query: "SC" },
+  { name: "South Dakota", query: "SD" },
+  { name: "Tennessee", query: "TN" },
+  { name: "Texas", query: "TX" },
+  { name: "Utah", query: "UT" },
+  { name: "Vermont", query: "VT" },
+  { name: "Virginia", query: "VA" },
+  { name: "Washington", query: "WA" },
+  { name: "West Virginia", query: "WV" },
+  { name: "Wisconsin", query: "WI" },
+  { name: "Wyoming", query: "WY" },
+];
+
 const STEPS = [
   {
     n: "01",
@@ -362,6 +415,39 @@ function BuyAHomePage() {
                     <span className="text-sm uppercase tracking-[0.12em]">{c.name}</span>
                   </span>
                   <ArrowRight className="w-4 h-4 text-foreground/30 group-hover:text-gold transition-colors" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Browse by state */}
+        <section className="bg-accent/40 border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-16">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Search nationwide
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl">Browse homes by state</h2>
+              <p className="mt-3 text-foreground/60 max-w-xl">
+                Warren is licensed in 32 states. Pick any state below to open live Zillow
+                listings — then call Warren to finance your purchase.
+              </p>
+            </Reveal>
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-px bg-line">
+              {US_STATES.map((s) => (
+                <a
+                  key={s.name}
+                  href={`https://www.zillow.com/homes/for_sale/${s.query}_rb/`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group bg-background p-3.5 flex items-center justify-between hover:bg-accent transition-colors"
+                >
+                  <span className="flex items-center gap-2">
+                    <MapPin className="w-3.5 h-3.5 text-gold shrink-0" />
+                    <span className="text-xs uppercase tracking-[0.1em]">{s.name}</span>
+                  </span>
+                  <ArrowRight className="w-3.5 h-3.5 text-foreground/30 group-hover:text-gold transition-colors" />
                 </a>
               ))}
             </div>
