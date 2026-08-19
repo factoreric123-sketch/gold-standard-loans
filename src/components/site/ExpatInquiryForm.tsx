@@ -2,7 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
 import { CheckCircle2, ArrowRight } from "lucide-react";
-import { COMPANY_NAME, CONTACT } from "@/lib/site-data";
+import { COMPANY_NAME, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
 import { supabase } from "@/integrations/supabase/client";
 
 const CITIZENSHIP_OPTIONS = [
