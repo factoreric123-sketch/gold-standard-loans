@@ -1,107 +1,179 @@
 import { useState } from "react";
+import { z } from "zod";
+import { toast } from "sonner";
+import { CheckCircle2, ArrowRight } from "lucide-react";
+import { COMPANY_NAME, CONTACT } from "@/lib/site-data";
 import { supabase } from "@/integrations/supabase/client";
-import { CONTACT, WEB3FORMS_ACCESS_KEY } from "@/lib/site-data";
 
-type FormState = {
-  name: string;
-  email: string;
-  phone: string;
-  country: string;
-  citizenship: string;
-  hasItin: string;
-  downPayment: string;
-  propertyUse: string;
-  timeline: string;
-  message: string;
-};
+const CITIZENSHIP_OPTIONS = [
+  "US Citizen",
+  "Permanent Resident (Green Card)",
+  "Visa Holder (H-1B, L-1, E-2, etc.)",
+  "Foreign National (living abroad)",
+  "Prefer not to say",
+] as const;
 
-const initialState: FormState = {
-  name: "",
-  email: "",
-  phone: "",
-  country: "",
-  citizenship: "",
-  hasItin: "",
-  downPayment: "",
-  propertyUse: "",
-  timeline: "",
-  message: "",
-};
+const ITIN_OPTIONS = [
+  "Yes — I have an ITIN",
+  "No — I don't have one",
+  "Not sure",
+] as const;
 
-const inputClass =
-  "w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary";
+const DOWN_PAYMENT_OPTIONS = [
+  "15–20% down",
+  "20–25% down",
+  "25–30% down",
+  "30%+ down",
+  "Not sure yet",
+] as const;
 
-const labelClass =
-  "block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2";
+const PROPERTY_USE_OPTIONS = [
+  "Primary residence",
+  "Second / vacation home",
+  "Investment property",
+] as const;
+
+const schema = z.object({
+  firstName: z.string().trim().min(1, "Required").max(80),
+  lastName: z.string().trim().min(1, "Required").max(80),
+  email: z.string().trim().email("Enter a valid email").max(200),
+  phone: z.string().trim().min(7, "Enter a valid phone").max(30),
+  country: z.string().trim().min(1, "Required").max(80),
+  citizenshipStatus: z.string().min(1, "Select one"),
+  hasItin: z.string().min(1, "Select one"),
+  downPayment: z.string().min(1, "Select one"),
+  propertyUse: z.string().min(1, "Select one"),
+  message: z.string().trim().max(1000).optional().or(z.literal("")),
+});
+
+type Fields = z.infer<typeof schema>;
+type FieldErrors = Partial<Record<keyof Fields, string>>;
+
+// Same Web3Forms key as the main contact form — emails warrenfactor@gmail.com.
+const ACCESS_KEY = "2fb7050f-5c48-468f-a1c0-2f0e073f38c5";
+
+async function emailWarren(data: Fields): Promise<boolean> {
+  try {
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        access_key: ACCESS_KEY,
+        subject: `Foreign national inquiry — ${data.firstName} ${data.lastName} (${data.country})`,
+        from_name: `${COMPANY_NAME} website`,
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone,
+        country_of_residence: data.country,
+        citizenship_status: data.citizenshipStatus,
+        has_itin: data.hasItin,
+        down_payment: data.downPayment,
+        property_use: data.propertyUse,
+        message: data.message || "(no message)",
+      }),
+    });
+    const json = (await res.json()) as { success?: boolean };
+    return json.success === true;
+  } catch {
+    return false;
+  }
+}
+
+async function saveToDb(data: Fields): Promise<boolean> {
+  try {
+    const details = [
+      `Country of residence: ${data.country}`,
+      `Down payment: ${data.downPayment}`,
+      `Property use: ${data.propertyUse}`,
+      "",
+      data.message || "",
+    ]
+      .join("\n")
+      .trim();
+    const { error } = await supabase.from("contact_submissions").insert({
+      first_name: data.firstName,
+      last_name: data.lastName,
+      phone: data.phone,
+      email: data.email,
+      citizenship_status: data.citizenshipStatus,
+      has_itin: data.hasItin,
+      loan_type: "Foreign National",
+      message: details || null,
+    });
+    return !error;
+  } catch {
+    return false;
+  }
+}
+
+const inputCls =
+  "w-full border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-gold focus:outline-none transition-colors";
+const labelCls =
+  "block text-[11px] uppercase tracking-[0.2em] text-muted mb-1.5";
 
 export function ExpatInquiryForm() {
-  const [form, setForm] = useState<FormState>(initialState);
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [submitting, setSubmitting] = useState(false);
+  const [done, setDone] = useState(false);
+  const [errors, setErrors] = useState<FieldErrors>({});
 
-  const set = (key: keyof FormState) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => setForm((f) => ({ ...f, [key]: e.target.value }));
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sending");
-    try {
-      const { error } = await supabase.from("contact_submissions").insert({
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-        interest: "Foreign National / Expat Mortgage",
-        message: [
-          `Country of residence: ${form.country}`,
-          `Citizenship / residency: ${form.citizenship}`,
-          `ITIN: ${form.hasItin}`,
-          `Estimated down payment: ${form.downPayment}`,
-          `Property use: ${form.propertyUse}`,
-          `Timeline: ${form.timeline}`,
-          form.message ? `Notes: ${form.message}` : "",
-        ]
-          .filter(Boolean)
-          .join("\n"),
-      });
-      if (error) throw error;
-
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
-          subject: `Expat / Foreign National Inquiry — ${form.name}`,
-          from_name: "The Discount Mortgage Store Website",
-          name: form.name,
-          email: form.email,
-          phone: form.phone,
-          country_of_residence: form.country,
-          citizenship_status: form.citizenship,
-          has_itin: form.hasItin,
-          estimated_down_payment: form.downPayment,
-          property_use: form.propertyUse,
-          timeline: form.timeline,
-          message: form.message,
-        }),
-      });
-
-      setStatus("sent");
-    } catch {
-      setStatus("error");
+    const form = new FormData(e.currentTarget);
+    const parsed = schema.safeParse({
+      firstName: form.get("firstName"),
+      lastName: form.get("lastName"),
+      email: form.get("email"),
+      phone: form.get("phone"),
+      country: form.get("country"),
+      citizenshipStatus: form.get("citizenshipStatus"),
+      hasItin: form.get("hasItin"),
+      downPayment: form.get("downPayment"),
+      propertyUse: form.get("propertyUse"),
+      message: form.get("message") || "",
+    });
+    if (!parsed.success) {
+      const errs: FieldErrors = {};
+      for (const issue of parsed.error.issues) {
+        const key = issue.path[0] as keyof Fields;
+        if (!errs[key]) errs[key] = issue.message;
+      }
+      setErrors(errs);
+      return;
     }
-  };
+    setErrors({});
+    setSubmitting(true);
+    const [emailed, saved] = await Promise.all([
+      emailWarren(parsed.data),
+      saveToDb(parsed.data),
+    ]);
+    setSubmitting(false);
+    if (emailed || saved) {
+      setDone(true);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      toast.error("Something went wrong — please try again or call Warren directly.");
+    }
+  }
 
-  if (status === "sent") {
+  const err = (k: keyof Fields) =>
+    errors[k] ? <p className="mt-1 text-xs text-red-700">{errors[k]}</p> : null;
+
+  if (done) {
     return (
-      <div className="border border-primary/40 bg-primary/5 p-10 text-center">
-        <p className="font-display text-3xl font-medium text-foreground">Thank you, {form.name.split(" ")[0]}.</p>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-          Your information has been sent directly to Warren. He will personally review your
-          situation and reach out within one business day to tell you exactly what you qualify for.
+      <div className="border border-gold bg-white px-8 py-16 text-center">
+        <CheckCircle2 className="h-10 w-10 text-gold mx-auto mb-4" />
+        <h2 className="font-serif text-3xl mb-3">Request received</h2>
+        <p className="text-sm text-muted max-w-md mx-auto leading-relaxed">
+          Thank you — Warren has your details and will personally review your
+          situation and reply with the programs you qualify for, usually within
+          one business day.
         </p>
-        <p className="mt-6 text-sm text-muted-foreground">
+        <p className="mt-6 text-sm text-muted">
           Need a faster answer? Call{" "}
-          <a href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`} className="text-primary underline underline-offset-4">
+          <a
+            href={`tel:${CONTACT.phone.replace(/[^+\d]/g, "")}`}
+            className="text-gold underline underline-offset-4"
+          >
             {CONTACT.phone}
           </a>
         </p>
@@ -110,117 +182,92 @@ export function ExpatInquiryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid gap-6 sm:grid-cols-2">
+    <form onSubmit={handleSubmit} noValidate className="border border-line bg-white px-6 py-8 md:px-10 md:py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
-          <label htmlFor="exp-name" className={labelClass}>Full Name *</label>
-          <input id="exp-name" required value={form.name} onChange={set("name")} className={inputClass} placeholder="Your full name" />
+          <label htmlFor="fn-firstName" className={labelCls}>First name</label>
+          <input id="fn-firstName" name="firstName" className={inputCls} autoComplete="given-name" />
+          {err("firstName")}
         </div>
         <div>
-          <label htmlFor="exp-email" className={labelClass}>Email *</label>
-          <input id="exp-email" type="email" required value={form.email} onChange={set("email")} className={inputClass} placeholder="you@example.com" />
-        </div>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label htmlFor="exp-phone" className={labelClass}>Phone / WhatsApp</label>
-          <input id="exp-phone" type="tel" value={form.phone} onChange={set("phone")} className={inputClass} placeholder="+44 ..." />
+          <label htmlFor="fn-lastName" className={labelCls}>Last name</label>
+          <input id="fn-lastName" name="lastName" className={inputCls} autoComplete="family-name" />
+          {err("lastName")}
         </div>
         <div>
-          <label htmlFor="exp-country" className={labelClass}>Country of Residence *</label>
-          <input id="exp-country" required value={form.country} onChange={set("country")} className={inputClass} placeholder="e.g. United Kingdom, Brazil, Israel" />
+          <label htmlFor="fn-email" className={labelCls}>Email</label>
+          <input id="fn-email" name="email" type="email" className={inputCls} autoComplete="email" />
+          {err("email")}
         </div>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
         <div>
-          <label htmlFor="exp-citizenship" className={labelClass}>Citizenship / Residency Status *</label>
-          <select id="exp-citizenship" required value={form.citizenship} onChange={set("citizenship")} className={inputClass}>
-            <option value="">Select…</option>
-            <option>Foreign National (no US residency)</option>
-            <option>US Citizen living abroad (Expat)</option>
-            <option>Permanent Resident (Green Card)</option>
-            <option>Visa Holder (H-1B, L-1, E-2, etc.)</option>
-            <option>ITIN Holder</option>
-            <option>Other / Not sure</option>
+          <label htmlFor="fn-phone" className={labelCls}>Phone / WhatsApp</label>
+          <input id="fn-phone" name="phone" type="tel" placeholder="Include country code" className={inputCls} autoComplete="tel" />
+          {err("phone")}
+        </div>
+        <div>
+          <label htmlFor="fn-country" className={labelCls}>Country of residence</label>
+          <input id="fn-country" name="country" placeholder="e.g. United Kingdom" className={inputCls} />
+          {err("country")}
+        </div>
+        <div>
+          <label htmlFor="fn-citizenship" className={labelCls}>Citizenship / residency status</label>
+          <select id="fn-citizenship" name="citizenshipStatus" className={inputCls} defaultValue="">
+            <option value="" disabled>Select…</option>
+            {CITIZENSHIP_OPTIONS.map((o) => (
+              <option key={o} value={o}>{o}</option>
+            ))}
           </select>
+          {err("citizenshipStatus")}
         </div>
         <div>
-          <label htmlFor="exp-itin" className={labelClass}>Do you have a US ITIN or SSN?</label>
-          <select id="exp-itin" value={form.hasItin} onChange={set("hasItin")} className={inputClass}>
-            <option value="">Select…</option>
-            <option>Yes — SSN</option>
-            <option>Yes — ITIN</option>
-            <option>No</option>
-            <option>Not sure</option>
+          <label htmlFor="fn-itin" className={labelCls}>Do you have an ITIN?</label>
+          <select id="fn-itin" name="hasItin" className={inputCls} defaultValue="">
+            <option value="" disabled>Select…</option>
+            {ITIN_OPTIONS.map((o) => (
+              <option key={o} value={o}>{o}</option>
+            ))}
           </select>
-        </div>
-      </div>
-
-      <div className="grid gap-6 sm:grid-cols-2">
-        <div>
-          <label htmlFor="exp-down" className={labelClass}>Estimated Down Payment</label>
-          <select id="exp-down" value={form.downPayment} onChange={set("downPayment")} className={inputClass}>
-            <option value="">Select…</option>
-            <option>Under $50,000</option>
-            <option>$50,000 – $100,000</option>
-            <option>$100,000 – $250,000</option>
-            <option>$250,000 – $500,000</option>
-            <option>Over $500,000</option>
-          </select>
+          {err("hasItin")}
         </div>
         <div>
-          <label htmlFor="exp-use" className={labelClass}>Property Use</label>
-          <select id="exp-use" value={form.propertyUse} onChange={set("propertyUse")} className={inputClass}>
-            <option value="">Select…</option>
-            <option>Investment / Rental</option>
-            <option>Vacation / Second Home</option>
-            <option>Primary Residence</option>
-            <option>Mixed / Not sure yet</option>
+          <label htmlFor="fn-down" className={labelCls}>Estimated down payment</label>
+          <select id="fn-down" name="downPayment" className={inputCls} defaultValue="">
+            <option value="" disabled>Select…</option>
+            {DOWN_PAYMENT_OPTIONS.map((o) => (
+              <option key={o} value={o}>{o}</option>
+            ))}
           </select>
+          {err("downPayment")}
+        </div>
+        <div className="md:col-span-2">
+          <label htmlFor="fn-use" className={labelCls}>Property use</label>
+          <select id="fn-use" name="propertyUse" className={inputCls} defaultValue="">
+            <option value="" disabled>Select…</option>
+            {PROPERTY_USE_OPTIONS.map((o) => (
+              <option key={o} value={o}>{o}</option>
+            ))}
+          </select>
+          {err("propertyUse")}
+        </div>
+        <div className="md:col-span-2">
+          <label htmlFor="fn-message" className={labelCls}>Anything else Warren should know? (optional)</label>
+          <textarea id="fn-message" name="message" rows={4} className={inputCls} placeholder="Target cities, price range, income situation, questions…" />
+          {err("message")}
         </div>
       </div>
-
-      <div>
-        <label htmlFor="exp-timeline" className={labelClass}>When are you looking to buy?</label>
-        <select id="exp-timeline" value={form.timeline} onChange={set("timeline")} className={inputClass}>
-          <option value="">Select…</option>
-          <option>Immediately — I found a property</option>
-          <option>Within 1–3 months</option>
-          <option>Within 3–6 months</option>
-          <option>6+ months / just researching</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="exp-message" className={labelClass}>Anything else Warren should know?</label>
-        <textarea
-          id="exp-message"
-          rows={4}
-          value={form.message}
-          onChange={set("message")}
-          className={inputClass}
-          placeholder="Target cities, price range, income situation, questions…"
-        />
-      </div>
-
-      {status === "error" && (
-        <p className="text-sm text-red-700">
-          Something went wrong sending your form. Please try again or call {CONTACT.phone}.
-        </p>
-      )}
 
       <button
         type="submit"
-        disabled={status === "sending"}
-        className="w-full bg-primary px-8 py-4 text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground transition-colors hover:bg-gold-dark disabled:opacity-60"
+        disabled={submitting}
+        className="mt-8 inline-flex w-full items-center justify-center gap-2 bg-gold px-6 py-4 text-[11px] uppercase tracking-[0.25em] text-white hover:bg-ink transition-colors disabled:opacity-60"
       >
-        {status === "sending" ? "Sending…" : "Submit — Find Out What I Qualify For"}
+        {submitting ? "Sending…" : "Send to Warren — Find Out What I Qualify For"}
+        <ArrowRight className="h-4 w-4" />
       </button>
-
-      <p className="text-center text-xs text-muted-foreground">
-        No obligation. Your information goes directly to Warren Factor and is never sold.
+      <p className="mt-4 text-[11px] text-muted text-center leading-relaxed">
+        No income verification documentation may be required — Warren can often
+        qualify foreign nationals on assets and a passport alone. Your
+        information goes directly to Warren and is never sold.
       </p>
     </form>
   );
