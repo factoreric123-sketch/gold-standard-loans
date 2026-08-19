@@ -39,7 +39,7 @@ export const Route = createFileRoute("/buy-a-home")({
       {
         property: "og:description",
         content:
-          "Buy a home in Florida as an expat or foreign national. Warren Factor offers ITIN, foreign-income, and asset-based mortgages for buyers worldwide.",
+          "Buy a home in the USA as an expat or foreign national. Warren Factor offers ITIN, foreign-income, and asset-based mortgages for buyers worldwide.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/buy-a-home` },
