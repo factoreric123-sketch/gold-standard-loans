@@ -462,7 +462,7 @@ function BuyAHomePage() {
                 From search to keys
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
-                Three steps to your Florida front door
+                Three steps to your new US front door
               </h2>
             </Reveal>
             <div className="mt-10 grid md:grid-cols-3 gap-px bg-line">
