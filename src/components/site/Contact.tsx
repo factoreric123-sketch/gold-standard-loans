@@ -67,7 +67,7 @@ function recommendedPrograms(citizenship: string, itin: string): Recommendation 
     };
   }
   if (citizenship === "Visa Holder (H-1B, L-1, E-2, etc.)") {
-    return ["Conventional", "FHA", "Bank Statement", "Foreign National"];
+    return { programs: ["Conventional", "FHA", "Bank Statement", "Foreign National"] };
   }
   if (itin.startsWith("Yes")) {
     return {
