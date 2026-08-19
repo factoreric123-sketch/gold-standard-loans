@@ -147,7 +147,7 @@ const STEPS = [
 const PROGRAMS = [
   {
     title: "Foreign National Loans",
-    body: "For buyers living outside the US with no US credit file. Qualify on foreign income, bank statements, and a valid passport — no Social Security number required.",
+    body: "For buyers living outside the US with no US credit file. Warren can even close a foreign national loan without income verification documentation — qualifying you on assets, a valid passport, and a strong down payment. No Social Security number required.",
   },
   {
     title: "ITIN Mortgages",
