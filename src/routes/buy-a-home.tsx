@@ -224,6 +224,71 @@ function BuyAHomePage() {
           </div>
         </section>
 
+        {/* What is an expat mortgage */}
+        <section className="bg-accent/40 border-b border-line">
+          <div className="mx-auto max-w-3xl px-6 py-16">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                The basics
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl">What is an expat mortgage?</h2>
+              <div className="mt-5 space-y-4 text-foreground/65 leading-relaxed">
+                <p>
+                  An expat mortgage is a home loan built for people who live outside the
+                  United States — or who lack a US credit history — but want to buy or
+                  refinance property in Florida. Where a standard US mortgage assumes a
+                  Social Security number, a domestic income, and a years-long credit file,
+                  an expat mortgage is underwritten around foreign income, liquid assets,
+                  and the property's rental value.
+                </p>
+                <p>
+                  Two paths cover most international buyers. A <strong>residential</strong>{" "}
+                  expat mortgage is for buyers who will live in the home themselves — now
+                  or after relocating. A <strong>buy-to-let</strong> (investment) mortgage
+                  is for buyers who will rent the property out, qualifying on the rental
+                  income the home produces rather than a personal pay stub.
+                </p>
+                <p>
+                  Warren Factor structures both. He knows which lenders accept a foreign
+              passport, how to underwrite overseas bank statements, and how to close a loan
+              when the buyer is in a different time zone — skills most US brokers simply
+              don't have.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* Benefits of working with Warren */}
+        <section className="border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-16">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                Why use a broker
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
+                Benefits of working with an expat mortgage broker
+              </h2>
+              <p className="mt-4 text-foreground/60 max-w-2xl leading-relaxed">
+                Navigating foreign-income documentation, ITIN rules, and cross-border
+                closings on your own is where most international buyers give up. Warren
+                handles it end to end.
+              </p>
+            </Reveal>
+            <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-line">
+              {BENEFITS.map((b) => (
+                <Reveal key={b.title}>
+                  <div className="bg-background p-8 h-full">
+                    <ArrowRight className="w-6 h-6 text-gold" />
+                    <h3 className="mt-4 font-serif text-xl">{b.title}</h3>
+                    <p className="mt-2 text-foreground/60 text-sm leading-relaxed">{b.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Loan programs */}
         <section className="bg-accent/40">
           <div className="mx-auto max-w-7xl px-6 py-16">
