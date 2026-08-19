@@ -79,7 +79,7 @@ function recommendedPrograms(citizenship: string, itin: string): Recommendation 
     citizenship === "US Citizen" ||
     citizenship === "Permanent Resident (Green Card)"
   ) {
-    return ["Conventional", "FHA", "VA", "0% Down"];
+    return { programs: ["Conventional", "FHA", "VA", "0% Down"] };
   }
   return { programs: [] };
 }
@@ -157,7 +157,8 @@ export function Contact() {
   const formShownAt = useRef<number>(Date.now());
   const lastSubmitAt = useRef<number>(0);
 
-  const recommended = recommendedPrograms(citizenship, itin);
+  const { programs: recommended, note: recommendedNote } =
+    recommendedPrograms(citizenship, itin);
   const recommendedSet = new Set(recommended);
   const otherOptions = loanOptions.filter((o) => !recommendedSet.has(o));
 
@@ -435,6 +436,14 @@ export function Contact() {
                     Recommended for you
                   </span>
                   {recommended.join(" · ")}
+                </p>
+              )}
+              {recommendedNote && (
+                <p className="text-xs text-gold leading-relaxed border-l-2 border-gold/40 pl-3">
+                  <span className="uppercase tracking-widest text-[10px] block mb-0.5 opacity-80">
+                    Good news
+                  </span>
+                  {recommendedNote}
                 </p>
               )}
 
