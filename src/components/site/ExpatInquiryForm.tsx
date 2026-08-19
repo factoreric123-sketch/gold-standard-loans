@@ -163,7 +163,7 @@ export function ExpatInquiryForm() {
       <div className="border border-gold bg-white px-8 py-16 text-center">
         <CheckCircle2 className="h-10 w-10 text-gold mx-auto mb-4" />
         <h2 className="font-serif text-3xl mb-3">Request received</h2>
-        <p className="text-sm text-muted max-w-md mx-auto leading-relaxed">
+        <p className="text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
           Thank you — Warren has your details and will personally review your
           situation and reply with the programs you qualify for, usually within
           one business day.
@@ -264,7 +264,7 @@ export function ExpatInquiryForm() {
         {submitting ? "Sending…" : "Send to Warren — Find Out What I Qualify For"}
         <ArrowRight className="h-4 w-4" />
       </button>
-      <p className="mt-4 text-[11px] text-muted text-center leading-relaxed">
+      <p className="mt-4 text-[11px] text-muted-foreground text-center leading-relaxed">
         No income verification documentation may be required — Warren can often
         qualify foreign nationals on assets and a passport alone. Your
         information goes directly to Warren and is never sold.
