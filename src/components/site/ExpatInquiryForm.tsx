@@ -107,9 +107,9 @@ async function saveToDb(data: Fields): Promise<boolean> {
 }
 
 const inputCls =
-  "w-full border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted focus:border-gold focus:outline-none transition-colors";
+  "w-full border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted-foreground/50 focus:border-gold focus:outline-none transition-colors";
 const labelCls =
-  "block text-[11px] uppercase tracking-[0.2em] text-muted mb-1.5";
+  "block text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5";
 
 export function ExpatInquiryForm() {
   const [submitting, setSubmitting] = useState(false);
