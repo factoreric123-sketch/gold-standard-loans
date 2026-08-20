@@ -5,7 +5,7 @@ import { Logo } from "@/components/site/Logo";
 import { TranslateButton } from "@/components/site/TranslateButton";
 
 const links = [
-  { href: "/buying-usa-home", label: "Buying a USA Home for Foreigners" },
+  { href: "/buying-usa-home", label: "Expats Buying a USA Home" },
   { href: "/buy-a-home", label: "USA Mortgage for Expats" },
   { href: "/special-programs", label: "Grant Money" },
   { href: "/#programs", label: "Mortgage Products" },
