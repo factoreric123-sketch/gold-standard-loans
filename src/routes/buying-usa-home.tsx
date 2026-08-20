@@ -310,29 +310,42 @@ function BuyingUSAHomePage() {
           </div>
         </section>
 
-        {/* Steps */}
-        <section className="bg-accent/40 border-b border-line">
-          <div className="mx-auto max-w-7xl px-6 py-16">
+        {/* How it works */}
+        <section id="how-it-works" className="bg-accent/40 border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
             <Reveal>
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
-                From search to keys
+                How It Works
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
-                Four steps to your new US front door
+                From pre-approval to closing
               </h2>
+              <p className="mt-5 text-foreground/60 max-w-xl leading-relaxed">
+                Five clear steps — and one broker with you at every one of them. No call
+                centers, no runaround, no surprise fees.
+              </p>
             </Reveal>
-            <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-line">
-              {STEPS.map((s) => {
+            <div className="mt-12 grid gap-px bg-line">
+              {STEPS.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  <Reveal key={s.n}>
-                    <div className="bg-background p-8 h-full">
-                      <div className="flex items-center justify-between">
-                        <Icon className="w-7 h-7 text-gold" />
-                        <span className="font-serif text-3xl text-foreground/15">{s.n}</span>
+                  <Reveal key={s.n} delay={Math.min(i, 4) * 70}>
+                    <div className="bg-background p-8 md:p-10 flex flex-col md:flex-row md:items-center gap-6">
+                      <div className="flex items-center gap-5 md:w-64 md:shrink-0">
+                        <div className="flex items-center justify-center w-14 h-14 border border-gold/40 shrink-0">
+                          <Icon className="w-6 h-6 text-gold" />
+                        </div>
+                        <span className="font-serif text-4xl text-gold/30">{s.n}</span>
                       </div>
-                      <h3 className="mt-5 font-serif text-2xl">{s.title}</h3>
-                      <p className="mt-3 text-foreground/60 text-sm leading-relaxed">{s.body}</p>
+                      <div className="flex-1">
+                        <h3 className="font-serif text-2xl">{s.title}</h3>
+                        <p className="mt-2 text-foreground/65 text-sm leading-relaxed max-w-2xl">
+                          {s.body}
+                        </p>
+                      </div>
+                      <div className="text-[11px] uppercase tracking-[0.18em] text-gold md:text-right md:w-40 md:shrink-0">
+                        {s.detail}
+                      </div>
                     </div>
                   </Reveal>
                 );
