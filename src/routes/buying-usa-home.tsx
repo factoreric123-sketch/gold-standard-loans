@@ -234,7 +234,7 @@ function BuyingUSAHomePage() {
                 {COMPANY_NAME} · Since {SINCE_YEAR}
               </div>
               <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-                Buying a home in the USA
+                Smart moves for USA buyers
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
                 Search listings in all 50 states, get pre-approved, and close with{" "}
