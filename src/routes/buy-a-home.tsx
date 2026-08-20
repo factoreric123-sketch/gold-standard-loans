@@ -483,16 +483,20 @@ function BuyAHomePage() {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-serif text-2xl">
-                      Sign from your home country via consulate services
+                      Close remotely with paperless online notarization
                     </h3>
                     <p className="mt-3 text-foreground/65 text-sm leading-relaxed max-w-2xl">
-                      When travel isn't possible, consulate services let you sign your
-                      closing documents from your home country.{" "}
+                      You don't have to fly to the USA to close.{" "}
+                      <span className="text-gold font-medium">
+                        Remote online notarization (RON)
+                      </span>{" "}
+                      lets you sign and notarize your closing documents fully online and
+                      paperless from anywhere in the world.{" "}
                       <span className="text-gold font-medium">
                         Warren coordinates every step across time zones
                       </span>{" "}
-                      — scheduling the appointment, liaising with the lender and title
-                      company, and overnighting documents so nothing stalls your closing.
+                      — booking the virtual notary session, liaising with the lender and
+                      title company, and e-delivering documents so your closing never stalls.
                     </p>
                   </div>
                 </div>
