@@ -42,13 +42,13 @@ export const Route = createFileRoute("/landing/low-rates")({
       {
         name: "description",
         content:
-          "USA's lowest mortgage rates. Conventional, FHA, VA, DSCR & bank statement loans. 28 years licensed, 32 states. Get your rate in one call — (561) 577-1882.",
+          "USA lowest mortgage rates. Conventional, FHA, VA, DSCR & bank statement loans. 28 years licensed, 32 states. Get your rate in one call — (561) 577-1882.",
       },
       { property: "og:title", content: "Low Mortgage Rates in Florida | Get Your Rate" },
       {
         property: "og:description",
         content:
-          "USA's lowest mortgage rates. 28 years licensed, 32 states. Get your rate in one call.",
+          "USA lowest mortgage rates. 28 years licensed, 32 states. Get your rate in one call.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/landing/low-rates` },
@@ -101,7 +101,7 @@ function Hero() {
             {SINCE_YEAR ? `Licensed since ${SINCE_YEAR}` : "28 Years Licensed"} · {NMLS}
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl">
-            USA's lowest
+            USA lowest
             <br />
             mortgage rates.
             <span className="block text-gold italic">Get yours today.</span>
