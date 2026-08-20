@@ -101,7 +101,7 @@ function Hero() {
             {SINCE_YEAR ? `Licensed since ${SINCE_YEAR}` : "28 Years Licensed"} · {NMLS}
           </div>
           <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight md:text-6xl">
-            Florida's lowest
+            USA's lowest
             <br />
             mortgage rates.
             <span className="block text-gold italic">Get yours today.</span>

@@ -109,7 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates" },
+      { title: "The Discount Mortgage Store | USA's Lowest Mortgage Rates" },
       {
         name: "description",
         content:

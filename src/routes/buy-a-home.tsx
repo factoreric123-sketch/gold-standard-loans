@@ -160,7 +160,7 @@ const PROGRAMS = [
   },
   {
     title: "Conventional & FHA",
-    body: "If you have established US credit and residency, Warren still offers conventional, FHA, and VA loans at Florida's lowest rates.",
+    body: "If you have established US credit and residency, Warren still offers conventional, FHA, and VA loans at the USA's lowest rates.",
   },
 ];
 

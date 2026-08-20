@@ -23,7 +23,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Florida's Lowest Mortgage Rates | The Discount Mortgage Store" },
+      { title: "USA's Lowest Mortgage Rates | The Discount Mortgage Store" },
       {
         name: "description",
         content:
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Florida's Lowest Mortgage Rates | The Discount Mortgage Store",
+        content: "USA's Lowest Mortgage Rates | The Discount Mortgage Store",
       },
       {
         property: "og:description",
