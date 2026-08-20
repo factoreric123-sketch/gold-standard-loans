@@ -42,13 +42,13 @@ export const Route = createFileRoute("/landing/low-rates")({
       {
         name: "description",
         content:
-          "Florida's lowest mortgage rates. Conventional, FHA, VA, DSCR & bank statement loans. 28 years licensed, 32 states. Get your rate in one call — (561) 577-1882.",
+          "USA's lowest mortgage rates. Conventional, FHA, VA, DSCR & bank statement loans. 28 years licensed, 32 states. Get your rate in one call — (561) 577-1882.",
       },
       { property: "og:title", content: "Low Mortgage Rates in Florida | Get Your Rate" },
       {
         property: "og:description",
         content:
-          "Florida's lowest mortgage rates. 28 years licensed, 32 states. Get your rate in one call.",
+          "USA's lowest mortgage rates. 28 years licensed, 32 states. Get your rate in one call.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/landing/low-rates` },

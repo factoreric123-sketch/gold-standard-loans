@@ -41,7 +41,7 @@ export const Route = createFileRoute("/todays-rates")({
       {
         name: "description",
         content:
-          "See today's U.S. Treasury yields and Florida's lowest mortgage rates from Warren Factor. Live benchmarks, a payment calculator, and current FHA, conventional, and ARM rates. Since 1996.",
+          "See today's U.S. Treasury yields and the USA's lowest mortgage rates from Warren Factor. Live benchmarks, a payment calculator, and current FHA, conventional, and ARM rates. Since 1996.",
       },
       {
         property: "og:title",
@@ -50,7 +50,7 @@ export const Route = createFileRoute("/todays-rates")({
       {
         property: "og:description",
         content:
-          "Live U.S. Treasury yields and Florida's lowest mortgage rates. Estimate your payment and call Warren for today's exact quote.",
+          "Live U.S. Treasury yields and the USA's lowest mortgage rates. Estimate your payment and call Warren for today's exact quote.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/todays-rates` },
@@ -62,7 +62,7 @@ export const Route = createFileRoute("/todays-rates")({
       {
         name: "twitter:description",
         content:
-          "Live Treasury yields and Florida's lowest mortgage rates. Since 1996.",
+          "Live Treasury yields and the USA's lowest mortgage rates. Since 1996.",
       },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/todays-rates` }],
