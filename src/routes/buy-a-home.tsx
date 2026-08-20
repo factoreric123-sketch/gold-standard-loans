@@ -26,16 +26,16 @@ export const Route = createFileRoute("/buy-a-home")({
   head: () => ({
     meta: [
       {
-        title: "Mortgages for Expats & Foreign Nationals | The Discount Mortgage Store",
+        title: "Your USA Mortgage | The Discount Mortgage Store",
       },
       {
         name: "description",
         content:
-          "Expats and foreign nationals can buy a home in the USA with Warren Factor. No US credit history? No problem. ITIN, foreign-income, and asset-based mortgages for buyers from around the world.",
+          "Your USA Mortgage — expats and foreign nationals buy a home in the USA with Warren Factor. No US credit history? No problem. ITIN, foreign-income, and asset-based mortgages for buyers worldwide.",
       },
       {
         property: "og:title",
-        content: "Mortgages for Expats & Foreign Nationals | The Discount Mortgage Store",
+        content: "Your USA Mortgage | The Discount Mortgage Store",
       },
       {
         property: "og:description",
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/buy-a-home")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Mortgages for Expats & Foreign Nationals | The Discount Mortgage Store",
+        content: "Your USA Mortgage | The Discount Mortgage Store",
       },
       {
         name: "twitter:description",
@@ -240,7 +240,7 @@ function BuyAHomePage() {
                 The Discount Mortgage Store · Since {SINCE_YEAR}
               </div>
               <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-                Mortgages for expats & foreign nationals
+                Your USA Mortgage
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
                 Buy a home in the USA from anywhere in the world. Warren Factor closes
