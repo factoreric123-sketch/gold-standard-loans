@@ -21,7 +21,7 @@ export function Hero() {
             28 Years Licensed · {NMLS}
           </div>
           <h1 className="font-serif text-5xl md:text-6xl xl:text-7xl leading-[1.04] tracking-tight">
-            Florida's lowest
+            USA's lowest
             <br />
             mortgage rates.
             <span className="block text-gold italic">Proven, not promised.</span>
