@@ -26,7 +26,7 @@ export const Route = createFileRoute("/buy-a-home")({
   head: () => ({
     meta: [
       {
-        title: "Your USA Mortgage | The Discount Mortgage Store",
+        title: "Your USA Mortgage for Foreigners and Expats | The Discount Mortgage Store",
       },
       {
         name: "description",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/buy-a-home")({
       },
       {
         property: "og:title",
-        content: "Your USA Mortgage | The Discount Mortgage Store",
+        content: "Your USA Mortgage for Foreigners and Expats | The Discount Mortgage Store",
       },
       {
         property: "og:description",
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/buy-a-home")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Your USA Mortgage | The Discount Mortgage Store",
+        content: "Your USA Mortgage for Foreigners and Expats | The Discount Mortgage Store",
       },
       {
         name: "twitter:description",
@@ -239,8 +239,8 @@ function BuyAHomePage() {
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-5">
                 The Discount Mortgage Store · Since {SINCE_YEAR}
               </div>
-              <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-                Your USA Mortgage
+              <h1 className="font-serif text-4xl md:text-6xl leading-[1.05] max-w-3xl">
+                Your USA Mortgage for Foreigners & Expats
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
                 Buy a home in the USA from anywhere in the world. Warren Factor closes
