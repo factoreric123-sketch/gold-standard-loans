@@ -198,6 +198,10 @@ const TIPS = [
 
 const FAQ = [
   {
+    q: "Can I buy a house as a foreigner?",
+    a: "Yes. Anyone can buy property in the USA regardless of citizenship. Non US citizens, permanent residents (green card holders), and foreign nationals all have the legal right to purchase property in the United States. Foreign ownership is generally permitted, but some states have legal restrictions on the types of property foreigners can own. It's important to check local laws before buying. Property ownership does not grant residence status or an appropriate visa. These must be obtained separately if you wish to live in the US.",
+  },
+  {
     q: "How much do I need for a down payment?",
     a: "It depends on the loan. Conventional loans can require as little as 3% down, FHA as little as 3.5%, and VA loans can be 0% down. Warren will quote your exact minimum once he reviews your file.",
   },
