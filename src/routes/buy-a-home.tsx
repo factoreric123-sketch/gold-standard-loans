@@ -396,6 +396,59 @@ function BuyAHomePage() {
           </div>
         </section>
 
+        {/* Do's of buying as a foreigner */}
+        <section id="dos-and-donts" className="border-b border-line">
+          <div className="mx-auto max-w-5xl px-6 py-16 md:py-20">
+            <Reveal>
+              <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+                For foreign buyers
+              </div>
+              <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
+                The Do's of buying property in the USA as a foreigner
+              </h2>
+              <p className="mt-5 text-foreground/65 max-w-2xl leading-relaxed">
+                A few proven moves that make buying a US home from abroad smoother — and
+                keep you from overpaying or getting denied.
+              </p>
+            </Reveal>
+
+            <div className="mt-10 space-y-px bg-line">
+              <Reveal>
+                <div className="bg-background p-8 md:p-10 flex flex-col md:flex-row md:items-start gap-6">
+                  <div className="flex items-center gap-4 md:w-16 md:shrink-0">
+                    <span className="font-serif text-4xl text-gold/30">01</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl">Get pre-approved for a mortgage</h3>
+                    <p className="mt-3 text-foreground/65 text-sm leading-relaxed max-w-2xl">
+                      Before you start shopping for a property, it's essential to know how
+                      much you can afford. Get pre-approved for a mortgage to determine your
+                      budget and avoid falling in love with a property you can't afford.
+                      Foreign nationals and non-residents may need to provide additional
+                      documentation, such as bank statements and a credit report, to qualify
+                      for a home loan.
+                    </p>
+                    <p className="mt-3 text-foreground/65 text-sm leading-relaxed max-w-2xl">
+                      Higher down payments are often required for non-residents and foreign
+                      nationals, especially when purchasing an investment or second home,
+                      where down payments can range from{" "}
+                      <span className="text-gold font-medium">30–35%</span>. It's important to
+                      shop for a mortgage lender and consult with experienced mortgage
+                      brokers to find the best home loan options for international buyers.
+                    </p>
+                    <Link
+                      to="/expat-form"
+                      className="mt-5 inline-flex items-center gap-2 border border-gold text-gold px-5 py-2.5 text-[11px] uppercase tracking-[0.2em] hover:bg-gold hover:text-white transition-colors"
+                    >
+                      <ArrowRight className="h-4 w-4" /> Get pre-approved with Warren
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
         {/* Loan programs */}
         <section className="bg-accent/40">
           <div className="mx-auto max-w-7xl px-6 py-16">
