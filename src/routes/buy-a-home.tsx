@@ -156,7 +156,7 @@ const PROGRAMS = [
   },
   {
     title: "Asset-Based & DSCR",
-    body: "Qualify on the property's rental income or your liquid assets instead of traditional employment. Ideal for investors and self-employed expats.",
+    body: "Underwritten around foreign income, liquid assets, and the property's rental value — so you qualify without a US job or pay stubs. Warren's lenders will even approve based on RENTAL INCOME ONLY, making this ideal for investors and self-employed expats.",
   },
   {
     title: "Conventional & FHA",
