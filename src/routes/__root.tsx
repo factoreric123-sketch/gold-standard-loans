@@ -118,7 +118,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "The Discount Mortgage Store" },
       {
         property: "og:title",
-        content: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates",
+        content: "The Discount Mortgage Store | USA's Lowest Mortgage Rates",
       },
       {
         property: "og:description",
@@ -133,7 +133,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:image", content: `${SITE_URL}/og.png` },
       {
         name: "twitter:title",
-        content: "The Discount Mortgage Store | Florida's Lowest Mortgage Rates",
+        content: "The Discount Mortgage Store | USA's Lowest Mortgage Rates",
       },
       {
         name: "twitter:description",
