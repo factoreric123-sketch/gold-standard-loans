@@ -345,7 +345,7 @@ function MinimalFooter() {
           <div>
             <div className="font-serif text-xl">{COMPANY_NAME}</div>
             <p className="mt-2 text-sm text-background/55">
-              Florida's Lowest Mortgage Rates · Since {SINCE_YEAR}
+              USA Lowest Rates. Proven, Not Promised
             </p>
             <a
               href={`tel:${PHONE_TEL}`}
