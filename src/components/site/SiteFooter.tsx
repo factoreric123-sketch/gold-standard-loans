@@ -23,7 +23,7 @@ export function SiteFooter() {
             <Logo size="lg" />
           </div>
           <div className="mt-4 text-sm uppercase tracking-widest text-gold">
-            Florida's Lowest Mortgage Rates · Since {SINCE_YEAR}
+            USA Lowest Rates. Proven, Not Promised
           </div>
         </div>
 
