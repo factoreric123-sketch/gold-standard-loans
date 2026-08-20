@@ -26,7 +26,7 @@ export const Route = createFileRoute("/buying-usa-home")({
   head: () => ({
     meta: [
       {
-        title: "Buying a USA Home for Foreigners | The Discount Mortgage Store",
+        title: "Expats Buying a USA Home | The Discount Mortgage Store",
       },
       {
         name: "description",
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/buying-usa-home")({
       },
       {
         property: "og:title",
-        content: "Buying a USA Home for Foreigners | The Discount Mortgage Store",
+        content: "Expats Buying a USA Home | The Discount Mortgage Store",
       },
       {
         property: "og:description",
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/buying-usa-home")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Buying a USA Home for Foreigners | The Discount Mortgage Store",
+        content: "Expats Buying a USA Home | The Discount Mortgage Store",
       },
       {
         name: "twitter:description",
@@ -245,7 +245,7 @@ function BuyingUSAHomePage() {
                 {COMPANY_NAME} · Since {SINCE_YEAR}
               </div>
               <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-                Buying a USA Home for Foreigners
+                Expats Buying a USA Home
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
                 Search listings in all 50 states, get pre-approved, and close with{" "}
