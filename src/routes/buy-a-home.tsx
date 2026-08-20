@@ -475,6 +475,28 @@ function BuyAHomePage() {
                   </div>
                 </div>
               </Reveal>
+
+              <Reveal>
+                <div className="bg-background p-8 md:p-10 flex flex-col md:flex-row md:items-start gap-6">
+                  <div className="flex items-center gap-4 md:w-16 md:shrink-0">
+                    <span className="font-serif text-4xl text-gold/30">03</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl">
+                      Sign from your home country via consulate services
+                    </h3>
+                    <p className="mt-3 text-foreground/65 text-sm leading-relaxed max-w-2xl">
+                      When travel isn't possible, consulate services let you sign your
+                      closing documents from your home country.{" "}
+                      <span className="text-gold font-medium">
+                        Warren coordinates every step across time zones
+                      </span>{" "}
+                      — scheduling the appointment, liaising with the lender and title
+                      company, and overnighting documents so nothing stalls your closing.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
