@@ -134,27 +134,38 @@ const US_STATES: { name: string; query: string }[] = [
 const STEPS = [
   {
     n: "01",
-    icon: Search,
-    title: "Find your home",
-    body: "Search live listings on Zillow by city, ZIP, or address in any of the 50 states. Save favorites and track new properties the moment they hit the market.",
+    icon: KeyRound,
+    title: "Get pre-approved",
+    body: "Start with a verified pre-approval — not a pre-qualification. Warren reviews your income, assets, and credit, then issues a direct-lender pre-approval letter that tells sellers you're serious and locks in your buying power.",
+    detail: "Typically 1 business day",
   },
   {
     n: "02",
-    icon: KeyRound,
-    title: "Get pre-approved",
-    body: "A pre-approval — not a pre-qualification — tells sellers you're serious. Warren issues direct-lender pre-approvals so your offer stands out and your rate is locked in.",
+    icon: Search,
+    title: "Find your home",
+    body: "Search live Zillow listings in any of the 50 states by city, ZIP, or address. With your pre-approval in hand, you know your exact budget and can move the moment the right home hits the market.",
+    detail: "On your timeline",
   },
   {
     n: "03",
     icon: FileSignature,
     title: "Make an offer",
-    body: "Once you find the right home, Warren helps you understand your numbers and move fast. Direct-lender pricing means no middleman markups and a clean, competitive offer.",
+    body: "Once you've found the home, Warren helps you structure a clean, competitive offer. Direct-lender pricing means no middleman markups, and your pre-approval backs your offer with real financing.",
+    detail: "Same day",
   },
   {
     n: "04",
+    icon: FileSignature,
+    title: "Underwriting & appraisal",
+    body: "After your offer is accepted, Warren's in-house underwriting takes over — ordering the appraisal, verifying your documents, and clearing conditions. One broker, one point of contact, no call-center handoffs.",
+    detail: "2–3 weeks",
+  },
+  {
+    n: "05",
     icon: HandCoins,
     title: "Close & get the keys",
-    body: "From contract to closing, Warren manages your loan end to end — fast underwriting, no surprise fees, and a single point of contact through the day you get your keys.",
+    body: "Warren coordinates your final signing, wire, and funding. No surprise fees, no last-minute surprises — just a clear closing statement and the keys to your new US home.",
+    detail: "30–45 days total",
   },
 ];
 
