@@ -445,6 +445,36 @@ function BuyAHomePage() {
                   </div>
                 </div>
               </Reveal>
+
+              <Reveal>
+                <div className="bg-background p-8 md:p-10 flex flex-col md:flex-row md:items-start gap-6">
+                  <div className="flex items-center gap-4 md:w-16 md:shrink-0">
+                    <span className="font-serif text-4xl text-gold/30">02</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-serif text-2xl">
+                      Close on your loan inside the USA
+                    </h3>
+                    <p className="mt-3 text-foreground/65 text-sm leading-relaxed max-w-2xl">
+                      USA mortgages for expats and foreign nationals{" "}
+                      <span className="text-gold font-medium">
+                        must close in the USA
+                      </span>{" "}
+                      — you (or your spouse, if both are on the loan) need to be present
+                      to sign the final closing documents on US soil.
+                    </p>
+                    <p className="mt-3 text-foreground/65 text-sm leading-relaxed max-w-2xl">
+                      With one exception: with bank approval, a{" "}
+                      <span className="text-gold font-medium">
+                        non-USA citizen may sign at a US embassy
+                      </span>{" "}
+                      in any country. We coordinate with the lender to arrange an
+                      embassy signing when you can't travel, so your closing date is
+                      never missed.
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
             </div>
           </div>
         </section>
