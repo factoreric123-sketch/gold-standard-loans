@@ -26,16 +26,16 @@ export const Route = createFileRoute("/buying-usa-home")({
   head: () => ({
     meta: [
       {
-        title: "Buying a Home in the USA | The Discount Mortgage Store",
+        title: "Smart Moves for USA Buyers | The Discount Mortgage Store",
       },
       {
         name: "description",
         content:
-          "A step-by-step guide to buying a home in the USA — search listings in all 50 states, get pre-approved, and close with Warren Factor, licensed in 32 states since 1996.",
+          "Smart moves for USA buyers — search listings in all 50 states, get pre-approved, and close with Warren Factor, licensed in 32 states since 1996.",
       },
       {
         property: "og:title",
-        content: "Buying a Home in the USA | The Discount Mortgage Store",
+        content: "Smart Moves for USA Buyers | The Discount Mortgage Store",
       },
       {
         property: "og:description",
@@ -47,7 +47,7 @@ export const Route = createFileRoute("/buying-usa-home")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "Buying a Home in the USA | The Discount Mortgage Store",
+        content: "Smart Moves for USA Buyers | The Discount Mortgage Store",
       },
       {
         name: "twitter:description",
