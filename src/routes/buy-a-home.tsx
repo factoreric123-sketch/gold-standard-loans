@@ -240,7 +240,7 @@ function BuyAHomePage() {
                 The Discount Mortgage Store · Since {SINCE_YEAR}
               </div>
               <h1 className="font-serif text-5xl md:text-7xl leading-[1.05] max-w-3xl">
-                Mortgages for expats & foreign nationals
+                Your USA Mortgage
               </h1>
               <p className="mt-6 max-w-xl text-background/70 text-lg leading-relaxed">
                 Buy a home in the USA from anywhere in the world. Warren Factor closes

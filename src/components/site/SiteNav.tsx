@@ -6,7 +6,7 @@ import { TranslateButton } from "@/components/site/TranslateButton";
 
 const links = [
   { href: "/buying-usa-home", label: "Buying USA Home" },
-  { href: "/buy-a-home", label: "Mortgages for EXPATS" },
+  { href: "/buy-a-home", label: "Your USA Mortgage" },
   { href: "/special-programs", label: "Grant Money" },
   { href: "/#programs", label: "Mortgage Products" },
   { href: "/todays-rates", label: "Today's Rates" },
