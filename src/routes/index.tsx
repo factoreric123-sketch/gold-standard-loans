@@ -18,6 +18,7 @@ import { QA } from "@/components/site/QA";
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
+import { SITE_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -42,8 +43,13 @@ export const Route = createFileRoute("/")({
         content: "28 years licensed. 32 states. One trusted broker.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SITE_URL },
+      { property: "og:image", content: `${SITE_URL}/og.png` },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: `${SITE_URL}/og.png` },
     ],
     links: [
+      { rel: "canonical", href: SITE_URL },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
