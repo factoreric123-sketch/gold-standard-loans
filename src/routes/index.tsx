@@ -18,6 +18,7 @@ import { QA } from "@/components/site/QA";
 import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
+import { SITE_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/")({
   component: Index,
