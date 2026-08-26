@@ -59,13 +59,13 @@ describe("route SEO tags", () => {
         /import\s*{[^}]*\bSITE_URL\b[^}]*}\s*from\s*["']@\/lib\/site-data["']/,
       );
 
-      const canonical = src.match(/rel:\s*["']canonical["'],\s*href:\s*`?([^`"',]+)`?/);
+      const canonical = src.match(/rel:\s*["']canonical["'],\s*href:\s*(`[^`]*`|SITE_URL)/);
       expect(canonical, "no canonical link in head()").not.toBeNull();
 
-      const ogUrl = src.match(/property:\s*["']og:url["'],\s*content:\s*`?([^`"',]+)`?/);
+      const ogUrl = src.match(/property:\s*["']og:url["'],\s*content:\s*(`[^`]*`|SITE_URL)/);
       expect(ogUrl, "no og:url meta in head()").not.toBeNull();
 
-      const norm = (v: string) => v.trim().replace(/\s*}\s*$/, "");
+      const norm = (v: string) => v.trim().replace(/^`|`$/g, "");
       expect(norm(canonical![1])).toBe(expected);
       expect(norm(ogUrl![1])).toBe(expected);
     },
