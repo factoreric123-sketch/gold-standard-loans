@@ -42,7 +42,10 @@ export const Route = createFileRoute("/special-programs")({
           "Up to $35,000 in down payment & closing-cost assistance for Florida's community heroes. 100% financing possible on your first home.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/special-programs` },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/special-programs` }],
   }),
   component: SpecialProgramsPage,
 });
