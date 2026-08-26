@@ -13,6 +13,7 @@ import {
   PHONE_TEL,
   COMPANY_NAME,
   APPLY_URL,
+  SITE_URL,
 } from "@/lib/site-data";
 
 export const Route = createFileRoute("/programs/$slug")({
@@ -28,7 +29,11 @@ export const Route = createFileRoute("/programs/$slug")({
         { name: "description", content: program.tagline },
         { property: "og:title", content: `${program.name} Loans | ${COMPANY_NAME}` },
         { property: "og:description", content: program.tagline },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: `${SITE_URL}/programs/${params.slug}` },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
+      links: [{ rel: "canonical", href: `${SITE_URL}/programs/${params.slug}` }],
     };
   },
   component: ProgramPage,
