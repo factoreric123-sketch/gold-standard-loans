@@ -18,6 +18,7 @@ import {
   BROKER_NAME,
   SINCE_YEAR,
   APPLY_URL,
+  SITE_URL,
 } from "@/lib/site-data";
 import heroImg from "@/assets/hometown-heroes.jpg";
 
