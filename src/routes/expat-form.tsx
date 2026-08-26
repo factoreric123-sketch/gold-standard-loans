@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { ExpatInquiryForm } from "@/components/site/ExpatInquiryForm";
+import { SITE_URL } from "@/lib/site-data";
 
 export const Route = createFileRoute("/expat-form")({
   head: () => ({
@@ -19,8 +20,10 @@ export const Route = createFileRoute("/expat-form")({
           "Tell us about your situation and find out exactly what US mortgage programs you qualify for as a foreign national or US expat.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/expat-form` },
       { name: "twitter:card", content: "summary" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/expat-form` }],
   }),
   component: ExpatFormPage,
 });

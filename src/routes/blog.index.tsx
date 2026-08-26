@@ -4,7 +4,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { listPublishedPosts } from "@/lib/blog.functions";
-import { COMPANY_NAME } from "@/lib/site-data";
+import { COMPANY_NAME, SITE_URL } from "@/lib/site-data";
 import { formatPostDate } from "@/lib/blog-format";
 
 export const Route = createFileRoute("/blog/")({
@@ -23,8 +23,10 @@ export const Route = createFileRoute("/blog/")({
         content: "Daily mortgage rate updates and market notes from Warren Factor.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `${SITE_URL}/blog` },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "canonical", href: `${SITE_URL}/blog` }],
   }),
   component: BlogIndex,
 });

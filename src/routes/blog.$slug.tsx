@@ -4,7 +4,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { getPublishedPost } from "@/lib/blog.functions";
-import { COMPANY_NAME } from "@/lib/site-data";
+import { COMPANY_NAME, SITE_URL } from "@/lib/site-data";
 import { formatPostDate } from "@/lib/blog-format";
 import { BlogCTA } from "@/components/site/BlogCTA";
 
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/blog/$slug")({
     if (!post) throw notFound();
     return { post };
   },
-  head: ({ loaderData }) => {
+  head: ({ params, loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Not found" }, { name: "robots", content: "noindex" }] };
     }
@@ -27,8 +27,10 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:title", content: post.title },
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
+        { property: "og:url", content: `${SITE_URL}/blog/${params.slug}` },
         { name: "twitter:card", content: "summary_large_image" },
       ],
+      links: [{ rel: "canonical", href: `${SITE_URL}/blog/${params.slug}` }],
     };
   },
   component: BlogPost,
