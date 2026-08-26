@@ -65,7 +65,7 @@ describe("route SEO tags", () => {
       const ogUrl = src.match(/property:\s*["']og:url["'],\s*content:\s*`?([^`"',]+)`?/);
       expect(ogUrl, "no og:url meta in head()").not.toBeNull();
 
-      const norm = (v: string) => v.trim();
+      const norm = (v: string) => v.trim().replace(/\s*}\s*$/, "");
       expect(norm(canonical![1])).toBe(expected);
       expect(norm(ogUrl![1])).toBe(expected);
     },
