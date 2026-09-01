@@ -12,6 +12,7 @@ const links = [
   { href: "/todays-rates", label: "Today's Rates" },
   { href: "/rate-news", label: "Rate Prediction" },
   { href: "/#why", label: "Why Warren" },
+  { href: "/free-mortgage-advice", label: "Free Advice" },
   { href: "/blog", label: "Blog" },
   { href: "/#contact", label: "Contact" },
 ];
