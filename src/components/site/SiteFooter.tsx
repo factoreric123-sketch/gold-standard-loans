@@ -99,6 +99,11 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
+                <a href="/free-mortgage-advice" className="hover:text-gold">
+                  Free Advice
+                </a>
+              </li>
+              <li>
                 <a href="/#contact" className="hover:text-gold">
                   Contact
                 </a>

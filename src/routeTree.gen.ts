@@ -13,6 +13,7 @@ import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RateNewsRouteImport } from './routes/rate-news'
+import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
 import { Route as ExpatFormRouteImport } from './routes/expat-form'
 import { Route as BuyingUsaHomeRouteImport } from './routes/buying-usa-home'
 import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
@@ -45,6 +46,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const RateNewsRoute = RateNewsRouteImport.update({
   id: '/rate-news',
   path: '/rate-news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FreeMortgageAdviceRoute = FreeMortgageAdviceRouteImport.update({
+  id: '/free-mortgage-advice',
+  path: '/free-mortgage-advice',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExpatFormRoute = ExpatFormRouteImport.update({
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
   '/expat-form': typeof ExpatFormRoute
+  '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/rate-news': typeof RateNewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -136,6 +143,7 @@ export interface FileRoutesByTo {
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
   '/expat-form': typeof ExpatFormRoute
+  '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/rate-news': typeof RateNewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -156,6 +164,7 @@ export interface FileRoutesById {
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
   '/expat-form': typeof ExpatFormRoute
+  '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/rate-news': typeof RateNewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -176,6 +185,7 @@ export interface FileRouteTypes {
     | '/buy-a-home'
     | '/buying-usa-home'
     | '/expat-form'
+    | '/free-mortgage-advice'
     | '/rate-news'
     | '/sitemap.xml'
     | '/special-programs'
@@ -194,6 +204,7 @@ export interface FileRouteTypes {
     | '/buy-a-home'
     | '/buying-usa-home'
     | '/expat-form'
+    | '/free-mortgage-advice'
     | '/rate-news'
     | '/sitemap.xml'
     | '/special-programs'
@@ -213,6 +224,7 @@ export interface FileRouteTypes {
     | '/buy-a-home'
     | '/buying-usa-home'
     | '/expat-form'
+    | '/free-mortgage-advice'
     | '/rate-news'
     | '/sitemap.xml'
     | '/special-programs'
@@ -233,6 +245,7 @@ export interface RootRouteChildren {
   BuyAHomeRoute: typeof BuyAHomeRoute
   BuyingUsaHomeRoute: typeof BuyingUsaHomeRoute
   ExpatFormRoute: typeof ExpatFormRoute
+  FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
   RateNewsRoute: typeof RateNewsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
@@ -271,6 +284,13 @@ declare module '@tanstack/react-router' {
       path: '/rate-news'
       fullPath: '/rate-news'
       preLoaderRoute: typeof RateNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/free-mortgage-advice': {
+      id: '/free-mortgage-advice'
+      path: '/free-mortgage-advice'
+      fullPath: '/free-mortgage-advice'
+      preLoaderRoute: typeof FreeMortgageAdviceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/expat-form': {
@@ -389,6 +409,7 @@ const rootRouteChildren: RootRouteChildren = {
   BuyAHomeRoute: BuyAHomeRoute,
   BuyingUsaHomeRoute: BuyingUsaHomeRoute,
   ExpatFormRoute: ExpatFormRoute,
+  FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,
   RateNewsRoute: RateNewsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
