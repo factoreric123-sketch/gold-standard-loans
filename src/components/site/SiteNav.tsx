@@ -55,7 +55,7 @@ export function SiteNav() {
         scrolled ? "shadow-soft" : ""
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 h-24 md:h-28 flex items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-6 min-h-[120px] lg:h-28 py-3 lg:py-0 flex items-center justify-between gap-3 lg:gap-4">
         <a href="/" aria-label="The Discount Mortgage Store — home" className="shrink-0">
           <Logo />
         </a>
