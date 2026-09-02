@@ -113,8 +113,9 @@ export function SiteNav() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-line bg-background max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <nav className="lg:hidden border-t border-line bg-background max-h-[calc(100vh-7.5rem)] overflow-y-auto">
           <div className="px-6 py-4 flex flex-col text-sm uppercase tracking-[0.15em]">
+            <TranslateButton className="mb-4 justify-center" />
             {navItems.map((item) =>
               item.items ? (
                 <div key={item.label} className="border-b border-line/70">
@@ -161,7 +162,6 @@ export function SiteNav() {
             >
               Call {PHONE_DISPLAY}
             </a>
-            <TranslateButton className="mt-3 justify-center" />
           </div>
         </nav>
       )}
