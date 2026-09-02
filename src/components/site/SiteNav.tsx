@@ -57,7 +57,7 @@ export function SiteNav() {
     >
       <div className="mx-auto max-w-7xl px-6 min-h-[120px] lg:h-28 py-3 lg:py-0 flex items-center justify-between gap-3 lg:gap-4">
         <a href="/" aria-label="The Discount Mortgage Store — home" className="shrink-0">
-          <Logo className="h-10 md:h-10 lg:h-16" />
+          <Logo size="sm" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-6 text-[12px] uppercase tracking-[0.12em] text-foreground/70 ml-auto">
