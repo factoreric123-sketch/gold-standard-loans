@@ -48,21 +48,22 @@ export function SiteFooter() {
             <div className="text-[11px] uppercase tracking-widest text-gold mb-3">Mortgage Products</div>
             <ul className="space-y-2">
               {[
-                "Conventional",
-                "FHA",
-                "VA",
-                "DSCR",
-                "Bank Statement",
-                "Fix & Flip",
-                "Bridge",
-                "Commercial",
+                { label: "Conventional", slug: "conventional" },
+                { label: "FHA", slug: "fha" },
+                { label: "VA", slug: "va" },
+                { label: "DSCR", slug: "dscr" },
+                { label: "Bank Statement", slug: "bank-statement" },
+                { label: "Fix & Flip", slug: "fix-and-flip" },
+                { label: "Bridge", slug: "bridge-loans" },
+                { label: "Commercial", slug: "hotel-commercial" },
               ].map((p) => (
-                <li key={p}>
-                  <a href="/#programs" className="hover:text-gold">
-                    {p}
+                <li key={p.slug}>
+                  <a href={`/programs/${p.slug}`} className="hover:text-gold">
+                    {p.label}
                   </a>
                 </li>
               ))}
+
               <li>
                 <a href="/buy-a-home" className="hover:text-gold">
                   Buy a Home
