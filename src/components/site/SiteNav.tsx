@@ -96,10 +96,13 @@ export function SiteNav() {
             href={`tel:${PHONE_TEL}`}
             className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-4 py-3 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity min-h-[44px]"
           >
-            <Phone className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Call Now</span>
+            <Phone className="w-3.5 h-3.5" />
+            <span className="lg:hidden">Call</span>
+            <span className="hidden lg:inline">Call Now</span>
           </a>
           <button
-            className="lg:hidden p-3 min-h-[44px] min-w-[44px] text-foreground hover:bg-accent transition-colors"
+            type="button"
+            className="lg:hidden inline-flex items-center justify-center h-11 w-11 min-h-[44px] min-w-[44px] bg-charcoal text-gold hover:opacity-90 transition-opacity"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
