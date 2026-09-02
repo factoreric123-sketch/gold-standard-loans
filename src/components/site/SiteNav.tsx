@@ -55,9 +55,9 @@ export function SiteNav() {
         scrolled ? "shadow-soft" : ""
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 h-24 md:h-28 flex items-center justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-6 min-h-[120px] lg:h-28 py-3 lg:py-0 flex items-center justify-between gap-3 lg:gap-4">
         <a href="/" aria-label="The Discount Mortgage Store — home" className="shrink-0">
-          <Logo />
+          <Logo size="sm" />
         </a>
 
         <nav className="hidden lg:flex items-center gap-6 text-[12px] uppercase tracking-[0.12em] text-foreground/70 ml-auto">
@@ -91,15 +91,20 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-3 shrink-0">
-          <TranslateButton className="hidden lg:inline-flex" />
+          <div className="hidden lg:inline-block">
+            <TranslateButton />
+          </div>
           <a
             href={`tel:${PHONE_TEL}`}
             className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-4 py-3 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity min-h-[44px]"
           >
-            <Phone className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Call Now</span>
+            <Phone className="w-3.5 h-3.5" />
+            <span className="lg:hidden">Call</span>
+            <span className="hidden lg:inline">Call Now</span>
           </a>
           <button
-            className="lg:hidden p-3 min-h-[44px] min-w-[44px] text-foreground hover:bg-accent transition-colors"
+            type="button"
+            className="lg:hidden inline-flex items-center justify-center h-11 w-11 min-h-[44px] min-w-[44px] bg-charcoal text-gold hover:opacity-90 transition-opacity"
             onClick={() => setOpen((v) => !v)}
             aria-label="Toggle menu"
             aria-expanded={open}
@@ -110,8 +115,9 @@ export function SiteNav() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-line bg-background max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <nav className="lg:hidden border-t border-line bg-background max-h-[calc(100vh-7.5rem)] overflow-y-auto">
           <div className="px-6 py-4 flex flex-col text-sm uppercase tracking-[0.15em]">
+            <TranslateButton className="mb-4 justify-center" />
             {navItems.map((item) =>
               item.items ? (
                 <div key={item.label} className="border-b border-line/70">
@@ -158,7 +164,6 @@ export function SiteNav() {
             >
               Call {PHONE_DISPLAY}
             </a>
-            <TranslateButton className="mt-3 justify-center" />
           </div>
         </nav>
       )}
