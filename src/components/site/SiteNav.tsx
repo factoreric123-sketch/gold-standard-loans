@@ -91,7 +91,9 @@ export function SiteNav() {
         </nav>
 
         <div className="flex items-center gap-3 shrink-0">
-          <TranslateButton className="hidden lg:inline-flex" />
+          <div className="hidden lg:inline-block">
+            <TranslateButton />
+          </div>
           <a
             href={`tel:${PHONE_TEL}`}
             className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-4 py-3 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity min-h-[44px]"
