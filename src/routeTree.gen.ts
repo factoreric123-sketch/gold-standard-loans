@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RateNewsRouteImport } from './routes/rate-news'
 import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
 import { Route as ExpatFormRouteImport } from './routes/expat-form'
@@ -36,11 +35,6 @@ const TodaysRatesRoute = TodaysRatesRouteImport.update({
 const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
   id: '/special-programs',
   path: '/special-programs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RateNewsRoute = RateNewsRouteImport.update({
@@ -126,7 +120,6 @@ export interface FileRoutesByFullPath {
   '/expat-form': typeof ExpatFormRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/rate-news': typeof RateNewsRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -145,7 +138,6 @@ export interface FileRoutesByTo {
   '/expat-form': typeof ExpatFormRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/rate-news': typeof RateNewsRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
@@ -166,7 +158,6 @@ export interface FileRoutesById {
   '/expat-form': typeof ExpatFormRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/rate-news': typeof RateNewsRoute
-  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
@@ -187,7 +178,6 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/free-mortgage-advice'
     | '/rate-news'
-    | '/sitemap.xml'
     | '/special-programs'
     | '/todays-rates'
     | '/admin'
@@ -206,7 +196,6 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/free-mortgage-advice'
     | '/rate-news'
-    | '/sitemap.xml'
     | '/special-programs'
     | '/todays-rates'
     | '/admin'
@@ -226,7 +215,6 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/free-mortgage-advice'
     | '/rate-news'
-    | '/sitemap.xml'
     | '/special-programs'
     | '/todays-rates'
     | '/_authenticated/admin'
@@ -247,7 +235,6 @@ export interface RootRouteChildren {
   ExpatFormRoute: typeof ExpatFormRoute
   FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
   RateNewsRoute: typeof RateNewsRoute
-  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
   TodaysRatesRoute: typeof TodaysRatesRoute
   BlogSlugRoute: typeof BlogSlugRoute
@@ -270,13 +257,6 @@ declare module '@tanstack/react-router' {
       path: '/special-programs'
       fullPath: '/special-programs'
       preLoaderRoute: typeof SpecialProgramsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rate-news': {
@@ -411,7 +391,6 @@ const rootRouteChildren: RootRouteChildren = {
   ExpatFormRoute: ExpatFormRoute,
   FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,
   RateNewsRoute: RateNewsRoute,
-  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
   TodaysRatesRoute: TodaysRatesRoute,
   BlogSlugRoute: BlogSlugRoute,
