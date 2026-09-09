@@ -109,6 +109,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "msvalidate.01", content: "CFBEF23C22D02DBEF608FD8364BE3AB9" },
       { title: "The Discount Mortgage Store | USA Lowest Mortgage Rates" },
       {
         name: "description",
