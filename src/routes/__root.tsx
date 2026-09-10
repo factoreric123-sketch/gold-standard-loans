@@ -16,13 +16,13 @@ import { HashScroll } from "@/components/site/HashScroll";
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "MortgageBroker",
+  "@type": "FinancialService",
   name: COMPANY_NAME,
   url: SITE_URL,
   image: `${SITE_URL}/og.png`,
   telephone: PHONE_TEL,
   email: EMAIL,
-  founder: BROKER_NAME,
+  founder: { "@type": "Person", name: BROKER_NAME },
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
@@ -33,19 +33,8 @@ const structuredData = {
     addressCountry: "US",
   },
   areaServed: "United States (32 states)",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: String(REVIEWS.length),
-    bestRating: "5",
-  },
-  review: REVIEWS.map((r) => ({
-    "@type": "Review",
-    reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5" },
-    author: { "@type": "Person", name: r.name },
-    reviewBody: r.quote,
-  })),
 };
+
 
 function NotFoundComponent() {
   return (
