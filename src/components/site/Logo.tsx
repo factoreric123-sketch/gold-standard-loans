@@ -39,7 +39,7 @@ export function Logo({ size = "md", className = "" }: { size?: "sm" | "md" | "lg
       height={182}
       loading="eager"
       decoding="async"
-      className={`block h-18 w-auto md:h-22 ${className}`.trim()}
+      className={`block h-16 w-auto md:h-20 ${className}`.trim()}
     />
   );
 }
