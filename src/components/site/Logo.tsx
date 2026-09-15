@@ -11,7 +11,7 @@ export function Logo({ size = "md", className = "" }: { size?: "sm" | "md" | "lg
         height={1254}
         loading="eager"
         decoding="async"
-        className={`block h-20 w-auto md:h-28 ${className}`.trim()}
+        className={`block h-24 w-auto md:h-32 ${className}`.trim()}
       />
     );
   }
@@ -26,7 +26,7 @@ export function Logo({ size = "md", className = "" }: { size?: "sm" | "md" | "lg
         height={182}
         loading="eager"
         decoding="async"
-        className={`block h-12 w-auto md:h-14 lg:h-20 ${className}`.trim()}
+        className={`block h-16 w-auto md:h-20 lg:h-24 ${className}`.trim()}
       />
     );
   }
@@ -39,7 +39,7 @@ export function Logo({ size = "md", className = "" }: { size?: "sm" | "md" | "lg
       height={182}
       loading="eager"
       decoding="async"
-      className={`block h-14 w-auto md:h-16 ${className}`.trim()}
+      className={`block h-18 w-auto md:h-22 ${className}`.trim()}
     />
   );
 }
