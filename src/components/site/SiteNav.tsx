@@ -55,8 +55,8 @@ export function SiteNav() {
         scrolled ? "shadow-soft" : ""
       }`}
     >
-      <div className="mx-auto max-w-7xl px-6 min-h-[120px] lg:h-28 py-3 lg:py-0 flex items-center justify-between gap-3 lg:gap-4">
-        <a href="/" aria-label="The Discount Mortgage Store — home" className="shrink-0">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-6 min-h-[120px] lg:h-28 py-3 lg:py-0 flex items-center justify-between gap-2 lg:gap-4">
+        <a href="/" aria-label="The Discount Mortgage Store — home" className="shrink-0 min-w-0">
           <Logo size="sm" />
         </a>
 
@@ -90,13 +90,13 @@ export function SiteNav() {
           )}
         </nav>
 
-        <div className="flex items-center gap-3 shrink-0">
+        <div className="flex items-center gap-2 lg:gap-3 shrink-0">
           <div className="hidden lg:inline-block">
             <TranslateButton />
           </div>
           <a
             href={`tel:${PHONE_TEL}`}
-            className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-4 py-3 text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity min-h-[44px]"
+            className="inline-flex items-center gap-1.5 bg-gold text-gold-foreground px-3 lg:px-4 py-3 text-[10px] lg:text-xs uppercase tracking-[0.15em] hover:opacity-90 transition-opacity min-h-[44px]"
           >
             <Phone className="w-3.5 h-3.5" />
             <span className="lg:hidden">Call</span>
