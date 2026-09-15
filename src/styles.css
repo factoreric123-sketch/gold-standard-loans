@@ -99,6 +99,7 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
   section[id],
   [id] {
@@ -108,6 +109,8 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    max-width: 100%;
+    overflow-x: clip;
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
