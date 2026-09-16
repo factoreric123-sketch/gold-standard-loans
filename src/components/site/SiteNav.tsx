@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
 ];
 
 const triggerClass =
-  "inline-flex items-center gap-1 hover:text-foreground transition-colors focus:outline-none focus-visible:text-foreground";
+  "inline-flex items-center gap-1 uppercase whitespace-nowrap hover:text-foreground transition-colors focus:outline-none focus-visible:text-foreground";
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
