@@ -19,7 +19,7 @@ export function SiteFooter() {
     <footer className="bg-charcoal text-background/75">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="border-b border-background/15 pb-10 mb-10">
-          <div className="inline-block rounded-2xl bg-background p-3 shadow-soft">
+          <div className="inline-block bg-background p-3 shadow-soft">
             <Logo size="lg" />
           </div>
           <div className="mt-4 text-sm uppercase tracking-widest text-gold">
@@ -140,8 +140,8 @@ export function SiteFooter() {
             program terms are subject to change without notice. Not a commitment to lend. Equal
             Housing Lender. © {new Date().getFullYear()} {COMPANY_NAME}.
           </p>
-          <div className="flex items-center gap-3 rounded-lg border border-background/20 px-4 py-3">
-            <div className="w-8 h-8 rounded-md border-2 border-gold flex items-center justify-center text-gold text-lg font-serif">
+          <div className="flex items-center gap-3 border border-background/20 px-4 py-3">
+            <div className="w-8 h-8 border-2 border-gold flex items-center justify-center text-gold text-lg font-serif">
               =
             </div>
             <div className="text-[10px] uppercase tracking-widest text-background/75 leading-tight">

@@ -16,7 +16,7 @@ export function Hero() {
     >
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
         <Reveal>
-          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 bg-background/70 border border-line rounded-full px-3.5 py-1.5 mb-8">
+          <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 bg-background/70 border border-line px-3.5 py-1.5 mb-8">
             <ShieldCheck className="w-3.5 h-3.5 text-gold" strokeWidth={1.75} />
             28 Years Licensed · {NMLS}
           </div>
@@ -35,13 +35,13 @@ export function Hero() {
               href={APPLY_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
+              className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
             >
               Apply Now <ArrowRight className="w-4 h-4" />
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
-              className="inline-flex items-center gap-2 border border-foreground/20 rounded-full px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
+              className="inline-flex items-center gap-2 border border-foreground/20 px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
             >
               <Phone className="w-4 h-4" /> {PHONE_DISPLAY}
             </a>
@@ -49,7 +49,7 @@ export function Hero() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="rounded-2xl bg-card border border-line shadow-soft-lg p-7 md:p-8">
+          <div className="bg-card border border-line shadow-soft-lg p-7 md:p-8">
             <div className="flex items-center justify-between mb-5">
               <span className="text-[11px] uppercase tracking-[0.2em] text-foreground/55">
                 Today's Rates
@@ -78,7 +78,7 @@ export function Hero() {
 
           <div className="mt-5 grid grid-cols-3 gap-3">
             {heroStats.map((s) => (
-              <div key={s.label} className="rounded-xl bg-card border border-line py-5 text-center">
+              <div key={s.label} className="bg-card border border-line py-5 text-center">
                 <div className="font-serif text-3xl text-gold">{s.n}</div>
                 <div className="text-[10px] uppercase tracking-widest text-foreground/55 mt-1">
                   {s.label}

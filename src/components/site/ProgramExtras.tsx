@@ -49,7 +49,7 @@ function Section({ section }: { section: ProgramSection }) {
             {section.items.map((item, i) => (
               <li
                 key={item.title}
-                className="rounded-2xl border border-line bg-card p-6 flex gap-5"
+                className="border border-line bg-card p-6 flex gap-5"
               >
                 <span className="font-serif text-3xl text-gold/40 leading-none mt-1 shrink-0">
                   {String(i + 1).padStart(2, "0")}
@@ -73,7 +73,7 @@ function Section({ section }: { section: ProgramSection }) {
           )}
           <div className="grid sm:grid-cols-2 gap-5">
             {section.items.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-line bg-card p-6">
+              <div key={item.title} className="border border-line bg-card p-6">
                 <div className="font-serif text-xl mb-2">{item.title}</div>
                 <p className="text-foreground/70 leading-relaxed text-sm">{item.body}</p>
               </div>
@@ -119,7 +119,7 @@ function Section({ section }: { section: ProgramSection }) {
       return (
         <div>
           {section.title && <H3>{section.title}</H3>}
-          <div className="rounded-2xl bg-charcoal text-background p-7 md:p-8 text-center">
+          <div className="bg-charcoal text-background p-7 md:p-8 text-center">
             <div className="font-serif text-2xl md:text-3xl text-gold tracking-wide">
               {section.equation}
             </div>

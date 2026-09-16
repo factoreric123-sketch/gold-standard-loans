@@ -228,7 +228,7 @@ export function Contact() {
   };
 
   const inputClass =
-    "w-full rounded-lg bg-card border border-input px-4 py-3 text-sm placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-shadow";
+    "w-full bg-card border border-input px-4 py-3 text-sm placeholder:text-foreground/40 focus:outline-none focus:ring-2 focus:ring-gold/40 focus:border-gold transition-shadow";
 
   return (
     <section id="contact" className="bg-cream">
@@ -319,7 +319,7 @@ export function Contact() {
 
         <Reveal delay={120}>
           {done ? (
-            <div className="rounded-2xl bg-card border border-line shadow-soft p-10 text-center">
+            <div className="bg-card border border-line shadow-soft p-10 text-center">
               <CheckCircle2 className="w-12 h-12 text-gold mx-auto" strokeWidth={1.5} />
               <h3 className="font-serif text-3xl mt-5">Request received</h3>
               <p className="mt-3 text-foreground/65 leading-relaxed">
@@ -343,7 +343,7 @@ export function Contact() {
             <form
               onSubmit={onSubmit}
               noValidate
-              className="rounded-2xl bg-card border border-line shadow-soft p-7 md:p-9 space-y-4"
+              className="bg-card border border-line shadow-soft p-7 md:p-9 space-y-4"
             >
               <input
                 type="checkbox"
@@ -500,7 +500,7 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full inline-flex items-center justify-center gap-2 bg-gold text-gold-foreground rounded-full py-4 text-sm tracking-wide hover:opacity-90 disabled:opacity-60 transition-opacity"
+                className="w-full inline-flex items-center justify-center gap-2 bg-gold text-gold-foreground py-4 text-sm tracking-wide hover:opacity-90 disabled:opacity-60 transition-opacity"
               >
                 {submitting ? (
                   "Sending…"
