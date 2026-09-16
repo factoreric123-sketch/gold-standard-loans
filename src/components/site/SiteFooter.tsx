@@ -11,7 +11,6 @@ import {
   APPLY_URL,
   FACEBOOK_GROUP_URL,
 } from "@/lib/site-data";
-import { Logo } from "@/components/site/Logo";
 
 export function SiteFooter() {
   return (
