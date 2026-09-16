@@ -19,11 +19,14 @@ export function SiteFooter() {
     <footer className="bg-charcoal text-background/75">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="border-b border-background/15 pb-10 mb-10">
-          <div className="inline-block bg-background p-3 shadow-soft">
-            <Logo size="lg" />
+          <div className="font-serif text-3xl md:text-4xl leading-tight text-background">
+            The Discount
+            <span className="block tracking-[0.18em] text-[0.62em] uppercase text-gold mt-1">
+              Mortgage Store
+            </span>
           </div>
-          <div className="mt-4 text-sm uppercase tracking-widest text-gold">
-            USA Lowest Rates. Proven, Not Promised
+          <div className="mt-5 text-[11px] uppercase tracking-[0.22em] text-background/60">
+            USA Lowest Rates. Proven, Not Promised.
           </div>
         </div>
 
