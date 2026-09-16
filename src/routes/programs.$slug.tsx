@@ -34,7 +34,27 @@ export const Route = createFileRoute("/programs/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: `${SITE_URL}/programs/${params.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: `${program.name} Loans`,
+            description: program.tagline,
+            serviceType: `${program.name} mortgage`,
+            url: `${SITE_URL}/programs/${params.slug}`,
+            areaServed: "US",
+            provider: {
+              "@type": "FinancialService",
+              name: COMPANY_NAME,
+              url: SITE_URL,
+            },
+          }),
+        },
+      ],
     };
+
   },
   component: ProgramPage,
 });

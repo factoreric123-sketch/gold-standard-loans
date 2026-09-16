@@ -32,7 +32,23 @@ export const Route = createFileRoute("/blog/$slug")({
         { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: `${SITE_URL}/blog/${params.slug}` }],
+      scripts: [
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: post.title,
+            description: desc,
+            datePublished: post.published_at,
+            mainEntityOfPage: `${SITE_URL}/blog/${params.slug}`,
+            author: { "@type": "Person", name: "Warren Factor" },
+            publisher: { "@type": "Organization", name: COMPANY_NAME, url: SITE_URL },
+          }),
+        },
+      ],
     };
+
   },
   component: BlogPost,
 });
