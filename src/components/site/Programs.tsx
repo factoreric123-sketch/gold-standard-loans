@@ -28,9 +28,9 @@ export function Programs() {
                 <Link
                   to="/programs/$slug"
                   params={{ slug: p.slug }}
-                  className="group flex h-full flex-col rounded-xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40"
+                  className="group flex h-full flex-col border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40"
                 >
-                  <div className="w-11 h-11 rounded-lg bg-gold/10 flex items-center justify-center mb-5 transition-colors group-hover:bg-gold/15">
+                  <div className="w-11 h-11 bg-gold/10 flex items-center justify-center mb-5 transition-colors group-hover:bg-gold/15">
                     <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
                   </div>
                   <h3 className="font-serif text-xl mb-1.5">{p.name}</h3>

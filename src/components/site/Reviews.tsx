@@ -26,7 +26,7 @@ export function Reviews() {
         <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
           {REVIEWS.map((r, i) => (
             <Reveal key={r.name + r.date} delay={i * 80} className="h-full">
-              <figure className="flex h-full flex-col rounded-2xl border border-line bg-card shadow-soft p-7">
+              <figure className="flex h-full flex-col border border-line bg-card shadow-soft p-7">
                 <div className="flex gap-1 mb-5">
                   {[...Array(r.rating)].map((_, s) => (
                     <Star

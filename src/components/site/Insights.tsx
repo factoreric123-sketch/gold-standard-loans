@@ -21,7 +21,7 @@ export function Insights() {
           <div className="mt-10 grid sm:grid-cols-2 gap-4">
             {RATE_DRIVERS.map((d, i) => (
               <Reveal key={d.name} delay={(i % 2) * 60}>
-                <div className="rounded-2xl border border-line bg-card p-6">
+                <div className="border border-line bg-card p-6">
                   <div className="font-serif text-xl mb-1.5">{d.name}</div>
                   <div className="text-sm text-foreground/65 leading-relaxed">{d.note}</div>
                 </div>
@@ -30,7 +30,7 @@ export function Insights() {
           </div>
 
           <Reveal>
-            <div className="mt-6 inline-flex items-start gap-3 rounded-xl bg-gold/10 border border-gold/30 px-5 py-4 text-sm text-foreground/80">
+            <div className="mt-6 inline-flex items-start gap-3 bg-gold/10 border border-gold/30 px-5 py-4 text-sm text-foreground/80">
               <TrendingUp className="w-4 h-4 text-gold mt-0.5 shrink-0" strokeWidth={2} />
               <span>
                 Watching mortgage or bridge loans? Focus on the{" "}
@@ -43,7 +43,7 @@ export function Insights() {
 
           <div className="mt-10 grid md:grid-cols-2 gap-5">
             <Reveal>
-              <div className="h-full rounded-2xl border border-line bg-card shadow-soft p-7">
+              <div className="h-full border border-line bg-card shadow-soft p-7">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-gold mb-3">
                   Daily — 5 minutes
                 </div>
@@ -62,7 +62,7 @@ export function Insights() {
               </div>
             </Reveal>
             <Reveal delay={100}>
-              <div className="h-full rounded-2xl border border-line bg-card shadow-soft p-7">
+              <div className="h-full border border-line bg-card shadow-soft p-7">
                 <div className="text-[11px] uppercase tracking-[0.2em] text-gold mb-3">
                   Weekly — what pros do
                 </div>
@@ -104,7 +104,7 @@ export function Insights() {
           <ol className="mt-10 grid md:grid-cols-2 gap-5">
             {BROKER_REASONS.map((r, i) => (
               <Reveal key={r.title} delay={(i % 2) * 60}>
-                <li className="h-full rounded-2xl border border-line bg-card p-6 flex gap-5">
+                <li className="h-full border border-line bg-card p-6 flex gap-5">
                   <span className="font-serif text-3xl text-gold/40 leading-none mt-1 shrink-0">
                     {String(i + 1).padStart(2, "0")}
                   </span>

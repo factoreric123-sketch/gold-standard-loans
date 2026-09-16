@@ -184,7 +184,7 @@ function SpecialProgramsPage() {
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
               {grantPrograms.map((g, i) => (
                 <Reveal key={g.name} delay={(i % 2) * 70} className="h-full">
-                  <div className="group h-full flex flex-col rounded-xl border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
+                  <div className="group h-full flex flex-col border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
                     <div className="flex items-start justify-between gap-3">
                       <h3 className="font-serif text-xl">{g.name}</h3>
                       <span className="font-serif text-2xl text-gold whitespace-nowrap">
@@ -231,7 +231,7 @@ function SpecialProgramsPage() {
         <section id="hometown-heroes" className="relative scroll-mt-24 overflow-hidden border-b border-line bg-gradient-to-b from-cream to-background">
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-24 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <Reveal>
-              <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 bg-background/70 border border-line rounded-full px-3.5 py-1.5 mb-7">
+              <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-foreground/60 bg-background/70 border border-line px-3.5 py-1.5 mb-7">
                 <ShieldCheck className="w-3.5 h-3.5 text-gold" strokeWidth={1.75} />
                 Florida first-time homebuyers
               </div>
@@ -257,13 +257,13 @@ function SpecialProgramsPage() {
                   href={APPLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
+                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
                 >
                   Get qualified <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="inline-flex items-center gap-2 border border-foreground/20 rounded-full px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
+                  className="inline-flex items-center gap-2 border border-foreground/20 px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
                 >
                   <Phone className="w-4 h-4" /> Call {PHONE_DISPLAY}
                 </a>
@@ -277,13 +277,13 @@ function SpecialProgramsPage() {
                   alt="A police officer, firefighter, nurse and soldier standing together"
                   width={1600}
                   height={912}
-                  className="w-full h-[300px] md:h-[440px] object-cover rounded-2xl border border-line shadow-soft"
+                  className="w-full h-[300px] md:h-[440px] object-cover border border-line shadow-soft"
                 />
                 <div className="mt-6 grid grid-cols-3 gap-3">
                   {stats.map((s) => (
                     <div
                       key={s.label}
-                      className="rounded-xl border border-line bg-card p-4 text-center"
+                      className="border border-line bg-card p-4 text-center"
                     >
                       <div className="font-serif text-2xl md:text-3xl text-gold">
                         {s.n}
@@ -318,7 +318,7 @@ function SpecialProgramsPage() {
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {qualifying.map((q, i) => (
                 <Reveal key={q.title} delay={(i % 4) * 60} className="h-full">
-                  <div className="group h-full flex flex-col rounded-xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
+                  <div className="group h-full flex flex-col border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
                     <h3 className="font-serif text-xl mb-2">{q.title}</h3>
                     <p className="text-sm text-foreground/60 leading-relaxed">{q.body}</p>
                   </div>
@@ -343,8 +343,8 @@ function SpecialProgramsPage() {
             <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {benefits.map((b, i) => (
                 <Reveal key={b.title} delay={(i % 4) * 60} className="h-full">
-                  <div className="h-full flex flex-col rounded-xl border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
-                    <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-5">
+                  <div className="h-full flex flex-col border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40">
+                    <div className="w-10 h-10 bg-gold/10 flex items-center justify-center mb-5">
                       <ShieldCheck className="w-5 h-5 text-gold" strokeWidth={1.5} />
                     </div>
                     <h3 className="font-serif text-xl mb-1.5">{b.title}</h3>
@@ -371,7 +371,7 @@ function SpecialProgramsPage() {
               <div className="mt-9 flex flex-wrap justify-center gap-3">
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity"
                 >
                   <Phone className="w-4 h-4" /> Call or Text {PHONE_DISPLAY}
                 </a>
@@ -379,7 +379,7 @@ function SpecialProgramsPage() {
                   href={APPLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-background/30 text-background rounded-full px-7 py-3.5 text-sm tracking-wide hover:bg-background/10 transition-colors"
+                  className="inline-flex items-center gap-2 border border-background/30 text-background px-7 py-3.5 text-sm tracking-wide hover:bg-background/10 transition-colors"
                 >
                   Get qualified <ArrowRight className="w-4 h-4" />
                 </a>
@@ -392,7 +392,7 @@ function SpecialProgramsPage() {
         <section className="bg-background border-t border-line">
           <div className="mx-auto max-w-5xl px-6 py-20 md:py-24 grid md:grid-cols-[auto_1fr] gap-10 items-start">
             <Reveal>
-              <div className="w-20 h-20 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center shrink-0">
+              <div className="w-20 h-20 bg-gold/10 border border-gold/30 flex items-center justify-center shrink-0">
                 <span className="font-serif text-2xl text-gold">WF</span>
               </div>
             </Reveal>

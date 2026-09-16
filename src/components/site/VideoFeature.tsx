@@ -16,7 +16,7 @@ export function VideoFeature() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="mt-12 overflow-hidden rounded-2xl border border-background/15 shadow-soft-lg bg-black">
+          <div className="mt-12 overflow-hidden border border-background/15 shadow-soft-lg bg-black">
             <video
               src="/intro.mp4"
               poster="/og.png"

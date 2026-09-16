@@ -82,7 +82,7 @@ export function Calculator() {
 
   const label = "block text-[11px] uppercase tracking-widest text-foreground/55 mb-2";
   const field =
-    "w-full rounded-lg border border-input bg-card px-4 py-3 text-base text-foreground focus:border-gold focus:outline-none";
+    "w-full border border-input bg-card px-4 py-3 text-base text-foreground focus:border-gold focus:outline-none";
 
   return (
     <section id="calculator" className="bg-background">
@@ -100,7 +100,7 @@ export function Calculator() {
         <div className="mt-14 grid lg:grid-cols-5 gap-6 items-stretch">
           {/* Inputs */}
           <Reveal className="lg:col-span-3">
-            <div className="rounded-2xl border border-line bg-card shadow-soft p-7 md:p-9 space-y-6">
+            <div className="border border-line bg-card shadow-soft p-7 md:p-9 space-y-6">
               <div>
                 <label className={label} htmlFor="amt">
                   Loan amount
@@ -223,7 +223,7 @@ export function Calculator() {
 
           {/* Result */}
           <Reveal delay={120} className="lg:col-span-2">
-            <div className="h-full rounded-2xl bg-charcoal text-background shadow-soft-lg p-8 md:p-9 flex flex-col">
+            <div className="h-full bg-charcoal text-background shadow-soft-lg p-8 md:p-9 flex flex-col">
               <div className="text-[11px] uppercase tracking-[0.2em] text-gold">
                 Monthly Payment
               </div>
@@ -250,14 +250,14 @@ export function Calculator() {
               <button
                 type="button"
                 onClick={() => setShowSchedule((s) => !s)}
-                className="mt-6 border border-background/25 rounded-full py-3 text-sm tracking-wide hover:border-gold hover:text-gold transition-colors"
+                className="mt-6 border border-background/25 py-3 text-sm tracking-wide hover:border-gold hover:text-gold transition-colors"
               >
                 {showSchedule ? "Hide" : "View"} amortization schedule
               </button>
 
               <a
                 href="/#contact"
-                className="mt-3 inline-flex items-center justify-center gap-2 bg-gold text-gold-foreground rounded-full py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity"
+                className="mt-3 inline-flex items-center justify-center gap-2 bg-gold text-gold-foreground py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity"
               >
                 Get my real rate <ArrowRight className="w-4 h-4" />
               </a>
@@ -270,7 +270,7 @@ export function Calculator() {
         </div>
 
         {showSchedule && (
-          <div className="mt-8 rounded-2xl border border-line bg-card shadow-soft overflow-hidden">
+          <div className="mt-8 border border-line bg-card shadow-soft overflow-hidden">
             <div className="px-6 py-4 border-b border-line text-[11px] uppercase tracking-[0.2em] text-foreground/55">
               Annual amortization schedule
             </div>

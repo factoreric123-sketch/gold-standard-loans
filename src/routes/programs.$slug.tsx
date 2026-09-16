@@ -87,7 +87,7 @@ function ProgramPage() {
               </nav>
 
               <div className="mt-8 flex items-center gap-4">
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 bg-gold/10 flex items-center justify-center shrink-0">
                   <Icon className="w-7 h-7 text-gold" strokeWidth={1.5} />
                 </div>
                 <div className="text-[11px] uppercase tracking-[0.25em] text-gold">
@@ -110,13 +110,13 @@ function ProgramPage() {
                   href={APPLY_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
+                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity shadow-soft"
                 >
                   Apply Now <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="inline-flex items-center gap-2 border border-foreground/20 rounded-full px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
+                  className="inline-flex items-center gap-2 border border-foreground/20 px-7 py-3.5 text-sm tracking-wide hover:border-foreground/50 hover:bg-accent transition-colors"
                 >
                   <Phone className="w-4 h-4" /> {PHONE_DISPLAY}
                 </a>
@@ -133,7 +133,7 @@ function ProgramPage() {
               <ul className="space-y-4">
                 {program.highlights.map((h) => (
                   <li key={h} className="flex gap-3">
-                    <span className="mt-0.5 w-6 h-6 shrink-0 rounded-full bg-gold/10 flex items-center justify-center">
+                    <span className="mt-0.5 w-6 h-6 shrink-0 bg-gold/10 flex items-center justify-center">
                       <Check className="w-3.5 h-3.5 text-gold" strokeWidth={2.5} />
                     </span>
                     <span className="text-foreground/75 leading-relaxed">{h}</span>
@@ -143,14 +143,14 @@ function ProgramPage() {
             </Reveal>
 
             <Reveal delay={120}>
-              <div className="rounded-2xl border border-line bg-card shadow-soft p-8">
+              <div className="border border-line bg-card shadow-soft p-8">
                 <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-gold mb-6">
                   <Users className="w-4 h-4" /> Who it's for
                 </div>
                 <ul className="space-y-4">
                   {program.idealFor.map((who) => (
                     <li key={who} className="flex gap-3 text-foreground/75 leading-relaxed">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
                       <span>{who}</span>
                     </li>
                   ))}
@@ -187,7 +187,7 @@ function ProgramPage() {
                 </h3>
                 <div className="grid sm:grid-cols-2 gap-5">
                   {program.creditTiers.map((t) => (
-                    <div key={t.name} className="rounded-2xl border border-line bg-card p-7">
+                    <div key={t.name} className="border border-line bg-card p-7">
                       <div className="font-serif text-xl mb-1.5">{t.name}</div>
                       <div className="text-[11px] uppercase tracking-widest text-gold mb-4">
                         {t.score}
@@ -195,7 +195,7 @@ function ProgramPage() {
                       <ul className="space-y-2 text-sm text-foreground/70">
                         {t.bullets.map((b) => (
                           <li key={b} className="flex gap-2.5">
-                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                            <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-gold" />
                             <span>{b}</span>
                           </li>
                         ))}
@@ -207,7 +207,7 @@ function ProgramPage() {
 
               {program.lowScoreOptions && (
                 <Reveal delay={80}>
-                  <div className="mt-12 rounded-2xl border border-line bg-card p-7 md:p-8">
+                  <div className="mt-12 border border-line bg-card p-7 md:p-8">
                     <h3 className="font-serif text-2xl mb-5">
                       If your score is really low (500–580)
                     </h3>
@@ -227,7 +227,7 @@ function ProgramPage() {
                 <div className="mt-10 grid md:grid-cols-2 gap-5">
                   {program.lenderConsiderations && (
                     <Reveal>
-                      <div className="h-full rounded-2xl border border-line bg-card p-7">
+                      <div className="h-full border border-line bg-card p-7">
                         <h3 className="font-serif text-xl mb-4">What lenders also weigh</h3>
                         <ul className="space-y-3 text-sm text-foreground/70">
                           {program.lenderConsiderations.map((l) => (
@@ -245,7 +245,7 @@ function ProgramPage() {
                   )}
                   {program.improvementTips && (
                     <Reveal delay={80}>
-                      <div className="h-full rounded-2xl border border-line bg-card p-7">
+                      <div className="h-full border border-line bg-card p-7">
                         <h3 className="font-serif text-xl mb-4">
                           Fast credit improvement (30–90 days)
                         </h3>
@@ -268,7 +268,7 @@ function ProgramPage() {
 
               {program.bottomLine && (
                 <Reveal>
-                  <div className="mt-10 rounded-2xl bg-charcoal text-background p-7 md:p-8">
+                  <div className="mt-10 bg-charcoal text-background p-7 md:p-8">
                     <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
                       Bottom line
                     </div>
@@ -306,13 +306,13 @@ function ProgramPage() {
               <div className="mt-9 flex flex-wrap justify-center gap-3">
                 <a
                   href={`tel:${PHONE_TEL}`}
-                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground rounded-full px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity"
+                  className="inline-flex items-center gap-2 bg-gold text-gold-foreground px-7 py-3.5 text-sm tracking-wide hover:opacity-90 transition-opacity"
                 >
                   <Phone className="w-4 h-4" /> Call {PHONE_DISPLAY}
                 </a>
                 <a
                   href="/#contact"
-                  className="inline-flex items-center gap-2 border border-background/30 text-background rounded-full px-7 py-3.5 text-sm tracking-wide hover:bg-background/10 transition-colors"
+                  className="inline-flex items-center gap-2 border border-background/30 text-background px-7 py-3.5 text-sm tracking-wide hover:bg-background/10 transition-colors"
                 >
                   Request my rate <ArrowRight className="w-4 h-4" />
                 </a>
@@ -343,9 +343,9 @@ function ProgramPage() {
                     <Link
                       to="/programs/$slug"
                       params={{ slug: p.slug }}
-                      className="group flex h-full flex-col rounded-xl border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40"
+                      className="group flex h-full flex-col border border-line bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft hover:border-gold/40"
                     >
-                      <div className="w-10 h-10 rounded-lg bg-gold/10 flex items-center justify-center mb-4">
+                      <div className="w-10 h-10 bg-gold/10 flex items-center justify-center mb-4">
                         <OtherIcon className="w-5 h-5 text-gold" strokeWidth={1.5} />
                       </div>
                       <h3 className="font-serif text-lg mb-1">{p.name}</h3>

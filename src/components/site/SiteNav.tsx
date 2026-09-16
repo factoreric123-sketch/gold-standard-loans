@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
 ];
 
 const triggerClass =
-  "inline-flex items-center gap-1 hover:text-foreground transition-colors focus:outline-none focus-visible:text-foreground";
+  "inline-flex items-center gap-1 uppercase whitespace-nowrap hover:text-foreground transition-colors focus:outline-none focus-visible:text-foreground";
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
@@ -125,7 +125,7 @@ export function SiteNav() {
                     type="button"
                     onClick={() => setMobileOpen((v) => (v === item.label ? null : item.label))}
                     aria-expanded={mobileOpen === item.label}
-                    className="w-full min-h-[44px] py-3 flex items-center justify-between text-foreground/80"
+                    className="w-full min-h-[44px] py-3 flex items-center justify-between uppercase text-foreground/80"
                   >
                     {item.label}
                     <ChevronDown

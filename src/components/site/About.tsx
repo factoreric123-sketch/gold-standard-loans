@@ -22,7 +22,7 @@ export function About() {
     <section id="about" className="bg-off-white">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-28 grid md:grid-cols-12 gap-12 md:gap-16 items-center">
         <Reveal className="md:col-span-5">
-          <div className="aspect-[4/5] overflow-hidden rounded-2xl shadow-soft-lg ring-1 ring-line">
+          <div className="aspect-[4/5] overflow-hidden shadow-soft-lg ring-1 ring-line">
             <img
               src={portrait}
               alt="Warren M. Factor, Mortgage Broker"
@@ -55,7 +55,7 @@ export function About() {
           <ul className="mt-9 space-y-2.5 text-sm text-foreground/70">
             {credentials.map((c) => (
               <li key={c} className="flex gap-3">
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
                 <span>{c}</span>
               </li>
             ))}

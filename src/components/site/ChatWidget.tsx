@@ -203,7 +203,7 @@ export function ChatWidget() {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-20 right-4 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gold text-gold-foreground shadow-lg transition-transform hover:scale-105 md:bottom-6"
+          className="fixed bottom-20 right-4 z-50 flex h-14 w-14 items-center justify-center bg-gold text-gold-foreground shadow-lg transition-transform hover:scale-105 md:bottom-6"
           aria-label="Chat with Warren"
         >
           <MessageCircle className="h-6 w-6" />

@@ -30,7 +30,7 @@ export function WhyWarren() {
         {/* Warren portrait + details at top */}
         <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center mb-20 md:mb-24">
           <Reveal className="md:col-span-5">
-            <div className="aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-background/15">
+            <div className="aspect-[4/5] overflow-hidden ring-1 ring-background/15">
               <img
                 src={portrait}
                 alt="Warren M. Factor, Mortgage Broker"
@@ -65,7 +65,7 @@ export function WhyWarren() {
             <ul className="mt-9 space-y-2.5 text-sm text-background/70">
               {credentials.map((c) => (
                 <li key={c} className="flex gap-3">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
                   <span>{c}</span>
                 </li>
               ))}
@@ -91,7 +91,7 @@ export function WhyWarren() {
               {STATS.map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-xl border border-background/15 bg-background/[0.03] p-6"
+                  className="border border-background/15 bg-background/[0.03] p-6"
                 >
                   <div className="font-serif text-5xl text-gold">
                     {s.value}
@@ -113,7 +113,7 @@ export function WhyWarren() {
           </Reveal>
 
           <Reveal delay={120} className="lg:mt-4">
-            <figure className="rounded-2xl border border-background/15 bg-background/[0.04] p-9 md:p-10">
+            <figure className="border border-background/15 bg-background/[0.04] p-9 md:p-10">
               <div className="flex gap-1 mb-6">
                 {[...Array(featured.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 text-gold" fill="currentColor" strokeWidth={0} />
@@ -133,7 +133,7 @@ export function WhyWarren() {
                   href={ZILLOW_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
+                  className="inline-flex items-center gap-2 border border-gold/60 text-gold px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
                 >
                   Read all reviews on Zillow →
                 </a>
@@ -141,7 +141,7 @@ export function WhyWarren() {
                   href={GOOGLE_REVIEWS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-gold/60 text-gold rounded-full px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
+                  className="inline-flex items-center gap-2 border border-gold/60 text-gold px-6 py-3 text-sm tracking-wide hover:bg-gold/10 transition-colors"
                 >
                   Read our Google reviews →
                 </a>

@@ -8,22 +8,23 @@ import {
   EMAIL_DISPLAY,
   COMPANY_NAME,
   BROKER_NAME,
-  SINCE_YEAR,
   APPLY_URL,
   FACEBOOK_GROUP_URL,
 } from "@/lib/site-data";
-import { Logo } from "@/components/site/Logo";
 
 export function SiteFooter() {
   return (
     <footer className="bg-charcoal text-background/75">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-32 lg:pb-16">
         <div className="border-b border-background/15 pb-10 mb-10">
-          <div className="inline-block rounded-2xl bg-background p-3 shadow-soft">
-            <Logo size="lg" />
+          <div className="font-serif text-3xl md:text-4xl leading-tight text-background">
+            The Discount
+            <span className="block tracking-[0.18em] text-[0.62em] uppercase text-gold mt-1">
+              Mortgage Store
+            </span>
           </div>
-          <div className="mt-4 text-sm uppercase tracking-widest text-gold">
-            USA Lowest Rates. Proven, Not Promised
+          <div className="mt-5 text-[11px] uppercase tracking-[0.22em] text-background/60">
+            USA Lowest Rates. Proven, Not Promised.
           </div>
         </div>
 
@@ -140,11 +141,22 @@ export function SiteFooter() {
             program terms are subject to change without notice. Not a commitment to lend. Equal
             Housing Lender. © {new Date().getFullYear()} {COMPANY_NAME}.
           </p>
-          <div className="flex items-center gap-3 rounded-lg border border-background/20 px-4 py-3">
-            <div className="w-8 h-8 rounded-md border-2 border-gold flex items-center justify-center text-gold text-lg font-serif">
-              =
-            </div>
-            <div className="text-[10px] uppercase tracking-widest text-background/75 leading-tight">
+          <div className="flex items-center gap-3 border border-background/20 px-4 py-3 md:justify-self-end">
+            <svg
+              viewBox="0 0 48 48"
+              role="img"
+              aria-label="Equal Housing Lender"
+              className="h-9 w-9 shrink-0 text-gold"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinejoin="round"
+            >
+              <path d="M6 22 24 8l18 14" />
+              <path d="M11 22v18h26V22" />
+              <path d="M18 28h12M18 34h12" />
+            </svg>
+            <div className="text-[10px] uppercase tracking-[0.18em] text-background/75 leading-[1.6]">
               Equal Housing
               <br />
               Lender
