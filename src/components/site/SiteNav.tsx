@@ -125,7 +125,7 @@ export function SiteNav() {
                     type="button"
                     onClick={() => setMobileOpen((v) => (v === item.label ? null : item.label))}
                     aria-expanded={mobileOpen === item.label}
-                    className="w-full min-h-[44px] py-3 flex items-center justify-between text-foreground/80"
+                    className="w-full min-h-[44px] py-3 flex items-center justify-between uppercase text-foreground/80"
                   >
                     {item.label}
                     <ChevronDown
