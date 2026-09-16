@@ -15,7 +15,7 @@ import {
 export function SiteFooter() {
   return (
     <footer className="bg-charcoal text-background/75">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-6 pt-16 pb-32 lg:pb-16">
         <div className="border-b border-background/15 pb-10 mb-10">
           <div className="font-serif text-3xl md:text-4xl leading-tight text-background">
             The Discount
