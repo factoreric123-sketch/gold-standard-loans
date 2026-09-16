@@ -107,8 +107,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Warren M. Factor — licensed mortgage broker for 28 years across 32 states. Conventional, FHA, VA, DSCR, Bank Statement, Fix & Flip, Bridge and Commercial loans. Call (561) 577-1882.",
+          "Warren M. Factor, licensed mortgage broker 28 years, 32 states. Conventional, FHA, VA, DSCR, Bank Statement and Commercial loans. (561) 577-1882.",
       },
+
       { name: "author", content: "The Discount Mortgage Store" },
       {
         property: "og:title",

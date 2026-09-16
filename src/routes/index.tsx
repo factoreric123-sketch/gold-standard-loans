@@ -28,7 +28,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Warren Factor, licensed mortgage broker for 28 years across 32 states. Conventional, FHA, VA, DSCR, Bank Statement, Fix & Flip, Bridge and Commercial loans. Call (561) 577-1882.",
+          "USA lowest mortgage rates: proven, not promised. Warren Factor shops 32 states for your lowest qualifying rate. Free quote, call (561) 577-1882.",
       },
       {
         name: "google-site-verification",
@@ -36,12 +36,14 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "USA Lowest Mortgage Rates | The Discount Mortgage Store",
+        content: "Proven Low Mortgage Rates, Not Promised | Warren Factor",
       },
       {
         property: "og:description",
-        content: "28 years licensed. 32 states. One trusted broker.",
+        content:
+          "See today's live rates and get a same-day quote from a broker licensed in 32 states for 28 years.",
       },
+
       { property: "og:type", content: "website" },
       { property: "og:url", content: SITE_URL },
       { property: "og:image", content: `${SITE_URL}/og.png` },
