@@ -8,7 +8,6 @@ import {
   EMAIL_DISPLAY,
   COMPANY_NAME,
   BROKER_NAME,
-  SINCE_YEAR,
   APPLY_URL,
   FACEBOOK_GROUP_URL,
 } from "@/lib/site-data";
