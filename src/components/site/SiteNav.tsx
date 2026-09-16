@@ -29,7 +29,6 @@ const navItems: NavItem[] = [
       { href: "/rate-news", label: "Rate Prediction" },
     ],
   },
-  { label: "About", href: "/#about" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
