@@ -73,7 +73,7 @@ function Index() {
         <Calculator />
         <Insights />
         <WhyWarren />
-        <BookBanner />
+        {/* <BookBanner /> */}
         <Reviews />
         <QA />
         <Community />
