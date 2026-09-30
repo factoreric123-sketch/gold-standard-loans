@@ -76,6 +76,17 @@ function TodaysRatesPage() {
       <RateTicker />
       <SiteNav />
       <main>
+        <section className="bg-cream border-b border-line">
+          <div className="mx-auto max-w-7xl px-6 py-10">
+            <h1 className="font-serif text-4xl md:text-5xl tracking-tight">
+              Today's Mortgage Rates
+            </h1>
+            <p className="mt-3 max-w-2xl text-foreground/70">
+              Live U.S. Treasury yields, national average mortgage rates, and a
+              payment calculator — then call Warren for today's exact quote.
+            </p>
+          </div>
+        </section>
         {/* National average mortgage rates — Bankrate. */}
         <section className="bg-cream border-b border-line">
           <div className="mx-auto max-w-7xl px-6 py-10">
