@@ -529,7 +529,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Bank statement loans let self-employed borrowers and business owners qualify using 12–24 months of deposits instead of tax returns. They're the answer when write-offs make your tax income look smaller than the cash flow your business actually generates.",
     highlights: [
-      "Rates starting at 6.75% for a 5-year ARM",
+      "30-year fixed rates as low as 7.25%",
       "Qualify with 12–24 months of bank statements",
       "No tax returns or W-2s required",
       "Personal or business accounts accepted",
@@ -1538,7 +1538,7 @@ export const programBySlug = (slug: string): Program | undefined =>
 export const RATES = [
   { name: "Conventional 30yr Fixed", rate: "7.25%", note: "Up to 97% financing" },
   { name: "FHA 30yr Fixed", rate: "6.875%", note: "Up to 96.5% financing" },
-  { name: "Bank Statement 5yr ARM", rate: "6.75%", note: "No tax returns" },
+  { name: "Bank Statement 30yr Fixed", rate: "7.25%", note: "No tax returns" },
   { name: "Conventional 15yr Fixed", rate: "5.5%" },
 ];
 
