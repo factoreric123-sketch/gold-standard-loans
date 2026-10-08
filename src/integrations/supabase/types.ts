@@ -190,6 +190,33 @@ export type Database = {
         }
         Relationships: []
       }
+      tool_events: {
+        Row: {
+          created_at: string
+          detail: Json
+          event: string
+          id: string
+          page: string
+          referrer: string
+        }
+        Insert: {
+          created_at?: string
+          detail?: Json
+          event: string
+          id?: string
+          page: string
+          referrer?: string
+        }
+        Update: {
+          created_at?: string
+          detail?: Json
+          event?: string
+          id?: string
+          page?: string
+          referrer?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
