@@ -18,6 +18,7 @@ import { Route as ExpatFormRouteImport } from './routes/expat-form'
 import { Route as BuyingUsaHomeRouteImport } from './routes/buying-usa-home'
 import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
 import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -73,6 +74,11 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApplyRoute = ApplyRouteImport.update({
+  id: '/apply',
+  path: '/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
@@ -120,6 +126,7 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
@@ -139,6 +146,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apply': typeof ApplyRoute
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
@@ -160,6 +168,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/apply': typeof ApplyRoute
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
@@ -181,6 +190,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/apply'
     | '/auth'
     | '/buy-a-home'
     | '/buying-usa-home'
@@ -200,6 +210,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/apply'
     | '/auth'
     | '/buy-a-home'
     | '/buying-usa-home'
@@ -220,6 +231,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/_authenticated'
+    | '/apply'
     | '/auth'
     | '/buy-a-home'
     | '/buying-usa-home'
@@ -241,6 +253,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  ApplyRoute: typeof ApplyRoute
   AuthRoute: typeof AuthRoute
   BuyAHomeRoute: typeof BuyAHomeRoute
   BuyingUsaHomeRoute: typeof BuyingUsaHomeRoute
@@ -319,6 +332,13 @@ declare module '@tanstack/react-router' {
       path: '/auth'
       fullPath: '/auth'
       preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply': {
+      id: '/apply'
+      path: '/apply'
+      fullPath: '/apply'
+      preLoaderRoute: typeof ApplyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_authenticated': {
@@ -405,6 +425,7 @@ const AuthenticatedRouteRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  ApplyRoute: ApplyRoute,
   AuthRoute: AuthRoute,
   BuyAHomeRoute: BuyAHomeRoute,
   BuyingUsaHomeRoute: BuyingUsaHomeRoute,
