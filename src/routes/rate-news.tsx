@@ -144,6 +144,60 @@ function RateNewsPage() {
           </div>
         </section>
 
+        <section className="bg-background border-b border-line" aria-labelledby="rate-drivers-heading">
+          <div className="mx-auto max-w-7xl px-6 py-14">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+              Behind the Rates
+            </div>
+            <h2 id="rate-drivers-heading" className="font-serif text-3xl md:text-4xl leading-tight">
+              What Is Driving Rates Up?
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              Mortgage rates do not move in a vacuum. They generally track the
+              10-year U.S. Treasury yield and respond to inflation, energy prices,
+              and broader economic pressures. The supplied October 2026 update
+              highlights three forces behind higher borrowing costs.
+            </p>
+            <div className="mt-8 grid gap-8 md:grid-cols-3">
+              <div className="border-t-2 border-gold pt-5">
+                <h3 className="font-serif text-xl">Persistent Inflation</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  The supplied update reports consumer inflation back above 3%
+                  and recent Federal Reserve interest rate hikes rather than
+                  the cuts markets had anticipated. Persistent inflation can
+                  keep bond yields and mortgage rates elevated; Fed policy
+                  does not set mortgage rates directly.
+                </p>
+              </div>
+              <div className="border-t-2 border-gold pt-5">
+                <h3 className="font-serif text-xl">Geopolitical and Energy Pressures</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  The supplied update attributes higher fuel and oil prices to
+                  ongoing global conflicts, particularly a war involving Iran.
+                  Higher energy costs can add inflationary pressure to the U.S.
+                  economy and make it harder for borrowing costs to ease.
+                </p>
+              </div>
+              <div className="border-t-2 border-gold pt-5">
+                <h3 className="font-serif text-xl">Surging Treasury Yields</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  The supplied update reports the 10-year U.S. Treasury yield
+                  above 5.3%. When Treasury yields rise, investors generally
+                  seek higher returns on mortgage-backed securities too,
+                  putting upward pressure on mortgage borrowing costs.
+                </p>
+              </div>
+            </div>
+            <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+              Source note: the inflation figure, recent Fed hikes, conflict
+              claims, and Treasury yield above are from a supplied October 2026
+              summary and have not been independently verified. Its citation
+              markers did not include original sources. This is market
+              commentary, not a live Treasury quote or a mortgage rate offer.
+            </p>
+          </div>
+        </section>
+
         <section className="mx-auto max-w-7xl px-6 py-14">
           <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8 border-b border-line pb-4">
             <h2 className="text-[11px] uppercase tracking-[0.2em] text-gold">
