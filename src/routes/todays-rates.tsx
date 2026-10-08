@@ -8,29 +8,29 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
 
-// U.S. Treasury yields from CNBC, updated 2026-10-08 (12:03 PM ET).
+// U.S. Treasury yields from CNBC, updated 2026-10-08 (12:15 PM ET).
 // Source: https://www.cnbc.com/markets/bonds/
 type TRate = { label: string; yield: number };
 const TREASURY_RATES: TRate[] = [
-  { label: "3-Mo", yield: 4.156 },
-  { label: "6-Mo", yield: 4.318 },
-  { label: "1-Yr", yield: 4.45 },
+  { label: "3-Mo", yield: 4.151 },
+  { label: "6-Mo", yield: 4.313 },
+  { label: "1-Yr", yield: 4.453 },
   { label: "2-Yr", yield: 4.808 },
-  { label: "5-Yr", yield: 5.055 },
-  { label: "10-Yr", yield: 5.292 },
-  { label: "30-Yr", yield: 5.66 },
+  { label: "5-Yr", yield: 5.072 },
+  { label: "10-Yr", yield: 5.326 },
+  { label: "30-Yr", yield: 5.696 },
 ];
-const TREASURY_ASOF = "Oct 8, 2026, 12:03 PM ET";
+const TREASURY_ASOF = "Oct 8, 2026, 12:15 PM ET";
 
 // National average mortgage rates from Bankrate, updated 2026-08-17.
 // Source: https://www.bankrate.com/mortgages/mortgage-rates/
 const BANKRATE_AVERAGES = [
-  { label: "30-Yr Fixed", rate: "7.25%" },
-  { label: "15-Yr Fixed", rate: "6.5%" },
-  { label: "30-Yr FHA", rate: "6.875%" },
-  { label: "30-Yr VA", rate: "6.75%" },
+  { label: "30-Yr Fixed", rate: "7.98%" },
+  { label: "15-Yr Fixed", rate: "7.23%" },
+  { label: "30-Yr FHA", rate: "7.605%" },
+  { label: "30-Yr VA", rate: "7.48%" },
 ];
-const BANKRATE_ASOF = "Oct 8, 2026, 12:03 PM ET";
+const BANKRATE_ASOF = "Oct 8, 2026, 12:15 PM ET";
 
 export const Route = createFileRoute("/todays-rates")({
   head: () => ({
