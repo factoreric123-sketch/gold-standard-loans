@@ -101,6 +101,11 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
+                <a href="/apply" className="hover:text-gold">
+                  Apply Now
+                </a>
+              </li>
+              <li>
                 <a href="/free-mortgage-advice" className="hover:text-gold">
                   Free Advice
                 </a>
