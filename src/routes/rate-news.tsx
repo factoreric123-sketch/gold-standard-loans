@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { RateTicker } from "@/components/site/RateTicker";
@@ -10,7 +11,7 @@ import { getRateNews } from "@/lib/news.functions";
 
 const TITLE = "Rate Prediction Over Next 12 Months — The Discount Mortgage Store";
 const DESC =
-  "Mortgage rate forecast over the next 12 months with Fannie Mae and Mortgage Bankers Association projections, plus live bond market news driving Florida mortgage rates.";
+  "Mortgage rate prediction for the next 12 months: base, bear and bull scenarios, Fannie Mae and MBA projections, and live bond-market headlines.";
 
 export const Route = createFileRoute("/rate-news")({
   loader: async () => await getRateNews(),
@@ -195,6 +196,101 @@ function RateNewsPage() {
               markers did not include original sources. This is market
               commentary, not a live Treasury quote or a mortgage rate offer.
             </p>
+          </div>
+        </section>
+
+        {/* ===== Emerging risks & scenario trajectories ===== */}
+        <section
+          className="bg-cream border-b border-line"
+          aria-labelledby="rate-scenarios-heading"
+        >
+          <div className="mx-auto max-w-7xl px-6 py-14">
+            <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
+              Next 12 Months
+            </div>
+            <h2
+              id="rate-scenarios-heading"
+              className="font-serif text-3xl md:text-4xl leading-tight"
+            >
+              Emerging Risks &amp; Trajectories
+            </h2>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+              The supplied October 2026 update frames the path of mortgage rates
+              over the next 12 months around three possible economic
+              trajectories.
+            </p>
+
+            <div className="mt-8 grid gap-px bg-line border border-line md:grid-cols-3">
+              {[
+                {
+                  label: "The Base Case",
+                  range: "6.7% – 7.3%",
+                  detail:
+                    "The supplied update expects inflation to stay sticky and the Federal Reserve to remain hawkish, with mortgage rates fluctuating tightly between 6.7% and 7.3%.",
+                },
+                {
+                  label: "The Bear Case · Rates Go Up",
+                  range: "Toward 8.0%",
+                  detail:
+                    "If the conflict in the Middle East escalates or oil flows narrow further, the supplied update says inflation would spike, potentially driving the Federal Reserve to hike rates again and pushing mortgage rates toward 8.0%.",
+                },
+                {
+                  label: "The Bull Case · Rates Go Down",
+                  range: "Below 6.0%",
+                  detail:
+                    "A meaningful drop below 6.0% would require drastic economic changes, the supplied update says, such as a sharp rise in unemployment past 4.5% or a durable resolution to international supply chain disruptions.",
+                },
+              ].map((scenario) => (
+                <div key={scenario.label} className="bg-background p-6">
+                  <h3 className="text-[11px] uppercase tracking-[0.2em] text-gold">
+                    {scenario.label}
+                  </h3>
+                  <p className="mt-3 font-serif text-4xl leading-none">
+                    {scenario.range}
+                  </p>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {scenario.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-8 max-w-3xl text-xs leading-relaxed text-muted-foreground">
+              Source note: these three trajectories come from the same supplied
+              October 2026 summary and have not been independently verified; its
+              citation markers did not include original sources. Scenario ranges
+              describe the market, not your rate, and Federal Reserve policy does
+              not set mortgage rates directly. Nothing here is a rate quote, a
+              commitment to lend, or financial advice.
+            </p>
+
+            <div className="mt-10 bg-charcoal px-8 py-10 md:px-12">
+              <p className="text-[11px] uppercase tracking-[0.25em] text-gold">
+                Tell Warren your timeline
+              </p>
+              <h3 className="mt-3 font-serif text-2xl md:text-3xl leading-tight text-background max-w-2xl">
+                Are you looking at these rates to buy a new home, or considering
+                a refinance on an existing property?
+              </h3>
+              <p className="mt-4 max-w-xl text-sm leading-relaxed text-background/65">
+                Sharing your timeline or budget constraints helps Warren tailor a
+                purchasing strategy for this rate environment.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 bg-gold px-7 py-3.5 text-sm tracking-wide text-gold-foreground transition-opacity hover:opacity-90"
+                >
+                  Share your timeline <ArrowRight className="h-4 w-4" />
+                </a>
+                <a
+                  href="/free-mortgage-advice"
+                  className="inline-flex items-center gap-2 border border-background/25 px-7 py-3.5 text-sm tracking-wide text-background transition-colors hover:border-gold hover:text-gold"
+                >
+                  Free mortgage advice
+                </a>
+              </div>
+            </div>
           </div>
         </section>
 
