@@ -26,7 +26,7 @@ const TREASURY_ASOF = "Aug 14, 2026";
 // Source: https://www.bankrate.com/mortgages/mortgage-rates/
 const BANKRATE_AVERAGES = [
   { label: "30-Yr Fixed", rate: "7.25%" },
-  { label: "15-Yr Fixed", rate: "6.05%" },
+  { label: "15-Yr Fixed", rate: "6.5%" },
   { label: "30-Yr FHA", rate: "6.875%" },
   { label: "30-Yr VA", rate: "6.41%" },
 ];
