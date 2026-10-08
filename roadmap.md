@@ -1,4 +1,5 @@
 ## Requested cleanup
+- [ ] Update the Rate Prediction page with the supplied October 2026 market outlook and 2027 forecasts.
 - [x] Remove personal Facebook contact link.
 - [x] Remove About from desktop and mobile header.
 - [x] Remove homepage video.
