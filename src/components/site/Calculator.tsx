@@ -34,7 +34,7 @@ export function Calculator() {
   const [loanAmount, setLoanAmount] = useState(100000);
   const [years, setYears] = useState(30);
   const [months, setMonths] = useState(0);
-  const [rate, setRate] = useState(6.69);
+  const [rate, setRate] = useState(7.25);
   const [startMonth, setStartMonth] = useState(new Date().getUTCMonth());
   const [startYear, setStartYear] = useState(new Date().getUTCFullYear());
   const [showSchedule, setShowSchedule] = useState(false);
