@@ -28,7 +28,7 @@ const BANKRATE_AVERAGES = [
   { label: "30-Yr Fixed", rate: "7.25%" },
   { label: "15-Yr Fixed", rate: "6.5%" },
   { label: "30-Yr FHA", rate: "6.875%" },
-  { label: "30-Yr VA", rate: "6.41%" },
+  { label: "30-Yr VA", rate: "6.75%" },
 ];
 const BANKRATE_ASOF = "Aug 17, 2026";
 
