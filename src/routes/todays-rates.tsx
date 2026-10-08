@@ -30,7 +30,7 @@ const BANKRATE_AVERAGES = [
   { label: "30-Yr FHA", rate: "7.585%" },
   { label: "30-Yr VA", rate: "7.46%" },
 ];
-const BANKRATE_ASOF = "Aug 17, 2026";
+const BANKRATE_ASOF = "Oct 8, 2026, 12:03 PM ET";
 
 export const Route = createFileRoute("/todays-rates")({
   head: () => ({
