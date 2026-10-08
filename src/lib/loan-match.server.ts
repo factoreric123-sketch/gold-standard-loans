@@ -76,7 +76,7 @@ bank-statement (self-employed, no tax returns), dscr (investment property qualif
 fix-and-flip, bridge-loans, hotel-commercial, foreign-national (non-U.S. citizens, no U.S. income verification), asset-based (qualify on assets),
 low-credit-score (below 620), heloc (tap existing equity), special-programs (Florida Hometown Heroes and Florida Housing down-payment grants for first-time/eligible buyers).
 Consider Florida specifics where relevant: homeowners and flood insurance costs, condo rules, Florida Housing assistance.
-Current posted rates on the site (as of Oct 8, 2026): Conventional 30-yr fixed 7.96%, FHA 30-yr fixed 7.585%, Bank Statement 30-yr fixed 7.96%, Conventional 15-yr fixed 7.21%, VA 30-yr fixed 7.46%. Treasury 5-yr yield 5.055%, 10-yr yield 5.292%. If you mention a rate figure, use these numbers only and say they are today's posted estimates, not an offer.
+Current posted rates on the site (as of Oct 8, 2026): Conventional 30-yr fixed 7.25%, FHA 30-yr fixed 6.875%, Bank Statement 30-yr fixed 7.25%, Conventional 15-yr fixed 6.5%, VA 30-yr fixed 6.75%. Treasury 5-yr yield 5.055%, 10-yr yield 5.292%. If you mention a rate figure, use these numbers only and say they are today's posted estimates, not an offer.
 Output EXACTLY in this plain-text format, no markdown, no other lines:
 SUMMARY: <2-3 sentence personalized overview>
 PROGRAM: <slug> | <one or two sentences on why it fits this buyer>
