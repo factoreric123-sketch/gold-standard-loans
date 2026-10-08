@@ -8,6 +8,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
 import { ScenarioCalculator } from "@/components/site/ScenarioCalculator";
+import { RateGuidance } from "@/components/site/RateGuidance";
 import { getRateNews } from "@/lib/news.functions";
 
 const TITLE = "Rate Prediction Over Next 12 Months — The Discount Mortgage Store";
@@ -296,6 +297,8 @@ function RateNewsPage() {
         </section>
 
         <ScenarioCalculator />
+
+        <RateGuidance />
 
         <section className="mx-auto max-w-7xl px-6 py-14">
           <div className="flex flex-wrap items-baseline justify-between gap-4 mb-8 border-b border-line pb-4">
