@@ -6,6 +6,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SITE_URL, PROGRAMS } from "@/lib/site-data";
 import { getLoanMatch, PURPOSES, OCCUPANCY, CREDIT, INCOME, TIMELINES } from "@/lib/loan-match.functions";
+import { useToolTracking } from "@/lib/track";
 
 const TITLE = "Florida Loan Program Finder | The Discount Mortgage Store";
 const DESC =
@@ -37,6 +38,7 @@ function programInfo(slug: string) {
 
 function LoanMatchPage() {
   const run = useServerFn(getLoanMatch);
+  const track = useToolTracking("loan-match");
   const [f, setF] = useState({
     purpose: PURPOSES[0], price: "450000", downPayment: "45000", location: "", occupancy: OCCUPANCY[0],
     credit: CREDIT[2], income: INCOME[0], firstTime: true, veteran: false, timeline: TIMELINES[1], goals: "",
@@ -50,9 +52,11 @@ function LoanMatchPage() {
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true); setError(""); setResult(null);
+    track("finder_submit", { purpose: f.purpose, credit: f.credit, timeline: f.timeline, firstTime: f.firstTime, veteran: f.veteran });
     try {
       const res = await run({ data: { ...f, price: n(f.price), downPayment: n(f.downPayment) } });
-      if (res.ok) setResult(res.result); else setError(res.error);
+      if (res.ok) { setResult(res.result); track("finder_result", { programs: res.result.programs.length }); }
+      else setError(res.error);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
