@@ -6,3 +6,4 @@
 - [x] Remove About from desktop and mobile header.
 - [x] Remove homepage video.
 - [ ] Replace two Zillow usernames only after user supplies confirmed real names. Blocker: names not provided.
+- [x] Add optional property taxes, homeowners insurance, and HOA fees to the scenario calculator so totals compare full monthly housing cost.
