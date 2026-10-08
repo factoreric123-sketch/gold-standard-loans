@@ -8,19 +8,19 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
 
-// U.S. Treasury yields from CNBC, updated 2026-08-14.
+// U.S. Treasury yields from CNBC, updated 2026-10-08 (12:03 PM ET).
 // Source: https://www.cnbc.com/markets/bonds/
 type TRate = { label: string; yield: number };
 const TREASURY_RATES: TRate[] = [
-  { label: "3-Mo", yield: 3.793 },
-  { label: "6-Mo", yield: 3.911 },
-  { label: "1-Yr", yield: 3.964 },
-  { label: "2-Yr", yield: 4.15 },
-  { label: "5-Yr", yield: 4.346 },
-  { label: "10-Yr", yield: 4.684 },
-  { label: "30-Yr", yield: 5.266 },
+  { label: "3-Mo", yield: 4.156 },
+  { label: "6-Mo", yield: 4.318 },
+  { label: "1-Yr", yield: 4.45 },
+  { label: "2-Yr", yield: 4.808 },
+  { label: "5-Yr", yield: 5.055 },
+  { label: "10-Yr", yield: 5.292 },
+  { label: "30-Yr", yield: 5.66 },
 ];
-const TREASURY_ASOF = "Aug 14, 2026";
+const TREASURY_ASOF = "Oct 8, 2026, 12:03 PM ET";
 
 // National average mortgage rates from Bankrate, updated 2026-08-17.
 // Source: https://www.bankrate.com/mortgages/mortgage-rates/
@@ -122,7 +122,7 @@ function TodaysRatesPage() {
         </section>
         <Calculator />
         <Contact />
-        {/* Today's U.S. Treasury yield curve — CNBC, Aug 14, 2026. */}
+        {/* Today's U.S. Treasury yield curve — CNBC, Oct 8, 2026. */}
         <section className="bg-charcoal text-background">
           <div className="mx-auto max-w-7xl px-6 py-10">
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-6">
