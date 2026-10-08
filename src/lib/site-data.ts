@@ -299,7 +299,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "FHA loans are government-insured mortgages designed to make homeownership accessible. With lower credit and down-payment requirements than conventional financing, they're a popular choice for first-time buyers and anyone rebuilding their credit.",
     highlights: [
-      "30-year fixed FHA rates as low as 5.875%",
+      "30-year fixed FHA rates as low as 6.875%",
       "Up to 96.5% financing",
       "Down payments as low as 3.5%",
       "Credit scores starting around 580 considered",
@@ -1537,7 +1537,7 @@ export const programBySlug = (slug: string): Program | undefined =>
 
 export const RATES = [
   { name: "Conventional 30yr Fixed", rate: "7.25%", note: "Up to 97% financing" },
-  { name: "FHA 30yr Fixed", rate: "5.875%", note: "Up to 96.5% financing" },
+  { name: "FHA 30yr Fixed", rate: "6.875%", note: "Up to 96.5% financing" },
   { name: "Bank Statement 5yr ARM", rate: "6.75%", note: "No tax returns" },
   { name: "Conventional 15yr Fixed", rate: "5.5%" },
 ];
