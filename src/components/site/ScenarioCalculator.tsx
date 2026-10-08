@@ -210,7 +210,7 @@ export function ScenarioCalculator() {
                 )}
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.note}</p>
                 <p className="mt-3 text-xs text-muted-foreground">
-                  Total interest over {TERM_YEARS} years: {usd(Math.max(s.totalInterest, 0))}
+                  Total interest over {termYears} years: {usd(Math.max(s.totalInterest, 0))}
                 </p>
               </div>
             );
@@ -226,9 +226,10 @@ export function ScenarioCalculator() {
           </a>
           <p className="max-w-2xl text-xs leading-relaxed text-muted-foreground">
             Estimates only. Each scenario uses a single representative rate within its supplied
-            range, not a quote. Property taxes, insurance, and HOA use the monthly amounts you
-            enter and are the same in every scenario; PMI is not included. Your actual rate and
-            payment depend on credit, program, and approval.
+            range, not a quote. Shorter terms typically price lower than 30-year rates, so 15- and
+            20-year estimates here are conservative. Property taxes, insurance, and HOA use the
+            monthly amounts you enter and are the same in every scenario; PMI is not included. Your
+            actual rate and payment depend on credit, program, and approval.
           </p>
         </div>
       </div>
