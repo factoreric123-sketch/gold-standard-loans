@@ -45,17 +45,31 @@ function monthlyPayment(principal: number, annualRate: number, years: number) {
 
 export function ScenarioCalculator() {
   const [loanAmount, setLoanAmount] = useState(400000);
+  const [propTaxes, setPropTaxes] = useState(0);
+  const [insurance, setInsurance] = useState(0);
+  const [hoa, setHoa] = useState(0);
+
+  const extras = propTaxes + insurance + hoa;
 
   const results = useMemo(
     () =>
       SCENARIOS.map((s) => {
         const monthly = monthlyPayment(loanAmount, s.rate, TERM_YEARS);
-        return { ...s, monthly, totalInterest: monthly * TERM_YEARS * 12 - loanAmount };
+        return {
+          ...s,
+          monthly,
+          total: monthly + extras,
+          totalInterest: monthly * TERM_YEARS * 12 - loanAmount,
+        };
       }),
-    [loanAmount]
+    [loanAmount, extras]
   );
 
   const base = results[0];
+
+  const label = "block text-[11px] uppercase tracking-widest text-foreground/55 mb-2";
+  const field =
+    "w-full border border-input bg-card px-4 py-3 text-base text-foreground focus:border-gold focus:outline-none";
 
   return (
     <section className="bg-background border-b border-line" aria-labelledby="scenario-calc-heading">
@@ -67,40 +81,107 @@ export function ScenarioCalculator() {
           What Would Each Rate Path Mean for Your Payment?
         </h2>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Enter a loan amount to compare estimated monthly principal &amp; interest
-          payments on a {TERM_YEARS}-year fixed loan under each of the three
-          trajectories above.
+          Enter a loan amount to compare estimated monthly payments on a {TERM_YEARS}-year fixed
+          loan under each of the three trajectories above. Add your property taxes, insurance, and
+          HOA to see total monthly housing cost instead of principal &amp; interest alone.
         </p>
 
-        <div className="mt-8 max-w-md">
-          <label
-            htmlFor="scenario-loan-amount"
-            className="block text-[11px] uppercase tracking-widest text-foreground/55 mb-2"
-          >
-            Loan amount
-          </label>
-          <input
-            id="scenario-loan-amount"
-            type="number"
-            min={0}
-            step={1000}
-            value={loanAmount}
-            onChange={(e) => setLoanAmount(Math.max(Number(e.target.value) || 0, 0))}
-            className="w-full border border-input bg-card px-4 py-3 text-base text-foreground focus:border-gold focus:outline-none"
-          />
+        <div className="mt-8 grid gap-4 md:max-w-md">
+          <div>
+            <label htmlFor="scenario-loan-amount" className={label}>
+              Loan amount
+            </label>
+            <input
+              id="scenario-loan-amount"
+              type="number"
+              min={0}
+              step={1000}
+              value={loanAmount}
+              onChange={(e) => setLoanAmount(Math.max(Number(e.target.value) || 0, 0))}
+              className={field}
+            />
+          </div>
+        </div>
+
+        <div className="mt-6 border border-line bg-card p-6">
+          <div className="text-[11px] uppercase tracking-[0.2em] text-gold">
+            Optional monthly costs
+          </div>
+          <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+            Enter monthly amounts. Leave any field at 0 to compare principal &amp; interest only.
+          </p>
+          <div className="mt-5 grid gap-4 sm:grid-cols-3">
+            <div>
+              <label htmlFor="scenario-taxes" className={label}>
+                Property taxes / mo
+              </label>
+              <input
+                id="scenario-taxes"
+                type="number"
+                min={0}
+                step={10}
+                value={propTaxes}
+                onChange={(e) => setPropTaxes(Math.max(Number(e.target.value) || 0, 0))}
+                className={field}
+                placeholder="0"
+              />
+            </div>
+            <div>
+              <label htmlFor="scenario-insurance" className={label}>
+                Homeowners insurance / mo
+              </label>
+              <input
+                id="scenario-insurance"
+                type="number"
+                min={0}
+                step={10}
+                value={insurance}
+                onChange={(e) => setInsurance(Math.max(Number(e.target.value) || 0, 0))}
+                className={field}
+                placeholder="0"
+              />
+            </div>
+            <div>
+              <label htmlFor="scenario-hoa" className={label}>
+                HOA fees / mo
+              </label>
+              <input
+                id="scenario-hoa"
+                type="number"
+                min={0}
+                step={10}
+                value={hoa}
+                onChange={(e) => setHoa(Math.max(Number(e.target.value) || 0, 0))}
+                className={field}
+                placeholder="0"
+              />
+            </div>
+          </div>
+          {extras > 0 && (
+            <div className="mt-5 pt-4 border-t border-line flex items-baseline justify-between">
+              <span className="text-[11px] uppercase tracking-widest text-foreground/55">
+                Added to every scenario
+              </span>
+              <span className="font-serif text-xl">{usd(extras)}/mo</span>
+            </div>
+          )}
         </div>
 
         <div className="mt-8 grid gap-px bg-line border border-line md:grid-cols-3">
           {results.map((s) => {
-            const diff = s.monthly - base.monthly;
+            const diff = s.total - base.total;
             return (
               <div key={s.key} className="bg-background p-6">
                 <h3 className="text-[11px] uppercase tracking-[0.2em] text-gold">
                   {s.label} · {s.range}
                 </h3>
-                <p className="mt-4 font-serif text-4xl leading-none">{usd2(s.monthly)}</p>
+                <p className="mt-4 font-serif text-4xl leading-none">{usd2(s.total)}</p>
                 <p className="mt-1 text-xs text-muted-foreground">
-                  per month at a representative {s.rate.toFixed(1)}% rate
+                  total monthly housing cost at a representative {s.rate.toFixed(1)}% rate
+                </p>
+                <p className="mt-3 text-sm">
+                  Principal &amp; interest: {usd2(s.monthly)}
+                  {extras > 0 && <span className="text-muted-foreground"> + {usd(extras)} costs</span>}
                 </p>
                 {s.key !== "base" && (
                   <p className="mt-3 text-sm">
@@ -125,10 +206,10 @@ export function ScenarioCalculator() {
             Get my real rate <ArrowRight className="h-4 w-4" />
           </a>
           <p className="max-w-2xl text-xs leading-relaxed text-muted-foreground">
-            Estimates only. Each scenario uses a single representative rate within
-            its supplied range, not a quote. Payments exclude property taxes,
-            insurance, HOA, and PMI. Your actual rate and payment depend on
-            credit, program, and approval.
+            Estimates only. Each scenario uses a single representative rate within its supplied
+            range, not a quote. Property taxes, insurance, and HOA use the monthly amounts you
+            enter and are the same in every scenario; PMI is not included. Your actual rate and
+            payment depend on credit, program, and approval.
           </p>
         </div>
       </div>
