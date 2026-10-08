@@ -9,61 +9,27 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as AuthRouteImport } from './routes/auth'
-import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
-import { Route as BuyingUsaHomeRouteImport } from './routes/buying-usa-home'
-import { Route as ExpatFormRouteImport } from './routes/expat-form'
-import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
-import { Route as RateNewsRouteImport } from './routes/rate-news'
-import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
-import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
-import { Route as AuthenticatedLiveChatRouteImport } from './routes/_authenticated/live-chat'
-import { Route as AuthenticatedQaRouteImport } from './routes/_authenticated/qa'
+import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
+import { Route as RateNewsRouteImport } from './routes/rate-news'
+import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
+import { Route as ExpatFormRouteImport } from './routes/expat-form'
+import { Route as BuyingUsaHomeRouteImport } from './routes/buying-usa-home'
+import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as LandingLowRatesRouteImport } from './routes/landing.low-rates'
 import { Route as ProgramsSlugRouteImport } from './routes/programs.$slug'
+import { Route as LandingLowRatesRouteImport } from './routes/landing.low-rates'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as AuthenticatedQaRouteImport } from './routes/_authenticated/qa'
+import { Route as AuthenticatedLiveChatRouteImport } from './routes/_authenticated/live-chat'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
-  id: '/_authenticated',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthRoute = AuthRouteImport.update({
-  id: '/auth',
-  path: '/auth',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BuyAHomeRoute = BuyAHomeRouteImport.update({
-  id: '/buy-a-home',
-  path: '/buy-a-home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BuyingUsaHomeRoute = BuyingUsaHomeRouteImport.update({
-  id: '/buying-usa-home',
-  path: '/buying-usa-home',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExpatFormRoute = ExpatFormRouteImport.update({
-  id: '/expat-form',
-  path: '/expat-form',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FreeMortgageAdviceRoute = FreeMortgageAdviceRouteImport.update({
-  id: '/free-mortgage-advice',
-  path: '/free-mortgage-advice',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const RateNewsRoute = RateNewsRouteImport.update({
-  id: '/rate-news',
-  path: '/rate-news',
+const TodaysRatesRoute = TodaysRatesRouteImport.update({
+  id: '/todays-rates',
+  path: '/todays-rates',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
@@ -71,34 +37,53 @@ const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
   path: '/special-programs',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TodaysRatesRoute = TodaysRatesRouteImport.update({
-  id: '/todays-rates',
-  path: '/todays-rates',
+const RateNewsRoute = RateNewsRouteImport.update({
+  id: '/rate-news',
+  path: '/rate-news',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const FreeMortgageAdviceRoute = FreeMortgageAdviceRouteImport.update({
+  id: '/free-mortgage-advice',
+  path: '/free-mortgage-advice',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedLiveChatRoute = AuthenticatedLiveChatRouteImport.update({
-  id: '/live-chat',
-  path: '/live-chat',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const ExpatFormRoute = ExpatFormRouteImport.update({
+  id: '/expat-form',
+  path: '/expat-form',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedQaRoute = AuthenticatedQaRouteImport.update({
-  id: '/qa',
-  path: '/qa',
-  getParentRoute: () => AuthenticatedRouteRoute,
+const BuyingUsaHomeRoute = BuyingUsaHomeRouteImport.update({
+  id: '/buying-usa-home',
+  path: '/buying-usa-home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BuyAHomeRoute = BuyAHomeRouteImport.update({
+  id: '/buy-a-home',
+  path: '/buy-a-home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
+const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
+  id: '/programs/$slug',
+  path: '/programs/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LandingLowRatesRoute = LandingLowRatesRouteImport.update({
@@ -106,10 +91,25 @@ const LandingLowRatesRoute = LandingLowRatesRouteImport.update({
   path: '/landing/low-rates',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ProgramsSlugRoute = ProgramsSlugRouteImport.update({
-  id: '/programs/$slug',
-  path: '/programs/$slug',
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedQaRoute = AuthenticatedQaRouteImport.update({
+  id: '/qa',
+  path: '/qa',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedLiveChatRoute = AuthenticatedLiveChatRouteImport.update({
+  id: '/live-chat',
+  path: '/live-chat',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -245,60 +245,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated': {
-      id: '/_authenticated'
-      path: ''
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedRouteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/auth': {
-      id: '/auth'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/buy-a-home': {
-      id: '/buy-a-home'
-      path: '/buy-a-home'
-      fullPath: '/buy-a-home'
-      preLoaderRoute: typeof BuyAHomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/buying-usa-home': {
-      id: '/buying-usa-home'
-      path: '/buying-usa-home'
-      fullPath: '/buying-usa-home'
-      preLoaderRoute: typeof BuyingUsaHomeRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/expat-form': {
-      id: '/expat-form'
-      path: '/expat-form'
-      fullPath: '/expat-form'
-      preLoaderRoute: typeof ExpatFormRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/free-mortgage-advice': {
-      id: '/free-mortgage-advice'
-      path: '/free-mortgage-advice'
-      fullPath: '/free-mortgage-advice'
-      preLoaderRoute: typeof FreeMortgageAdviceRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/rate-news': {
-      id: '/rate-news'
-      path: '/rate-news'
-      fullPath: '/rate-news'
-      preLoaderRoute: typeof RateNewsRouteImport
+    '/todays-rates': {
+      id: '/todays-rates'
+      path: '/todays-rates'
+      fullPath: '/todays-rates'
+      preLoaderRoute: typeof TodaysRatesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/special-programs': {
@@ -308,33 +259,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SpecialProgramsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/todays-rates': {
-      id: '/todays-rates'
-      path: '/todays-rates'
-      fullPath: '/todays-rates'
-      preLoaderRoute: typeof TodaysRatesRouteImport
+    '/rate-news': {
+      id: '/rate-news'
+      path: '/rate-news'
+      fullPath: '/rate-news'
+      preLoaderRoute: typeof RateNewsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/admin': {
-      id: '/_authenticated/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AuthenticatedAdminRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/free-mortgage-advice': {
+      id: '/free-mortgage-advice'
+      path: '/free-mortgage-advice'
+      fullPath: '/free-mortgage-advice'
+      preLoaderRoute: typeof FreeMortgageAdviceRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/live-chat': {
-      id: '/_authenticated/live-chat'
-      path: '/live-chat'
-      fullPath: '/live-chat'
-      preLoaderRoute: typeof AuthenticatedLiveChatRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/expat-form': {
+      id: '/expat-form'
+      path: '/expat-form'
+      fullPath: '/expat-form'
+      preLoaderRoute: typeof ExpatFormRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/qa': {
-      id: '/_authenticated/qa'
-      path: '/qa'
-      fullPath: '/qa'
-      preLoaderRoute: typeof AuthenticatedQaRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/buying-usa-home': {
+      id: '/buying-usa-home'
+      path: '/buying-usa-home'
+      fullPath: '/buying-usa-home'
+      preLoaderRoute: typeof BuyingUsaHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/buy-a-home': {
+      id: '/buy-a-home'
+      path: '/buy-a-home'
+      fullPath: '/buy-a-home'
+      preLoaderRoute: typeof BuyAHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/blog/': {
       id: '/blog/'
@@ -343,11 +322,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
+    '/programs/$slug': {
+      id: '/programs/$slug'
+      path: '/programs/$slug'
+      fullPath: '/programs/$slug'
+      preLoaderRoute: typeof ProgramsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/landing/low-rates': {
@@ -357,12 +336,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LandingLowRatesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/programs/$slug': {
-      id: '/programs/$slug'
-      path: '/programs/$slug'
-      fullPath: '/programs/$slug'
-      preLoaderRoute: typeof ProgramsSlugRouteImport
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/qa': {
+      id: '/_authenticated/qa'
+      path: '/qa'
+      fullPath: '/qa'
+      preLoaderRoute: typeof AuthenticatedQaRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/live-chat': {
+      id: '/_authenticated/live-chat'
+      path: '/live-chat'
+      fullPath: '/live-chat'
+      preLoaderRoute: typeof AuthenticatedLiveChatRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
