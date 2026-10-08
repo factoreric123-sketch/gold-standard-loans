@@ -73,7 +73,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Conventional loans are the most common path to homeownership for buyers with solid credit and steady income. Built on Fannie Mae and Freddie Mac guidelines, they offer competitive fixed and adjustable rates, flexible terms, and the ability to drop mortgage insurance once you reach 20% equity.",
     highlights: [
-      "30-year fixed rates as low as 7.98%",
+      "30-year fixed rates as low as 7.25%",
       "Up to 97% financing for qualified buyers",
       "Fixed and adjustable terms from 10 to 30 years",
       "Mortgage insurance cancels at 20% equity",
@@ -299,7 +299,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "FHA loans are government-insured mortgages designed to make homeownership accessible. With lower credit and down-payment requirements than conventional financing, they're a popular choice for first-time buyers and anyone rebuilding their credit.",
     highlights: [
-      "30-year fixed FHA rates as low as 7.605%",
+      "30-year fixed FHA rates as low as 6.875%",
       "Up to 96.5% financing",
       "Down payments as low as 3.5%",
       "Credit scores starting around 580 considered",
@@ -529,7 +529,7 @@ export const PROGRAMS: Program[] = [
     overview:
       "Bank statement loans let self-employed borrowers and business owners qualify using 12–24 months of deposits instead of tax returns. They're the answer when write-offs make your tax income look smaller than the cash flow your business actually generates.",
     highlights: [
-      "30-year fixed rates as low as 7.98%",
+      "30-year fixed rates as low as 7.25%",
       "Qualify with 12–24 months of bank statements",
       "No tax returns or W-2s required",
       "Personal or business accounts accepted",
@@ -1536,10 +1536,10 @@ export const programBySlug = (slug: string): Program | undefined =>
   PROGRAMS.find((p) => p.slug === slug);
 
 export const RATES = [
-  { name: "Conventional 30yr Fixed", rate: "7.98%", note: "Up to 97% financing" },
-  { name: "FHA 30yr Fixed", rate: "7.605%", note: "Up to 96.5% financing" },
-  { name: "Bank Statement 30yr Fixed", rate: "7.98%", note: "No tax returns" },
-  { name: "Conventional 15yr Fixed", rate: "7.23%" },
+  { name: "Conventional 30yr Fixed", rate: "7.25%", note: "Up to 97% financing" },
+  { name: "FHA 30yr Fixed", rate: "6.875%", note: "Up to 96.5% financing" },
+  { name: "Bank Statement 30yr Fixed", rate: "7.25%", note: "No tax returns" },
+  { name: "Conventional 15yr Fixed", rate: "6.5%" },
 ];
 
 export type Stat = { value: number; suffix?: string; label: string };
