@@ -25,10 +25,10 @@ const TREASURY_ASOF = "Oct 8, 2026, 12:03 PM ET";
 // National average mortgage rates from Bankrate, updated 2026-08-17.
 // Source: https://www.bankrate.com/mortgages/mortgage-rates/
 const BANKRATE_AVERAGES = [
-  { label: "30-Yr Fixed", rate: "7.25%" },
-  { label: "15-Yr Fixed", rate: "6.5%" },
-  { label: "30-Yr FHA", rate: "6.875%" },
-  { label: "30-Yr VA", rate: "6.75%" },
+  { label: "30-Yr Fixed", rate: "7.96%" },
+  { label: "15-Yr Fixed", rate: "7.21%" },
+  { label: "30-Yr FHA", rate: "7.585%" },
+  { label: "30-Yr VA", rate: "7.46%" },
 ];
 const BANKRATE_ASOF = "Aug 17, 2026";
 
