@@ -33,7 +33,7 @@ const SCENARIOS = [
   },
 ] as const;
 
-const TERM_YEARS = 30;
+const TERM_OPTIONS = [15, 20, 30] as const;
 
 function monthlyPayment(principal: number, annualRate: number, years: number) {
   const n = years * 12;
@@ -45,6 +45,7 @@ function monthlyPayment(principal: number, annualRate: number, years: number) {
 
 export function ScenarioCalculator() {
   const [loanAmount, setLoanAmount] = useState(400000);
+  const [termYears, setTermYears] = useState<number>(30);
   const [propTaxes, setPropTaxes] = useState(0);
   const [insurance, setInsurance] = useState(0);
   const [hoa, setHoa] = useState(0);
@@ -54,15 +55,15 @@ export function ScenarioCalculator() {
   const results = useMemo(
     () =>
       SCENARIOS.map((s) => {
-        const monthly = monthlyPayment(loanAmount, s.rate, TERM_YEARS);
+        const monthly = monthlyPayment(loanAmount, s.rate, termYears);
         return {
           ...s,
           monthly,
           total: monthly + extras,
-          totalInterest: monthly * TERM_YEARS * 12 - loanAmount,
+          totalInterest: monthly * termYears * 12 - loanAmount,
         };
       }),
-    [loanAmount, extras]
+    [loanAmount, termYears, extras]
   );
 
   const base = results[0];
@@ -81,12 +82,13 @@ export function ScenarioCalculator() {
           What Would Each Rate Path Mean for Your Payment?
         </h2>
         <p className="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-          Enter a loan amount to compare estimated monthly payments on a {TERM_YEARS}-year fixed
-          loan under each of the three trajectories above. Add your property taxes, insurance, and
-          HOA to see total monthly housing cost instead of principal &amp; interest alone.
+          Enter a loan amount and pick a loan term to compare estimated monthly payments on a
+          fixed-rate loan under each of the three trajectories above. Add your property taxes,
+          insurance, and HOA to see total monthly housing cost instead of principal &amp; interest
+          alone.
         </p>
 
-        <div className="mt-8 grid gap-4 md:max-w-md">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 md:max-w-lg">
           <div>
             <label htmlFor="scenario-loan-amount" className={label}>
               Loan amount
@@ -100,6 +102,23 @@ export function ScenarioCalculator() {
               onChange={(e) => setLoanAmount(Math.max(Number(e.target.value) || 0, 0))}
               className={field}
             />
+          </div>
+          <div>
+            <label htmlFor="scenario-term" className={label}>
+              Loan term
+            </label>
+            <select
+              id="scenario-term"
+              value={termYears}
+              onChange={(e) => setTermYears(Number(e.target.value))}
+              className={field}
+            >
+              {TERM_OPTIONS.map((t) => (
+                <option key={t} value={t}>
+                  {t}-year fixed
+                </option>
+              ))}
+            </select>
           </div>
         </div>
 
