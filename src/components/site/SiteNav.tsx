@@ -20,6 +20,7 @@ const navItems: NavItem[] = [
     items: [
       ...PROGRAMS.map((p) => ({ href: `/programs/${p.slug}`, label: p.name })),
       { href: "/special-programs", label: "Grant Money" },
+      { href: "/loan-match", label: "Loan Program Finder" },
     ],
   },
   {
