@@ -1539,7 +1539,7 @@ export const RATES = [
   { name: "Conventional 30yr Fixed", rate: "7.25%", note: "Up to 97% financing" },
   { name: "FHA 30yr Fixed", rate: "6.875%", note: "Up to 96.5% financing" },
   { name: "Bank Statement 30yr Fixed", rate: "7.25%", note: "No tax returns" },
-  { name: "Conventional 15yr Fixed", rate: "5.5%" },
+  { name: "Conventional 15yr Fixed", rate: "6.5%" },
 ];
 
 export type Stat = { value: number; suffix?: string; label: string };
