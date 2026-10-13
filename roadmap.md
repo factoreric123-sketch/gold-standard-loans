@@ -8,3 +8,4 @@
 - [ ] Replace two Zillow usernames only after user supplies confirmed real names. Blocker: names not provided.
 - [x] Add optional property taxes, homeowners insurance, and HOA fees to the scenario calculator so totals compare full monthly housing cost.
 - [ ] Publish the Oct 8 rate update (all rates +0.73% with the 5-year Treasury) — user declined publishing this round; changes stay in preview only. Blocker: user said no.
+- [ ] Add notary signing agent service to the homepage (Boca Raton & South Florida closing packages). Confirm the invented specifics: service-area cities, mobile/on-site signings, hours, fees, RON capability.

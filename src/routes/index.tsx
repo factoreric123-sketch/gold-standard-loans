@@ -5,6 +5,7 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
 import { Programs } from "@/components/site/Programs";
 import { HowItWorks } from "@/components/site/HowItWorks";
+import { NotarySigning } from "@/components/site/NotarySigning";
 import { Calculator } from "@/components/site/Calculator";
 import { Insights } from "@/components/site/Insights";
 import { WhyWarren } from "@/components/site/WhyWarren";
@@ -70,6 +71,7 @@ function Index() {
         <Hero />
         <Programs />
         <HowItWorks />
+        <NotarySigning />
         <Calculator />
         <Insights />
         <WhyWarren />
