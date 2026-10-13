@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as RateNewsRouteImport } from './routes/rate-news'
+import { Route as NotaryRouteImport } from './routes/notary'
 import { Route as LoanMatchRouteImport } from './routes/loan-match'
 import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
 import { Route as ExpatFormRouteImport } from './routes/expat-form'
@@ -42,6 +43,11 @@ const SpecialProgramsRoute = SpecialProgramsRouteImport.update({
 const RateNewsRoute = RateNewsRouteImport.update({
   id: '/rate-news',
   path: '/rate-news',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotaryRoute = NotaryRouteImport.update({
+  id: '/notary',
+  path: '/notary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoanMatchRoute = LoanMatchRouteImport.update({
@@ -133,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/expat-form': typeof ExpatFormRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
+  '/notary': typeof NotaryRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
@@ -153,6 +160,7 @@ export interface FileRoutesByTo {
   '/expat-form': typeof ExpatFormRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
+  '/notary': typeof NotaryRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
@@ -175,6 +183,7 @@ export interface FileRoutesById {
   '/expat-form': typeof ExpatFormRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
+  '/notary': typeof NotaryRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
@@ -197,6 +206,7 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/free-mortgage-advice'
     | '/loan-match'
+    | '/notary'
     | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
@@ -217,6 +227,7 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/free-mortgage-advice'
     | '/loan-match'
+    | '/notary'
     | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
@@ -238,6 +249,7 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/free-mortgage-advice'
     | '/loan-match'
+    | '/notary'
     | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
@@ -260,6 +272,7 @@ export interface RootRouteChildren {
   ExpatFormRoute: typeof ExpatFormRoute
   FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
   LoanMatchRoute: typeof LoanMatchRoute
+  NotaryRoute: typeof NotaryRoute
   RateNewsRoute: typeof RateNewsRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
   TodaysRatesRoute: typeof TodaysRatesRoute
@@ -290,6 +303,13 @@ declare module '@tanstack/react-router' {
       path: '/rate-news'
       fullPath: '/rate-news'
       preLoaderRoute: typeof RateNewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notary': {
+      id: '/notary'
+      path: '/notary'
+      fullPath: '/notary'
+      preLoaderRoute: typeof NotaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/loan-match': {
@@ -432,6 +452,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExpatFormRoute: ExpatFormRoute,
   FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,
   LoanMatchRoute: LoanMatchRoute,
+  NotaryRoute: NotaryRoute,
   RateNewsRoute: RateNewsRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
   TodaysRatesRoute: TodaysRatesRoute,

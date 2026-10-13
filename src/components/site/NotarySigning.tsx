@@ -2,7 +2,7 @@ import { BookOpenCheck, Stamp, FileCheck2, MapPin, Clock, ArrowRight } from "luc
 import { PHONE_TEL, PHONE_DISPLAY, EMAIL, EMAIL_DISPLAY } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
-const HANDLED = [
+export const HANDLED = [
   "Complete closing and loan-signing packages",
   "Borrower identity verification",
   "Walking signers through each document",
@@ -10,7 +10,7 @@ const HANDLED = [
   "Signed, notarized, and returned as one complete package",
 ];
 
-const SERVED = [
+export const SERVED = [
   "Title companies",
   "Escrow and closing officers",
   "Lenders and mortgage banks",
@@ -18,7 +18,7 @@ const SERVED = [
   "Real estate agents",
 ];
 
-const COVERAGE = [
+export const COVERAGE = [
   {
     icon: BookOpenCheck,
     title: "Deep Document Fluency",
@@ -122,6 +122,13 @@ export function NotarySigning() {
                 >
                   Email a package
                   <span className="text-foreground/60 lowercase">{EMAIL_DISPLAY}</span>
+                </a>
+                <a
+                  href="/notary"
+                  className="inline-flex items-center justify-center gap-2 py-2 text-sm tracking-wide text-gold hover:underline"
+                >
+                  Full service details
+                  <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>

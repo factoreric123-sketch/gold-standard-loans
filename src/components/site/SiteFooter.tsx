@@ -106,7 +106,7 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="/#notary" className="hover:text-gold">
+                <a href="/notary" className="hover:text-gold">
                   Notary Signing
                 </a>
               </li>
