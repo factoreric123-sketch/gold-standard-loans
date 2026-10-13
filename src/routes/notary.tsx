@@ -286,6 +286,9 @@ function NotaryPage() {
                 <NotaryBookingForm />
               </div>
               <div className="mt-10 border-t border-line pt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
+                <a href="/notary-onboarding" className="text-gold hover:underline">
+                  Lender &amp; title vendor onboarding
+                </a>
                 <a href="/todays-rates" className="text-gold hover:underline">
                   Today&rsquo;s mortgage rates
                 </a>
