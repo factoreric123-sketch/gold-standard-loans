@@ -1,4 +1,4 @@
-import { Stamp, FileCheck2, MapPin, Clock, ArrowRight } from "lucide-react";
+import { BookOpenCheck, Stamp, FileCheck2, MapPin, Clock, ArrowRight } from "lucide-react";
 import { PHONE_TEL, PHONE_DISPLAY, EMAIL, EMAIL_DISPLAY } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
@@ -19,6 +19,11 @@ const SERVED = [
 ];
 
 const COVERAGE = [
+  {
+    icon: BookOpenCheck,
+    title: "Deep Document Fluency",
+    body: "I know mortgage packages inside and out — notes, deeds, CDs, TRID disclosures, and commercial loan documents — so signings are accurate and complete the first time, with no missed signatures or initials.",
+  },
   {
     icon: Stamp,
     title: "Loan Package Closings",
@@ -55,7 +60,7 @@ export function NotarySigning() {
         </Reveal>
 
         <div className="mt-14 grid lg:grid-cols-12 gap-5">
-          <div className="lg:col-span-8 grid sm:grid-cols-3 gap-4">
+          <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
             {COVERAGE.map((c, i) => {
               const Icon = c.icon;
               return (
