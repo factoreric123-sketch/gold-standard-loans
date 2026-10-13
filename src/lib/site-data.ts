@@ -1552,7 +1552,7 @@ export const STATS: Stat[] = [
 
 export const PHONE_DISPLAY = "(561) 577-1882";
 export const PHONE_TEL = "+15615771882";
-export const EMAIL = "WARRENFACTOR@GMAIL.COM";
+export const EMAIL = "warrenfactor@gmail.com";
 export const EMAIL_DISPLAY = "warrenfactor@gmail.com";
 export const ADDRESS = "7452 Champagne Place, Boca Raton, FL 33433";
 export const NMLS = "NMLS #351633";
