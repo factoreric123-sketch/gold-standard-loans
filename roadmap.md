@@ -8,4 +8,4 @@
 - [ ] Replace two Zillow usernames only after user supplies confirmed real names. Blocker: names not provided.
 - [x] Add optional property taxes, homeowners insurance, and HOA fees to the scenario calculator so totals compare full monthly housing cost.
 - [x] Publish the corrected rates (all rates back to the pre-Oct-8 baseline: 30-yr 7.25%, FHA 6.875%, Bank Statement 7.25%, 15-yr 6.5%, VA 6.75%, calculator default 7.25) — published Oct 13, 2026.
-- [ ] Add notary signing agent service to the homepage (Boca Raton & South Florida closing packages). Confirm the invented specifics: service-area cities, mobile/on-site signings, hours, fees, RON capability.
+- [ ] Add notary signing agent service to the homepage (Boca Raton & South Florida closing packages). Buttons verified live: Call → tel:+15615771882, Email → mailto:warrenfactor@gmail.com. Still confirm the invented specifics: service-area cities, mobile/on-site signings, hours, fees, RON capability. Blocker: details not provided.
