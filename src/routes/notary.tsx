@@ -8,7 +8,7 @@ import { COVERAGE, HANDLED, SERVED } from "@/components/site/NotarySigning";
 
 const TITLE = "Notary Signing Agent | The Discount Mortgage Store";
 const DESC =
-  "Warren M. Factor is a notary signing agent in Boca Raton serving Palm Beach, Broward and Miami-Dade counties — 28+ years in lending, residential and commercial closings.";
+  "Warren M. Factor, notary signing agent in Boca Raton serving Palm Beach, Broward and Miami-Dade counties. Residential and commercial closings.";
 
 export const Route = createFileRoute("/notary")({
   head: () => ({
