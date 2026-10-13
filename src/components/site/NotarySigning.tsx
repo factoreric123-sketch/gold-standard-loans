@@ -1,22 +1,6 @@
-import { BookOpenCheck, Stamp, FileCheck2, MapPin, Clock, ArrowRight } from "lucide-react";
+import { BookOpenCheck, FileCheck2, ShieldCheck, Building2, MapPin, ArrowRight } from "lucide-react";
 import { PHONE_TEL, PHONE_DISPLAY, EMAIL, EMAIL_DISPLAY } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
-
-export const HANDLED = [
-  "Complete closing and loan-signing packages",
-  "Borrower identity verification",
-  "Walking signers through each document",
-  "Witnessing signatures and notarizing the executed set",
-  "Signed, notarized, and returned as one complete package",
-];
-
-export const SERVED = [
-  "Title companies",
-  "Escrow and closing officers",
-  "Lenders and mortgage banks",
-  "Closing attorneys",
-  "Real estate agents",
-];
 
 export const COVERAGE = [
   {
@@ -25,20 +9,40 @@ export const COVERAGE = [
     body: "I know mortgage packages inside and out — notes, deeds, CDs, TRID disclosures, and commercial loan documents — so signings are accurate and complete the first time, with no missed signatures or initials.",
   },
   {
-    icon: Stamp,
-    title: "Loan Package Closings",
-    body: "I run closing packages end to end — set up the table, verify IDs, walk every signer through the documents, and notarize the executed set so nothing comes back incomplete.",
+    icon: FileCheck2,
+    title: "Fewer Trailing Documents",
+    body: "A lending background means fewer callback appointments and a faster, cleaner return of the executed package.",
   },
   {
-    icon: Clock,
-    title: "Scheduled Around Your Closing",
-    body: "Evening and weekend appointments, booked to the closing table rather than the other way around, so a signing never holds up a funding date.",
+    icon: ShieldCheck,
+    title: "Reliability and Professionalism",
+    body: "Punctual, bonded, and experienced working directly with borrowers, attorneys, title agents and escrow officers.",
+  },
+  {
+    icon: Building2,
+    title: "Residential and Commercial",
+    body: "From standard residential refinance and purchase packages to complex commercial transactions — comfortable in either setting.",
   },
   {
     icon: MapPin,
-    title: "Boca Raton & South Florida",
-    body: "Boca Raton, Deerfield Beach, Fort Lauderdale, Miami and the surrounding counties — at your office, the borrower's location, or ours.",
+    title: "Local Coverage",
+    body: "Based in Boca Raton, serving Palm Beach, Broward and Miami-Dade counties with flexible scheduling, including evenings and weekends.",
   },
+];
+
+export const SERVED = [
+  "Title companies",
+  "Escrow officers",
+  "Closing attorneys",
+  "Lenders and mortgage banks",
+  "Borrowers directly",
+];
+
+export const HANDLED = [
+  "Walk each signer through every document",
+  "Verify borrower identity",
+  "Witness signatures and notarize the executed set",
+  "Return the package complete, with fewer trailing documents",
 ];
 
 export function NotarySigning() {
@@ -46,16 +50,14 @@ export function NotarySigning() {
     <section id="notary" className="bg-background">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">
         <Reveal>
-          <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
-            Also Available
-          </div>
+          <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">Also Available</div>
           <h2 className="font-serif text-4xl md:text-5xl max-w-3xl leading-tight">
             Notary Signing Agent for <span className="italic text-gold">closing packages.</span>
           </h2>
           <p className="mt-5 text-foreground/60 max-w-2xl leading-relaxed">
-            Alongside the brokerage, Warren Factor works as a notary signing agent handling loan
-            closing packages across Boca Raton and South Florida. One point of contact from the
-            package handoff to the returned, fully executed file.
+            Alongside the brokerage, Warren Factor handles closing loan packages across Boca Raton and
+            South Florida — 28+ years in mortgage lending and roughly 1,000 closed residential and
+            commercial transactions behind every signing.
           </p>
         </Reveal>
 
@@ -63,8 +65,13 @@ export function NotarySigning() {
           <div className="lg:col-span-8 grid sm:grid-cols-2 gap-4">
             {COVERAGE.map((c, i) => {
               const Icon = c.icon;
+              const isLast = i === COVERAGE.length - 1;
               return (
-                <Reveal key={c.title} delay={i * 80} className="h-full">
+                <Reveal
+                  key={c.title}
+                  delay={i * 80}
+                  className={`h-full${isLast ? " sm:col-span-2" : ""}`}
+                >
                   <div className="h-full border border-line bg-card p-6">
                     <div className="w-11 h-11 bg-gold/10 flex items-center justify-center mb-5">
                       <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
@@ -130,6 +137,9 @@ export function NotarySigning() {
                   Full service details
                   <ArrowRight className="w-4 h-4" />
                 </a>
+                <p className="pt-2 text-xs text-foreground/50 leading-relaxed">
+                  Commission details, E&amp;O insurance information and references available on request.
+                </p>
               </div>
             </div>
           </Reveal>
