@@ -283,6 +283,57 @@ export type Database = {
         }
         Relationships: []
       }
+      vendor_onboarding_requests: {
+        Row: {
+          company: string
+          company_type: string
+          contact_name: string
+          created_at: string
+          email: string
+          eo_min_coverage: string | null
+          fee_offered: string | null
+          id: string
+          notes: string | null
+          payment_terms: string | null
+          phone: string
+          portal_url: string | null
+          references_needed: number | null
+          requested_docs: string[]
+        }
+        Insert: {
+          company: string
+          company_type: string
+          contact_name: string
+          created_at?: string
+          email: string
+          eo_min_coverage?: string | null
+          fee_offered?: string | null
+          id?: string
+          notes?: string | null
+          payment_terms?: string | null
+          phone: string
+          portal_url?: string | null
+          references_needed?: number | null
+          requested_docs?: string[]
+        }
+        Update: {
+          company?: string
+          company_type?: string
+          contact_name?: string
+          created_at?: string
+          email?: string
+          eo_min_coverage?: string | null
+          fee_offered?: string | null
+          id?: string
+          notes?: string | null
+          payment_terms?: string | null
+          phone?: string
+          portal_url?: string | null
+          references_needed?: number | null
+          requested_docs?: string[]
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
