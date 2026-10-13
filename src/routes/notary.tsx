@@ -5,6 +5,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { Reveal } from "@/components/site/motion";
 import { SITE_URL, PHONE_TEL, PHONE_DISPLAY, EMAIL, EMAIL_DISPLAY } from "@/lib/site-data";
 import { COVERAGE, HANDLED, SERVED } from "@/components/site/NotarySigning";
+import { NotaryBookingForm } from "@/components/site/NotaryBookingForm";
 
 const TITLE = "Notary Signing Agent | The Discount Mortgage Store";
 const DESC =
@@ -280,6 +281,9 @@ function NotaryPage() {
                     <span className="text-foreground/60 lowercase">{EMAIL_DISPLAY}</span>
                   </a>
                 </div>
+              </div>
+              <div className="mt-10 border-t border-line pt-10">
+                <NotaryBookingForm />
               </div>
               <div className="mt-10 border-t border-line pt-6 flex flex-wrap gap-x-8 gap-y-3 text-sm">
                 <a href="/todays-rates" className="text-gold hover:underline">

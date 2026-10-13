@@ -157,6 +157,51 @@ export type Database = {
         }
         Relationships: []
       }
+      notary_bookings: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          id: string
+          location: string
+          name: string
+          notes: string | null
+          package_type: string
+          phone: string
+          signers: number | null
+          signing_date: string
+          signing_time: string
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          location: string
+          name: string
+          notes?: string | null
+          package_type: string
+          phone: string
+          signers?: number | null
+          signing_date: string
+          signing_time: string
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          location?: string
+          name?: string
+          notes?: string | null
+          package_type?: string
+          phone?: string
+          signers?: number | null
+          signing_date?: string
+          signing_time?: string
+        }
+        Relationships: []
+      }
       qa_items: {
         Row: {
           answer: string
