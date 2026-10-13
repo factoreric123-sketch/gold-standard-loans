@@ -143,11 +143,14 @@ function NotaryPage() {
                 questions.
               </p>
             </Reveal>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">
               {COVERAGE.map((c, i) => {
                 const Icon = c.icon;
+                const span = `${i < 3 ? "lg:col-span-2" : "lg:col-span-3"}${
+                  i === COVERAGE.length - 1 ? " md:col-span-2" : ""
+                }`;
                 return (
-                  <Reveal key={c.title} delay={i * 70} className="h-full">
+                  <Reveal key={c.title} delay={i * 70} className={`h-full ${span}`}>
                     <div className="h-full border border-line bg-background p-6">
                       <div className="w-11 h-11 bg-gold/10 flex items-center justify-center mb-5">
                         <Icon className="w-5 h-5 text-gold" strokeWidth={1.5} />
@@ -207,7 +210,7 @@ function NotaryPage() {
                 <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-6">
                   Who this serves
                 </div>
-                <ul className="space-y-3 text-foreground/80">
+                <ul className="space-y-3 text-background/80">
                   {SERVED.map((s) => (
                     <li key={s} className="flex gap-3">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
@@ -220,7 +223,7 @@ function NotaryPage() {
                 <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-6">
                   Every signing includes
                 </div>
-                <ul className="space-y-3 text-foreground/80">
+                <ul className="space-y-3 text-background/80">
                   {HANDLED.map((h) => (
                     <li key={h} className="flex gap-3">
                       <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-gold" />
