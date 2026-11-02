@@ -58,30 +58,5 @@ export const submitVendorOnboarding = createServerFn({ method: "POST" })
       .single();
     if (error) throw new Error("Could not save your request. Please call or email instead.");
 
-    try {
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: "2fb7050f-5c48-468f-a1c0-2f0e073f38c5",
-          subject: `Vendor onboarding request — ${r.company} (${r.company_type})`,
-          from_name: "The Discount Mortgage Store website",
-          name: r.contact_name,
-          email: r.email,
-          phone: r.phone,
-          company: r.company,
-          company_type: r.company_type,
-          fee_offered: r.fee_offered,
-          payment_terms: r.payment_terms,
-          eo_minimum_coverage: r.eo_min_coverage,
-          documents_requested: r.requested_docs.join(", "),
-          references_needed: r.references_needed ?? "",
-          onboarding_portal: r.portal_url,
-          notes: r.notes,
-        }),
-      });
-    } catch {
-      // stored even if email relay fails
-    }
     return { id: row.id };
   });

@@ -1,3 +1,4 @@
+import { notifyOwner } from "@/lib/notify-owner";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { PACKAGE_TYPES, submitNotaryBooking } from "@/lib/notary-booking.functions";
@@ -28,8 +29,7 @@ export function NotaryBookingForm() {
     setStatus("sending");
     setErr("");
     try {
-      await submit({
-        data: {
+      const data = {
           name: s("name"),
           company: s("company"),
           email: s("email"),
@@ -41,9 +41,14 @@ export function NotaryBookingForm() {
           signers: s("signers") ? Number(s("signers")) : undefined,
           notes: s("notes"),
           website: s("website"),
-        },
-      });
+        };
+      await submit({ data });
       setStatus("done");
+      const { website: _hp, ...fields } = data;
+      void notifyOwner(
+        `Notary signing request — ${data.signing_date} ${data.signing_time} (${data.package_type})`,
+        { ...fields, signers: fields.signers ?? "" },
+      );
     } catch (x) {
       setStatus("error");
       setErr(x instanceof Error && x.message.length < 120 ? x.message : "Please check the form and try again.");

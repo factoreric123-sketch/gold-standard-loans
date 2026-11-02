@@ -40,28 +40,5 @@ export const submitNotaryBooking = createServerFn({ method: "POST" })
       .single();
     if (error) throw new Error("Could not save your booking. Please call instead.");
 
-    try {
-      await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          access_key: "2fb7050f-5c48-468f-a1c0-2f0e073f38c5",
-          subject: `Notary signing request — ${row.signing_date} ${row.signing_time} (${row.package_type})`,
-          from_name: "The Discount Mortgage Store website",
-          name: row.name,
-          email: row.email,
-          phone: row.phone,
-          company: row.company,
-          date: row.signing_date,
-          time: row.signing_time,
-          package_type: row.package_type,
-          location: row.location,
-          signers: row.signers ?? "",
-          notes: row.notes,
-        }),
-      });
-    } catch {
-      // stored even if email relay fails
-    }
     return { id: inserted.id };
   });
