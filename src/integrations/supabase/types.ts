@@ -157,6 +157,72 @@ export type Database = {
         }
         Relationships: []
       }
+      fix_flip_applications: {
+        Row: {
+          arv: string | null
+          company: string | null
+          created_at: string
+          credit_score: string
+          email: string
+          first_name: string
+          flip_experience: string
+          id: string
+          last_name: string
+          loan_purpose: string
+          notes: string | null
+          phone: string
+          properties_owned: string | null
+          property_city: string | null
+          property_state: string
+          purchase_price: string | null
+          rehab_budget: string | null
+          status: string
+          timeline: string
+        }
+        Insert: {
+          arv?: string | null
+          company?: string | null
+          created_at?: string
+          credit_score: string
+          email: string
+          first_name: string
+          flip_experience: string
+          id?: string
+          last_name: string
+          loan_purpose: string
+          notes?: string | null
+          phone: string
+          properties_owned?: string | null
+          property_city?: string | null
+          property_state: string
+          purchase_price?: string | null
+          rehab_budget?: string | null
+          status?: string
+          timeline: string
+        }
+        Update: {
+          arv?: string | null
+          company?: string | null
+          created_at?: string
+          credit_score?: string
+          email?: string
+          first_name?: string
+          flip_experience?: string
+          id?: string
+          last_name?: string
+          loan_purpose?: string
+          notes?: string | null
+          phone?: string
+          properties_owned?: string | null
+          property_city?: string | null
+          property_state?: string
+          purchase_price?: string | null
+          rehab_budget?: string | null
+          status?: string
+          timeline?: string
+        }
+        Relationships: []
+      }
       notary_bookings: {
         Row: {
           company: string | null
