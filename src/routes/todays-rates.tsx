@@ -1,3 +1,4 @@
+import { useLiveRates } from "@/lib/live-rates";
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
@@ -81,6 +82,7 @@ function TodaysRatesPage() {
     refetchInterval: 30 * 60 * 1000,
     staleTime: 15 * 60 * 1000,
   });
+  const liveMortgage = useLiveRates(BANKRATE_AVERAGES);
   const live = !!data;
   const treasuryRates = data?.rates ?? TREASURY_RATES;
   const treasuryAsOf = data?.asOf ?? TREASURY_ASOF;
@@ -112,7 +114,7 @@ function TodaysRatesPage() {
               </span>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-line border border-line">
-              {BANKRATE_AVERAGES.map((r, i) => (
+              {liveMortgage.map((r, i) => (
                 <div
                   key={r.label}
                   className={`bg-card px-5 py-6 text-center ${i === 0 ? "ring-1 ring-gold ring-inset" : ""}`}

@@ -1,10 +1,17 @@
 import { Phone, MapPin } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_TEL, NMLS, RATES } from "@/lib/site-data";
 
-const conv30 = RATES.find((r) => r.name.includes("Conventional 30yr"));
-const fha30 = RATES.find((r) => r.name.includes("FHA 30yr"));
+import { useLiveRates } from "@/lib/live-rates";
+
+function pick(rates: typeof RATES) {
+  return {
+    conv30: rates.find((r) => r.name.includes("Conventional 30yr")),
+    fha30: rates.find((r) => r.name.includes("FHA 30yr")),
+  };
+}
 
 export function RateTicker() {
+  const { conv30, fha30 } = pick(useLiveRates(RATES));
   return (
     <div className="hidden sm:block bg-charcoal text-background/80">
       <div className="mx-auto max-w-7xl px-6 h-9 flex items-center justify-between gap-4 text-[11px] tracking-widest uppercase">

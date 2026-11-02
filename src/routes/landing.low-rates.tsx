@@ -1,3 +1,4 @@
+import { useLiveRates } from "@/lib/live-rates";
 import { useState, useRef } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -91,6 +92,7 @@ function MinimalHeader() {
 }
 
 function Hero() {
+  const liveRates = useLiveRates(RATES);
   return (
     <section className="bg-gradient-to-b from-cream to-background">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-14 md:py-20 lg:grid-cols-2 lg:gap-16">
@@ -112,7 +114,7 @@ function Hero() {
           </p>
 
           <ul className="mt-7 space-y-3 text-sm text-foreground/75">
-            {RATES.map((r) => (
+            {liveRates.map((r) => (
               <li key={r.name} className="flex items-baseline justify-between gap-4 border-b border-line/60 pb-2">
                 <span className="tracking-wide">{r.name}</span>
                 <span className="flex items-baseline gap-3">
