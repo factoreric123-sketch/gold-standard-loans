@@ -13,7 +13,7 @@ export function FlipBanner() {
   return (
     <section
       aria-label="Fix and flip financing up to 92.5 percent of purchase"
-      className="bg-background border-t-[3px] border-orange"
+      className="bg-card border-t-[3px] border-orange"
     >
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-11">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-9 lg:gap-14 items-center">
