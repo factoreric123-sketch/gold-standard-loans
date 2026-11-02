@@ -23,7 +23,7 @@ export function FlipBanner() {
             width={490}
             height={231}
             loading="eager"
-            className="block h-auto w-full max-w-xl"
+            className="block h-auto w-full max-w-[490px]"
           />
 
           <div>
