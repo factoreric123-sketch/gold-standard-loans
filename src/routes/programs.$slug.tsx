@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { ProgramExtras } from "@/components/site/ProgramExtras";
 import { Reveal } from "@/components/site/motion";
+import { useToolTracking } from "@/lib/track";
 import {
   PROGRAMS,
   programBySlug,
@@ -62,6 +63,7 @@ export const Route = createFileRoute("/programs/$slug")({
 function ProgramPage() {
   const { slug } = Route.useParams();
   const program = programBySlug(slug)!;
+  useToolTracking(`programs/${slug}`);
   const Icon = program.icon;
   const others = PROGRAMS.filter((p) => p.slug !== slug);
 
