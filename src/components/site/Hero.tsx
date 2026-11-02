@@ -1,3 +1,4 @@
+import { useLiveRates } from "@/lib/live-rates";
 import { Phone, ArrowRight, ShieldCheck } from "lucide-react";
 import { RATES, PHONE_DISPLAY, PHONE_TEL, NMLS, APPLY_URL } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
@@ -57,7 +58,7 @@ export function Hero() {
               <span className="text-[11px] uppercase tracking-widest text-gold">Live</span>
             </div>
             <div className="divide-y divide-line">
-              {RATES.map((r) => (
+              {liveRates.map((r) => (
                 <div key={r.name} className="flex items-center justify-between py-4">
                   <div className="flex flex-col">
                     <span className="text-sm tracking-wide text-foreground/70">{r.name}</span>

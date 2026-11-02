@@ -1,3 +1,4 @@
+import { useLiveRates } from "@/lib/live-rates";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { PROGRAMS, RATES } from "@/lib/site-data";
@@ -53,7 +54,7 @@ export function Programs() {
               <span className="text-[10px] uppercase tracking-widest text-gold">Live</span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-y sm:divide-y-0 divide-line">
-              {RATES.map((r) => (
+              {liveRates.map((r) => (
                 <div key={r.name} className="px-3 py-2">
                   <div className="font-serif text-lg leading-tight text-foreground">{r.rate}</div>
                   <div className="mt-0.5 text-[11px] tracking-wide text-foreground/70">{r.name}</div>
