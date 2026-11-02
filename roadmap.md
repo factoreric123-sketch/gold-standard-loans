@@ -1,4 +1,5 @@
 ## Requested cleanup
+- [x] Add both user-uploaded investor loan images to the homepage above Mortgage Products.
 - [x] Update the Rate Prediction page with the supplied October 2026 market outlook and 2027 forecasts.
 - [x] Add the supplied “What Is Driving Rates Up?” concept with an explicit source caveat.
 - [x] Add the supplied “Emerging Risks & Trajectories” base/bear/bull scenarios with an explicit source caveat.

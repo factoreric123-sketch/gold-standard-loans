@@ -19,6 +19,8 @@ import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
+import investorIntroduction from "@/assets/investor-loan-introduction.png.asset.json";
+import investorPrograms from "@/assets/investor-loan-program-updates.webp.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -69,6 +71,28 @@ function Index() {
       <SiteNav />
       <main>
         <Hero />
+        <section aria-label="Investor loan program images" className="bg-background">
+          <div className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
+            <div className="grid items-center gap-8 lg:grid-cols-2">
+              <img
+                src={investorIntroduction.url}
+                alt="The best lender for fix-and-flip and rental loans — $1 billion funded"
+                width={743}
+                height={263}
+                loading="lazy"
+                className="block h-auto w-full"
+              />
+              <img
+                src={investorPrograms.url}
+                alt="Loan program updates: Fix-and-Flip and Bridge, Ground-Up Construction, and No-Doc 30-Year Rental financing guidelines"
+                width={839}
+                height={562}
+                loading="lazy"
+                className="block h-auto w-full"
+              />
+            </div>
+          </div>
+        </section>
         <Programs />
         <HowItWorks />
         <NotarySigning />
