@@ -16,6 +16,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
 import { Route as BuyingUsaHomeRouteImport } from './routes/buying-usa-home'
 import { Route as ExpatFormRouteImport } from './routes/expat-form'
+import { Route as FixAndFlipApplicationRouteImport } from './routes/fix-and-flip-application'
 import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
 import { Route as LoanMatchRouteImport } from './routes/loan-match'
 import { Route as NotaryRouteImport } from './routes/notary'
@@ -64,6 +65,11 @@ const BuyingUsaHomeRoute = BuyingUsaHomeRouteImport.update({
 const ExpatFormRoute = ExpatFormRouteImport.update({
   id: '/expat-form',
   path: '/expat-form',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FixAndFlipApplicationRoute = FixAndFlipApplicationRouteImport.update({
+  id: '/fix-and-flip-application',
+  path: '/fix-and-flip-application',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FreeMortgageAdviceRoute = FreeMortgageAdviceRouteImport.update({
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
   '/expat-form': typeof ExpatFormRoute
+  '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
   '/notary': typeof NotaryRoute
@@ -173,6 +180,7 @@ export interface FileRoutesByTo {
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
   '/expat-form': typeof ExpatFormRoute
+  '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
   '/notary': typeof NotaryRoute
@@ -198,6 +206,7 @@ export interface FileRoutesById {
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
   '/expat-form': typeof ExpatFormRoute
+  '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
   '/notary': typeof NotaryRoute
@@ -223,6 +232,7 @@ export interface FileRouteTypes {
     | '/buy-a-home'
     | '/buying-usa-home'
     | '/expat-form'
+    | '/fix-and-flip-application'
     | '/free-mortgage-advice'
     | '/loan-match'
     | '/notary'
@@ -246,6 +256,7 @@ export interface FileRouteTypes {
     | '/buy-a-home'
     | '/buying-usa-home'
     | '/expat-form'
+    | '/fix-and-flip-application'
     | '/free-mortgage-advice'
     | '/loan-match'
     | '/notary'
@@ -270,6 +281,7 @@ export interface FileRouteTypes {
     | '/buy-a-home'
     | '/buying-usa-home'
     | '/expat-form'
+    | '/fix-and-flip-application'
     | '/free-mortgage-advice'
     | '/loan-match'
     | '/notary'
@@ -295,6 +307,7 @@ export interface RootRouteChildren {
   BuyAHomeRoute: typeof BuyAHomeRoute
   BuyingUsaHomeRoute: typeof BuyingUsaHomeRoute
   ExpatFormRoute: typeof ExpatFormRoute
+  FixAndFlipApplicationRoute: typeof FixAndFlipApplicationRoute
   FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
   LoanMatchRoute: typeof LoanMatchRoute
   NotaryRoute: typeof NotaryRoute
@@ -357,6 +370,13 @@ declare module '@tanstack/react-router' {
       path: '/expat-form'
       fullPath: '/expat-form'
       preLoaderRoute: typeof ExpatFormRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fix-and-flip-application': {
+      id: '/fix-and-flip-application'
+      path: '/fix-and-flip-application'
+      fullPath: '/fix-and-flip-application'
+      preLoaderRoute: typeof FixAndFlipApplicationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/free-mortgage-advice': {
@@ -492,6 +512,7 @@ const rootRouteChildren: RootRouteChildren = {
   BuyAHomeRoute: BuyAHomeRoute,
   BuyingUsaHomeRoute: BuyingUsaHomeRoute,
   ExpatFormRoute: ExpatFormRoute,
+  FixAndFlipApplicationRoute: FixAndFlipApplicationRoute,
   FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,
   LoanMatchRoute: LoanMatchRoute,
   NotaryRoute: NotaryRoute,

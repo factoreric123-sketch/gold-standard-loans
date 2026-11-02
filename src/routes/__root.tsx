@@ -13,6 +13,7 @@ import appCss from "../styles.css?url";
 import { SITE_URL, COMPANY_NAME, BROKER_NAME, PHONE_TEL, EMAIL } from "@/lib/site-data";
 import { ChatWidget } from "@/components/site/ChatWidget";
 import { HashScroll } from "@/components/site/HashScroll";
+import { AnnouncementBar } from "@/components/site/AnnouncementBar";
 
 
 const structuredData = {
@@ -184,6 +185,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AnnouncementBar />
       <Outlet />
       <HashScroll />
       <ChatWidget />
