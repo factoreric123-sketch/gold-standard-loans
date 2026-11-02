@@ -7,6 +7,8 @@ import {
   TrendingUp,
   Wallet,
   Hammer,
+  Construction,
+  KeyRound,
   Link2,
   Hotel,
   Globe,
@@ -1000,11 +1002,14 @@ export const PROGRAMS: Program[] = [
     overview:
       "Fix-and-flip loans provide short-term capital to purchase and renovate a property, then sell or refinance for a profit. With funding for both the purchase and the rehab budget, you can move quickly when the right opportunity appears.",
     highlights: [
-      "Financing for purchase plus renovation costs",
+      "Up to 92.5% of purchase — 100% of rehab financed",
+      "Rates from 9.99%",
+      "Up to 75% ARV LTV",
+      "SFR, multi-family & mixed-use — no experience OK",
+      "$75K – $10MM · refi or purchase",
+      "600+ credit score",
       "Fast closings — often days, not weeks",
       "Interest-only payments during the project",
-      "Underwritten to after-repair value (ARV)",
-      "No prepayment penalties on most programs",
     ],
     idealFor: [
       "House flippers and rehabbers",
@@ -1012,6 +1017,19 @@ export const PROGRAMS: Program[] = [
       "BRRRR-strategy investors",
     ],
     extras: [
+      {
+        kind: "definedList",
+        title: "Program guidelines at a glance",
+        items: [
+          { term: "Purchase leverage", def: "Up to 92.5% of the purchase price, with 100% of the rehab budget financed." },
+          { term: "After-repair value", def: "Up to 75% ARV LTV." },
+          { term: "Rate", def: "From 9.99%." },
+          { term: "Property types", def: "Single-family, multi-family, and mixed-use." },
+          { term: "Loan amounts", def: "$75,000 – $10,000,000. Refinance or purchase." },
+          { term: "Experience", def: "No fix-and-flip experience required." },
+          { term: "Credit", def: "600+ FICO." },
+        ],
+      },
       {
         kind: "paragraphs",
         body: [
