@@ -24,6 +24,7 @@ import { Route as RateNewsRouteImport } from './routes/rate-news'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AuthenticatedLenderPortalRouteImport } from './routes/_authenticated/lender-portal'
 import { Route as AuthenticatedLiveChatRouteImport } from './routes/_authenticated/live-chat'
 import { Route as AuthenticatedQaRouteImport } from './routes/_authenticated/qa'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -105,6 +106,12 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedLenderPortalRoute =
+  AuthenticatedLenderPortalRouteImport.update({
+    id: '/lender-portal',
+    path: '/lender-portal',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedLiveChatRoute = AuthenticatedLiveChatRouteImport.update({
   id: '/live-chat',
   path: '/live-chat',
@@ -151,6 +158,7 @@ export interface FileRoutesByFullPath {
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/lender-portal': typeof AuthenticatedLenderPortalRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
   '/qa': typeof AuthenticatedQaRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -173,6 +181,7 @@ export interface FileRoutesByTo {
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/lender-portal': typeof AuthenticatedLenderPortalRoute
   '/live-chat': typeof AuthenticatedLiveChatRoute
   '/qa': typeof AuthenticatedQaRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -197,6 +206,7 @@ export interface FileRoutesById {
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/_authenticated/lender-portal': typeof AuthenticatedLenderPortalRoute
   '/_authenticated/live-chat': typeof AuthenticatedLiveChatRoute
   '/_authenticated/qa': typeof AuthenticatedQaRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -221,6 +231,7 @@ export interface FileRouteTypes {
     | '/special-programs'
     | '/todays-rates'
     | '/admin'
+    | '/lender-portal'
     | '/live-chat'
     | '/qa'
     | '/blog/$slug'
@@ -243,6 +254,7 @@ export interface FileRouteTypes {
     | '/special-programs'
     | '/todays-rates'
     | '/admin'
+    | '/lender-portal'
     | '/live-chat'
     | '/qa'
     | '/blog/$slug'
@@ -266,6 +278,7 @@ export interface FileRouteTypes {
     | '/special-programs'
     | '/todays-rates'
     | '/_authenticated/admin'
+    | '/_authenticated/lender-portal'
     | '/_authenticated/live-chat'
     | '/_authenticated/qa'
     | '/blog/$slug'
@@ -402,6 +415,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/lender-portal': {
+      id: '/_authenticated/lender-portal'
+      path: '/lender-portal'
+      fullPath: '/lender-portal'
+      preLoaderRoute: typeof AuthenticatedLenderPortalRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/live-chat': {
       id: '/_authenticated/live-chat'
       path: '/live-chat'
@@ -449,12 +469,14 @@ declare module '@tanstack/react-router' {
 
 interface AuthenticatedRouteRouteChildren {
   AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
+  AuthenticatedLenderPortalRoute: typeof AuthenticatedLenderPortalRoute
   AuthenticatedLiveChatRoute: typeof AuthenticatedLiveChatRoute
   AuthenticatedQaRoute: typeof AuthenticatedQaRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAdminRoute: AuthenticatedAdminRoute,
+  AuthenticatedLenderPortalRoute: AuthenticatedLenderPortalRoute,
   AuthenticatedLiveChatRoute: AuthenticatedLiveChatRoute,
   AuthenticatedQaRoute: AuthenticatedQaRoute,
 }

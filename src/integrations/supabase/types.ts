@@ -285,6 +285,7 @@ export type Database = {
       }
       vendor_onboarding_requests: {
         Row: {
+          admin_notes: string | null
           company: string
           company_type: string
           contact_name: string
@@ -299,8 +300,11 @@ export type Database = {
           portal_url: string | null
           references_needed: number | null
           requested_docs: string[]
+          reviewed_at: string | null
+          status: string
         }
         Insert: {
+          admin_notes?: string | null
           company: string
           company_type: string
           contact_name: string
@@ -315,8 +319,11 @@ export type Database = {
           portal_url?: string | null
           references_needed?: number | null
           requested_docs?: string[]
+          reviewed_at?: string | null
+          status?: string
         }
         Update: {
+          admin_notes?: string | null
           company?: string
           company_type?: string
           contact_name?: string
@@ -331,6 +338,8 @@ export type Database = {
           portal_url?: string | null
           references_needed?: number | null
           requested_docs?: string[]
+          reviewed_at?: string | null
+          status?: string
         }
         Relationships: []
       }

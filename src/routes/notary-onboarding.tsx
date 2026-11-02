@@ -1,3 +1,4 @@
+import { notifyOwner } from "@/lib/notify-owner";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
@@ -41,8 +42,7 @@ function OnboardingPage() {
     setStatus("sending");
     setErr("");
     try {
-      await submit({
-        data: {
+      const data = {
           company: s("company"),
           company_type: s("company_type") as (typeof COMPANY_TYPES)[number],
           contact_name: s("contact_name"),
@@ -56,9 +56,16 @@ function OnboardingPage() {
           portal_url: s("portal_url"),
           notes: s("notes"),
           website: s("website"),
-        },
-      });
+        };
+      await submit({ data });
       setStatus("done");
+      const { website: _hp, requested_docs, ...fields } = data;
+      void notifyOwner(`Vendor onboarding request — ${data.company} (${data.company_type})`, {
+        ...fields,
+        name: data.contact_name,
+        documents_requested: requested_docs.join(", "),
+        references_needed: fields.references_needed ?? "",
+      });
     } catch {
       setStatus("error");
       setErr("Please check the required fields (and that the portal link is a full https:// address).");
