@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { getTreasuryYields } from "@/lib/treasury.functions";
 import { Toaster } from "@/components/ui/sonner";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -71,6 +74,16 @@ export const Route = createFileRoute("/todays-rates")({
 });
 
 function TodaysRatesPage() {
+  const fetchYields = useServerFn(getTreasuryYields);
+  const { data } = useQuery({
+    queryKey: ["treasury-yields"],
+    queryFn: () => fetchYields(),
+    refetchInterval: 30 * 60 * 1000,
+    staleTime: 15 * 60 * 1000,
+  });
+  const live = !!data;
+  const treasuryRates = data?.rates ?? TREASURY_RATES;
+  const treasuryAsOf = data?.asOf ?? TREASURY_ASOF;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <RateTicker />
@@ -122,7 +135,7 @@ function TodaysRatesPage() {
         </section>
         <Calculator />
         <Contact />
-        {/* Today's U.S. Treasury yield curve — CNBC, Oct 8, 2026. */}
+        {/* Live U.S. Treasury yield curve — refreshed from treasury.gov. */}
         <section className="bg-charcoal text-background">
           <div className="mx-auto max-w-7xl px-6 py-10">
             <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 mb-6">
@@ -130,11 +143,11 @@ function TodaysRatesPage() {
                 Today's U.S. Treasury Yields
               </h2>
               <span className="text-[11px] uppercase tracking-[0.15em] text-background/50">
-                Source: CNBC · as of {TREASURY_ASOF}
+                Source: {live ? "U.S. Treasury" : "CNBC"} · as of {treasuryAsOf}
               </span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-px bg-background/10">
-              {TREASURY_RATES.map((r) => {
+              {treasuryRates.map((r) => {
                 const isFive = r.label === "5-Yr";
                 return (
                   <div
