@@ -11,3 +11,4 @@
 - [x] Publish the corrected rates (all rates back to the pre-Oct-8 baseline: 30-yr 7.25%, FHA 6.875%, Bank Statement 7.25%, 15-yr 6.5%, VA 6.75%, calculator default 7.25) — published Oct 13, 2026.
 - [ ] Add notary signing agent service to the homepage (Boca Raton & South Florida closing packages). Buttons verified live: Call → tel:+15615771882, Email → mailto:warrenfactor@gmail.com. Still confirm the invented specifics: service-area cities, mobile/on-site signings, hours, fees, RON capability. Blocker: details not provided.
 - [x] Add a dedicated /notary page for the notary signing service: footer link and homepage section point there, sitemap updated, published Oct 13, 2026.
+- [x] Put the orange "best lender for fix-and-flip" picture with the up-to-92.5%-of-purchase callout at the very top of the homepage, above the hero.
