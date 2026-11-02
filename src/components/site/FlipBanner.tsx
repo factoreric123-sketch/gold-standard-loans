@@ -17,14 +17,16 @@ export function FlipBanner() {
     >
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-11">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-9 lg:gap-14 items-center">
-          <img
-            src={flipBanner.url}
-            alt="The best lender for fix-and-flip and rental loans — $1 billion funded"
-            width={1393}
-            height={823}
-            loading="eager"
-            className="block h-auto w-full max-w-[600px]"
-          />
+          <Link to="/fix-and-flip-application" aria-label="Apply for a fix and flip loan">
+            <img
+              src={flipBanner.url}
+              alt="The best lender for fix-and-flip and rental loans — $1 billion funded"
+              width={1393}
+              height={823}
+              loading="eager"
+              className="block h-auto w-full max-w-[600px] hover:opacity-90 transition-opacity"
+            />
+          </Link>
 
           <div>
             <div className="flex items-end gap-4">
