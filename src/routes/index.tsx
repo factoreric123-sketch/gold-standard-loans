@@ -74,7 +74,11 @@ function Index() {
         <Hero />
         <section aria-label="Loan program updates" className="bg-background">
           <div className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
-            <Link to="/fix-and-flip-application" aria-label="Apply for a fix and flip loan">
+            <Link
+              to="/programs/$slug"
+              params={{ slug: "fix-and-flip" }}
+              aria-label="See fix and flip loan program"
+            >
               <img
                 src={investorPrograms.url}
                 alt="Loan program updates: Fix-and-Flip and Bridge, Ground-Up Construction, and No-Doc 30-Year Rental financing guidelines"
