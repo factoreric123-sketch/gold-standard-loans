@@ -61,6 +61,24 @@ function LenderPortal() {
   const counts = Object.fromEntries(STATUSES.map((s) => [s.key, rows.filter((r) => r.status === s.key).length]));
   const shown = filter === "all" ? rows : rows.filter((r) => r.status === filter);
 
+  const { data: flipVisits } = useQuery({
+    queryKey: ["fix-flip-visits"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("tool_events")
+        .select("referrer, created_at")
+        .eq("page", "programs/fix-and-flip")
+        .eq("event", "page_view")
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      const fromHome = data.filter((v) =>
+        /^https?:\/\/(www\.)?thediscountmortgagestore\.com\/?$/.test(v.referrer) ||
+        /^https?:\/\/[^/]*\.lovable\.app\/?$/.test(v.referrer)
+      ).length;
+      return { total: data.length, fromHome, last: data[0]?.created_at ?? null };
+    },
+  });
+
   return (
     <div className="min-h-screen bg-cream text-foreground">
       <Toaster />
