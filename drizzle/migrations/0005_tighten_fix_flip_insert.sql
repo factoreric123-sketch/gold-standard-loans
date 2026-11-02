@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can submit a fix and flip application" ON public.fix_flip_applications;
