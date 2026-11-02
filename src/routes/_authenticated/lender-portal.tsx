@@ -94,6 +94,23 @@ function LenderPortal() {
       </header>
 
       <main className="mx-auto max-w-6xl px-6 py-10">
+        <div className="border border-line bg-background p-5 mb-8 flex flex-wrap items-center gap-x-10 gap-y-3">
+          <div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-foreground/60">Fix & Flip page visits</div>
+            <div className="font-serif text-3xl text-gold">{flipVisits?.total ?? "…"}</div>
+          </div>
+          <div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-foreground/60">From homepage banner</div>
+            <div className="font-serif text-3xl text-gold">{flipVisits?.fromHome ?? "…"}</div>
+          </div>
+          {flipVisits?.last && (
+            <div>
+              <div className="text-[11px] uppercase tracking-[0.2em] text-foreground/60">Most recent visit</div>
+              <div className="text-sm text-foreground/70 mt-1">{new Date(flipVisits.last).toLocaleString()}</div>
+            </div>
+          )}
+        </div>
+
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-line border border-line mb-8">
           {STATUSES.map((s) => (
             <button
