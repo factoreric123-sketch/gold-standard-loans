@@ -153,8 +153,62 @@ function LenderPortal() {
             </article>
           ))}
         </div>
+
+        <FixFlipLeads />
       </main>
     </div>
+  );
+}
+
+function FixFlipLeads() {
+  const { data: leads = [], isLoading, error } = useQuery({
+    queryKey: ["fix-flip-leads"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("fix_flip_applications")
+        .select("*")
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return data;
+    },
+  });
+  return (
+    <section id="fix-flip-leads" className="mt-16">
+      <h2 className="font-serif text-3xl mb-1">Fix &amp; Flip Leads</h2>
+      <p className="text-sm text-foreground/60 mb-6">{leads.length} application{leads.length === 1 ? "" : "s"}, newest first.</p>
+      {isLoading && <p className="text-sm text-foreground/60">Loading…</p>}
+      {error && <p className="text-sm text-destructive">Could not load leads — are you signed in as admin?</p>}
+      {!isLoading && !error && leads.length === 0 && <p className="text-sm text-foreground/60">No applications yet.</p>}
+      <div className="space-y-4">
+        {leads.map((l) => (
+          <article key={l.id} className="border border-line bg-background p-6">
+            <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
+              <h3 className="font-serif text-xl">{l.first_name} {l.last_name}{l.company ? ` — ${l.company}` : ""}</h3>
+              <span className="text-xs uppercase tracking-[0.2em] text-foreground/50">{new Date(l.created_at).toLocaleString()}</span>
+            </div>
+            <dl className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+              <Item term="Email" def={l.email} />
+              <Item term="Phone" def={l.phone} />
+              <Item term="Property" def={[l.property_city, l.property_state].filter(Boolean).join(", ")} />
+              <Item term="Purpose" def={l.loan_purpose} />
+              <Item term="Purchase price" def={l.purchase_price || "—"} />
+              <Item term="Rehab budget" def={l.rehab_budget || "—"} />
+              <Item term="ARV" def={l.arv || "—"} />
+              <Item term="Timeline" def={l.timeline} />
+              <Item term="Experience" def={l.flip_experience} />
+              <Item term="Properties owned" def={l.properties_owned || "—"} />
+              <Item term="Credit" def={l.credit_score} />
+              <Item term="Status" def={l.status} />
+            </dl>
+            {l.notes && <p className="mt-4 text-sm whitespace-pre-wrap border-t border-line pt-4">{l.notes}</p>}
+            <div className="mt-4 flex gap-3">
+              <a href={`tel:${l.phone}`} className="min-h-11 inline-flex items-center px-4 text-xs uppercase tracking-[0.2em] bg-gold text-background">Call</a>
+              <a href={`mailto:${l.email}`} className="min-h-11 inline-flex items-center px-4 text-xs uppercase tracking-[0.2em] border border-line hover:border-gold">Email</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -162,7 +216,7 @@ function Item({ term, def }: { term: string; def: string }) {
   return (
     <div>
       <dt className="text-foreground/50">{term}</dt>
-      <dd>{def}</dd>
+      <dd className="break-words">{def}</dd>
     </div>
   );
 }
