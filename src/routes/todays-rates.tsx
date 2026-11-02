@@ -1,4 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
+import { useServerFn } from "@tanstack/react-start";
+import { getTreasuryYields } from "@/lib/treasury.functions";
 import { Toaster } from "@/components/ui/sonner";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -71,6 +74,16 @@ export const Route = createFileRoute("/todays-rates")({
 });
 
 function TodaysRatesPage() {
+  const fetchYields = useServerFn(getTreasuryYields);
+  const { data } = useQuery({
+    queryKey: ["treasury-yields"],
+    queryFn: () => fetchYields(),
+    refetchInterval: 30 * 60 * 1000,
+    staleTime: 15 * 60 * 1000,
+  });
+  const live = !!data;
+  const treasuryRates = data?.rates ?? TREASURY_RATES;
+  const treasuryAsOf = data?.asOf ?? TREASURY_ASOF;
   return (
     <div className="min-h-screen bg-background text-foreground">
       <RateTicker />
