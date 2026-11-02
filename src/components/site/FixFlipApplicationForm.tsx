@@ -16,7 +16,7 @@ const inputCls =
   "w-full border border-line bg-white px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-gold focus:outline-none transition-colors";
 const labelCls = "block text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-1.5";
 
-type Fields =
+type Name =
   | "first_name"
   | "last_name"
   | "email"
@@ -34,13 +34,10 @@ type Fields =
   | "credit_score"
   | "notes";
 
-type Errs = Partial<Record<Fields, string>>;
-
 export function FixFlipApplicationForm() {
   const submit = useServerFn(submitFixFlipApplication);
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">("idle");
-  const [errs, setErrs] = useState<Errs>({});
-  const [serverErr, setServerErr] = useState("");
+  const [message, setMessage] = useState("");
   const shownAt = useRef(Date.now());
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -48,10 +45,10 @@ export function FixFlipApplicationForm() {
     const fd = new FormData(e.currentTarget);
     if ((fd.get("website") as string)?.length) return;
     if (Date.now() - shownAt.current < 4000) {
-      setServerErr("Please take a moment to complete the application.");
+      setMessage("Please take a moment to complete the application.");
       return;
     }
-    const s = (k: Fields) => String(fd.get(k) ?? "");
+    const s = (k: Name) => String(fd.get(k) ?? "");
     const data = {
       first_name: s("first_name"),
       last_name: s("last_name"),
@@ -69,10 +66,10 @@ export function FixFlipApplicationForm() {
       properties_owned: s("properties_owned"),
       credit_score: s("credit_score"),
       notes: s("notes"),
-      website: s("company") && false ? "" : String(fd.get("website") ?? ""),
+      website: s("website" as Name),
     };
 
-    setServerErr("");
+    setMessage("");
     setStatus("sending");
     try {
       await submit({ data });
@@ -91,30 +88,35 @@ export function FixFlipApplicationForm() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (x) {
       setStatus("error");
-      setServerErr(
+      setMessage(
         x instanceof Error && x.message.length < 140
           ? x.message
-          : "Something went wrong — please call " + PHONE_DISPLAY + ".",
+          : `Something went wrong — please call ${PHONE_DISPLAY}.`,
       );
     }
   }
 
-  const err = (k: Fields) => (errs[k] ? <p className="mt-1 text-xs text-destructive">{errs[k]}</p> : null);
-  const text = (k: Fields, label: string, ph = "", type = "text", ac?: string) => (
+  const text = (k: Name, label: string, ph = "", type = "text", ac?: string, req = false) => (
     <div>
       <label htmlFor={`ff-${k}`} className={labelCls}>{label}</label>
-      <input id={`ff-${k}`} name={k} type={type} autoComplete={ac} placeholder={ph} className={inputCls} />
-      {err(k)}
+      <input
+        id={`ff-${k}`}
+        name={k}
+        type={type}
+        autoComplete={ac}
+        placeholder={ph}
+        required={req}
+        className={inputCls}
+      />
     </div>
   );
-  const select = (k: Fields, label: string, opts: readonly string[]) => (
+  const select = (k: Name, label: string, opts: readonly string[]) => (
     <div>
       <label htmlFor={`ff-${k}`} className={labelCls}>{label}</label>
-      <select id={`ff-${k}`} name={k} defaultValue="" className={inputCls}>
+      <select id={`ff-${k}`} name={k} defaultValue="" required className={inputCls}>
         <option value="" disabled>Select…</option>
         {opts.map((o) => <option key={o}>{o}</option>)}
       </select>
-      {err(k)}
     </div>
   );
   const heading = (n: string, t: string) => (
@@ -143,19 +145,19 @@ export function FixFlipApplicationForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="border border-line bg-white px-6 py-8 md:px-10 md:py-10">
+    <form onSubmit={onSubmit} className="border border-line bg-white px-6 py-8 md:px-10 md:py-10">
       <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         {heading("01", "About you")}
-        {text("first_name", "First name", "", "text", "given-name")}
-        {text("last_name", "Last name", "", "text", "family-name")}
-        {text("email", "Email", "you@email.com", "email", "email")}
-        {text("phone", "Phone", "(555) 555-5555", "tel", "tel")}
+        {text("first_name", "First name", "", "text", "given-name", true)}
+        {text("last_name", "Last name", "", "text", "family-name", true)}
+        {text("email", "Email", "you@email.com", "email", "email", true)}
+        {text("phone", "Phone", "(555) 555-5555", "tel", "tel", true)}
         {text("company", "LLC / entity name (optional)", "Sunrise Holdings LLC")}
 
         {heading("02", "The deal")}
         {text("property_city", "Property city", "Boca Raton")}
-        {text("property_state", "State", "Florida")}
+        {text("property_state", "State", "Florida", "text", undefined, true)}
         {text("purchase_price", "Purchase price", "$350,000")}
         {text("rehab_budget", "Rehab budget", "$80,000")}
         {text("arv", "After-repair value (optional)", "$560,000")}
@@ -185,12 +187,7 @@ export function FixFlipApplicationForm() {
       >
         {status === "sending" ? "Sending…" : "Submit application"} <ArrowRight className="h-4 w-4" />
       </button>
-      {status === "error" && serverErr && (
-        <p className="mt-4 text-sm text-destructive">{serverErr}</p>
-      )}
-      {serverErr && status !== "error" && (
-        <p className="mt-4 text-sm text-destructive">{serverErr}</p>
-      )}
+      {message && <p className="mt-4 text-sm text-destructive">{message}</p>}
       <p className="mt-4 text-xs text-muted-foreground">
         Submitting this form is not a commitment to lend. {COMPANY_NAME} reviews every deal
         personally.
