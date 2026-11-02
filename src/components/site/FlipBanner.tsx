@@ -17,7 +17,11 @@ export function FlipBanner() {
     >
       <div className="mx-auto max-w-7xl px-6 py-8 md:py-11">
         <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-9 lg:gap-14 items-center">
-          <Link to="/fix-and-flip-application" aria-label="Apply for a fix and flip loan">
+          <Link
+            to="/programs/$slug"
+            params={{ slug: "fix-and-flip" }}
+            aria-label="See fix and flip loan program"
+          >
             <img
               src={flipBanner.url}
               alt="The best lender for fix-and-flip and rental loans — $1 billion funded"
