@@ -23,6 +23,8 @@ const KEYWORDS: Record<string, string[]> = {
   "foreign-national": ["foreign national", "expat", "itin", "non-resident", "foreign buyer"],
   "investment-loans": ["investment property", "rental property"],
   "fix-and-flip": ["fix and flip", "fix & flip", "flip"],
+  "ground-up-construction": ["ground-up", "ground up", "construction loan", "new construction"],
+  "no-doc-rental": ["no-doc", "no doc", "rental loan"],
   "bridge-loans": ["bridge loan"],
   "hotel-commercial": ["hotel", "commercial property"],
   "asset-based": ["asset-based", "asset depletion"],

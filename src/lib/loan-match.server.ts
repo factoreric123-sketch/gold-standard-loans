@@ -23,7 +23,7 @@ export type LoanMatchResult = {
 
 export const PROGRAM_SLUGS = [
   "conventional", "fha", "va", "bank-statement", "dscr", "investment-loans", "zero-down",
-  "fix-and-flip", "bridge-loans", "hotel-commercial", "foreign-national", "asset-based",
+  "fix-and-flip", "ground-up-construction", "no-doc-rental", "bridge-loans", "hotel-commercial", "foreign-national", "asset-based",
   "low-credit-score", "heloc", "special-programs",
 ];
 
@@ -73,7 +73,7 @@ Recommend 2-4 of the broker's loan programs that best fit a Florida homebuyer, a
 Allowed program slugs (use ONLY these):
 conventional (conforming, 3-5% down, best with 620+ credit), fha (3.5% down, 580+ credit, flexible), va (veterans/active duty, 0% down),
 bank-statement (self-employed, no tax returns), dscr (investment property qualified on rent), investment-loans, zero-down,
-fix-and-flip, bridge-loans, hotel-commercial, foreign-national (non-U.S. citizens, no U.S. income verification), asset-based (qualify on assets),
+fix-and-flip, ground-up-construction (new builds, 680+ credit, from 10.99%), no-doc-rental (30-yr fixed rental, no income docs, from 5.5%, 660+), bridge-loans, hotel-commercial, foreign-national (non-U.S. citizens, no U.S. income verification), asset-based (qualify on assets),
 low-credit-score (below 620), heloc (tap existing equity), special-programs (Florida Hometown Heroes and Florida Housing down-payment grants for first-time/eligible buyers).
 Consider Florida specifics where relevant: homeowners and flood insurance costs, condo rules, Florida Housing assistance.
 Current posted rates on the site (as of Nov 2, 2026): Conventional 30-yr fixed 6.875%, FHA 30-yr fixed 6.5%, Bank Statement 30-yr fixed 6.875%, Conventional 15-yr fixed 6.125%, VA 30-yr fixed 6.375%. Treasury 5-yr yield 5.072%, 10-yr yield 5.326%. If you mention a rate figure, use these numbers only and say they are today's posted estimates, not an offer.
