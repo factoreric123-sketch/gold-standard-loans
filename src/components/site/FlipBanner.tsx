@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Phone } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
-import flipBanner from "@/assets/flip-best-lender-hi.png.asset.json";
+import flipBanner from "@/assets/flip-best-lender-xl.png.asset.json";
 
 const SPECS = [
   { value: "92.5%", label: "Of purchase" },
@@ -20,8 +20,8 @@ export function FlipBanner() {
           <img
             src={flipBanner.url}
             alt="The best lender for fix-and-flip and rental loans — $1 billion funded"
-            width={929}
-            height={545}
+            width={1393}
+            height={823}
             loading="eager"
             className="block h-auto w-full max-w-[600px]"
           />
