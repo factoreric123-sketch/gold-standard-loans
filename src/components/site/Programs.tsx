@@ -5,6 +5,7 @@ import { PROGRAMS, RATES } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
 export function Programs() {
+  const liveRates = useLiveRates(RATES);
   return (
     <section id="programs" className="bg-background">
       <div className="mx-auto max-w-7xl px-6 py-24 md:py-28">

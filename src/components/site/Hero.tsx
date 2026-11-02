@@ -10,6 +10,7 @@ const heroStats = [
 ];
 
 export function Hero() {
+  const liveRates = useLiveRates(RATES);
   return (
     <section
       id="top"

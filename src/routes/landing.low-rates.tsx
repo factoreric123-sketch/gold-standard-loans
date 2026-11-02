@@ -92,6 +92,7 @@ function MinimalHeader() {
 }
 
 function Hero() {
+  const liveRates = useLiveRates(RATES);
   return (
     <section className="bg-gradient-to-b from-cream to-background">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-14 md:py-20 lg:grid-cols-2 lg:gap-16">
