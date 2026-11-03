@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -20,7 +20,7 @@ import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
-import investorPrograms from "@/assets/investor-loan-program-updates.webp.asset.json";
+import { LoanProgramUpdates } from "@/components/site/LoanProgramUpdates";
 
 export const Route = createFileRoute("/")({
   component: Index,
