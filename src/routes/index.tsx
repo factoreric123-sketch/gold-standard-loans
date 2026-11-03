@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
@@ -20,7 +20,7 @@ import { Contact } from "@/components/site/Contact";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { SITE_URL } from "@/lib/site-data";
-import investorPrograms from "@/assets/investor-loan-program-updates.webp.asset.json";
+import { LoanProgramUpdates } from "@/components/site/LoanProgramUpdates";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -72,24 +72,7 @@ function Index() {
       <main>
         <FlipBanner />
         <Hero />
-        <section aria-label="Loan program updates" className="bg-background">
-          <div className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
-            <Link
-              to="/programs/$slug"
-              params={{ slug: "fix-and-flip" }}
-              aria-label="See fix and flip loan program"
-            >
-              <img
-                src={investorPrograms.url}
-                alt="Loan program updates: Fix-and-Flip and Bridge, Ground-Up Construction, and No-Doc 30-Year Rental financing guidelines"
-                width={839}
-                height={562}
-                loading="lazy"
-                className="block h-auto w-full max-w-4xl mx-auto hover:opacity-90 transition-opacity"
-              />
-            </Link>
-          </div>
-        </section>
+        <LoanProgramUpdates />
         <Programs />
         <HowItWorks />
         <NotarySigning />
