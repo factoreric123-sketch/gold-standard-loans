@@ -72,24 +72,7 @@ function Index() {
       <main>
         <FlipBanner />
         <Hero />
-        <section aria-label="Loan program updates" className="bg-background">
-          <div className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
-            <Link
-              to="/programs/$slug"
-              params={{ slug: "fix-and-flip" }}
-              aria-label="See fix and flip loan program"
-            >
-              <img
-                src={investorPrograms.url}
-                alt="Loan program updates: Fix-and-Flip and Bridge, Ground-Up Construction, and No-Doc 30-Year Rental financing guidelines"
-                width={839}
-                height={562}
-                loading="lazy"
-                className="block h-auto w-full max-w-4xl mx-auto hover:opacity-90 transition-opacity"
-              />
-            </Link>
-          </div>
-        </section>
+        <LoanProgramUpdates />
         <Programs />
         <HowItWorks />
         <NotarySigning />
