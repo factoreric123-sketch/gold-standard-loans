@@ -1645,16 +1645,17 @@ export const PROGRAMS: Program[] = [
   {
     slug: "reverse-mortgage",
     name: "Reverse Mortgages",
-    description: "Turn home equity into cash for homeowners 62+.",
+    description: "Turn home equity into cash for homeowners 62+ — or 55+ with HomeSafe.",
     icon: Coins,
     tagline: "Turn your home equity into cash — with no monthly mortgage payment.",
     overview:
-      "A reverse mortgage lets homeowners 62 and older convert part of their home equity into usable cash without selling the home or taking on a monthly mortgage payment. The most common type is the FHA-insured Home Equity Conversion Mortgage (HECM). The loan is repaid later — when the home is sold or refinanced, or when the last borrower moves out or passes away. For homeowners 55 and older who want to keep their existing low-rate first mortgage, the proprietary HomeSafe Second second-lien reverse mortgage is also available.",
+      "A reverse mortgage lets homeowners convert part of their home equity into usable cash without selling the home or taking on a monthly mortgage payment. The FHA-insured HECM serves homeowners 62 and older; the proprietary HomeSafe First (standard lien) and HomeSafe Second (second lien) options are available from age 55 — including for higher-value homes and borrowers who want to keep an existing low-rate first mortgage. The loan is repaid later — when the home is sold or refinanced, or when the last borrower moves out or passes away.",
     highlights: [
-      "For homeowners 62 and older",
+      "HECM for homeowners 62 and older; HomeSafe options from 55",
       "No monthly mortgage payments",
       "Stay in your home and keep the title",
-      "FHA-insured HECM and jumbo options",
+      "FHA-insured HECM plus proprietary HomeSafe First and Second",
+      "HomeSafe First: more equity from higher-value homes, no FHA insurance",
       "HomeSafe Second: access equity from age 55 while keeping your low-rate first mortgage",
       "Lump sum, monthly payments, line of credit, or a mix",
       "Non-recourse — you never owe more than the home sells for",
@@ -1729,6 +1730,29 @@ export const PROGRAMS: Program[] = [
           "A session with a HUD-approved reverse mortgage counselor.",
           "A financial assessment showing you can keep up with taxes, insurance, and upkeep.",
           "The property meets FHA standards — single-family homes, FHA-approved condos, and certain manufactured and multi-family homes qualify.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "HECM vs. HomeSafe First — which fits your home?",
+        body: [
+          "Choosing between a standard HECM (Home Equity Conversion Mortgage) and a HomeSafe First (standard lien) comes down to home value, age, and how you want to access your equity. While both allow homeowners to eliminate required monthly mortgage payments, they serve entirely different profiles.",
+          "The HECM is the FHA-insured, government-backed reverse mortgage, available to homeowners 62 and older and subject to FHA lending limits — the strongest fit for moderate-value homes and borrowers who want full federal safeguards, including HUD-approved counseling. HomeSafe First is a proprietary, non-FHA reverse mortgage on a standard first lien, generally available from age 55 and not bound by FHA lending limits — designed for higher-value homes, where it can unlock more equity and carries no FHA mortgage insurance premiums. Both typically include non-recourse protection, so you never owe more than the home's value when the loan comes due.",
+        ],
+      },
+      {
+        kind: "cards",
+        title: "HECM and HomeSafe First at a glance",
+        intro: "The right choice depends mainly on your home's value, your age, and how you want to draw the funds:",
+        items: [
+          {
+            title: "HECM (FHA-insured)",
+            body: "Government-insured standard reverse mortgage for homeowners 62+. Subject to FHA lending limits, so it suits moderate-value homes. HUD-approved counseling is required, and FHA mortgage insurance applies. Strongest federal safeguards, including the FHA non-recourse guarantee.",
+          },
+          {
+            title: "HomeSafe First (standard lien)",
+            body: "Proprietary, non-FHA reverse mortgage generally available from age 55. Not bound by FHA lending limits, so higher-value homes can access significantly more equity, with no FHA mortgage insurance premiums. Simplified proprietary underwriting with non-recourse protection.",
+          },
         ],
       },
       {
