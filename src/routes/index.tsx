@@ -3,6 +3,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
+import { ShouldIBuy } from "@/components/site/ShouldIBuy";
 import { FlipBanner } from "@/components/site/FlipBanner";
 import { Programs } from "@/components/site/Programs";
 import { HowItWorks } from "@/components/site/HowItWorks";
@@ -71,6 +72,7 @@ function Index() {
       <main>
         <FlipBanner />
         <Hero />
+        <ShouldIBuy />
         <LoanProgramUpdates />
         <Programs />
         <HowItWorks />
