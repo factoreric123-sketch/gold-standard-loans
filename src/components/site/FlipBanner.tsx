@@ -23,7 +23,7 @@ export function FlipBanner() {
             aria-label="See fix and flip loan program"
           >
             <img
-              src={flipBanner.url}
+              src={flipBanner}
               alt="The best lender for fix-and-flip and rental loans"
               width={1600}
               height={944}
