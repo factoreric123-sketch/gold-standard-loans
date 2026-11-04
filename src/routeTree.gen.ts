@@ -15,6 +15,7 @@ import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BuyAHomeRouteImport } from './routes/buy-a-home'
 import { Route as BuyingUsaHomeRouteImport } from './routes/buying-usa-home'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExpatFormRouteImport } from './routes/expat-form'
 import { Route as FixAndFlipApplicationRouteImport } from './routes/fix-and-flip-application'
 import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
@@ -58,6 +59,11 @@ const BuyAHomeRoute = BuyAHomeRouteImport.update({
 const BuyingUsaHomeRoute = BuyingUsaHomeRouteImport.update({
   id: '/buying-usa-home',
   path: '/buying-usa-home',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExpatFormRoute = ExpatFormRouteImport.update({
@@ -143,6 +149,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
+  '/contact': typeof ContactRoute
   '/expat-form': typeof ExpatFormRoute
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
@@ -165,6 +172,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
+  '/contact': typeof ContactRoute
   '/expat-form': typeof ExpatFormRoute
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
@@ -189,6 +197,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/buy-a-home': typeof BuyAHomeRoute
   '/buying-usa-home': typeof BuyingUsaHomeRoute
+  '/contact': typeof ContactRoute
   '/expat-form': typeof ExpatFormRoute
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
@@ -213,6 +222,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/buy-a-home'
     | '/buying-usa-home'
+    | '/contact'
     | '/expat-form'
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
@@ -235,6 +245,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/buy-a-home'
     | '/buying-usa-home'
+    | '/contact'
     | '/expat-form'
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
@@ -258,6 +269,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/buy-a-home'
     | '/buying-usa-home'
+    | '/contact'
     | '/expat-form'
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
@@ -282,6 +294,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BuyAHomeRoute: typeof BuyAHomeRoute
   BuyingUsaHomeRoute: typeof BuyingUsaHomeRoute
+  ContactRoute: typeof ContactRoute
   ExpatFormRoute: typeof ExpatFormRoute
   FixAndFlipApplicationRoute: typeof FixAndFlipApplicationRoute
   FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
@@ -337,6 +350,13 @@ declare module '@tanstack/react-router' {
       path: '/buying-usa-home'
       fullPath: '/buying-usa-home'
       preLoaderRoute: typeof BuyingUsaHomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/expat-form': {
@@ -471,6 +491,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BuyAHomeRoute: BuyAHomeRoute,
   BuyingUsaHomeRoute: BuyingUsaHomeRoute,
+  ContactRoute: ContactRoute,
   ExpatFormRoute: ExpatFormRoute,
   FixAndFlipApplicationRoute: FixAndFlipApplicationRoute,
   FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,

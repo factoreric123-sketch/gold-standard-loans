@@ -33,7 +33,7 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const triggerClass =
