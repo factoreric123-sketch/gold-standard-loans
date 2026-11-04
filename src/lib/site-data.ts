@@ -1737,7 +1737,16 @@ export const PROGRAMS: Program[] = [
         title: "HECM vs. HomeSafe First — which fits your home?",
         body: [
           "Choosing between a standard HECM (Home Equity Conversion Mortgage) and a HomeSafe First (standard lien) comes down to home value, age, and how you want to access your equity. While both allow homeowners to eliminate required monthly mortgage payments, they serve entirely different profiles.",
-          "The HECM is the FHA-insured, government-backed reverse mortgage, available to homeowners 62 and older and subject to FHA lending limits — the strongest fit for moderate-value homes and borrowers who want full federal safeguards, including HUD-approved counseling. HomeSafe First is a proprietary, non-FHA reverse mortgage on a standard first lien, generally available from age 55 and not bound by FHA lending limits — designed for higher-value homes, where it can unlock more equity and carries no FHA mortgage insurance premiums. Both typically include non-recourse protection, so you never owe more than the home's value when the loan comes due.",
+          "On a $2,000,000 home, a HECM calculates borrowing capacity only up to the FHA cap — currently $1,249,125 — while HomeSafe First lets borrowers tap the full multi-million-dollar equity of high-value properties. HECMs carry high upfront Mortgage Insurance Premiums (MIP) that are added to the loan balance; HomeSafe First cuts out the FHA insurance fee entirely, which can save tens of thousands of dollars at closing on large estates — though proprietary jumbo loans generally carry slightly higher interest rates to compensate for the lack of federal backing. HomeSafe also opens the door for homeowners aged 55 to 61 who need to eliminate their mortgage payments but do not yet qualify for a standard HECM.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "Key differences and trade-offs",
+        items: [
+          { term: "Home value and cap limits", def: "If a home is worth $2,000,000, a HECM calculates borrowing capacity only on the FHA cap of $1,249,125. HomeSafe First allows borrowers to tap into the full multi-million dollar equity of high-value properties." },
+          { term: "Upfront and ongoing costs", def: "HECMs carry high upfront Mortgage Insurance Premiums (MIP) that add to the loan balance. HomeSafe First cuts out the FHA insurance fee entirely — potentially saving tens of thousands of dollars at closing on large estates — but proprietary jumbo loans generally carry slightly higher interest rates to compensate for the lack of federal backing." },
+          { term: "Age requirements", def: "HomeSafe opens an option for homeowners aged 55 to 61 who need to eliminate their forward mortgage payments but do not yet qualify for a standard HECM." },
         ],
       },
       {
@@ -1747,11 +1756,29 @@ export const PROGRAMS: Program[] = [
         items: [
           {
             title: "HECM (FHA-insured)",
-            body: "Government-insured standard reverse mortgage for homeowners 62+. Subject to FHA lending limits, so it suits moderate-value homes. HUD-approved counseling is required, and FHA mortgage insurance applies. Strongest federal safeguards, including the FHA non-recourse guarantee.",
+            body: "Government-insured standard reverse mortgage for homeowners 62+. Borrowing capacity is capped at the FHA limit of $1,249,125, and high upfront MIP is added to the loan balance. HUD-approved counseling is required. Usually preferred when a flexible, growing line of credit is the primary goal and the home's value does not dictate a jumbo loan.",
           },
           {
             title: "HomeSafe First (standard lien)",
-            body: "Proprietary, non-FHA reverse mortgage generally available from age 55. Not bound by FHA lending limits, so higher-value homes can access significantly more equity, with no FHA mortgage insurance premiums. Simplified proprietary underwriting with non-recourse protection.",
+            body: "Proprietary, non-FHA reverse mortgage for homeowners from age 55 — the only viable path for those under 62. Not bound by FHA lending limits, so high-value homes can access their full multi-million-dollar equity, with no FHA insurance fee at closing. Interest rates generally run slightly higher than HECM to offset the lack of federal backing.",
+          },
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "How to structure the choice",
+        items: [
+          {
+            title: "Verify age eligibility",
+            body: "If the homeowner is under 62, a proprietary product like HomeSafe First is the only viable path to a reverse mortgage.",
+          },
+          {
+            title: "Review the home appraisal",
+            body: "Compare the estimated market value against the current HECM limit of $1,249,125 — homes well above it are natural candidates for HomeSafe First.",
+          },
+          {
+            title: "Assess the payout goal",
+            body: "If a flexible, growing line of credit is the primary goal for long-term security, a HECM is usually preferred — unless the property value heavily dictates a jumbo loan.",
           },
         ],
       },
