@@ -8,6 +8,7 @@ import { ProgramExtras } from "@/components/site/ProgramExtras";
 import { Reveal } from "@/components/site/motion";
 import { ReverseCalculator } from "@/components/site/ReverseCalculator";
 import { VaLoanReview } from "@/components/site/VaLoanReview";
+import { VaCashOutEstimator } from "@/components/site/VaCashOutEstimator";
 import { useToolTracking } from "@/lib/track";
 import {
   PROGRAMS,
@@ -165,6 +166,7 @@ function ProgramPage() {
         </section>
 
         {/* Generic rich extras (paragraphs, numbered, cards, lists, formulas) for programs that ship them */}
+        {slug === "va" && <VaCashOutEstimator />}
         {program.extras && <ProgramExtras sections={program.extras} />}
         {slug === "reverse-mortgage" && <ReverseCalculator />}
         {slug === "va" && <VaLoanReview />}
