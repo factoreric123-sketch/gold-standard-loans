@@ -25,7 +25,7 @@ const navItems: NavItem[] = [
   },
   { label: "Reverse Mortgages", href: "/programs/reverse-mortgage" },
   {
-    label: "International Buyers",
+    label: "International Clients",
     items: [
       { href: "/buying-usa-home", label: "Expats Buying a USA Home" },
       { href: "/buy-a-home", label: "USA Mortgage for Expats" },

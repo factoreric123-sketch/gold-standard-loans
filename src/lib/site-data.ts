@@ -1583,7 +1583,7 @@ export const PROGRAMS: Program[] = [
       "Competitive fixed and adjustable terms",
     ],
     idealFor: [
-      "Non-resident international buyers",
+      "Non-resident international clients",
       "Foreign investors in U.S. real estate",
       "Buyers of U.S. vacation homes",
     ],

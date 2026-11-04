@@ -215,7 +215,7 @@ const FAQ = [
   },
   {
     q: "Can I buy a home in the USA if I live abroad or am not a US citizen?",
-    a: "Yes. Warren closes foreign national, ITIN, and asset-based loans for international buyers. If that's your situation, visit our Mortgages for Expats page for tailored guidance.",
+    a: "Yes. Warren closes foreign national, ITIN, and asset-based loans for international clients. If that's your situation, visit our Mortgages for Expats page for tailored guidance.",
   },
   {
     q: "What's the difference between pre-qualification and pre-approval?",

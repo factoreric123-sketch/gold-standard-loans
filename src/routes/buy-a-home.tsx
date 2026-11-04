@@ -289,7 +289,7 @@ function BuyAHomePage() {
           <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
             <Reveal>
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
-                Built for international buyers
+                Built for international clients
               </div>
               <h2 className="font-serif text-3xl md:text-4xl max-w-2xl">
                 Your US mortgage — handled from anywhere on earth
@@ -297,7 +297,7 @@ function BuyAHomePage() {
               <p className="mt-5 text-foreground/65 max-w-2xl leading-relaxed">
                 For nearly 30 years, {BROKER_NAME} has helped expats, foreign nationals,
                 and ITIN borrowers finance homes across the USA — licensed in 32 states. Most
-                lenders turn international buyers away. Warren specializes in saying yes —
+                lenders turn international clients away. Warren specializes in saying yes —
                 structuring loans around foreign income, liquid assets, and rental cash
                 flow instead of a US credit score.
               </p>
@@ -349,7 +349,7 @@ function BuyAHomePage() {
                   and the property's rental value.
                 </p>
                 <p>
-                  Two paths cover most international buyers. A <strong>residential</strong>{" "}
+                  Two paths cover most international clients. A <strong>residential</strong>{" "}
                   expat mortgage is for buyers who will live in the home themselves — now
                   or after relocating. A <strong>buy-to-let</strong> (investment) mortgage
                   is for buyers who will rent the property out, qualifying on the rental
@@ -378,7 +378,7 @@ function BuyAHomePage() {
               </h2>
               <p className="mt-4 text-foreground/60 max-w-2xl leading-relaxed">
                 Navigating foreign-income documentation, ITIN rules, and cross-border
-                closings on your own is where most international buyers give up. Warren
+                closings on your own is where most international clients give up. Warren
                 handles it end to end.
               </p>
             </Reveal>
@@ -434,7 +434,7 @@ function BuyAHomePage() {
                       where down payments can range from{" "}
                       <span className="text-gold font-medium">30–35%</span>. It's important to
                       shop for a mortgage lender and consult with experienced mortgage
-                      brokers to find the best home loan options for international buyers.
+                      brokers to find the best home loan options for international clients.
                     </p>
                     <Link
                       to="/expat-form"
@@ -623,7 +623,7 @@ function BuyAHomePage() {
               <div className="text-[11px] uppercase tracking-[0.25em] text-gold mb-4">
                 Expat mortgage questions
               </div>
-              <h2 className="font-serif text-3xl md:text-4xl">Answers for international buyers</h2>
+              <h2 className="font-serif text-3xl md:text-4xl">Answers for international clients</h2>
             </Reveal>
             <div className="mt-8 divide-y divide-line">
               {FAQ.map((f) => (
@@ -708,7 +708,7 @@ function BuyAHomePage() {
               <h2 className="font-serif text-3xl md:text-4xl">Ready to buy in the USA?</h2>
               <p className="mt-3 text-foreground/60 max-w-xl">
                 Wherever you are in the world, call Warren for today's exact rate and a
-                pre-approval built for international buyers.
+                pre-approval built for international clients.
               </p>
               <div className="mt-7 grid sm:grid-cols-2 gap-4 text-sm">
                 <a
