@@ -325,6 +325,7 @@ export const PROGRAMS: Program[] = [
     highlights: [
       "0% down payment for eligible borrowers",
       "No monthly private mortgage insurance, ever",
+      "Cash-out refinance up to 100% of appraised value",
       "Competitive, often below-market rates",
       "Limited closing costs",
       "A reusable benefit for future purchases",
