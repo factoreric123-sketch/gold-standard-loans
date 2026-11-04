@@ -170,27 +170,41 @@ function ProgramPage() {
         </section>
 
         {slug === "va" && (
-          <section id="va-cash-out-flyer" className="border-t border-line bg-background">
-            <div className="mx-auto max-w-5xl px-6 py-12 md:py-16">
-              <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
-                <h2 className="font-serif text-3xl md:text-4xl">100% VA Cash-Out Refinance</h2>
-                <Button asChild variant="outline" className="min-h-11 rounded-none">
+          <section id="va-cash-out-flyer" aria-label="Featured: 100% VA cash-out refinance flyer" className="border-t border-line bg-charcoal text-background">
+            <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
+              <div className="mb-8 text-center">
+                <div className="mb-4 flex items-center justify-center gap-3 text-[11px] uppercase tracking-[0.3em] text-gold">
+                  <span className="h-px w-10 bg-gold" aria-hidden="true" />
+                  Featured
+                  <span className="h-px w-10 bg-gold" aria-hidden="true" />
+                </div>
+                <h2 className="font-serif text-3xl md:text-5xl text-background">100% VA Cash-Out Refinance</h2>
+                <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-background/70">
+                  Financing, credit guidelines, funding fees, closing expenses, and seasoning requirements — all on one page.
+                </p>
+                <Button asChild className="mt-5 min-h-11 rounded-none bg-gold text-charcoal hover:bg-gold/85">
                   <a href={vaFlyerPdf.url} target="_blank" rel="noopener noreferrer">
                     <FileText aria-hidden="true" /> Open flyer PDF
                   </a>
                 </Button>
               </div>
-              <a href={vaFlyerPdf.url} target="_blank" rel="noopener noreferrer" aria-label="Open the VA cash-out refinance flyer PDF" className="block mx-auto max-w-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
-                <img
-                  src={vaFlyerImage.url}
-                  alt="Warren M. Factor's 100% VA cash-out refinance flyer: financing, credit guidelines, funding fees, closing expenses, and seasoning requirements. Call 561-577-1882."
-                  width={1391}
-                  height={1800}
-                  loading="lazy"
-                  className="block h-auto w-full"
-                />
-              </a>
-              <p className="mx-auto mt-5 max-w-3xl text-xs leading-relaxed text-foreground/60">
+              <div className="relative mx-auto max-w-3xl border-2 border-gold p-2">
+                <span aria-hidden="true" className="absolute -left-1 -top-1 h-6 w-6 border-l-2 border-t-2 border-gold" />
+                <span aria-hidden="true" className="absolute -right-1 -top-1 h-6 w-6 border-r-2 border-t-2 border-gold" />
+                <span aria-hidden="true" className="absolute -bottom-1 -left-1 h-6 w-6 border-b-2 border-l-2 border-gold" />
+                <span aria-hidden="true" className="absolute -bottom-1 -right-1 h-6 w-6 border-b-2 border-r-2 border-gold" />
+                <a href={vaFlyerPdf.url} target="_blank" rel="noopener noreferrer" aria-label="Open the VA cash-out refinance flyer PDF" className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+                  <img
+                    src={vaFlyerImage.url}
+                    alt="Warren M. Factor's 100% VA cash-out refinance flyer: financing, credit guidelines, funding fees, closing expenses, and seasoning requirements. Call 561-577-1882."
+                    width={1391}
+                    height={1800}
+                    loading="lazy"
+                    className="block h-auto w-full"
+                  />
+                </a>
+              </div>
+              <p className="mx-auto mt-6 max-w-3xl text-xs leading-relaxed text-background/60">
                 Flyer terms are subject to lender guidelines and individual eligibility. Credit-score and loan-to-value limits are lender-specific; funding-fee exemptions, seasoning, closing costs, and net proceeds require review. No approval or zero-out-of-pocket costs are guaranteed.
               </p>
             </div>
