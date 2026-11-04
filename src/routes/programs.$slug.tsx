@@ -1,5 +1,8 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Check, Phone, Users } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, FileText, Phone, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import vaFlyerImage from "@/assets/va-cash-out-flyer.jpg.asset.json";
+import vaFlyerPdf from "@/assets/va-cash-out-flyer.pdf.asset.json";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -165,6 +168,34 @@ function ProgramPage() {
             </Reveal>
           </div>
         </section>
+
+        {slug === "va" && (
+          <section id="va-cash-out-flyer" className="border-t border-line bg-background">
+            <div className="mx-auto max-w-5xl px-6 py-12 md:py-16">
+              <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+                <h2 className="font-serif text-3xl md:text-4xl">100% VA Cash-Out Refinance</h2>
+                <Button asChild variant="outline" className="min-h-11 rounded-none">
+                  <a href={vaFlyerPdf.url} target="_blank" rel="noopener noreferrer">
+                    <FileText aria-hidden="true" /> Open flyer PDF
+                  </a>
+                </Button>
+              </div>
+              <a href={vaFlyerPdf.url} target="_blank" rel="noopener noreferrer" aria-label="Open the VA cash-out refinance flyer PDF" className="block mx-auto max-w-3xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
+                <img
+                  src={vaFlyerImage.url}
+                  alt="Warren M. Factor's 100% VA cash-out refinance flyer: financing, credit guidelines, funding fees, closing expenses, and seasoning requirements. Call 561-577-1882."
+                  width={1391}
+                  height={1800}
+                  loading="lazy"
+                  className="block h-auto w-full"
+                />
+              </a>
+              <p className="mx-auto mt-5 max-w-3xl text-xs leading-relaxed text-foreground/60">
+                Flyer terms are subject to lender guidelines and individual eligibility. Credit-score and loan-to-value limits are lender-specific; funding-fee exemptions, seasoning, closing costs, and net proceeds require review. No approval or zero-out-of-pocket costs are guaranteed.
+              </p>
+            </div>
+          </section>
+        )}
 
         {/* Generic rich extras (paragraphs, numbered, cards, lists, formulas) for programs that ship them */}
         {slug === "va" && <VaCashOutEstimator />}
