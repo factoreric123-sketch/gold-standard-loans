@@ -9,13 +9,6 @@ type NavItem = { label: string; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
-    label: "International Buyers",
-    items: [
-      { href: "/buying-usa-home", label: "Expats Buying a USA Home" },
-      { href: "/buy-a-home", label: "USA Mortgage for Expats" },
-    ],
-  },
-  {
     label: "Loan Programs",
     items: [
       ...PROGRAMS.map((p) => ({ href: `/programs/${p.slug}`, label: p.name })),
@@ -31,6 +24,13 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Reverse Mortgages", href: "/programs/reverse-mortgage" },
+  {
+    label: "International Buyers",
+    items: [
+      { href: "/buying-usa-home", label: "Expats Buying a USA Home" },
+      { href: "/buy-a-home", label: "USA Mortgage for Expats" },
+    ],
+  },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];
