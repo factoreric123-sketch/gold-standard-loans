@@ -6,6 +6,8 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { MobileCTA } from "@/components/site/MobileCTA";
 import { ProgramExtras } from "@/components/site/ProgramExtras";
 import { Reveal } from "@/components/site/motion";
+import { ReverseCalculator } from "@/components/site/ReverseCalculator";
+import { VaLoanReview } from "@/components/site/VaLoanReview";
 import { useToolTracking } from "@/lib/track";
 import {
   PROGRAMS,
@@ -164,6 +166,8 @@ function ProgramPage() {
 
         {/* Generic rich extras (paragraphs, numbered, cards, lists, formulas) for programs that ship them */}
         {program.extras && <ProgramExtras sections={program.extras} />}
+        {slug === "reverse-mortgage" && <ReverseCalculator />}
+        {slug === "va" && <VaLoanReview />}
 
         {/* Credit-score guide — rendered only for programs that ship this content (e.g. low-credit-score) */}
         {program.creditTiers && (

@@ -73,7 +73,7 @@ const UPDATES: Update[] = [
     specs: [
       { k: "Down payment", v: "0% for eligible borrowers" },
       { k: "Mortgage insurance", v: "None — no monthly PMI, ever", accent: true },
-      { k: "Rate", v: "30-yr fixed 6.75%" },
+      { k: "Rate", v: "30-yr fixed 6.375%" },
       { k: "Term", v: "15 & 30 years fixed" },
       { k: "Closing costs", v: "Limited — capped by VA rules" },
       { k: "Entitlement", v: "Reusable for future purchases" },
