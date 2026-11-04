@@ -3,7 +3,6 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { CheckCircle2, ArrowRight, Lock } from "lucide-react";
 import { COMPANY_NAME, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
-import { supabase } from "@/integrations/supabase/client";
 
 const ACCESS_KEY = "2fb7050f-5c48-468f-a1c0-2f0e073f38c5";
 // T-Mobile email-to-text gateway for (561) 577-1882
@@ -94,17 +93,13 @@ export function ApplicationForm() {
         body: JSON.stringify({ access_key: ACCESS_KEY, ...body }),
       }).then((r) => r.json() as Promise<{ success?: boolean }>).then((j) => j.success === true).catch(() => false);
 
-    const [saved, emailed] = await Promise.all([
-      supabase.from("contact_submissions").insert({
-        first_name: d.firstName, last_name: d.lastName, phone: d.phone, email: d.email,
-        loan_type: `Mortgage Application — ${d.loanProgram}`, message: summary,
-      }).then(({ error }) => !error, () => false),
+    const [emailed] = await Promise.all([
       post({ subject: `NEW MORTGAGE APPLICATION — ${name}`, from_name: `${COMPANY_NAME} website`, replyto: d.email, name, email: d.email, phone: d.phone, application: summary }),
       post({ ccemail: SMS_GATEWAY, subject: `Application: ${name}`, from_name: "TDMS",
         message: `New app: ${name} ${d.phone} | ${d.purpose} ${d.loanProgram} | ${d.loanAmount} | ${d.propertyState} | credit ${d.credit} | ${d.timeline}`.slice(0, 300) }),
     ]);
     setSubmitting(false);
-    if (saved || emailed) {
+    if (emailed) {
       setDone(true);
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
