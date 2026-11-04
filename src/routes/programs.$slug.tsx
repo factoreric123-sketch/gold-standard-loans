@@ -9,6 +9,7 @@ import { Reveal } from "@/components/site/motion";
 import { ReverseCalculator } from "@/components/site/ReverseCalculator";
 import { VaLoanReview } from "@/components/site/VaLoanReview";
 import { VaCashOutEstimator } from "@/components/site/VaCashOutEstimator";
+import { VaFaq } from "@/components/site/VaFaq";
 import { useToolTracking } from "@/lib/track";
 import {
   PROGRAMS,
@@ -169,6 +170,7 @@ function ProgramPage() {
         {slug === "va" && <VaCashOutEstimator />}
         {program.extras && <ProgramExtras sections={program.extras} />}
         {slug === "reverse-mortgage" && <ReverseCalculator />}
+        {slug === "va" && <VaFaq />}
         {slug === "va" && <VaLoanReview />}
 
         {/* Credit-score guide — rendered only for programs that ship this content (e.g. low-credit-score) */}
