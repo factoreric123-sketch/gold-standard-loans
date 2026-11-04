@@ -3,8 +3,8 @@ import { ArrowLeft, ArrowRight, Check, FileText, Phone, Users } from "lucide-rea
 import { Button } from "@/components/ui/button";
 import vaFlyerImage from "@/assets/va-cash-out-flyer.jpg.asset.json";
 import vaFlyerPdf from "@/assets/va-cash-out-flyer.pdf.asset.json";
-import reverseFlyerImage from "@/assets/reverse-mortgage-flyer.png.asset.json";
-import reverseFlyerPdf from "@/assets/reverse-mortgage-flyer.pdf.asset.json";
+import reverseFlyerImage from "@/assets/homesafe-second-flyer.jpg.asset.json";
+import reverseFlyerPdf from "@/assets/homesafe-second-flyer.pdf.asset.json";
 import { RateTicker } from "@/components/site/RateTicker";
 import { SiteNav } from "@/components/site/SiteNav";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -222,9 +222,9 @@ function ProgramPage() {
                   Featured
                   <span className="h-px w-10 bg-gold" aria-hidden="true" />
                 </div>
-                <h2 className="font-serif text-3xl md:text-5xl text-background">No Monthly Payments — HomeSafe Reverse Mortgages</h2>
+                <h2 className="font-serif text-3xl md:text-5xl text-background">HomeSafe Second — Keep Your First Mortgage</h2>
                 <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-background/70">
-                  HomeSafe Second and HomeSafe First on one page — second lien, first-lien options, credit guidelines, and payout choices.
+                  Access home equity without changing your existing first mortgage or adding a monthly mortgage payment. See eligibility and loan details in Warren’s flyer.
                 </p>
                 <Button asChild className="mt-5 min-h-11 rounded-none bg-gold text-charcoal hover:bg-gold/85">
                   <a href={reverseFlyerPdf.url} target="_blank" rel="noopener noreferrer">
@@ -240,9 +240,9 @@ function ProgramPage() {
                 <a href={reverseFlyerPdf.url} target="_blank" rel="noopener noreferrer" aria-label="Open the HomeSafe reverse mortgage flyer PDF" className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-gold">
                   <img
                     src={reverseFlyerImage.url}
-                    alt="Warren M. Factor's reverse mortgage flyer: no monthly payments, HomeSafe Second and HomeSafe First, ages 55+, 600 minimum credit score, non-recourse protection. Call 561-577-1882."
-                    width={1024}
-                    height={1408}
+                    alt="Warren M. Factor's HomeSafe Second flyer: access equity without modifying your first mortgage, ages 55+ in most states, loan distribution, current fully amortizing first mortgage requirement, and non-recourse protection. Call 561-577-1882."
+                    width={1275}
+                    height={1650}
                     loading="lazy"
                     className="block h-auto w-full"
                   />
