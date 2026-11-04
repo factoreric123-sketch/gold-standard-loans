@@ -690,12 +690,18 @@ export const PROGRAMS: Program[] = [
     overview:
       "Debt-Service Coverage Ratio (DSCR) loans qualify based on a property's rental income rather than your personal income. Approval hinges on whether the rent covers the mortgage payment — making them a favorite for investors scaling a portfolio.",
     highlights: [
+      "85% LTV for purchase, rate & term refi",
+      "80% LTV for cash-out",
+      "Max 75% LTV with DSCR below 1.0 (.75)",
+      "Loan amounts to $3,500,000",
+      "Down to 620 FICO",
+      "Business purpose lending — broker license may not be required",
+      "No limit on financed properties",
+      "Gift funds allowed",
+      "Short-term rentals: Airbnb, VRBO — purchase, rate & term refi, cash-out",
+      "15, 30 and 40-year fixed terms; non-standard terms also available",
       "No income verification — investment properties only",
-      "Qualify on property cash flow, not personal income",
-      "No tax returns or employment verification",
       "Close in an LLC to protect personal assets",
-      "Finance an unlimited number of properties",
-      "Fast closings for competitive deals",
     ],
     idealFor: [
       "Real-estate investors growing a portfolio",
