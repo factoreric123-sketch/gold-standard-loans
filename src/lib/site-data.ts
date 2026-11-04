@@ -1783,6 +1783,29 @@ export const PROGRAMS: Program[] = [
         ],
       },
       {
+        kind: "cards",
+        title: "The HomeSafe advantage",
+        intro: "What a HomeSafe reverse mortgage delivers:",
+        items: [
+          {
+            title: "Eliminate your monthly mortgage payment",
+            body: "A HomeSafe loan pays off any existing mortgage. You can repay as much or as little of the new loan balance each month.",
+          },
+          {
+            title: "Access equity with fewer upfront costs",
+            body: "With no mortgage insurance premiums, more of your home's equity can go toward your goals.",
+          },
+          {
+            title: "Stay in your home and keep ownership",
+            body: "You retain full ownership of your home. Continue living there as long as you comply with the loan terms.",
+          },
+          {
+            title: "Flexible funding and payment options",
+            body: "Access your home equity through a lump sum, line of credit, monthly payments, or any combination.",
+          },
+        ],
+      },
+      {
         kind: "paragraphs",
         title: "HomeSafe Second — access equity without touching your first mortgage",
         body: [
