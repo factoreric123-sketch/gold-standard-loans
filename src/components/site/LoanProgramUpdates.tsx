@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Construction, Hammer, KeyRound, Phone } from "lucide-react";
+import { ArrowRight, Construction, Flag, Hammer, KeyRound, Phone } from "lucide-react";
 import { PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
 import { Reveal } from "@/components/site/motion";
 
@@ -65,6 +65,22 @@ const UPDATES: Update[] = [
       { k: "Credit", v: "620+" },
     ],
   },
+  {
+    slug: "va",
+    name: "VA Mortgage",
+    icon: Flag,
+    lead: "Zero-down home financing for veterans, active-duty military and eligible surviving spouses.",
+    specs: [
+      { k: "Down payment", v: "0% for eligible borrowers" },
+      { k: "Mortgage insurance", v: "None — no monthly PMI, ever", accent: true },
+      { k: "Rate", v: "30-yr fixed 6.75%" },
+      { k: "Term", v: "15 & 30 years fixed" },
+      { k: "Closing costs", v: "Limited — capped by VA rules" },
+      { k: "Entitlement", v: "Reusable for future purchases" },
+      { k: "Eligibility", v: "COE based on service history" },
+      { k: "Purpose", v: "Purchase, refi or cash-out" },
+    ],
+  },
 ];
 
 export function LoanProgramUpdates() {
@@ -79,12 +95,12 @@ export function LoanProgramUpdates() {
             Investor guidelines, <span className="italic text-gold">at a glance.</span>
           </h2>
           <p className="mt-5 text-foreground/60 max-w-xl leading-relaxed">
-            Three programs for flippers, builders and buy-and-hold investors. Every figure below is
-            live on the page — tap any program for the full guidelines.
+            Four programs — investor guidelines and the VA mortgage benefit, side by side. Every
+            figure below is live on the page — tap any program for the full guidelines.
           </p>
         </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {UPDATES.map((u, i) => {
             const Icon = u.icon;
             return (
