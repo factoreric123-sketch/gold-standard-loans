@@ -6,7 +6,6 @@ import { Hero } from "@/components/site/Hero";
 import { FlipBanner } from "@/components/site/FlipBanner";
 import { Programs } from "@/components/site/Programs";
 import { HowItWorks } from "@/components/site/HowItWorks";
-import { NotarySigning } from "@/components/site/NotarySigning";
 import { Calculator } from "@/components/site/Calculator";
 import { Insights } from "@/components/site/Insights";
 import { WhyWarren } from "@/components/site/WhyWarren";
@@ -75,7 +74,6 @@ function Index() {
         <LoanProgramUpdates />
         <Programs />
         <HowItWorks />
-        <NotarySigning />
         <Calculator />
         <Insights />
         <WhyWarren />

@@ -30,7 +30,7 @@ const navItems: NavItem[] = [
       { href: "/rate-news", label: "Rate Prediction" },
     ],
   },
-  { label: "Notary", href: "/notary" },
+  { label: "Reverse Mortgages", href: "/programs/reverse-mortgage" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/#contact" },
 ];

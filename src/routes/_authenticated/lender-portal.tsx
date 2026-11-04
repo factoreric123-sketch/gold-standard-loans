@@ -88,7 +88,6 @@ function LenderPortal() {
           <div className="flex items-center gap-5 text-xs uppercase tracking-[0.2em]">
             <Link to="/admin" className="text-foreground/60 hover:text-gold">Blog Admin</Link>
             <Link to="/live-chat" className="text-foreground/60 hover:text-gold">Live Chat</Link>
-            <Link to="/notary-onboarding" className="text-foreground/60 hover:text-gold">Public form</Link>
           </div>
         </div>
       </header>

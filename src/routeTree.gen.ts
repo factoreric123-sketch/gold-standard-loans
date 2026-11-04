@@ -19,8 +19,6 @@ import { Route as ExpatFormRouteImport } from './routes/expat-form'
 import { Route as FixAndFlipApplicationRouteImport } from './routes/fix-and-flip-application'
 import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
 import { Route as LoanMatchRouteImport } from './routes/loan-match'
-import { Route as NotaryRouteImport } from './routes/notary'
-import { Route as NotaryOnboardingRouteImport } from './routes/notary-onboarding'
 import { Route as RateNewsRouteImport } from './routes/rate-news'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
 import { Route as TodaysRatesRouteImport } from './routes/todays-rates'
@@ -80,16 +78,6 @@ const FreeMortgageAdviceRoute = FreeMortgageAdviceRouteImport.update({
 const LoanMatchRoute = LoanMatchRouteImport.update({
   id: '/loan-match',
   path: '/loan-match',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NotaryRoute = NotaryRouteImport.update({
-  id: '/notary',
-  path: '/notary',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const NotaryOnboardingRoute = NotaryOnboardingRouteImport.update({
-  id: '/notary-onboarding',
-  path: '/notary-onboarding',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RateNewsRoute = RateNewsRouteImport.update({
@@ -159,8 +147,6 @@ export interface FileRoutesByFullPath {
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
-  '/notary': typeof NotaryRoute
-  '/notary-onboarding': typeof NotaryOnboardingRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
@@ -183,8 +169,6 @@ export interface FileRoutesByTo {
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
-  '/notary': typeof NotaryRoute
-  '/notary-onboarding': typeof NotaryOnboardingRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
@@ -209,8 +193,6 @@ export interface FileRoutesById {
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
   '/loan-match': typeof LoanMatchRoute
-  '/notary': typeof NotaryRoute
-  '/notary-onboarding': typeof NotaryOnboardingRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
   '/todays-rates': typeof TodaysRatesRoute
@@ -235,8 +217,6 @@ export interface FileRouteTypes {
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
     | '/loan-match'
-    | '/notary'
-    | '/notary-onboarding'
     | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
@@ -259,8 +239,6 @@ export interface FileRouteTypes {
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
     | '/loan-match'
-    | '/notary'
-    | '/notary-onboarding'
     | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
@@ -284,8 +262,6 @@ export interface FileRouteTypes {
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
     | '/loan-match'
-    | '/notary'
-    | '/notary-onboarding'
     | '/rate-news'
     | '/special-programs'
     | '/todays-rates'
@@ -310,8 +286,6 @@ export interface RootRouteChildren {
   FixAndFlipApplicationRoute: typeof FixAndFlipApplicationRoute
   FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
   LoanMatchRoute: typeof LoanMatchRoute
-  NotaryRoute: typeof NotaryRoute
-  NotaryOnboardingRoute: typeof NotaryOnboardingRoute
   RateNewsRoute: typeof RateNewsRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
   TodaysRatesRoute: typeof TodaysRatesRoute
@@ -391,20 +365,6 @@ declare module '@tanstack/react-router' {
       path: '/loan-match'
       fullPath: '/loan-match'
       preLoaderRoute: typeof LoanMatchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/notary': {
-      id: '/notary'
-      path: '/notary'
-      fullPath: '/notary'
-      preLoaderRoute: typeof NotaryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/notary-onboarding': {
-      id: '/notary-onboarding'
-      path: '/notary-onboarding'
-      fullPath: '/notary-onboarding'
-      preLoaderRoute: typeof NotaryOnboardingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rate-news': {
@@ -515,8 +475,6 @@ const rootRouteChildren: RootRouteChildren = {
   FixAndFlipApplicationRoute: FixAndFlipApplicationRoute,
   FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,
   LoanMatchRoute: LoanMatchRoute,
-  NotaryRoute: NotaryRoute,
-  NotaryOnboardingRoute: NotaryOnboardingRoute,
   RateNewsRoute: RateNewsRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
   TodaysRatesRoute: TodaysRatesRoute,

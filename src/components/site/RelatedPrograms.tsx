@@ -25,6 +25,7 @@ const KEYWORDS: Record<string, string[]> = {
   "fix-and-flip": ["fix and flip", "fix & flip", "flip"],
   "ground-up-construction": ["ground-up", "ground up", "construction loan", "new construction"],
   "no-doc-rental": ["no-doc", "no doc", "rental loan"],
+  "reverse-mortgage": ["reverse mortgage", "hecm", "senior", "62"],
   "bridge-loans": ["bridge loan"],
   "hotel-commercial": ["hotel", "commercial property"],
   "asset-based": ["asset-based", "asset depletion"],

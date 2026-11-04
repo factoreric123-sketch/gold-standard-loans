@@ -1642,6 +1642,118 @@ export const PROGRAMS: Program[] = [
       "Investors leveraging equity for new deals",
     ],
   },
+  {
+    slug: "reverse-mortgage",
+    name: "Reverse Mortgages",
+    description: "Turn home equity into cash for homeowners 62+.",
+    icon: Coins,
+    tagline: "Turn your home equity into cash — with no monthly mortgage payment.",
+    overview:
+      "A reverse mortgage lets homeowners 62 and older convert part of their home equity into usable cash without selling the home or taking on a monthly mortgage payment. The most common type is the FHA-insured Home Equity Conversion Mortgage (HECM). The loan is repaid later — when the home is sold or refinanced, or when the last borrower moves out or passes away.",
+    highlights: [
+      "For homeowners 62 and older",
+      "No monthly mortgage payments",
+      "Stay in your home and keep the title",
+      "FHA-insured HECM and jumbo options",
+      "Lump sum, monthly payments, line of credit, or a mix",
+      "Non-recourse — you never owe more than the home sells for",
+    ],
+    idealFor: [
+      "Homeowners 62+ with significant equity",
+      "Retirees who want extra monthly cash flow",
+      "Homeowners who plan to age in place",
+    ],
+    extras: [
+      {
+        kind: "paragraphs",
+        title: "What is a reverse mortgage?",
+        body: [
+          "A reverse mortgage is a loan available to homeowners aged 62 and older that converts part of the equity in their home into cash. Unlike a traditional mortgage, there is no monthly mortgage payment: interest and fees are added to the loan balance over time, and the full balance comes due when the home is sold, refinanced, or when the last remaining borrower moves out or passes away.",
+          "The most common reverse mortgage is the Home Equity Conversion Mortgage (HECM), insured by the Federal Housing Administration (FHA). Proprietary or jumbo reverse mortgages are also available for higher-value homes.",
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "How a reverse mortgage works",
+        items: [
+          {
+            title: "You borrow against your equity",
+            body: "The amount you can access depends mainly on the age of the youngest borrower, the home's value, current interest rates, and the FHA lending limits.",
+          },
+          {
+            title: "No monthly mortgage payments",
+            body: "You continue to live in the home and keep the title. Interest and insurance charges accrue on the loan balance instead of being paid monthly.",
+          },
+          {
+            title: "You keep up the home obligations",
+            body: "You remain responsible for property taxes, homeowners insurance, HOA dues where applicable, and home maintenance.",
+          },
+          {
+            title: "The loan is settled later",
+            body: "When the home is sold or the last borrower permanently leaves, the loan balance — what you received plus accrued interest and fees — is repaid from the home's value. Remaining equity goes to you or your heirs.",
+          },
+        ],
+      },
+      {
+        kind: "cards",
+        title: "Ways to receive the funds",
+        intro: "Choose one payment option or combine several:",
+        items: [
+          {
+            title: "Lump sum",
+            body: "Take the full available amount at closing — often used to pay off an existing mortgage or cover a large expense.",
+          },
+          {
+            title: "Line of credit",
+            body: "Draw what you need, when you need it. Unused credit can grow over time, giving you a reserve for the future.",
+          },
+          {
+            title: "Monthly payments",
+            body: "Receive a set amount every month for a fixed term or for as long as you live in the home — useful for supplementing retirement income.",
+          },
+          {
+            title: "Combination",
+            body: "Mix a line of credit with monthly payments to cover both planned and unexpected expenses.",
+          },
+        ],
+      },
+      {
+        kind: "list",
+        title: "What you need to qualify",
+        intro: "Standard HECM requirements include:",
+        items: [
+          "At least one borrower aged 62 or older.",
+          "The home is your primary residence.",
+          "Sufficient equity in the home.",
+          "A session with a HUD-approved reverse mortgage counselor.",
+          "A financial assessment showing you can keep up with taxes, insurance, and upkeep.",
+          "The property meets FHA standards — single-family homes, FHA-approved condos, and certain manufactured and multi-family homes qualify.",
+        ],
+      },
+      {
+        kind: "numbered",
+        title: "Things to know",
+        items: [
+          {
+            title: "Non-recourse protection",
+            body: "HECM loans are non-recourse: you or your heirs will never owe more than the home sells for, even if the loan balance exceeds the home's value.",
+          },
+          {
+            title: "Costs to consider",
+            body: "Reverse mortgages carry origination fees, FHA mortgage insurance premiums, and closing costs, which can be financed into the loan.",
+          },
+          {
+            title: "Your heirs' options",
+            body: "Heirs can sell the home to repay the loan, pay the balance and keep the home, or refinance it — typically keeping any equity that remains.",
+          },
+          {
+            title: "Benefits could be affected",
+            body: "Proceeds can affect means-tested programs such as Medicaid or SSI. Check with your benefits advisor before closing.",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const programBySlug = (slug: string): Program | undefined =>

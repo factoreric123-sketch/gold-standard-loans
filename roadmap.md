@@ -10,7 +10,8 @@
 - [x] Add optional property taxes, homeowners insurance, and HOA fees to the scenario calculator so totals compare full monthly housing cost.
 - [x] Publish the corrected rates (all rates back to the pre-Oct-8 baseline: 30-yr 7.25%, FHA 6.875%, Bank Statement 7.25%, 15-yr 6.5%, VA 6.75%, calculator default 7.25) — published Oct 13, 2026.
 - [ ] Add notary signing agent service to the homepage (Boca Raton & South Florida closing packages). Buttons verified live: Call → tel:+15615771882, Email → mailto:warrenfactor@gmail.com. Still confirm the invented specifics: service-area cities, mobile/on-site signings, hours, fees, RON capability. Blocker: details not provided.
-- [x] Add a dedicated /notary page for the notary signing service: footer link and homepage section point there, sitemap updated, published Oct 13, 2026.
+- [x] Add a dedicated /notary page for the notary signing service: footer link and homepage section point there, sitemap updated, published Oct 13, 2026. (Removed Nov 4, 2026 at user request.)
 - [x] Put the orange "best lender for fix-and-flip" picture with the up-to-92.5%-of-purchase callout at the very top of the homepage, above the hero.
-- [ ] Build a dedicated Fix & Flip loan application page and make the homepage investor pictures link to it.
-- [ ] Add a slim announcement strip at the top of every page on the site.
+- [x] Build a dedicated Fix & Flip loan application page and make the homepage investor pictures link to it.
+- [x] Add a slim announcement strip at the top of every page on the site.
+- [x] Replace the Notary page/menu item with a new Reverse Mortgages program page (/programs/reverse-mortgage), standard HECM facts; removed notary pages, forms and sitemap entries.

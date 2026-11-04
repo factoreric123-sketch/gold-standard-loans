@@ -106,8 +106,8 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
-                <a href="/notary" className="hover:text-gold">
-                  Notary Signing
+                <a href="/programs/reverse-mortgage" className="hover:text-gold">
+                  Reverse Mortgages
                 </a>
               </li>
               <li>
