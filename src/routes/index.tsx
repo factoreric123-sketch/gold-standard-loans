@@ -26,11 +26,11 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "USA Lowest Mortgage Rates | The Discount Mortgage Store" },
+      { title: "Despite Higher Rates, Buyers Will Still Buy Homes | The Discount Mortgage Store" },
       {
         name: "description",
         content:
-          "USA lowest mortgage rates: proven, not promised. Warren Factor shops 32 states for your lowest qualifying rate. Free quote, call (561) 577-1882.",
+          "Updated housing market and interest rate outlook after the mid-term election. Warren Factor shops 32 states for your lowest qualifying rate. Free quote, call (561) 577-1882.",
       },
       {
         name: "google-site-verification",
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:title",
-        content: "Proven Low Mortgage Rates, Not Promised | Warren Factor",
+        content: "Despite Higher Rates, Buyers Will Still Buy Homes | Warren Factor",
       },
       {
         property: "og:description",

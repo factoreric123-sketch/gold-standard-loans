@@ -23,11 +23,13 @@ export function Hero() {
             28 Years Licensed · {NMLS}
           </div>
           <h1 className="font-serif text-5xl md:text-6xl xl:text-7xl leading-[1.04] tracking-tight">
-            USA lowest
-            <br />
-            mortgage rates.
-            <span className="block text-gold italic">Proven, not promised.</span>
+            Despite higher rates,
+            <span className="block text-gold italic">buyers will still buy homes.</span>
           </h1>
+          <p className="mt-5 text-[11px] uppercase tracking-[0.2em] text-foreground/55">
+            Updated information about the housing market &amp; interest rates after the mid-term
+            election
+          </p>
           <p className="mt-7 text-lg text-foreground/65 max-w-lg leading-relaxed">
             Warren Factor shops every file and closes loans in 32 states. One call gets you a rate
             most banks simply won't offer.
