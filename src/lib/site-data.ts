@@ -436,12 +436,30 @@ export const PROGRAMS: Program[] = [
           },
           {
             title: "VA Cash-Out Refinance",
-            body: "Refinance an existing mortgage and tap home equity as cash. Common uses: consolidate debt, fund home improvements, or cover education or medical expenses.",
+            body: "Refinance an existing mortgage and tap home equity as cash — up to 100% of the home's appraised value. Common uses: consolidate debt, fund home improvements, or cover education or medical expenses.",
           },
           {
             title: "VA Interest Rate Reduction Refinance (IRRRL)",
             body: 'Also called a "VA Streamline Refinance" — helps existing VA borrowers lower their rate with minimal documentation and reduced closing costs.',
           },
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "100% VA cash-out refinance — the most generous cash-out in lending",
+        body: [
+          "A 100% VA Cash-Out Refinance allows qualified veterans and active-duty service members to replace their existing mortgage with a new VA loan for up to 100% of the home's appraised value, pulling out the difference in a cash lump sum. This program is significantly more generous than conventional or FHA cash-out loans, which are strictly capped at an 80% loan-to-value (LTV) ratio.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "VA vs. conventional cash-out — the strategic comparison",
+        items: [
+          { term: "Max loan-to-value (LTV)", def: "Up to 100% on VA cash-out (some lenders cap at 90%) vs. a strict 80% maximum on conventional cash-out." },
+          { term: "Private mortgage insurance (PMI)", def: "None on VA cash-out, regardless of LTV. Conventional requires PMI if equity drops below 20%." },
+          { term: "Pricing adjustments", def: "VA base interest rates are identical to purchase rates. Conventional cash-out carries higher interest rates and severe risk-based pricing penalties." },
+          { term: "Upfront government fees", def: "A one-time VA Funding Fee (2.15% to 3.3%) on VA. Conventional uses Loan-Level Price Adjustments (LLPAs) based on credit and LTV." },
+          { term: "Property types allowed", def: "VA cash-out is for a primary residence only. Conventional cash-out allows primary, secondary, or investment properties." },
         ],
       },
       {

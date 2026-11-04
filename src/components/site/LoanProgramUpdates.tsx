@@ -78,7 +78,7 @@ const UPDATES: Update[] = [
       { k: "Closing costs", v: "Limited — capped by VA rules" },
       { k: "Entitlement", v: "Reusable for future purchases" },
       { k: "Eligibility", v: "COE based on service history" },
-      { k: "Purpose", v: "Purchase, refi or cash-out" },
+      { k: "Purpose", v: "Purchase, refi or 100% cash-out" },
     ],
   },
 ];
