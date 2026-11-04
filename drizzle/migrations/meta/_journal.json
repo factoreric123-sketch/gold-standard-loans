@@ -43,6 +43,13 @@
       "when": 1793653761631,
       "tag": "0005_tighten_fix_flip_insert",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793825781035,
+      "tag": "0006_migration",
+      "breakpoints": true
     }
   ]
 }

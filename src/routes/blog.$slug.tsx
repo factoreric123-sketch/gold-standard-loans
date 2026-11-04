@@ -29,6 +29,12 @@ export const Route = createFileRoute("/blog/$slug")({
         { property: "og:description", content: desc },
         { property: "og:type", content: "article" },
         { property: "og:url", content: `${SITE_URL}/blog/${params.slug}` },
+        ...(post.cover_image_url
+          ? [
+              { property: "og:image", content: `${SITE_URL}${post.cover_image_url}` },
+              { name: "twitter:image", content: `${SITE_URL}${post.cover_image_url}` },
+            ]
+          : []),
         { name: "twitter:card", content: "summary_large_image" },
       ],
       links: [{ rel: "canonical", href: `${SITE_URL}/blog/${params.slug}` }],
@@ -72,6 +78,16 @@ function BlogPost() {
             {formatPostDate(post.published_at)}
           </time>
           <h1 className="mt-3 font-serif text-4xl md:text-5xl leading-tight">{post.title}</h1>
+          {post.cover_image_url && (
+            <img
+              src={post.cover_image_url}
+              alt={post.title}
+              width={1200}
+              height={1200}
+              className="mt-8 w-full max-w-xl border border-line"
+              loading="eager"
+            />
+          )}
           {post.summary && <p className="mt-4 text-lg text-foreground/70">{post.summary}</p>}
           <div
             className="blog-content mt-10 border-t border-line pt-10"

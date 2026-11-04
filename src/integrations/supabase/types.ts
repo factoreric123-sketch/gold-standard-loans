@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           author_id: string | null
           content_html: string
+          cover_image_url: string | null
           created_at: string
           id: string
           published: boolean
@@ -30,6 +31,7 @@ export type Database = {
         Insert: {
           author_id?: string | null
           content_html: string
+          cover_image_url?: string | null
           created_at?: string
           id?: string
           published?: boolean
@@ -42,6 +44,7 @@ export type Database = {
         Update: {
           author_id?: string | null
           content_html?: string
+          cover_image_url?: string | null
           created_at?: string
           id?: string
           published?: boolean

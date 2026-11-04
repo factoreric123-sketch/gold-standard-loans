@@ -24,7 +24,7 @@ export const listPublishedPosts = createServerFn({ method: "GET" }).handler(asyn
   const supabase = publicClient();
   const { data, error } = await supabase
     .from("blog_posts")
-    .select("id, title, slug, summary, published_at")
+    .select("id, title, slug, summary, published_at, cover_image_url")
     .eq("published", true)
     .order("published_at", { ascending: false })
     .limit(200);
@@ -38,7 +38,7 @@ export const getPublishedPost = createServerFn({ method: "GET" })
     const supabase = publicClient();
     const { data: post } = await supabase
       .from("blog_posts")
-      .select("id, title, slug, summary, content_html, published_at")
+      .select("id, title, slug, summary, content_html, published_at, cover_image_url")
       .eq("published", true)
       .eq("slug", data.slug)
       .maybeSingle();

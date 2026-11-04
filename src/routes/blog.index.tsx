@@ -57,29 +57,49 @@ function BlogIndex() {
           <ul className="divide-y divide-line border-y border-line">
             {posts.map((post) => (
               <li key={post.id} className="py-8">
-                <time
-                  dateTime={post.published_at}
-                  className="text-[11px] uppercase tracking-[0.25em] text-gold"
-                >
-                  {formatPostDate(post.published_at)}
-                </time>
-                <h2 className="mt-3 font-serif text-2xl md:text-3xl">
-                  <Link
-                    to="/blog/$slug"
-                    params={{ slug: post.slug }}
-                    className="hover:text-gold transition-colors"
-                  >
-                    {post.title}
-                  </Link>
-                </h2>
-                {post.summary && <p className="mt-2 text-foreground/70">{post.summary}</p>}
-                <Link
-                  to="/blog/$slug"
-                  params={{ slug: post.slug }}
-                  className="mt-4 inline-block text-xs uppercase tracking-[0.2em] text-gold"
-                >
-                  Read post
-                </Link>
+                <div className="flex flex-col gap-5 md:flex-row md:items-start">
+                  {post.cover_image_url && (
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: post.slug }}
+                      className="block w-full shrink-0 md:w-40"
+                    >
+                      <img
+                        src={post.cover_image_url}
+                        alt={post.title}
+                        width={480}
+                        height={480}
+                        className="aspect-square w-full object-cover border border-line"
+                        loading="lazy"
+                      />
+                    </Link>
+                  )}
+                  <div className="min-w-0">
+                    <time
+                      dateTime={post.published_at}
+                      className="text-[11px] uppercase tracking-[0.25em] text-gold"
+                    >
+                      {formatPostDate(post.published_at)}
+                    </time>
+                    <h2 className="mt-3 font-serif text-2xl md:text-3xl">
+                      <Link
+                        to="/blog/$slug"
+                        params={{ slug: post.slug }}
+                        className="hover:text-gold transition-colors"
+                      >
+                        {post.title}
+                      </Link>
+                    </h2>
+                    {post.summary && <p className="mt-2 text-foreground/70">{post.summary}</p>}
+                    <Link
+                      to="/blog/$slug"
+                      params={{ slug: post.slug }}
+                      className="mt-4 inline-block text-xs uppercase tracking-[0.2em] text-gold"
+                    >
+                      Read post
+                    </Link>
+                  </div>
+                </div>
               </li>
             ))}
           </ul>
