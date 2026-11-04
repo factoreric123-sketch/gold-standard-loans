@@ -93,7 +93,7 @@ export function LoanProgramUpdates() {
             Loan Program Updates
           </div>
           <h2 className="font-serif text-4xl md:text-5xl max-w-2xl leading-tight">
-            Investor guidelines, <span className="italic text-gold">at a glance.</span>
+            Programs and Guidelines <span className="italic text-gold">at a glance.</span>
           </h2>
           <p className="mt-5 text-foreground/60 max-w-xl leading-relaxed">
             Four programs — investor guidelines and the VA mortgage benefit, side by side. Every
