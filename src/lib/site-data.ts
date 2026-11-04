@@ -355,11 +355,47 @@ export const PROGRAMS: Program[] = [
         kind: "definedList",
         title: "VA vs. conventional cash-out — the strategic comparison",
         items: [
-          { term: "Max loan-to-value (LTV)", def: "Up to 100% on VA cash-out (some lenders cap at 90%) vs. a strict 80% maximum on conventional cash-out." },
+          { term: "Max loan-to-value (LTV)", def: "Up to 100% on VA cash-out, subject to lender approval (some lenders cap at 90% or 95%), vs. an 80% maximum on conventional cash-out." },
           { term: "Private mortgage insurance (PMI)", def: "None on VA cash-out, regardless of LTV. Conventional requires PMI if equity drops below 20%." },
           { term: "Pricing adjustments", def: "VA base interest rates are identical to purchase rates. Conventional cash-out carries higher interest rates and severe risk-based pricing penalties." },
           { term: "Upfront government fees", def: "A one-time VA Funding Fee (2.15% to 3.3%) on VA. Conventional uses Loan-Level Price Adjustments (LLPAs) based on credit and LTV." },
           { term: "Property types allowed", def: "VA cash-out is for a primary residence only. Conventional cash-out allows primary, secondary, or investment properties." },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "The 100% VA cash-out refinance details",
+        items: [
+          {
+            term: "Net Tangible Benefit (NTB) test",
+            def: "The lender must document the required financial benefit of your refinance and provide an NTB disclosure explaining the comparison. Benefits may include a lower interest rate, a shorter loan term, or other qualifying improvements. If your goal is paying off higher-interest debt, Warren can review the overall financial effect alongside the applicable VA requirements.",
+          },
+          {
+            term: "The seasoning requirement",
+            def: "When refinancing an existing VA loan, applicable seasoning requires at least six consecutive monthly payments and at least 210 days from the due date of your first mortgage payment to the new loan's closing date. Requirements can differ when replacing a non-VA loan; the lender must confirm which rules apply to your current mortgage.",
+          },
+          {
+            term: "Lender risk overlays",
+            def: "VA guidelines allow cash-out financing up to 100% of appraised value, but private lenders may set stricter limits of 90% or 95% LTV. Warren can help compare lenders that offer the full 100% maximum. Your cash received is the new loan amount less the existing mortgage payoff, applicable fees, and closing costs — not 100% of the home's value paid out in cash.",
+          },
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "The VA funding fee & closing costs",
+        items: [
+          {
+            term: "One-time VA funding fee",
+            def: "VA loans have no monthly PMI, but upfront costs can still apply. For cash-out refinance, the funding fee is 2.15% of the loan amount for first use or 3.3% for subsequent use, unless exempt. These same percentages apply to purchase loans with less than 5% down; larger purchase down payments can reduce the fee.",
+          },
+          {
+            term: "Funding fee exemptions",
+            def: "The fee is waived for eligible borrowers receiving VA compensation for a service-connected disability and qualifying surviving spouses of veterans who died in service or from a service-connected disability. Other VA exemptions may apply. The lender verifies exemption status — a disability rating alone does not establish the exemption.",
+          },
+          {
+            term: "Financing fees and closing costs",
+            def: "The VA funding fee may be financed, subject to applicable loan limits. Third-party purchase closing costs, such as appraisal, title, and escrow, cannot be added to a VA purchase loan balance. Lender credits or seller contributions may help cover them. VA caps qualifying seller concessions at 4% of the property's reasonable value; ordinary closing-cost contributions are treated separately. Cash-out refinance closing costs may be financed within the lender's loan-to-value limits. Financing costs increases your balance and reduces available cash; $0 out-of-pocket at closing is not guaranteed.",
+          },
         ],
       },
       {
