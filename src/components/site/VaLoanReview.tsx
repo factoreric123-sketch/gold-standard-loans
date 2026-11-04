@@ -8,8 +8,8 @@ import { COMPANY_NAME, PHONE_DISPLAY, PHONE_TEL } from "@/lib/site-data";
 const ACCESS_KEY = "2fb7050f-5c48-468f-a1c0-2f0e073f38c5";
 
 const VA_RATES = [
-  { label: "30-Yr VA Fixed", rate: "6.375%", note: "Purchase or refinance" },
   { label: "VA Cash-Out", rate: "Up to 100% LTV", note: "Same base rate as purchase" },
+  { label: "30-Yr VA Fixed", rate: "6.375%", note: "Purchase or refinance" },
   { label: "VA IRRRL", rate: "Streamline", note: "Lower your existing VA rate" },
 ];
 

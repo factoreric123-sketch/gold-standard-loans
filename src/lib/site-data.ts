@@ -319,13 +319,13 @@ export const PROGRAMS: Program[] = [
     name: "VA",
     description: "Zero down loans for veterans and active military.",
     icon: Flag,
-    tagline: "Zero-down home loans for veterans and active-duty military.",
+    tagline: "Zero-down home loans and 100% cash-out refinance for veterans and active-duty military.",
     overview:
-      "VA loans reward those who served with one of the most powerful financing benefits available — often no down payment and no monthly mortgage insurance. Guaranteed in part by the Department of Veterans Affairs, they make buying a home dramatically more affordable.",
+      "VA loans reward those who served with one of the most powerful financing benefits available — no down payment, no monthly mortgage insurance, and a cash-out refinance up to 100% of your home's appraised value. Guaranteed in part by the Department of Veterans Affairs, they make buying — or unlocking your equity — dramatically more affordable.",
     highlights: [
+      "Cash-out refinance up to 100% of appraised value",
       "0% down payment for eligible borrowers",
       "No monthly private mortgage insurance, ever",
-      "Cash-out refinance up to 100% of appraised value",
       "Competitive, often below-market rates",
       "Limited closing costs",
       "A reusable benefit for future purchases",
@@ -342,6 +342,24 @@ export const PROGRAMS: Program[] = [
           "VA loans remain one of the most powerful and affordable home-financing options available to eligible veterans, active-duty service members, and surviving spouses. In a competitive Florida market like Miami-Dade County, VA loans deliver unmatched benefits that make homeownership more accessible, flexible, and financially sustainable.",
           "With rising prices and demand for affordable housing, many buyers are searching for programs that reduce upfront costs while offering long-term stability — VA loans do exactly that, allowing qualified borrowers to purchase or refinance with no down payment, no PMI, and competitive rates.",
           "Warren Factor focuses on helping veterans and military families fully understand their VA loan benefits and use them strategically — whether you're buying your first home, relocating, or refinancing.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "100% VA cash-out refinance — the most generous cash-out in lending",
+        body: [
+          "A 100% VA Cash-Out Refinance allows qualified veterans and active-duty service members to replace their existing mortgage with a new VA loan for up to 100% of the home's appraised value, pulling out the difference in a cash lump sum. This program is significantly more generous than conventional or FHA cash-out loans, which are strictly capped at an 80% loan-to-value (LTV) ratio.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "VA vs. conventional cash-out — the strategic comparison",
+        items: [
+          { term: "Max loan-to-value (LTV)", def: "Up to 100% on VA cash-out (some lenders cap at 90%) vs. a strict 80% maximum on conventional cash-out." },
+          { term: "Private mortgage insurance (PMI)", def: "None on VA cash-out, regardless of LTV. Conventional requires PMI if equity drops below 20%." },
+          { term: "Pricing adjustments", def: "VA base interest rates are identical to purchase rates. Conventional cash-out carries higher interest rates and severe risk-based pricing penalties." },
+          { term: "Upfront government fees", def: "A one-time VA Funding Fee (2.15% to 3.3%) on VA. Conventional uses Loan-Level Price Adjustments (LLPAs) based on credit and LTV." },
+          { term: "Property types allowed", def: "VA cash-out is for a primary residence only. Conventional cash-out allows primary, secondary, or investment properties." },
         ],
       },
       {
@@ -443,24 +461,6 @@ export const PROGRAMS: Program[] = [
             title: "VA Interest Rate Reduction Refinance (IRRRL)",
             body: 'Also called a "VA Streamline Refinance" — helps existing VA borrowers lower their rate with minimal documentation and reduced closing costs.',
           },
-        ],
-      },
-      {
-        kind: "paragraphs",
-        title: "100% VA cash-out refinance — the most generous cash-out in lending",
-        body: [
-          "A 100% VA Cash-Out Refinance allows qualified veterans and active-duty service members to replace their existing mortgage with a new VA loan for up to 100% of the home's appraised value, pulling out the difference in a cash lump sum. This program is significantly more generous than conventional or FHA cash-out loans, which are strictly capped at an 80% loan-to-value (LTV) ratio.",
-        ],
-      },
-      {
-        kind: "definedList",
-        title: "VA vs. conventional cash-out — the strategic comparison",
-        items: [
-          { term: "Max loan-to-value (LTV)", def: "Up to 100% on VA cash-out (some lenders cap at 90%) vs. a strict 80% maximum on conventional cash-out." },
-          { term: "Private mortgage insurance (PMI)", def: "None on VA cash-out, regardless of LTV. Conventional requires PMI if equity drops below 20%." },
-          { term: "Pricing adjustments", def: "VA base interest rates are identical to purchase rates. Conventional cash-out carries higher interest rates and severe risk-based pricing penalties." },
-          { term: "Upfront government fees", def: "A one-time VA Funding Fee (2.15% to 3.3%) on VA. Conventional uses Loan-Level Price Adjustments (LLPAs) based on credit and LTV." },
-          { term: "Property types allowed", def: "VA cash-out is for a primary residence only. Conventional cash-out allows primary, secondary, or investment properties." },
         ],
       },
       {

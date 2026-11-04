@@ -69,10 +69,11 @@ const UPDATES: Update[] = [
     slug: "va",
     name: "VA Mortgage",
     icon: Flag,
-    lead: "Zero-down home financing for veterans, active-duty military and eligible surviving spouses.",
+    lead: "100% cash-out refinance up to appraised value — plus zero-down purchases for veterans, active-duty military and eligible surviving spouses.",
     specs: [
+      { k: "Cash-out refi", v: "Up to 100% of appraised value", accent: true },
       { k: "Down payment", v: "0% for eligible borrowers" },
-      { k: "Mortgage insurance", v: "None — no monthly PMI, ever", accent: true },
+      { k: "Mortgage insurance", v: "None — no monthly PMI, ever" },
       { k: "Rate", v: "30-yr fixed 6.375%" },
       { k: "Term", v: "15 & 30 years fixed" },
       { k: "Closing costs", v: "Limited — capped by VA rules" },
