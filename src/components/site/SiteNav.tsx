@@ -5,7 +5,7 @@ import { Logo } from "@/components/site/Logo";
 import { TranslateButton } from "@/components/site/TranslateButton";
 
 type NavLink = { href: string; label: string };
-type NavItem = { label: string; href?: string; items?: NavLink[] };
+type NavItem = { label: string; lines?: string[]; href?: string; items?: NavLink[] };
 
 const navItems: NavItem[] = [
   {
@@ -26,6 +26,7 @@ const navItems: NavItem[] = [
   { label: "Reverse Mortgages", href: "/programs/reverse-mortgage" },
   {
     label: "International Clients",
+    lines: ["International", "Clients"],
     items: [
       { href: "/buying-usa-home", label: "Expats Buying a USA Home" },
       { href: "/buy-a-home", label: "USA Mortgage for Expats" },
@@ -66,7 +67,17 @@ export function SiteNav() {
             item.items ? (
               <div key={item.label} className="relative group">
                 <button type="button" className={triggerClass} aria-haspopup="true">
-                  {item.label}
+                  {item.lines ? (
+                    <span className="text-center leading-tight">
+                      {item.lines.map((line, i) => (
+                        <span key={i} className="block">
+                          {line}
+                        </span>
+                      ))}
+                    </span>
+                  ) : (
+                    item.label
+                  )}
                   <ChevronDown className="w-3 h-3" />
                 </button>
                 <div className="absolute left-0 top-full pt-3 hidden group-hover:block group-focus-within:block">
