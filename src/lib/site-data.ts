@@ -1649,12 +1649,13 @@ export const PROGRAMS: Program[] = [
     icon: Coins,
     tagline: "Turn your home equity into cash — with no monthly mortgage payment.",
     overview:
-      "A reverse mortgage lets homeowners 62 and older convert part of their home equity into usable cash without selling the home or taking on a monthly mortgage payment. The most common type is the FHA-insured Home Equity Conversion Mortgage (HECM). The loan is repaid later — when the home is sold or refinanced, or when the last borrower moves out or passes away.",
+      "A reverse mortgage lets homeowners 62 and older convert part of their home equity into usable cash without selling the home or taking on a monthly mortgage payment. The most common type is the FHA-insured Home Equity Conversion Mortgage (HECM). The loan is repaid later — when the home is sold or refinanced, or when the last borrower moves out or passes away. For homeowners 55 and older who want to keep their existing low-rate first mortgage, the proprietary HomeSafe Second second-lien reverse mortgage is also available.",
     highlights: [
       "For homeowners 62 and older",
       "No monthly mortgage payments",
       "Stay in your home and keep the title",
       "FHA-insured HECM and jumbo options",
+      "HomeSafe Second: access equity from age 55 while keeping your low-rate first mortgage",
       "Lump sum, monthly payments, line of credit, or a mix",
       "Non-recourse — you never owe more than the home sells for",
     ],
@@ -1728,6 +1729,26 @@ export const PROGRAMS: Program[] = [
           "A session with a HUD-approved reverse mortgage counselor.",
           "A financial assessment showing you can keep up with taxes, insurance, and upkeep.",
           "The property meets FHA standards — single-family homes, FHA-approved condos, and certain manufactured and multi-family homes qualify.",
+        ],
+      },
+      {
+        kind: "paragraphs",
+        title: "HomeSafe Second — access equity without touching your first mortgage",
+        body: [
+          "HomeSafe Second is a proprietary, second-lien reverse mortgage built for homeowners age 55 and older who want to access their home equity without losing their low-rate first mortgage or adding a new monthly payment obligation.",
+          "Your primary forward mortgage stays exactly as it is — preserving historical 2% to 4% interest rates — and you are not required to make monthly principal or interest payments on the second lien. Funds are typically distributed as a fixed-rate lump sum at closing, and a line-of-credit option has expanded into specific areas such as California.",
+        ],
+      },
+      {
+        kind: "definedList",
+        title: "HomeSafe Second at a glance",
+        items: [
+          { term: "Minimum age", def: "55 in most states, including Florida (60 or 62 in select states such as Texas, due to local regulations)." },
+          { term: "Monthly payments", def: "None required on the second lien — no monthly principal or interest." },
+          { term: "First mortgage", def: "Unchanged — your existing low-rate first mortgage stays exactly as it is." },
+          { term: "Payout", def: "Typically a fixed-rate lump sum at closing; line-of-credit option available in specific areas." },
+          { term: "Credit", def: "Minimum 600 credit score with a simplified financial assessment." },
+          { term: "Protection", def: "Non-recourse — you or your heirs never owe more than the home's fair market value when the loan becomes due." },
         ],
       },
       {
