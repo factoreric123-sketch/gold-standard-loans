@@ -7,7 +7,7 @@ describe("age benchmarks", () => {
     expect(r.hecm.eligible && r.hecm.gross).toBe(185000);
   });
   it("HECM under 62 is ineligible; proprietary starts at 39.1%", () => {
-    const r = estimateReverse({ homeValue: 500000, age: 58, balance: 0 });
+    const r = estimateReverse({ homeValue: 500000, age: 55, balance: 0 });
     expect(r.hecm.eligible).toBe(false);
     expect(r.homesafe.eligible && r.homesafe.gross).toBe(195500);
   });
