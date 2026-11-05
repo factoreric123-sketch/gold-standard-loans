@@ -136,6 +136,8 @@ function ProgramPage() {
           </div>
         </section>
 
+        {slug === "reverse-mortgage" && <ReverseCalculator />}
+
         {/* Details */}
         <section className="bg-background">
           <div className="mx-auto max-w-5xl px-6 py-16 md:py-20 grid md:grid-cols-2 gap-10 lg:gap-16">
@@ -258,7 +260,6 @@ function ProgramPage() {
         {/* Generic rich extras (paragraphs, numbered, cards, lists, formulas) for programs that ship them */}
         {slug === "va" && <VaCashOutEstimator />}
         {program.extras && <ProgramExtras sections={program.extras} />}
-        {slug === "reverse-mortgage" && <ReverseCalculator />}
         {slug === "va" && <VaFaq />}
         {slug === "va" && <VaLoanReview />}
 
