@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/site/motion";
-import { estimateReverse, HECM_LIMIT } from "@/lib/reverse-calc";
+import { estimateReverse, hecmLineSplit, HECM_LIMIT } from "@/lib/reverse-calc";
 
 const fmt = (n: number) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -14,6 +14,7 @@ export function ReverseCalculator() {
   const [age, setAge] = useState(68);
   const [balance, setBalance] = useState(150000);
   const [focus, setFocus] = useState<"both" | "hecm" | "homesafe">("both");
+  const [payout, setPayout] = useState<"lump" | "line">("lump");
 
   const r = useMemo(() => estimateReverse({ homeValue, age, balance }), [homeValue, age, balance]);
 
@@ -59,6 +60,17 @@ export function ReverseCalculator() {
                 ))}
               </div>
             </div>
+            <div>
+              <span className={labelCls}>Cash option</span>
+              <div className="grid grid-cols-2 border border-line">
+                {(["lump", "line"] as const).map((k) => (
+                  <button key={k} type="button" onClick={() => setPayout(k)}
+                    className={`py-2.5 text-xs tracking-wide ${payout === k ? "bg-gold text-gold-foreground" : "bg-white text-foreground/70 hover:bg-accent"}`}>
+                    {k === "lump" ? "Lump sum" : "Line of credit"}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="grid sm:grid-cols-2 gap-5 content-start">
             {cards.map((c) => (
@@ -69,7 +81,26 @@ export function ReverseCalculator() {
                   <dl className="mt-5 space-y-3 text-sm">
                     <div className="flex justify-between gap-3"><dt className="text-foreground/60">Gross available</dt><dd>{fmt(c.res.gross)}</dd></div>
                     <div className="flex justify-between gap-3"><dt className="text-foreground/60">Pays off mortgage</dt><dd>−{fmt(Math.min(balance, c.res.gross))}</dd></div>
-                    <div className="flex justify-between gap-3 border-t border-line pt-3"><dt className="font-medium">Est. cash to you</dt><dd className="font-serif text-2xl text-gold">{fmt(c.res.net)}</dd></div>
+                    {payout === "lump" ? (
+                      <div className="flex justify-between gap-3 border-t border-line pt-3"><dt className="font-medium">Est. lump sum at closing</dt><dd className="font-serif text-2xl text-gold">{fmt(c.res.net)}</dd></div>
+                    ) : c.key === "hecm" ? (
+                      (() => {
+                        const s = hecmLineSplit(c.res.gross, balance);
+                        return (
+                          <>
+                            <div className="flex justify-between gap-3 border-t border-line pt-3"><dt className="font-medium">Est. line of credit</dt><dd className="font-serif text-2xl text-gold">{fmt(s.total)}</dd></div>
+                            <div className="flex justify-between gap-3"><dt className="text-foreground/60">Available first 12 months</dt><dd>{fmt(s.firstYear)}</dd></div>
+                            <div className="flex justify-between gap-3"><dt className="text-foreground/60">Available after year one</dt><dd>{fmt(s.afterYearOne)}</dd></div>
+                            <p className="text-xs text-foreground/55">Unused HECM credit line grows over time.</p>
+                          </>
+                        );
+                      })()
+                    ) : (
+                      <>
+                        <div className="flex justify-between gap-3 border-t border-line pt-3"><dt className="font-medium">Est. line of credit</dt><dd className="font-serif text-2xl text-gold">{fmt(c.res.net)}</dd></div>
+                        <p className="text-xs text-foreground/55">HomeSafe line of credit is offered only in select states, such as California.</p>
+                      </>
+                    )}
                     {c.res.net === 0 && <p className="text-xs text-foreground/55">Mortgage balance exceeds the estimated limit — a cash payoff at closing may be needed.</p>}
                   </dl>
                 ) : (

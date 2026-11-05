@@ -16,6 +16,17 @@ function interp(table: Array<[number, number]>, age: number) {
 
 type Result = { eligible: true; gross: number; net: number } | { eligible: false; reason: string };
 
+/**
+ * HECM line of credit: first-year draws are limited to 60% of the principal limit,
+ * or mandatory obligations (mortgage payoff) + 10% of the limit if that's higher.
+ */
+export function hecmLineSplit(gross: number, balance: number) {
+  const firstYearCap = Math.min(gross, Math.max(0.6 * gross, balance + 0.1 * gross));
+  const firstYear = Math.max(0, Math.round(firstYearCap - balance));
+  const total = Math.max(0, gross - balance);
+  return { firstYear, afterYearOne: Math.max(0, total - firstYear), total };
+}
+
 export function estimateReverse({ homeValue, age, balance }: { homeValue: number; age: number; balance: number }) {
   const calc = (min: number, table: Array<[number, number]>, base: number): Result => {
     if (age < min) return { eligible: false, reason: `Requires the youngest borrower to be ${min} or older.` };
