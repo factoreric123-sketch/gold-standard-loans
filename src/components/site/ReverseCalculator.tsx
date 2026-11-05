@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Reveal } from "@/components/site/motion";
-import { estimateReverse, hecmLineSplit, HECM_LIMIT } from "@/lib/reverse-calc";
+import { estimateReverse, hecmLineSplit, tenurePayment, TENURE_RATE, HECM_LIMIT } from "@/lib/reverse-calc";
 
 const fmt = (n: number) =>
   n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
@@ -14,7 +14,7 @@ export function ReverseCalculator() {
   const [age, setAge] = useState(68);
   const [balance, setBalance] = useState(150000);
   const [focus, setFocus] = useState<"both" | "hecm" | "homesafe">("both");
-  const [payout, setPayout] = useState<"lump" | "line">("lump");
+  const [payout, setPayout] = useState<"lump" | "monthly" | "line">("lump");
 
   const r = useMemo(() => estimateReverse({ homeValue, age, balance }), [homeValue, age, balance]);
 
@@ -62,11 +62,11 @@ export function ReverseCalculator() {
             </div>
             <div>
               <span className={labelCls}>Cash option</span>
-              <div className="grid grid-cols-2 border border-line">
-                {(["lump", "line"] as const).map((k) => (
+              <div className="grid grid-cols-3 border border-line">
+                {(["lump", "monthly", "line"] as const).map((k) => (
                   <button key={k} type="button" onClick={() => setPayout(k)}
                     className={`py-2.5 text-xs tracking-wide ${payout === k ? "bg-gold text-gold-foreground" : "bg-white text-foreground/70 hover:bg-accent"}`}>
-                    {k === "lump" ? "Lump sum" : "Line of credit"}
+                    {k === "lump" ? "Lump sum" : k === "monthly" ? "Monthly" : "Line of credit"}
                   </button>
                 ))}
               </div>
@@ -81,7 +81,12 @@ export function ReverseCalculator() {
                   <dl className="mt-5 space-y-3 text-sm">
                     <div className="flex justify-between gap-3"><dt className="text-foreground/60">Gross available</dt><dd>{fmt(c.res.gross)}</dd></div>
                     <div className="flex justify-between gap-3"><dt className="text-foreground/60">Pays off mortgage</dt><dd>−{fmt(Math.min(balance, c.res.gross))}</dd></div>
-                    {payout === "lump" ? (
+                    {payout === "monthly" ? (
+                      <>
+                        <div className="flex justify-between gap-3 border-t border-line pt-3"><dt className="font-medium">Est. monthly tenure payment</dt><dd className="font-serif text-2xl text-gold">{fmt(tenurePayment(c.res.net, age))}</dd></div>
+                        <p className="text-xs text-foreground/55">Paid every month for as long as you live in the home. Assumes a {(TENURE_RATE * 100).toFixed(1)}% rate.</p>
+                      </>
+                    ) : payout === "lump" ? (
                       <div className="flex justify-between gap-3 border-t border-line pt-3"><dt className="font-medium">Est. lump sum at closing</dt><dd className="font-serif text-2xl text-gold">{fmt(c.res.net)}</dd></div>
                     ) : c.key === "hecm" ? (
                       (() => {

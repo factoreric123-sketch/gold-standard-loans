@@ -1,8 +1,18 @@
 export const HECM_LIMIT = 1_249_125;
 
 // Approximate principal-limit percentages by age (illustrative, not lender tables).
-const HECM_PLF: Array<[number, number]> = [[62, 0.36], [70, 0.42], [80, 0.52], [90, 0.64], [99, 0.72]];
-const HOMESAFE_PLF: Array<[number, number]> = [[55, 0.26], [62, 0.32], [70, 0.39], [80, 0.48], [90, 0.58], [99, 0.65]];
+// Midpoints of Warren's age benchmark ranges: 62 ~34.5–39.5%, 70 ~42–48%, 80 ~50–56%, 90+ ~61% (cap).
+const HECM_PLF: Array<[number, number]> = [[62, 0.37], [70, 0.45], [80, 0.53], [90, 0.61], [99, 0.61]];
+// Proprietary: ~39.1% and up from age 55, capped at ~61.1% at 90+.
+const HOMESAFE_PLF: Array<[number, number]> = [[55, 0.391], [70, 0.45], [80, 0.53], [90, 0.611], [99, 0.611]];
+
+/** Illustrative tenure payment: level monthly amount paid until age 100 at an assumed 6.5% rate. */
+export const TENURE_RATE = 0.065;
+export function tenurePayment(amount: number, age: number) {
+  const n = Math.max(12, (100 - age) * 12);
+  const r = TENURE_RATE / 12;
+  return Math.round((amount * r) / (1 - Math.pow(1 + r, -n)));
+}
 
 function interp(table: Array<[number, number]>, age: number) {
   if (age <= table[0][0]) return table[0][1];
