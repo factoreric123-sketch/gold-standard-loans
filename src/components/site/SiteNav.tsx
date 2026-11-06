@@ -33,6 +33,7 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Blog", href: "/blog" },
+  { label: "Home Insurance Evaluation", lines: ["Home Insurance", "Evaluation"], href: "/home-insurance-evaluation" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -96,7 +97,15 @@ export function SiteNav() {
               </div>
             ) : (
               <a key={item.label} href={item.href} className="hover:text-foreground transition-colors">
-                {item.label}
+                {item.lines ? (
+                  <span className="text-center leading-tight">
+                    {item.lines.map((line, i) => (
+                      <span key={i} className="block">{line}</span>
+                    ))}
+                  </span>
+                ) : (
+                  item.label
+                )}
               </a>
             ),
           )}

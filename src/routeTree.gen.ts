@@ -19,6 +19,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExpatFormRouteImport } from './routes/expat-form'
 import { Route as FixAndFlipApplicationRouteImport } from './routes/fix-and-flip-application'
 import { Route as FreeMortgageAdviceRouteImport } from './routes/free-mortgage-advice'
+import { Route as HomeInsuranceEvaluationRouteImport } from './routes/home-insurance-evaluation'
 import { Route as LoanMatchRouteImport } from './routes/loan-match'
 import { Route as RateNewsRouteImport } from './routes/rate-news'
 import { Route as SpecialProgramsRouteImport } from './routes/special-programs'
@@ -79,6 +80,11 @@ const FixAndFlipApplicationRoute = FixAndFlipApplicationRouteImport.update({
 const FreeMortgageAdviceRoute = FreeMortgageAdviceRouteImport.update({
   id: '/free-mortgage-advice',
   path: '/free-mortgage-advice',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HomeInsuranceEvaluationRoute = HomeInsuranceEvaluationRouteImport.update({
+  id: '/home-insurance-evaluation',
+  path: '/home-insurance-evaluation',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoanMatchRoute = LoanMatchRouteImport.update({
@@ -153,6 +159,7 @@ export interface FileRoutesByFullPath {
   '/expat-form': typeof ExpatFormRoute
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
+  '/home-insurance-evaluation': typeof HomeInsuranceEvaluationRoute
   '/loan-match': typeof LoanMatchRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -176,6 +183,7 @@ export interface FileRoutesByTo {
   '/expat-form': typeof ExpatFormRoute
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
+  '/home-insurance-evaluation': typeof HomeInsuranceEvaluationRoute
   '/loan-match': typeof LoanMatchRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -201,6 +209,7 @@ export interface FileRoutesById {
   '/expat-form': typeof ExpatFormRoute
   '/fix-and-flip-application': typeof FixAndFlipApplicationRoute
   '/free-mortgage-advice': typeof FreeMortgageAdviceRoute
+  '/home-insurance-evaluation': typeof HomeInsuranceEvaluationRoute
   '/loan-match': typeof LoanMatchRoute
   '/rate-news': typeof RateNewsRoute
   '/special-programs': typeof SpecialProgramsRoute
@@ -226,6 +235,7 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
+    | '/home-insurance-evaluation'
     | '/loan-match'
     | '/rate-news'
     | '/special-programs'
@@ -249,6 +259,7 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
+    | '/home-insurance-evaluation'
     | '/loan-match'
     | '/rate-news'
     | '/special-programs'
@@ -273,6 +284,7 @@ export interface FileRouteTypes {
     | '/expat-form'
     | '/fix-and-flip-application'
     | '/free-mortgage-advice'
+    | '/home-insurance-evaluation'
     | '/loan-match'
     | '/rate-news'
     | '/special-programs'
@@ -298,6 +310,7 @@ export interface RootRouteChildren {
   ExpatFormRoute: typeof ExpatFormRoute
   FixAndFlipApplicationRoute: typeof FixAndFlipApplicationRoute
   FreeMortgageAdviceRoute: typeof FreeMortgageAdviceRoute
+  HomeInsuranceEvaluationRoute: typeof HomeInsuranceEvaluationRoute
   LoanMatchRoute: typeof LoanMatchRoute
   RateNewsRoute: typeof RateNewsRoute
   SpecialProgramsRoute: typeof SpecialProgramsRoute
@@ -378,6 +391,13 @@ declare module '@tanstack/react-router' {
       path: '/free-mortgage-advice'
       fullPath: '/free-mortgage-advice'
       preLoaderRoute: typeof FreeMortgageAdviceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home-insurance-evaluation': {
+      id: '/home-insurance-evaluation'
+      path: '/home-insurance-evaluation'
+      fullPath: '/home-insurance-evaluation'
+      preLoaderRoute: typeof HomeInsuranceEvaluationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/loan-match': {
@@ -495,6 +515,7 @@ const rootRouteChildren: RootRouteChildren = {
   ExpatFormRoute: ExpatFormRoute,
   FixAndFlipApplicationRoute: FixAndFlipApplicationRoute,
   FreeMortgageAdviceRoute: FreeMortgageAdviceRoute,
+  HomeInsuranceEvaluationRoute: HomeInsuranceEvaluationRoute,
   LoanMatchRoute: LoanMatchRoute,
   RateNewsRoute: RateNewsRoute,
   SpecialProgramsRoute: SpecialProgramsRoute,
