@@ -33,7 +33,7 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Blog", href: "/blog" },
-  { label: "Home Insurance Evaluation", lines: ["Home Insurance", "Evaluation"], href: "/home-insurance-evaluation" },
+  { label: "Home Insurance Evaluation", lines: ["Home Insurance", "Evaluation"], href: "https://sunshine-condo-savings.lovable.app/" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -96,7 +96,12 @@ export function SiteNav() {
                 </div>
               </div>
             ) : (
-              <a key={item.label} href={item.href} className="hover:text-foreground transition-colors">
+              <a
+                key={item.label}
+                href={item.href}
+                {...(item.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="hover:text-foreground transition-colors"
+              >
                 {item.lines ? (
                   <span className="text-center leading-tight">
                     {item.lines.map((line, i) => (
@@ -172,6 +177,7 @@ export function SiteNav() {
                 <a
                   key={item.label}
                   href={item.href}
+                  {...(item.href?.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   onClick={() => setOpen(false)}
                   className="py-3 min-h-[44px] flex items-center border-b border-line/70 text-foreground/80 hover:text-foreground"
                 >
